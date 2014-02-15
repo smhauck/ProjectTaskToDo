@@ -1,5 +1,4 @@
-[% # Provide a title to root/lib/site/header %]
-[% META title = 'TaskMaster:Project Details' %]
+[% META title = 'ProjectTaskToDo:Project Details' %]
 
 [% INCLUDE authenticated_navbar.tt2 %]
 [% INCLUDE task_search_box.tt2 %]

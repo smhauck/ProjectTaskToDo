@@ -1,4 +1,4 @@
-[% META title = 'TaskMaster:New Task Comment' %]
+[% META title = 'ProjectTaskToDo:New Task Comment' %]
 
 [% INCLUDE task/menu.tt %]
 

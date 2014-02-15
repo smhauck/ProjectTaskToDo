@@ -32,7 +32,7 @@ $(function() {
 [% ELSE -%]
 <td>N</td>
 [% END -%]
-<td><a href="/project/[% tpproject.project.asdfasdfproject_id %]">[% tpproject.project.project_short_name %]</a></td>
+<td><a href="/project/[% tpproject.project.project_id %]">[% tpproject.project.project_short_name %]</a></td>
 <td><a href="/project/[% tpproject.project.project_id %]/tasks/active">[% tpproject.project.project_name %]</a></td>
 <td><input type='text' class='ui-datepicker' name='date_of_work-[% tpproject.project.project_id %]' size='5' /></td>
 <td><input type='text' name='time_worked_hr-[% tpproject.project.project_id %]' size='4' /></td>

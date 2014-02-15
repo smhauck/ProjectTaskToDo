@@ -1,4 +1,4 @@
-[% META title = 'TaskMaster:Active Todo Lists' %]
+[% META title = 'ProjectTaskToDo:Active Todo Lists' %]
 
 [% INCLUDE authenticated_navbar.tt %]
 [% INCLUDE todolist/navbar.tt %]
