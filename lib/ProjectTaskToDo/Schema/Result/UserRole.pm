@@ -50,6 +50,10 @@ __PACKAGE__->set_primary_key("user", "role");
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:V9uWT4WxNgGG9yyLhjTkgw
 
 
+=head1 COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 =head1 LICENSE
 
 This file is part of ProjectTaskToDo.

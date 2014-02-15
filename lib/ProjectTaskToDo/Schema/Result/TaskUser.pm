@@ -84,6 +84,10 @@ __PACKAGE__->add_unique_constraint("task_user_role", ["task_id", "user_id", "rol
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:E6IoaxvcpIhZTxaLyWfrpQ
 
 
+=head1 COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 =head1 LICENSE
 
 This file is part of ProjectTaskToDo.

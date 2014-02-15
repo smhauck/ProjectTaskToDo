@@ -64,6 +64,10 @@ __PACKAGE__->add_unique_constraint("name", ["name"]);
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:IDqGQA52F2dguDM3iSH4EA
 
 
+=head1 COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 =head1 LICENSE
 
 This file is part of ProjectTaskToDo.

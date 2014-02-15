@@ -63,6 +63,10 @@ __PACKAGE__->set_primary_key("task_comment_type_id");
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:DccM3VxpZIaSPC8REryrAw
 
 
+=head1 COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 =head1 LICENSE
 
 This file is part of ProjectTaskToDo.
