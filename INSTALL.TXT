@@ -1,0 +1,60 @@
+
+
+DATABASE
+
+ProjectTaskToDo currently works on MySQL 5.1.
+
+DATABASE SETUP
+To install the schema and base lookup table information:
+--Create a database named "projecttasktodo"
+--Create a MySQL user named "projecttasktodo" and grant
+  all permissions to the projecttasktodo database
+  NOTE:  You can choose a different username, but you will
+  need to modify the SQL script to reflect this username
+  since the TRIGGERS are defined by a specific user.
+--Also give the projecttasktodo user SUPER_PRIV
+--Run the SQL script to create the tables:
+  mysql -u projecttasktodo -pPASSWORD projecttasktodo < support_scripts/ptt_base_db.sql
+
+At this point you can run the appliation using the built-in, single-threaded
+web server.  Run:
+  ./script/projecttasktodo_server.pl
+
+You can log in with the default administrator account, admin, with the password of 'admin'.
+
+
+
+WEB SERVER
+ProjectTaskToDo has been tested with Apache HTTPD Server 2.2
+with mod_perl version 2.0.5.
+
+Building Apache and mod_perl is beyond the scope of this document.
+However, below is an example VirtualHost setup.
+
+<VirtualHost *:80>
+    ServerName "www.projecttasktodo.com"
+    ServerAlias "projecttasktodo.com"
+    DocumentRoot "/usr/local/webapps/ProjectTaskToDo/root"
+    ErrorLog "logs/www.projecttasktodo.com-error_log"
+    CustomLog "logs/www.projecttasktodo.com-access_log" common
+    <Perl>
+        use lib qw( /usr/local/webapps/ProjectTaskToDo/lib/ );
+    </Perl>
+    PerlModule ProjectTaskToDo
+	<Directory "/usr/local/webapps/ProjectTaskToDo/root">
+		Allow from all
+	</Directory>
+    <Location />
+        SetHandler          modperl
+        PerlResponseHandler ProjectTaskToDo
+    </Location>
+    <Location /static>
+	SetHandler default-handler
+    </Location>
+</VirtualHost>
+
+
+
+
+
+
