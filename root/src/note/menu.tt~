@@ -1,2 +1,0 @@
-[% INCLUDE authenticated_navbar.tt %]
-[% INCLUDE note/navbar.tt %]
