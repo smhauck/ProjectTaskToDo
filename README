@@ -1,1 +1,69 @@
+
+
+ProjectTaskToDo
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
+
+
+
+
 Run script/projecttasktodo_server.pl to test the application.
+
+
+
+
+
+
+
+
+
+
+# --
+# README - readme file of OTRS
+# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
+# --
+# $Id: README,v 
+# --
+# This software comes with ABSOLUTELY NO WARRANTY. For details, see
+# the enclosed file LICENSE for license information (AGPL). If you
+# did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
+# --
+
+What is ProjectTaskToDo?
+=============
+
+  ProjectTaskToDo is an Open source Project Management System with many features
+  to manage many and diverse projects. It is distributed under the GNU
+  AFFERO General Public License (AGPL) and tested on Linux.
+
+  You can find a list of features at:
+  http://www.projecttasktodo.org/features.shtml
+
+
+License:
+========
+  It is distributed under the AFFERO GNU General Public License - see the
+  accompanying LICENSE file for more details.
+
+Documentation:
+==============
+  COMING SOON:  You can find quick documentation in README.* and the long version online at
+  http://doc.projecttasktodo.org/.
+
+Software requirements:
+======================
+
+  Perl
+    * Perl 5.8.8 or higher
+
+  Webserver
+    * Apache2+mod_perl2 or higher
+
+  Databases
+    * MySQL 5.1 or higher
+
+Directories & Files:
+====================
+
+
+
