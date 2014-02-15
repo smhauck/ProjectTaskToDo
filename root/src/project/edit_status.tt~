@@ -1,0 +1,17 @@
+[% META title = 'ProjectTaskToDo:Project Client' %]
+
+[% INCLUDE project/menu.tt %]
+
+[% INCLUDE project/options.tt %]
+
+[% INCLUDE project/project_details.tt %]
+
+
+<h2>Project Status</h2>
+<form name="edit_status" action="/project/[% project.project_id %]/update_status" method="post">
+[% FOREACH stat IN stats %]
+  <input type="radio" name="status_id" value="[% stat.id %]">[% stat.name %]<br />
+[% END %]
+<br />
+<input type="submit" value="Update" />
+</form>

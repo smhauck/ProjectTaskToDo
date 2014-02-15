@@ -1,0 +1,52 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% INCLUDE project/menu.tt %]
+
+[% linecount = 0 %]
+<table class='sortable'>
+<tr>
+	<th>ID</th>
+	<th>Sched Start Date</th>
+	<th>Actual Start Date</th>
+	<th>Owner</th>
+	<th>Client</th>
+	<th>Client Department</th>
+	<th>Client Organization</th>
+	<th>Short Name</th>
+	<th>Project Name</th>
+</tr>
+[% FOREACH project IN projects %]
+[% linecount = linecount + 1 %]
+<tr>
+<td>[% project.project_id %]</td>
+<td>[% project.project_sched_start_date %]</td>
+<td>[% project.project_actual_start_date %]</td>
+<td><a href="/person/details/[% project.project_owner_id %]">[% project.owner.full_name %]</a></td>
+<td><a href="/person/details/[% project.client_person_id %]">[% project.client_person_name %]</td>
+<td>[% project.client_person_department %]</td>
+<td><a href="/organization/details/[% project.client_organization_id %]">[% project.client_organization_name %]</td>
+<td><a href="/project/[% project.project_id %]/details">[% project.project_short_name %]</a></td>
+<td><a href="/project/[% project.project_id %]/tasks/active">[% project.project_name %]</a></td>
+</tr>
+[% END %]
+</table>
+
+Count: [% linecount %]

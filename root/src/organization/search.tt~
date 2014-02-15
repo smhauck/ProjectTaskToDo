@@ -1,0 +1,23 @@
+[% INCLUDE organization/menu.tt %]
+[% INCLUDE organization/search_box.tt %]
+
+        <SCRIPT LANGUAGE="JavaScript">
+        var cal = new CalendarPopup();
+        cal.showYearNavigation();
+        </SCRIPT>
+
+<table class="sortable" border='0'>
+<tr>
+<th>username</th>
+<th>full name</th>
+<th>first name</th>
+<th>last name</th>
+</tr>
+[% FOREACH organization IN organizations %]
+<tr>
+<td><a href="/organization/[% organization.id %]">[% organization.name %]</a></td>
+</tr>
+[% END -%]
+
+</table>
+<br />

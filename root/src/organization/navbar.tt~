@@ -1,0 +1,8 @@
+<div class="global_nav">
+<span class="nav_bar">
+<a href='/organization/new'>add new organization</a> * 
+<a href='/organization/list'>list all organizations</a> * 
+<a href='/organization/search'>search organizations</a>
+<hr width='100%' />
+</span>
+</div>

@@ -1,0 +1,25 @@
+[% INCLUDE note/menu.tt %]
+[% INCLUDE note/options.tt %]
+
+[% INCLUDE note/search_box.tt %]
+
+[% linecount = 0 -%]
+[% odd = 2 -%]
+
+<table width='80%'>
+<tbody>
+<thead>
+<tr>
+	<th>Title</th>
+</tr>
+</thead>
+[% FOREACH note IN notes %]
+[%- linecount = linecount + 1 %]
+<tr>
+<td [% odd % 2 == 0 ? 'class="grey"' : ''%]><a href="/note/[% note.id %]">[% note.title %]</a></td>
+</tr>
+[% odd = odd + 1 %]
+[% END -%]
+</tbody>
+</table>
+<br />

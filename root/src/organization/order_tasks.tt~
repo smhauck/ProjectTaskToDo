@@ -1,0 +1,71 @@
+
+[% INCLUDE project/menu.tt %]
+[% INCLUDE project/options.tt %]
+
+
+[% IF authorized %]
+<h1><a href="/project/edit/[% project.id %]">[% project.project_name %]</a></h1>
+[% ELSE %]
+<h1>[% project.project_name %]</h1>
+[% END %]
+
+<table>
+<tr><th>Short Name</th><td>[% project.project_short_name %]</a></td></tr>
+<tr><th>Creator</th><td>[% project.creator.full_name %]</td></tr>
+<tr><th>Owner</th><td>[% project.owner.full_name %]</td></tr>
+<tr><th>Last Modified</th><td>[% project.project_last_modified %]</td></tr>
+[% IF project.project_sched_start_date && project.project_sched_start_date != '0000-00-00' %]
+<tr><th>Scheduled Start Date</th><td>[% project.project_sched_start_date %]</td></tr>
+[% END %]
+[% IF project.project_actual_start_date && project.project_actual_start_date != '0000-00-00' %]
+<tr><th>Actual Start Date</th><td>[% project.project_actual_start_date %]</td></tr>
+[% END %]
+[% IF project.project_sched_compl_date && project.project_sched_compl_date != '0000-00-00' %]
+<tr><th>Scheduled Completion Date</th><td>[% project.project_sched_compl_date %]</td></tr>
+[% END %]
+[% IF project.project_actual_compl_date && project.project_actual_compl_date != '0000-00-00' %]
+<tr><th>Actual Completion Date</th><td>[% project.project_actual_compl_date %]</td></tr>
+[% END %]
+</table>
+
+<h2>All Tasks</h2>
+<p>Drag and drop the tasks to the desired order.</p>
+<ol id="tasklist">
+[% idnum = 0 %]
+[% FOREACH task IN tasks %]
+<li id="li_[% task.task_id %]">
+[% IF task.task_complete == 'y' %](Completed)[% ELSE %](Not Complete)[% END %]
+[% task.task_name %]
+[% task.task_sched_start_date %]
+[% task.task_sched_compl_date %]
+</li>
+[% END %]
+</ol>
+<script type="text/javascript">
+Position.includeScrollOffsets = true;
+Sortable.create('tasklist', {
+	scroll: window,
+	constraint: 'vertical',
+	onUpdate: function(container) {
+		var listItems = container.getElementsByTagName('li');
+		var params = 'task_order=';
+		for (var i=0, il = listItems.length; i < il; i++) {
+			var temp = listItems[i].id.split('_');
+			if (i > 0)
+				params += ',';
+				params += temp[1];
+		}
+		new Ajax.Request('/project/[% project.project_id %]/update_order', {
+			method: 'post',
+			parameters: params,
+			onSuccess: function(xhrResponse) {
+			},
+			onFailure: function(xhrResponse) {
+			}
+		});
+	}
+});
+</script>
+
+<br />
+

@@ -1,0 +1,16 @@
+
+[% INCLUDE project/menu.tt %]
+
+[% INCLUDE project/options.tt %]
+
+[% INCLUDE project/project_details.tt %]
+
+<h2>Project Client</h2>
+<form name="edit_client" action="/project/update_client/[% project.project_id %]" method="post">
+
+[% WHILE (person = persons.next) %]
+  <input type="radio" name="client_id" value="[% person.id %]">[% person.first_name %] [% person.last_name %] ([% person.office_email %])<br />
+[% END %]
+<br />
+<input type="submit" value="Update" />
+</form>

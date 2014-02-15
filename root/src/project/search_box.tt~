@@ -1,0 +1,65 @@
+
+
+<script type="text/javascript">
+$(function() {
+	$('.ui-datepicker').datepicker({dateFormat: 'yy-mm-dd', changeMonth: true, changeYear: true});
+});
+</script>
+
+
+
+<!-- pagetitle============START -->
+<div id="pagetitle">
+
+	<div class="but_nextprevious">
+		[% IF page > 1 %]<a href="[% uri %]?rows=[% rows %]&page=[% page - 1 %]&[% url_params %]"><img src="/static/images/but_previous.gif" alt="Previous" onmouseover="this.src = '/static/images/but_previous_over.gif'" onmouseout="this.src = '/static/images/but_previous.gif'" border="0"/></a>[% END %][% IF page > 1 && project_count >= rows %]<img src="/static/images/divider_next.gif" class="but_nextpreviousdivider"/>[% END %][% IF project_count >= rows %]<a href="[% uri %]?rows=[% rows %]&page=[% page + 1 %]&[% url_params %]"><img src="/static/images/but_next.gif" alt="Next" onmouseover="this.src = '/static/images/but_next_over.gif'" onmouseout="this.src = '/static/images/but_next.gif'" border="0"/></a>[% END %]
+	</div>
+
+	<h1>Search Projects</h1>
+</div>
+<!-- pagetitle============END -->
+
+<div id="content_top">
+
+<form class="search_box" action="/project/search" method="post">
+
+<table id="table_search">
+
+<tr>
+<td>Project Scheduled Start Date Range:</td><td>From: 
+<input class="ui-datepicker" name="project_sched_start_date_start" type="text">
+To:
+<input class="ui-datepicker" name="project_sched_start_date_end" type="text"></td>
+</tr>
+
+<tr>
+<td>Project Actual Start Date Range:</td><td>From: 
+<input class="ui-datepicker" name="project_actual_start_date_start" type="text">
+To:
+<input class="ui-datepicker" name="project_actual_start_date_end" type="text"></td>
+</tr>
+
+<tr>
+<td><label for="short_name">Job Code:</label></td>
+<td><input type="text" id="project_short_name" name="project_short_name" /></td>
+</tr>
+
+<tr>
+
+<td>Project Name:</td>
+<td><input name="project_name" type="text"></td>
+
+</tr>
+
+<tr>
+
+<td>Project Description:</td>
+<td><input name="project_description" type="text"></td>
+
+</tr>
+
+<tr><td></td><td><input type="submit" name="submit" value="Search"></button></td></tr>
+
+</table>
+</form>
+

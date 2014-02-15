@@ -1,0 +1,92 @@
+package ProjectTaskToDo::Controller::Client;
+use Moose;
+use namespace::autoclean;
+
+BEGIN {extends 'Catalyst::Controller'; }
+
+=head1 NAME
+
+ProjectTaskToDo::Controller::Client - Catalyst Controller
+
+=head1 DESCRIPTION
+
+Catalyst Controller.
+
+=head1 METHODS
+
+=cut
+
+
+
+
+
+
+
+
+
+
+
+
+=head2 client_name_lookup
+
+=cut
+
+sub client_name_lookup : Local {
+	my ($self, $c) = @_;
+	my @results = ();
+	my $cname= $c->req->query_parameters->{term};
+
+	my $clients = $c->model('ProjectTaskToDoDB::Person')->search ( {
+			full_name => { -like => "\%$cname\%" },
+			active => { '=' => 1 }
+	       	} );
+
+	while (my $cur_client = $clients->next) {
+		# my $label = $cur_client->full_name . " (" . $cur_client->office_email . ")";
+		my $label = $cur_client->full_name ;
+		push (@results, { id => $cur_client->full_name, label => $label, value => $cur_client->id } );
+	}
+	$c->stash->{json} = \@results;
+}
+
+
+=head2 end
+
+=cut
+
+sub end : Private {
+	my ($self, $c) = @_;
+	$c->forward('View::JSON');
+}
+
+
+
+
+
+
+
+
+=head2 index
+
+=cut
+
+sub index :Path :Args(0) {
+    my ( $self, $c ) = @_;
+
+    $c->response->body('Matched ProjectTaskToDo::Controller::Client in Client.');
+}
+
+
+=head1 AUTHOR
+
+William B. Hauck
+
+=head1 LICENSE
+
+See the LICENSE file in the application's top level directory.
+
+=cut
+
+__PACKAGE__->meta->make_immutable;
+
+1;

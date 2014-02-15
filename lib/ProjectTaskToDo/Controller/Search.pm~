@@ -1,0 +1,87 @@
+package ProjectTaskToDo::Controller::Search;
+use Moose;
+use namespace::autoclean;
+
+BEGIN {extends 'Catalyst::Controller'; }
+
+=head1 NAME
+
+ProjectTaskToDo::Controller::Search - Catalyst Controller
+
+=head1 DESCRIPTION
+
+Catalyst Controller.
+
+=head1 METHODS
+
+=cut
+
+
+=head2 index
+
+=cut
+
+sub index :Path :Args(0) {
+    my ( $self, $c ) = @_;
+    $c->stash->{template} = 'search/index.tt';
+}
+
+
+=head2 search
+
+Displays the Search screen for users.
+
+=cut
+
+sub search : Local {
+    my ( $self, $c ) = @_;
+
+    #grab and stash distinct client departments to search on
+    $c->stash->{client_departments} = [
+        $c->model('ProjectTaskToDoDB::Project')->search(
+            {},
+            {
+                columns  => [qw/client_department/],
+                distinct => 1
+            }
+        )
+    ];
+
+    $c->stash->{template} = 'search/search_box.tt';
+}
+
+
+
+sub results : Local {
+	my ($self, $c) = @_;
+	my $criteria="";
+	$criteria = $c->req->params->{criteria};
+	$c->stash->{criteria} = $criteria;
+	if ($criteria)
+	{
+	#$c->stash->{projects} = [$c->model('ProjectTaskToDoDB::Project')->search_like( criteria=> ("\%$criteria\%" ))];
+	$c->stash->{projects} = [$c->model('ProjectTaskToDoDB::Project')->search_literal('match (name, description) against (?)',$criteria)];
+	}
+	$c->stash->{template} = 'search/results.tt2';
+}
+
+
+
+
+
+
+
+=head1 AUTHOR
+
+William B. Hauck
+
+=head1 LICENSE
+
+This library is free software. You can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
+
+__PACKAGE__->meta->make_immutable;
+
+1;

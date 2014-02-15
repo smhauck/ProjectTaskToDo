@@ -1,0 +1,55 @@
+[% META title = 'ProjectTaskToDo:Project Tasks Details' -%]
+
+[% INCLUDE authenticated_navbar.tt2 %]
+
+[% FOREACH project IN projects %]
+
+<div class="option">
+<a href="/project/edit/[% project.project_id %]">Edit This Project</a><br />
+<br />
+<a href="/project/new_comment/[% project.project_id %]">Add Project Comment</a><br />
+<a href="/project/project_with_comments/[% project.project_id %]">View Project Comments</a><br />
+<br />
+<a href="/task/new_task/[% project.project_id %]">Add Project Task</a><br />
+<a href="/project/details/[% project.project_id %]">Hide Project Tasks</a><br />
+</div>
+
+<table>
+<tr><td>ID</td><td>[% project.project_id %]</td></tr>
+<tr><td>Sched Start Date</td><td>[% project.sched_start_date %]</td></tr>
+<tr><td>Project Name</td><td>[% project.name %]</td></tr>
+<tr><td>Short Name</td><td>[% project.short_name %]</a></td></tr>
+<tr><td>Creator</td><td>[% project.creator_id %]</td></tr>
+<tr><td>Owner</td><td>[% project.owner_id %]</td></tr>
+<tr><td>Description</td><td>[% project.description %]</td></tr>
+<tr><td>Scheduled Start Date</td><td>[% project.sched_start_date %]</td></tr>
+<tr><td>Actual Start Date</td><td>[% project.actual_start_date %]</td></tr>
+<tr><td>Scheduled Completion Date</td><td>[% project.sched_compl_date %]</td></tr>
+<tr><td>Actual Completion Date</td><td>[% project.actual_compl_date %]</td></tr>
+<tr><td>Complete</td><td>[% project.complete %]</td></tr>
+<tr><td>Deleted</td><td>[% project.deleted %]</td></tr>
+<tr><td>Recorded</td><td>[% project.recorded %]</td></tr>
+</table>
+<hr />
+[% END %]
+
+[% FOREACH task IN tasks %]
+<table>
+<tr><td align='right'><strong>Task Name</strong></td><td><a href="/task/edit/[% task.id %]">[% task.name %]</a></td></tr>
+[% pid = task.project_id - 1 %]
+<tr><td align='right'><strong>Project</strong></td><td>[% projects.$pid.name %]</td></tr>
+<tr><td align='right'><strong>Priority</strong></td><td>[% task.priority%]</td></tr>
+<tr><td align='right'><strong>Sched_start_date</strong></td><td>[% task.sched_start_date %]</td></tr>
+<tr><td align='right'><strong>Owner</strong></td><td>[% task.owner_id %]</td></tr>
+<tr><td align='right'><strong>Description:</strong></td><td>[% task.description %]</td></tr>
+<tr><td align='right'><strong>Scheduled start date:</strong></td><td>[% task.sched_start_date %]</td></tr>
+<tr><td align='right'><strong>Actual start date:</strong></td><td>[% task.actual_start_date %]</td></tr>
+<tr><td align='right'><strong>Scheduled completion date:</strong></td><td>[% task.sched_compl_date %]</td></tr>
+<tr><td align='right'><strong>Actual completion date:</strong></td><td>[% task.actual_compl_date %]</td></tr>
+<tr><td align='right'><strong>Complete (y/n)</strong></td><td>[% task.complete %]</td></tr>
+<tr><td align='right'><strong>Completion notes:</strong></td><td>[% task.completion_notes %]</td></tr>
+<tr><td></td><td><a href="/task/new_comment/[% task.id %]">Add a Task Comment</a></td></tr>
+</table>
+<hr />
+[% END %]
+

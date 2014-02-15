@@ -1,0 +1,40 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+<table>
+<tr><th>ID</th><td><a href="/organization/[% organization.id %]/edit">[% organization.id %]</a></td></tr>
+<tr>
+<th>Name</th>
+[% IF authorized %]
+<td><a href="/organization/edit/[% organization.name %]">[% organization.name %]</a></td>
+[% ELSE %]
+<td>[% organization.name %]</td>
+[% END %]
+</tr>
+
+<tr><th>Description</th><td>[% organization.description | html | html_line_break %]</td></tr>
+<tr><th>Notes</th><td>[% organization.notes | html | html_line_break %]</td></tr>
+<tr><th>Address 1</th><td>[% organization.address_1| html | html_line_break %]</td></tr>
+<tr><th>Address 2</th><td>[% organization.address_2| html | html_line_break %]</td></tr>
+<tr><th>City</th><td>[% organization.city | html | html_line_break %]</td></tr>
+<tr><th>State</th><td>[% organization.state | html | html_line_break %]</td></tr>
+<tr><th>Zip</th><td>[% organization.zip | html | html_line_break %]</td></tr>
+<tr><th>Country</th><td>[% organization.country | html | html_line_break %]</td></tr>
+</table>

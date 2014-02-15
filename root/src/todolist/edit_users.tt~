@@ -1,0 +1,44 @@
+[% META title = 'TaskMaster:Project Users' %]
+
+[% INCLUDE authenticated_navbar.tt %]
+
+<div class="option">
+[% IF authorized %]
+<a href="/project/edit/[% project.project_id %]">Edit This Project</a><br />
+[% END %]
+<br />
+<a href="/project/new_comment/[% project.project_id %]">Add Project Comment</a><br />
+<a href="/project/[% project.project_id %]/comments">View Project Comments ([% num_comments %])</a><br />
+<br />
+<a href="/project/[% project.project_id %]/tasks/active">View Active Project Tasks ([% num_active_tasks %])</a><br />
+<a href="/project/[% project.project_id %]/tasks/complete">View Completed Project Tasks ([% num_complete_tasks %])</a><br />
+<a href="/project/[% project.project_id %]/tasks/all">View All Project Tasks ([% num_tasks %])</a><br />
+[% IF authorized %]
+<br />
+<a href="/task/new_task/[% project.project_id %]">Add Project Task</a><br />
+[% END %]
+</div>
+
+<table>
+<tr><td>Project ID</td><td>[% project.project_id %]</td></tr>
+[% IF authorized %]
+<tr><td>Project Name</td><td>[% project.project_name %] <a href="/project/edit/[% project.id %]">(Edit Project)</a></td></tr>
+[% ELSE %]
+<tr><td>Project Name</td><td>[% project.project_name %]</td></tr>
+[% END %]
+<tr><td>Short Name</td><td>[% project.project_short_name %]</a></td></tr>
+<tr><td>Creator</td><td>[% project.creator.full_name %]</td></tr>
+<tr><td>Owner</td><td>[% project.owner.full_name %]</td></tr>
+<tr><td>Last Modified</td><td>[% project.project_recorded %]</td></tr>
+</table>
+<br />
+
+<h2>Project Users</h2>
+<form name="edit_users" action="/project/update_users/[% project.project_id %]" method="post">
+
+[% WHILE (user = users.next) %]
+  <input type="checkbox" name="project_users" value="[% user.id %]" [% IF project.has_user(user) %]checked="1"[% END %]>[% user.full_name %] ([% user.username %])<br />
+[% END %]
+<br />
+<input type="submit" value="Update" />
+</form>

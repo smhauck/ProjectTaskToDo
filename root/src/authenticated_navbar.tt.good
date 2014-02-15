@@ -1,0 +1,30 @@
+<div class="global_nav">
+[% IF error %]
+<div>
+[% error %]
+</div>
+[% END %]
+
+<span class="user_label" id="sitetitle">
+[% IF Catalyst.user %]
+<a href='/user/details/[% Catalyst.user.id %]'>
+[% Catalyst.user.full_name %] ([% Catalyst.user.username %])
+[% END %]
+</a>
+</span>
+
+<div>
+<a href='/'>home</a> * 
+<a href='/task/today'>today's tasks</a> *** 
+<a href='/task/active'>tasks</a> * 
+<!--
+<a href='/todolist/active'>todo lists(EXPERIMENTAL)</a> * 
+-->
+<a href='/project/active'>projects</a> *** 
+<a href='/project/my_active'>time palette</a> *** 
+<a href='/report'>reports</a> *** 
+<a href='/help'>help</a> *
+<a href="[% Catalyst.uri_for('/logout') %]">logout</a>
+</div>
+<hr width='100%' />
+</div>

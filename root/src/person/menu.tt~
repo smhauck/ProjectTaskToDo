@@ -1,0 +1,2 @@
+[% INCLUDE authenticated_navbar.tt %]
+[% INCLUDE person/navbar.tt %]

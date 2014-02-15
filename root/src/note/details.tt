@@ -1,0 +1,82 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% INCLUDE note/menu.tt %]
+
+
+<script>
+function validate(form) {
+
+    return confirm('Do you really want to delete this note?');
+}
+</script>
+
+
+<div class='note'>
+<h1 class='note_title'><a href='/note/[% note.id %]/edit'>[% note.title %]</a></h1>
+<table>
+<tr>
+<th>client organization</th>
+<td>
+<a href="/organization/[% note.client_organization_id %]">[% note.client_organization.name %]</a>
+</td>
+</tr>
+<tr>
+<th>client person</th>
+<td>
+[% note.client_person.full_name %]
+</td>
+</tr>
+<tr>
+<th>client contact</th>
+<td>
+[% note.client_contact_person.full_name %]
+</td>
+</tr>
+<tr>
+[% IF note.project_id -%]
+<th>Related Project</th>
+<td><a href="/project/[% note.project_id %]">([% note.project.project_short_name %]) [% note.project.project_name %]</a></td>
+[% END %]
+</tr>
+<tr>
+[%- IF note.task_id -%]
+<th>Related Task</th>
+<td><a href="/task/[% note.task_id %]">[% note.task.task_name %]</a></td>
+[%- END -%]
+</tr>
+</table>
+[% IF note.date_selected && note.date_selected != '0000-00-00' -%]
+<p class='note_date'>[% note.date_selected %]</p>
+[% ELSE -%]
+<p class='note_date'></p>
+[% END -%]
+[% IF note.public -%]
+<!-- <p class='note_privacy'>(Public)</p> -->
+[% ELSE -%]
+<!-- <p class='note_privacy'>(Private)</p> -->
+[% END -%]
+<p class='note_body'>[% note.body | html | html_line_break %]</p>
+</div>
+
+<form action="/note/[% note.id %]/delete" method="POST" onsubmit="return validate(this);">
+<input type="submit" name="Delete Note" value="Delete Note" />
+</form>
+

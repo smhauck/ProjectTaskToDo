@@ -1,0 +1,22 @@
+
+[% INCLUDE project/menu.tt %]
+
+[% INCLUDE project/options.tt %]
+
+
+<script type="text/javascript">
+	$(function() {
+		$("#client_contact_id").autocomplete({
+			minLength: 2,
+			source: "/person/name_lookup"
+		});
+	});
+</script>
+
+<h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
+<form name="edit_client_contact" action="/project/update_client_contact/[% project.project_id %]" method="post">
+Project Client Contact: <input class="ui-autocomplete-input" id="client_contact_id" name="client_contact_id" />
+<input type="submit" value="Update" />
+</form>
+<br />
+[% INCLUDE project/project_details.tt %]

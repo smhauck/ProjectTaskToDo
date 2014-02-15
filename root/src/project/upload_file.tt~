@@ -1,0 +1,18 @@
+
+[% PROCESS project/project_details.tt %]
+
+<div class="colcontainer">
+
+<h2>Upload File</h2>
+
+<form name="insert_file" action="/project/[% project.project_id %]/insert_file" method="post" enctype="multipart/form-data">
+<table id="searchresults" style="margin-left:10px;">
+<tr><td class="grey"><input type="file" name="file_1" size="100" /></td><td><input onmouseover="this.src='/static/images/btn_upload_over.gif';" onmouseout="this.src='/static/images/btn_upload.gif';" src="/static/images/btn_upload.gif" alt="Upload" class="d_button" type="image" /></td></tr>
+</table>
+</form>
+
+</div>
+</div>
+<br clear="all" />
+<div class="bottom_buttons">
+

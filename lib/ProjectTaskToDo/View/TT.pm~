@@ -1,0 +1,47 @@
+package ProjectTaskToDo::View::TT;
+
+use strict;
+use warnings;
+
+use base 'Catalyst::View::TT';
+
+
+
+__PACKAGE__->config({
+	CATALYST_VAR => 'Catalyst',
+	INCLUDE_PATH => [
+		ProjectTaskToDo->path_to( 'root', 'src' ),
+		ProjectTaskToDo->path_to( 'root', 'lib' ),
+	],
+	PRE_PROCESS  => 'config/main',
+	WRAPPER      => 'site/wrapper',
+	ERROR        => 'error.tt',
+	TEMPLATE_EXTENSION    => '.tt',
+	TIMER        => 0,
+	render_die => 1,
+});
+
+=head1 NAME
+
+ProjectTaskToDo::View::TT - TT View for ProjectTaskToDo
+
+=head1 DESCRIPTION
+
+TT View for ProjectTaskToDo.
+
+=head1 SEE ALSO
+
+L<ProjectTaskToDo>
+
+=head1 AUTHOR
+
+William B. Hauck
+
+=head1 LICENSE
+
+This library is free software. You can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
+
+1;

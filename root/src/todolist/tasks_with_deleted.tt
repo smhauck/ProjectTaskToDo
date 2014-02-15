@@ -1,0 +1,83 @@
+[% META title = 'ProjectTaskToDo:Project Details' %]
+
+[% INCLUDE authenticated_navbar.tt2 %]
+[% INCLUDE task_search_box.tt2 %]
+
+<div class="option">
+<a href="/project/edit/[% project.project_id %]">Edit This Project</a><br />
+<br />
+<a href="/project/new_comment/[% project.project_id %]">Add Project Comment</a><br />
+<a href="/project/project_with_comments/[% project.project_id %]">View Project Comments([% num_comments %])</a><br />
+<br />
+<a href="/project/details/[% project.project_id %]">Hide Project Tasks</a><br />
+<a href="/project/tasks/[% project.project_id %]/active">View Active Project Tasks ([% num_active_tasks %])</a><br />
+<a href="/project/tasks/[% project.project_id %]/complete">View Completed Project Tasks ([% num_complete_tasks %])</a><br />
+<a href="/project/tasks/[% project.project_id %]/deleted">View Deleted Project Tasks ([% num_deleted_tasks %])</a><br />
+<a href="/project/tasks/[% project.project_id %]">View All Project Tasks ([% num_tasks %])</a><br />
+<br />
+<a href="/task/new_task/[% project.project_id %]">Add Project Task</a><br />
+</div>
+
+[% INCLUDE project/project_details.tt2 %]
+<br />
+
+[% IF task_type == "all" || task_type == 'active' %]
+<table class='sortable' width='100%'>
+<caption><h3>Active Tasks</h3></caption>
+<tr><th>ID</th><th>Task Name</th><th>Priority</th><th>Owner</th><th>Sched Start Date</th><th>Actual Start Date</th><th>Difference (Start)</th><th>Sched Completion Date</th></tr>
+[% FOREACH task IN active_tasks %]
+<tr>
+<td>[% task.id %]</td>
+<td><a href="/task/task_with_comments/[% task.id %]">[% task.name %]</a></td>
+<td>[% task.priority%]</td>
+<td>[% task.owner.full_name %]</td>
+<td>[% task.sched_start_date %]</td>
+<td>[% task.actual_start_date %]</td>
+<td class='table_integer'>[% task.start_date_diff %]</td>
+<td>[% task.sched_compl_date %]</td>
+</tr>
+[% END %]
+</table>
+<br />
+[% END %]
+
+[% IF task_type == "all" || task_type == 'complete' %]
+<table class='sortable' width='100%'>
+<caption><h3>Completed Tasks</h3></caption>
+<tr><th>ID</th><th>Task Name</th><th>Priority</th><th>Owner</th><th>Sched Start Date</th><th>Actual Start Date</th><th>Difference (Start)</th><th>Sched Completion Date</th><th>Actual Completion Date</th><th>Difference (Complete)</th></tr>
+[% FOREACH task IN complete_tasks %]
+<tr>
+<td>[% task.id %]</td>
+<td><a href="/task/details/[% task.id %]">[% task.name %]</a></td>
+<td>[% task.priority%]</td>
+<td>[% task.owner.full_name %]</td>
+<td>[% task.sched_start_date %]</td>
+<td>[% task.actual_start_date %]</td>
+<td class='table_integer'>[% task.start_date_diff %]</td>
+<td>[% task.sched_compl_date %]</td>
+<td>[% task.actual_compl_date %]</td>
+<td class='table_integer'>[% task.compl_date_diff %]</td>
+</tr>
+[% END %]
+</table>
+<br />
+[% END %]
+
+[% IF task_type == "all" || task_type == 'deleted' %]
+<table class='sortable' width='100%'>
+<caption><h3>Deleted Tasks</h3></caption>
+<tr><th>ID</th><th>Task Name</th><th>Priority</th><th>Owner</th><th>Sched Start Date</th><th>Actual Start Date</th><th>Sched Completion Date</th><th>Deletion Date</th></tr>
+[% FOREACH task IN deleted_tasks %]
+<tr>
+<td>[% task.id %]</td>
+<td><a href="/task/details/[% task.id %]">[% task.name %]</a></td>
+<td>[% task.priority%]</td>
+<td>[% task.owner.full_name %]</td>
+<td>[% task.sched_start_date %]</td>
+<td>[% task.actual_start_date %]</td>
+<td>[% task.sched_compl_date %]</td>
+<td>[% task.deletion_date %]</td>
+[% END %]
+</table>
+[% END %]
+

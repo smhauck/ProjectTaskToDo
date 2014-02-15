@@ -1,0 +1,48 @@
+
+
+<script type="text/javascript">
+$(function() {
+	$('.ui-datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+});
+</script>
+
+
+[% INCLUDE project/menu.tt %]
+[% INCLUDE project/options.tt %]
+[% PROCESS project/project_details.tt %]
+
+<h2>Project Files</h2>
+
+<table id="searchresults" width='100%'>
+<tr>
+<th>Filename</th>
+<th>Added By</th>
+<th>Added On</th>
+<th>Last Modified</th>
+<th></th>
+<th></th>
+</tr>
+[% odd = 0 %]
+[% FOREACH pfile IN project.files %]
+<tr>
+<form action="/project/[% project.project_id%]/project_file/[% pfile.id %]/delete" method="post">
+<td [% odd % 2 == 0 ? 'class="grey"' : ''%]><a href="/project_files/[% pfile.project_id %]/[% pfile.filename %]">[% pfile.filename %]</a></td>
+<td [% odd % 2 == 0 ? 'class="grey"' : ''%]>[% pfile.user.full_name %]</td>
+<td [% odd % 2 == 0 ? 'class="grey"' : ''%]>[% pfile.recorded %]</td>
+<td [% odd % 2 == 0 ? 'class="grey"' : ''%]>[% pfile.last_modified %]</td>
+<td [% odd % 2 == 0 ? 'class="grey"' : ''%]><input type="checkbox" name="delete_file" value="1" /></td>
+<td [% odd % 2 == 0 ? 'class="grey"' : ''%]><input  type="image" onMouseOver="this.src='/static/images/but_delete_over.gif';" onMouseOut="this.src='/static/images/but_delete.gif';" src="/static/images/but_delete.gif" alt="delete" class="d_button" /></td>
+</form>
+</tr>
+[% odd = odd + 1 -%]
+[% END -%]
+</table>
+<br />
+
+
+<br clear="all" />
+
+<div class="bottom_buttons">
+<a href="/project/[% project.project_id %]/upload_file"><img src="/static/images/but_addnewfile.gif" name="file" alt="Add New File" onmouseover="this.src = '/static/images/but_addnewfile_over.gif'" onmouseout="this.src = '/static/images/but_addnewfile.gif'" border="0" onmousedown="this.src = '/static/images/but_addnewfile_over.gif'"/></a><br />
+</div>
+

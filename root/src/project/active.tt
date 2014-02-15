@@ -1,0 +1,60 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% INCLUDE project/menu.tt %]
+
+[% linecount = 0 %]
+<table class='sortable'>
+<tr>
+	<th>Category</th>
+	<th>Job Code</th>
+	<th>Billable</th>
+	<th>Project Name</th>
+	<th>Owner</th>
+	<th>Client Org</th>
+	<th>Client</th>
+	<th>Client Contact</th>
+	<th>Sched Completion Date</th>
+</tr>
+[% FOREACH project IN projects %]
+[% linecount = linecount + 1 %]
+<tr>
+<td>[% project.category.name %]</td>
+<td><a href="/project/[% project.project_id %]">[% project.project_short_name %]</a></td>
+[% IF project.billable == 1 %]
+<td>Yes</td>
+[% ELSE %]
+<td>No</td>
+[% END %]
+<td><a href="/project/[% project.project_id %]/tasks/active">[% project.project_name %]</a></td>
+<td><a href="/person/[% project.project_owner_id %]">[% project.owner.full_name %]</a></td>
+<td><a href="/organization/[% project.client_organization_id %]">[% project.client_organization_name %]</td>
+<td><a href="/person/[% project.client_person_id %]">[% project.client_person_name %]</td>
+<td><a href="/person/[% project.client_contact_person_id %]">[% project.client_contact_person_name %]</td>
+[% IF project.project_sched_compl_date && project.project_sched_compl_date != '0000-00-00' %]
+<td>[% project.project_sched_compl_date %]</td>
+[% ELSE %]
+<td></td>
+[% END %]
+</tr>
+[% END %]
+</table>
+
+Count: [% linecount %]

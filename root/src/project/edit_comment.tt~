@@ -1,0 +1,23 @@
+
+[% INCLUDE project/menu.tt %]
+[% INCLUDE project/options.tt %]
+
+[% INCLUDE project/project_details.tt %]
+
+<br />
+<form action='/project/update_comment/[% comment.comment_id %]' method='post'>
+Enter Comment<br />
+<textarea rows='20' cols='80' name='comment_body'>[% comment.comment %]</textarea><br />
+<input type='hidden' name='project_id' value="[% pid %]"/>
+<input type='reset' value='Reset'>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<input type='submit' value='Submit'>
+</form>

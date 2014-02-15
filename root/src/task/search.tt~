@@ -1,0 +1,17 @@
+[% INCLUDE task/menu.tt %]
+[% INCLUDE task/search_box.tt %]
+
+<h3>Search results for: [% criteria %]</h3>
+<table class="sortable" border='0'>
+<tr><th>Project</th><th>Task Name</th><th>Task Description</th></tr>
+[% FOREACH task IN tasks %]
+<tr>
+<td><a href="/task/[% task.task_id %]">[% task.task_name %]</a></td>
+<td><a href="/task/task_with_comments/[% task.id %]">[% task.task_name %]</a></td>
+<td>[% task.task_description %]</td>
+</tr>
+[% END -%]
+
+</table>
+<br />
+

@@ -1,0 +1,6 @@
+<span class="task_search_box">
+<form class="task_search_box" action="/task/search" method="post">
+<input type="text" name="criteria" />
+<input type="submit" name="Search" value="Search Tasks" />
+</form>
+</span>
