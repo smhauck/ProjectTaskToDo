@@ -1,33 +1,14 @@
-
-
 ProjectTaskToDo
 Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
 
 
 
+=============
+This software comes with ABSOLUTELY NO WARRANTY. For details, see
+the enclosed file LICENSE for license information (AGPL). If you
+did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
+=============
 
-
-Run script/projecttasktodo_server.pl to test the application.
-
-
-
-
-
-
-
-
-
-
-# --
-# README - readme file of OTRS
-# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
-# --
-# $Id: README,v 
-# --
-# This software comes with ABSOLUTELY NO WARRANTY. For details, see
-# the enclosed file LICENSE for license information (AGPL). If you
-# did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
-# --
 
 What is ProjectTaskToDo?
 =============
@@ -45,6 +26,16 @@ License:
   It is distributed under the AFFERO GNU General Public License - see the
   accompanying LICENSE file for more details.
 
+
+
+THIS IS BETA SOFTWARE:
+=====================
+There are a number of features that are still in development.  They work only
+partially or not at all.  Development continues and updates will be posted to
+the GitHub site.
+
+
+
 Documentation:
 ==============
   COMING SOON:  You can find quick documentation in README.* and the long version online at
@@ -61,9 +52,5 @@ Software requirements:
 
   Databases
     * MySQL 5.1 or higher
-
-Directories & Files:
-====================
-
 
 
