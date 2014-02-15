@@ -1,0 +1,30 @@
+[% INCLUDE search/menu.tt %]
+[% INCLUDE search/options.tt %]
+
+[% INCLUDE search/search_box.tt %]
+
+[% linecount = 0 -%]
+[% odd = 2 -%]
+
+<h1>HERE</h1>
+<table width='80%'>
+<tbody>
+<thead>
+<tr>
+	<th>Number</th>
+	<th>Name</th>
+	<th>Description</th>
+</tr>
+</thead>
+[% FOREACH project IN projects %]
+[%- linecount = linecount + 1 %]
+<tr>
+<td [% odd % 2 == 0 ? 'class="grey"' : ''%]><a href="/project/[% project.project_id %]">[% project.project_short_name %]</a></td>
+<td [% odd % 2 == 0 ? 'class="grey"' : ''%]><a href="/project/[% project.project_id %]">[% project.project_name %]</a></td>
+<td [% odd % 2 == 0 ? 'class="grey"' : ''%]><a href="/project/[% project.project_id %]">[% project.project_description %]</a></td>
+</tr>
+[% odd = odd + 1 %]
+[% END -%]
+</tbody>
+</table>
+<br />

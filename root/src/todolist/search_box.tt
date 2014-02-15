@@ -1,0 +1,6 @@
+<span class="project_search_box">
+<form class="search_box" action="/project/search_results" method="post">
+<input type="text" name="criteria" />
+<input type="submit" name="Search" value="Search Projects" />
+</form>
+</span>

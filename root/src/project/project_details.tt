@@ -1,0 +1,116 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% IF authorized %]
+<span id='project_short_name'>[ [% project.project_short_name %] ] </span> <span id='project_name'><a href="/project/[% project.id %]/edit">[% project.project_name %]</a></span>
+[% ELSE %]
+<span id='project_short_name'>[ [% project.project_short_name %] ]</span> <span id='project_name'>[% project.project_name %]</span>
+[% END %]
+
+<table>
+<tr><th>Category</th><td>[% project.category.name %]</a></td></tr>
+<tr><th>Status</th><td>[% project.status.name %]</td></tr>
+[% IF project.billable == 1 %]
+<tr><th>Billable</th><td>Yes</td></tr>
+[% ELSE %]
+<tr><th>Billable</th><td>No</td></tr>
+[% END %]
+<tr><th>Creator</th><td><a href="/person/[% project.project_creator_id %]">[% project.creator.full_name %]</a></td></tr>
+<tr><th>Owner</th><td><a href="/person/[% project.project_owner_id %]">[% project.owner.full_name %]</a></td></tr>
+<tr><th>Client Name</th><td>[% project.client_person_name %]</td></tr>
+<tr><th>Client Contact Name</th><td>[% project.client_contact_person_name %]</td></tr>
+<tr><th>Client Organization</th><td><a href="/organization/[% project.client_organization_id %]">[% project.client_organization_name %]</a></td></tr>
+<tr><th>Allocated Hours</th><td>[% project.allocated_hours %] Hrs.</td></tr>
+<!--
+<tr><th>Billable Time</th><td>[% total_billable_time.0 %] Hrs. [% total_billable_time.1 %] Mins.</td></tr>
+<tr><th>NonBillable Time</th><td>[% total_nonbillable_time.0 %] Hrs. [% total_nonbillable_time.1 %] Mins.</td></tr>
+-->
+<tr><th>Total Time Spent</th><td>[% total_time.0 %] Hrs. [% total_time.1 %] Mins.</td></tr>
+[% total_time_used_in_minutes = (total_time.0 * 60) + total_time.1 -%]
+<tr><th>Time Left</th><td>[% ((project.allocated_hours * 60) - total_time_used_in_minutes ) div 60 %] Hrs. 
+[%- IF project.allocated_hours && project.allocated_hours > 0 -%]
+	[%- IF (project.allocated_hours * 60) > total_time_used_in_minutes -%]
+		[% ((project.allocated_hours * 60) - total_time_used_in_minutes ) mod 60 -%]
+	[% ELSE -%]
+		[% (total_time_used_in_minutes - (project.allocated_hours * 60)) mod 60 -%]
+	[% END -%]
+[% ELSE -%]
+[% total_time_used_in_minutes mod 60 -%]
+[% END -%]
+ Mins.</td></tr>
+<tr><th>Description</th><td>[% project.project_description | html | html_line_break %]</td></tr>
+<tr>
+<th id='show_project_requirements'>Requirements (Show)</th>
+<th id='hide_project_requirements'>Requirements (Hide)</th>
+<td id='project_requirements'>[% project.project_requirements_text | html | html_line_break %]</td><tr>
+<tr><th>Initially Recorded</th><td>[% project.project_recorded | html %]</td></tr>
+<tr><th>Last Modified</th><td>[% project.project_last_modified | html %]</td></tr>
+[% IF project.project_sched_start_date && project.project_sched_start_date != '0000-00-00' %]
+<tr><th>Sched Start Date</th><td>[% project.project_sched_start_date | html %]</td></tr>
+[% END %]
+[% IF project.project_actual_start_date && project.project_actual_start_date != '0000-00-00' %]
+<tr><th>Actual Start Date</th><td>[% project.project_actual_start_date | html %]</td></tr>
+[% END -%]
+[% IF project.project_sched_compl_date && project.project_sched_compl_date != '0000-00-00' %]
+<tr><th>Sched Completion Date</th><td>[% project.project_sched_compl_date | html %]</td></tr>
+[% END -%]
+[% IF project.project_actual_compl_date && project.project_actual_compl_date != '0000-00-00' %]
+<tr><th>Actual Completion Date</th><td>[% project.project_actual_compl_date | html %]</td></tr>
+[% END -%]
+[% IF project.sched_go_live_date && project.sched_go_live_date != '0000-00-00' %]
+<tr><th>Sched Go Live Date</th><td>[% project.sched_go_live_date | html %]</td></tr>
+[% END -%]
+[% IF project.actual_go_live_date && project.actual_go_live_date != '0000-00-00' %]
+<tr><th>Actual Go Live Date</th><td>[% project.actual_go_live_date | html %]</td></tr>
+[% END -%]
+[% IF project.project_complete %]
+<tr><th>Complete</th><td>[% project.project_complete %]</td></tr>
+[% END -%]
+[% IF project.project_completion_notes %]
+<tr><th>Completion Notes</th><td>[% project.project_completion_notes | html | html_line_break %]</td></tr>
+[% END -%]
+[% IF project.deleted == 'y' %]
+<tr><th>Deleted</th><td>[% project.deleted | html %]</td></tr>
+<tr><th>Deletion Date</th><td>[% project.project_deletion_date | html %]</td></tr>
+<tr><th>Deletion Notes</th><td>[% project.project_deletion_notes | html | html_line_break %]</td></tr>
+[% END %]
+<tr>
+<th>Links</th>
+<td>
+[% FOREACH link IN project.links %]
+<a href='[% link.link_url %]' target='new'>[% link.link_text %]</a><br />
+[% END %]
+</td>
+</tr>
+</table>
+
+<script>
+$("#show_project_requirements").click(function () {
+  $("#project_requirements").toggle()
+  $("#show_project_requirements").toggle()
+  $("#hide_project_requirements").toggle()
+});
+$("#hide_project_requirements").click(function () {
+  $("#project_requirements").toggle()
+  $("#show_project_requirements").toggle()
+  $("#hide_project_requirements").toggle()
+});
+</script>
+

@@ -1,0 +1,71 @@
+
+[% INCLUDE project/menu.tt %]
+[% INCLUDE project/options.tt %]
+
+<h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
+
+<table class='sortable'>
+<caption>Project Time by Day by Person</caption>
+<tr><th>Date of Work</th><th>Person</th><th>Time on Project</th></tr>
+[% FOREACH person IN person_time.keys %]
+[% FOREACH day IN person_time.$person.keys %]
+<tr>
+<td>[% day %]</td>
+<td>[% person_time.$person.$day.user_full_name %]</td>
+<td>[% person_time.$person.$day.total_time div 60 %] Hrs, [% person_time.$person.$day.total_time mod 60 %] Mins</td></tr>
+[% END %]
+[% END %]
+</table>
+
+[% IF task_type == "all" || task_type == 'active' %]
+<span>
+<table class='sortable'>
+<caption>Active Tasks</caption>
+<tr><th>ID</th><th>Order</th><th>Status</th><th>Task Name</th><th>Priority</th><th>Assigned To</th><th>Last Activity</th><th>Scheduled<br />Start<br />Date</th><th>Actual<br />Start<br />Date</th><th>Diff (Days)</th><th>Scheduled<br />Completion<br />Date</th></tr>
+[% FOREACH task IN active_tasks %]
+<tr>
+<td>[% task.task_id %]</td>
+<td>[% task.task_order %]</td>
+<td>[% task.status.name %]</td>
+<td><a href="/task/task_with_comments/[% task.task_id %]">[% task.task_name %]</a></td>
+<td>[% task.task_priority%]</td>
+<td><a href="/user/details/[% task.task_owner_id %]">[% task.owner.full_name %]</a></td>
+<td>[% task.task_last_modified %]</td>
+<td>[% IF task.task_sched_start_date != '0000-00-00' %][% task.task_sched_start_date %][% END %]</td>
+<td>[% IF task.task_actual_start_date != '0000-00-00' %][% task.task_actual_start_date %][% END %]</td>
+<td class='table_integer'>[% task.task_start_date_diff %]</td>
+<td>[% IF task.task_sched_compl_date != '0000-00-00' %][% task.task_sched_compl_date %][% END %]</td>
+</tr>
+[% END %]
+</table>
+</span>
+<br />
+[% END %]
+
+[% IF task_type == "all" || task_type == 'complete' %]
+<span>
+<table class='sortable'>
+<caption>Completed Tasks</caption>
+<tr><th>ID</th><th>Order</th><th>Task Name</th><th>Priority</th><th>Owner</th><th>Scheduled<br />Start<br />Date</th><th>Actual<br />Start<br />Date</th><th>Diff (Days)</th><th>Scheduled<br />Completion<br />Date</th><th>Actual<br />Completion<br />Date</th><th>Diff (Days)</th></tr>
+[% FOREACH task IN complete_tasks %]
+<tr>
+<td>[% task.task_id %]</td>
+<td>[% task.task_order %]</td>
+<td><a href="/task/task_with_comments/[% task.task_id %]">[% task.task_name %]</a></td>
+<td>[% task.task_priority%]</td>
+<td>[% task.owner.full_name %]</td>
+<td>[% IF task.task_sched_start_date != '0000-00-00' %][% task.task_sched_start_date %][% END %]</td>
+<td>[% IF task.task_actual_start_date != '0000-00-00' %][% task.task_actual_start_date %][% END %]</td>
+<td class='table_integer'>[% task.task_start_date_diff %]</td>
+<td>[% IF task.task_sched_compl_date != '0000-00-00' %][% task.task_sched_compl_date %][% END %]</td>
+<td>[% IF task.task_actual_compl_date != '0000-00-00' %][% task.task_actual_compl_date %][% END %]</td>
+<td class='table_integer'>[% task.task_compl_date_diff %]</td>
+</tr>
+[% END %]
+</table>
+</span>
+<br />
+[% END %]
+<br />
+
+

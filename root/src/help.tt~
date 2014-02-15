@@ -1,0 +1,48 @@
+[% META title = 'ProjectTaskToDo:Help' %]
+
+[% IF Catalyst.user %]
+	[% INCLUDE authenticated_navbar.tt %]
+[% ELSE %]
+	[% INCLUDE unauthenticated_navbar.tt %]
+[% END %]
+
+<center><h2>Help is very incomplete.  More help will be added as work progresses.</h2></center>
+<h2>How It Works</h2>
+<p>Coming Soon!</p>
+
+<br />
+
+<h2>Client System Requirements</h2>
+<ul>
+<li>Browser Cookies</li>
+<li>JavaScript</li>
+</ul>
+
+<h2>General Notes</h2>
+<ul>
+<li>User session defaults to four (4) hours.</li>
+<li>Most tables with horizontal headers are sortable.  Simply click the header to sort by that column.  Click again to reverse the sort.</li>
+<li>Start dates default to date of first note / time worked if none manually entered. if no note / time worked the start dates default to datetime marked complete or deleted</li>
+<li>Completion dates default to datetime task /project is marked complete if none manually entered</li>
+<li>Comments are not modifiable</li>
+<li>Person adding comment and datetime of comment are recorded</li>
+</ul>
+
+<h2>Project-related Notes</h2>
+<ul>
+<li>Project ownership defaults to the user creating the project if no other user is selected on the creation page.</li>
+<li>Project comments can not be edited.</li>
+<li>A project are visible to the people assigned to that project.</li>
+<li>All people on a project can make comments on that project.</li>
+</ul>
+
+<h2>Task-related Notes</h2>
+<ul>
+<li>All tasks need an owning project.  (A future version will not have this restriction.)</li>
+<li>All tasks have an owner, which defaults to the creator if none is assigned.</li>
+<li>Tasks are visible to all users on a project.</li>
+<li>Tasks are editable by the task owner and creator.</li>
+<li>All project users can make comments and enter time worked on a project's tasks.</li>
+</ul>
+
+

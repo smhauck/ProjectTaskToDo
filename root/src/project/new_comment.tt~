@@ -1,0 +1,14 @@
+
+[% INCLUDE project/menu.tt %]
+[% INCLUDE project/options.tt %]
+
+[% INCLUDE project/project_details.tt %]
+
+<br />
+<form action='/project/insert_comment' method='post'>
+Enter Comment<br />
+<textarea rows='20' cols='80' name='comment'></textarea><br />
+<input type='hidden' name='project_id' value="[% pid %]"/>
+<input type='submit' value='Submit'>
+<input type='reset' value='Clear'><br />
+</form>

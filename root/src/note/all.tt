@@ -1,0 +1,52 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% INCLUDE note/menu.tt %]
+
+<table border='0'>
+<tr>
+<th align='right'>date</th>
+<th align='right'>creator</th>
+<th align='right'>jobcode</th>
+<th align='right'>project</th>
+<th align='right'>task</th>
+<th align='right'>title</th>
+<!-- <th align='right'>privacy</th> -->
+</tr>
+[% FOREACH note IN notes %]
+<tr>
+[% IF note.date_selected && note.date_selected != '0000-00-00' %]
+<td>[% note.date_selected %]</td>
+[% ELSE %]
+<td></td>
+[% END %]
+<td><a href='/person/[% note.creator_id %]'>[% note.creator.full_name %]</a></td>
+<td><a href='/project/[% note.project_id %]'>[% note.project.project_short_name | html %]</a></td>
+<td><a href='/project/[% note.project_id %]'>[% note.project.project_name | html %]</a></td>
+<td><a href='/task/[% note.task_id %]'>[% note.task.task_name | html %]</a></td>
+<td><a href='/note/[% note.id %]'>[% note.title | html %]</a></td>
+[% IF note.public %]
+<!-- <td>PUBLIC</td> -->
+[% ELSE %]
+<!-- <td>PRIVATE</td> -->
+[% END %]
+</tr>
+[% END %]
+</table>

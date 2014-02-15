@@ -1,0 +1,14 @@
+[% META title = 'TaskMaster:Task Comment Details' %]
+
+[% INCLUDE task/menu.tt %]
+
+<div class="option">
+[% IF authorized %]
+<a href="/task/edit/[% task.id %]">Edit Task</a><br />
+[% END %]
+<br />
+<a href="/task/new_comment/[% task.id %]">Add Time Worked / Comments</a><br />
+<a href="/task/task_with_comments/[% task.id %]">View Time Worked / Comments ([% num_comments %])</a><br />
+</div>
+
+[% INCLUDE task/task_details.tt %]

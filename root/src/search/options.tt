@@ -1,0 +1,58 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% IF REMOVE_THESE_OPTIONS_authorized %]
+<div class="option">
+[% IF authorized %]
+<a href="/project/[% project.project_id %]/edit">Edit This Project</a><br />
+<a href="/project/[% project.project_id %]/edit_client">Change Project Client</a><br />
+<a href="/project/[% project.project_id %]/edit_client_contact">Change Project Client Contact</a><br />
+<a href="/project/[% project.project_id %]/edit_status">Change Project Status</a><br />
+[% END %]
+<br />
+<a href="/project/[% project.project_id %]/new_comment">Add Project Comment</a><br />
+<a href="/project/[% project.project_id %]/comments">View Project Comments ([% num_comments %])</a><br />
+<br />
+<a href="/project/[% project.project_id %]">View Only Project Details</a><br />
+<a href="/project/[% project.project_id %]/tasks/active">View Active Project Tasks ([% num_active_tasks %])</a><br />
+<a href="/project/[% project.project_id %]/tasks/complete">View Completed Project Tasks ([% num_complete_tasks %])</a><br />
+<a href="/project/[% project.project_id %]/tasks/all">View All Project Tasks ([% num_tasks %])</a><br />
+<a href="/project/[% project.project_id %]/plan">View As Project Plan</a><br />
+<a href="/project/[% project.project_id %]/order_tasks">Order Tasks in Project Plan</a><br />
+<br />
+<a href="/project/[% project.project_id %]/view_users">View Project Users</a><br />
+[% IF authorized -%]
+<br />
+<!--
+<a href="/project/[% project.project_id %]/order_tasks">Edit Task Order</a><br />
+-->
+[% END -%]
+<br />
+<a href="/project/[% project.project_id %]/content">View Project Files</a><br />
+<br />
+[% IF authorized %]
+<a href="/task/new_task/[% project.project_id %]">Add Project Task</a><br />
+[% END %]
+<br />
+<h3>Project Reports</h3>
+<a href="/project/[% project.project_id %]/time_by_person">Overall Project Time By Person</a><br />
+<a href="/project/[% project.project_id %]/time_by_day_by_person">Project Time By Day By Person</a><br />
+</div>
+[% END %]

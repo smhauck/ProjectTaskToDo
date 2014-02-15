@@ -1,0 +1,11 @@
+
+[% INCLUDE project/menu.tt %]
+[% INCLUDE project/options.tt %]
+
+[% INCLUDE project/project_details.tt %]
+
+<h2>Project Users</h2>
+[% FOREACH puser IN project_users %]
+[% puser.user.full_name %] ([% puser.user.username %])<br />
+[% END %]
+

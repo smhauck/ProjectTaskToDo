@@ -1,0 +1,34 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% INCLUDE project/menu.tt %]
+[% INCLUDE project/options.tt %]
+[% INCLUDE project/project_details.tt %]
+
+<h2>Comments</h2>
+[% FOREACH comment IN comments %]
+<table class='projectcomments'>
+<tr><td width="10%">Person</td><td>[% comment.user.full_name %]</td></tr>
+<tr><td>Recorded</td><td>[% comment.recorded %]</td></tr>
+<tr><td>Comment</td><td>[% comment.comment | html | html_line_break %]</td></tr>
+<tr><td colspan='2'><a href='/project/[% project.project_id %]/edit_comment/[% comment.comment_id %]'>Edit Comment</a></td></tr>
+</table>
+<br />
+[% END %]

@@ -1,0 +1,6 @@
+
+<div class="option">
+<a href="/person/[% person.id %]/edit">Edit Account</a><br />
+<br />
+</div>
+

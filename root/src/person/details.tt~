@@ -1,0 +1,11 @@
+[% INCLUDE person/menu.tt %]
+
+[% INCLUDE person/options.tt %]
+
+[% INCLUDE person/person_details.tt %]
+
+[% IF authorized %]
+<a href='/person/[% person.id %]/edit'>Edit this Person</a><br />
+<a href='/person/[% person.id %]/edit_roles'>Edit Person's Roles</a><br />
+[% END %]
+<br />

@@ -1,0 +1,37 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% INCLUDE task/menu.tt %]
+[% INCLUDE task/search_box.tt %]
+
+<h3>Search results for: [% criteria %]</h3>
+<table class="sortable" border='0'>
+<tr><th>Project</th><th>Task Name</th><th>Task Description</th></tr>
+[% FOREACH task IN tasks %]
+<tr>
+<td><a href="/task/[% task.task_id %]">[% task.task_name %]</a></td>
+<td><a href="/task/task_with_comments/[% task.id %]">[% task.task_name %]</a></td>
+<td>[% task.task_description %]</td>
+</tr>
+[% END -%]
+
+</table>
+<br />
+

@@ -1,0 +1,24 @@
+[% META title = 'ProjectTaskToDo:Task Details' %]
+
+[% INCLUDE task/menu.tt %]
+
+<div class="option">
+[% IF authorized %]
+<a href="/task/edit/[% task.id %]">Edit Task</a><br />
+[% END %]
+<br />
+<a href="/task/new_comment/[% task.id %]">Add Time Worked / Comments</a><br />
+<a href="/task/task_with_comments/[% task.id %]">View Time Worked / Comments ([% num_comments %])</a><br />
+[% IF task.task_status_id != 2 %]
+<form action='/task/complete' method='POST'>
+<input type='hidden' name='task_id' value='[% task.task_id %]' />
+<button type='submit' name='submit'>Mark Complete</button>
+</form>
+<br />
+<a href="/task/new_task/[% task.task_project_id %]">Add Project Task</a><br />
+[% END %]
+<a href='/note?task=[% task.task_id %]'>Add new note for Task</a><br />
+</div>
+
+[% INCLUDE task/task_details.tt %]
+

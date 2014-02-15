@@ -1,0 +1,9 @@
+
+[% INCLUDE authenticated_navbar.tt2 %]
+
+<table>
+<tr><th>Priority</th><th>SchedStartDate</th><th>Task Name</th></tr>
+[% FOREACH task IN tasks -%]
+<tr><td>[% task.priority%]</td><td>[% task.schedStartDate %]</td><td>[% task.name %]</td></tr>
+[% END -%]
+</table>

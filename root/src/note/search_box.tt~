@@ -1,0 +1,51 @@
+
+
+<script type="text/javascript">
+$(function() {
+	$('.ui-datepicker').datepicker({dateFormat: 'yy-mm-dd', changeMonth: true, changeYear: true});
+});
+</script>
+
+
+
+<!-- pagetitle============START -->
+<div id="pagetitle">
+
+	<div class="but_nextprevious">
+		[% IF page > 1 %]<a href="[% uri %]?rows=[% rows %]&page=[% page - 1 %]&[% url_params %]"><img src="/static/images/but_previous.gif" alt="Previous" onmouseover="this.src = '/static/images/but_previous_over.gif'" onmouseout="this.src = '/static/images/but_previous.gif'" border="0"/></a>[% END %][% IF page > 1 && project_count >= rows %]<img src="/static/images/divider_next.gif" class="but_nextpreviousdivider"/>[% END %][% IF project_count >= rows %]<a href="[% uri %]?rows=[% rows %]&page=[% page + 1 %]&[% url_params %]"><img src="/static/images/but_next.gif" alt="Next" onmouseover="this.src = '/static/images/but_next_over.gif'" onmouseout="this.src = '/static/images/but_next.gif'" border="0"/></a>[% END %]
+	</div>
+
+	<h1>Search Notes</h1>
+</div>
+<!-- pagetitle============END -->
+
+<div id="content_top">
+
+<form class="search_box" action="/note/search" method="post">
+
+<table id="table_search">
+
+<tr><td>Note Date Range:</td><td>From: 
+<input class="ui-datepicker" name="date_start" type="text">
+To:
+<input class="ui-datepicker" name="date_end" type="text"></td></tr>
+
+<tr>
+
+<td>Note Title:</td>
+<td><input name="title" type="text"></td>
+
+</tr>
+
+<tr>
+
+<td>Note Body:</td>
+<td><input name="body" type="text"></td>
+
+</tr>
+
+<tr><td></td><td><input type="submit" name="Search" value="Search" /></td></tr>
+
+</table>
+</form>
+

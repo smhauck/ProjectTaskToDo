@@ -1,0 +1,128 @@
+
+[% INCLUDE project/menu.tt %]
+[% INCLUDE project/options.tt %]
+
+<script type="text/javascript">
+$(function() {
+	$(".ui-datepicker").datepicker({dateFormat: "yy-mm-dd"});
+});
+</script>
+
+<form name="edit" action="/project/update" method="post">
+<input type="hidden" name="project_id" value="[% project.project_id %]" />
+<table border="0">
+<tr>
+<th>category</th>
+<td>
+<select name="category_id" size="1">
+[% FOR cat IN cats %]
+[% IF project.category_id == cat.id %]
+<option selected value="[% cat.id %]">[% cat.name %]
+[% ELSE %]
+<option value="[% cat.id %]">[% cat.name %]
+[% END %]
+[% END %]
+</td>
+</tr>
+<tr>
+<th>billable</th>
+[% IF project.billable == 1 %]
+<td><input type="checkbox" name="billable" value="1" checked="1" /></td>
+[% ELSE %]
+<td><input type="checkbox" name="billable" value="1" /></td>
+[% END %]
+</tr>
+<tr>
+<th>short name</th>
+<td><input type="text" name="short_name" value="[% project.project_short_name %]" size="60"></td>
+</tr>
+<tr>
+<th>name</th>
+<td><input type="text" name="name" value="[% project.project_name | html %]" size="60"></td>
+</tr>
+<tr>
+<th>owner</th>
+<td>
+<select name="owner_id" size="1">
+[% FOR user IN users %]
+[% IF project.project_owner_id == user.id %]
+<option selected value="[% user.id %]">[% user.full_name %]
+[% ELSE %]
+<option value="[% user.id %]">[% user.full_name %]
+[% END %]
+[% END %]
+</select>
+</td>
+</tr>
+<tr>
+<th>description</th>
+<td><textarea rows="10" cols="100" name="description">[% project.project_description %]</textarea></td>
+</tr>
+<tr>
+<th>requirements</th>
+<td><textarea rows="10" cols="100" name="requirements_text">[% project.project_requirements_text %]</textarea></td>
+</tr>
+<tr>
+<th>sched. start date<br />format: yyyy-mm-dd</th>
+[% IF project.project_sched_start_date && project.project_sched_start_date != "0000-00-00" %]
+<td><input type="text" class="ui-datepicker" name="sched_start_date" value="[% project.project_sched_start_date %]" size="60">
+[% ELSE %]
+<td><input type="text" class="ui-datepicker" name="sched_start_date" value="" size="60">
+[% END %]
+</td>
+</tr>
+<tr>
+<th>actual start date<br />format: yyyy-mm-dd</th>
+[% IF project.project_actual_start_date && project.project_actual_start_date != "0000-00-00" %]
+	<td><input type="text" class="ui-datepicker" name="actual_start_date" value="[% project.project_actual_start_date %]" size="60">
+[% ELSE %]
+	<td><input type="text" class="ui-datepicker" name="actual_start_date" value="" size="60">
+[% END %]
+</td>
+</tr>
+<tr>
+<th>sched. completion date<br />format: yyyy-mm-dd</th>
+[% IF project.project_sched_compl_date && project.project_sched_compl_date != "0000-00-00" %]
+	<td><input type="text" class="ui-datepicker" name="sched_compl_date" value="[% project.project_sched_compl_date %]" size="60">
+[% ELSE %]
+	<td><input type="text" class="ui-datepicker" name="sched_compl_date" value="" size="60">
+[% END %]
+</td>
+</tr>
+<tr>
+<th>actual completion date<br />format: yyyy-mm-dd</th>
+[% IF project.project_actual_compl_date && project.project_actual_compl_date != "0000-00-00" %]
+	<td><input type="text" class="ui-datepicker" name="actual_compl_date" value="[% project.project_actual_compl_date %]" size="60">
+[% ELSE %]
+	<td><input type="text" class="ui-datepicker" name="actual_compl_date" value="" size="60">
+[% END %]
+</td>
+</tr>
+<tr>
+<th>scheduled go live date<br />format: yyyy-mm-dd</th>
+[% IF project.sched_go_live_date && project.sched_go_live_date != "0000-00-00" %]
+	<td><input type="text" class="ui-datepicker" name="sched_go_live_date" value="[% project.sched_go_live_date %]" size="60">
+[% ELSE %]
+	<td><input type="text" class="ui-datepicker" name="sched_go_live_date" value="" size="60">
+[% END %]
+</td>
+</tr>
+<tr>
+<th>actual go live date<br />format: yyyy-mm-dd</th>
+[% IF project.actual_go_live_date && project.actual_go_live_date != "0000-00-00" %]
+	<td><input type="text" class="ui-datepicker" name="actual_go_live_date" value="[% project.actual_go_live_date %]" size="60">
+[% ELSE %]
+	<td><input type="text" class="ui-datepicker" name="actual_go_live_date" value="" size="60">
+[% END %]
+</td>
+</tr>
+<tr>
+<th>allocated hours</th>
+<td><input type="text" name="allocated_hours" value="[% project.allocated_hours %]" size="60"></td>
+</tr>
+<tr>
+<td align="right"><input type="reset" value="Reset"></td>
+<td align="right"><input type="submit" value="Update"></td>
+</tr>
+</table>
+</form>

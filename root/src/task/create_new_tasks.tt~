@@ -1,0 +1,65 @@
+[% META title = 'ProjectTaskToDo:New Task' %]
+
+[% INCLUDE task/menu.tt %]
+
+<script type="text/javascript">
+$(function() {
+	$('.ui-datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+});
+</script>
+
+<form name="new_task" action="/project/insert_task" method='post'>
+<table>
+<tr>
+<th>name:</td>
+<!-- <th>project:</th> -->
+<th>description:</th>
+<th>scheduled start date:</th>
+<th>scheduled completion date:</th>
+<th>duration:</th>
+<th>owner:</th>
+</tr>
+[% line_number = 1 %]
+[% WHILE line_number < 11 %]
+<tr>
+<td><input type='text' name='entry_[% line_number %]-name' size='30' /></td>
+<!--
+<td>
+<select name='entry_[% line_number %]-project_id' size='1'>
+[% FOR project IN projects %]
+<option value="[% project.project_id %]">[% project.project_name %]
+[% END %]
+</select>
+</td>
+-->
+<td><textarea rows='1' cols='40' name='entry_[% line_number %]-description'></textarea></td>
+<td>
+<input type='text' class='ui-datepicker' name='entry_[% line_number %]-sched_start_date' size='10' />
+</td>
+<td><input type='text' class='ui-datepicker' name='entry_[% line_number %]-sched_compl_date' size='10' />
+</td>
+<td><input type='text' name='entry_[% line_number %]-duration' size='3' /></td>
+<td>
+<select name='entry_[% line_number %]-owner_id' size='1'>
+<option value="">
+[% FOR p_u IN project_users %]
+<option value="[% p_u.project_user_user_id %]">[% p_u.user.full_name %]
+[% END %]
+</select>
+</td>
+</tr>
+[% line_number = line_number + 1 %]
+[% END %]
+</table>
+<input type='submit' value='Create'>
+</form>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var $inputTxt = $('#name');
+	if ($inputTxt.val() =='') {
+		$inputTxt.focus();
+	}
+});
+</script>

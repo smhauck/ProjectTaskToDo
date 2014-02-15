@@ -1,0 +1,216 @@
+[% META title = 'ProjectTaskToDo:New Task' %]
+
+<script type="text/javascript">
+	$(function() {
+		$("#the_user_id").autocomplete({
+			minLength: 2,
+			source: "/person/name_lookup"
+		});
+	});
+</script>
+
+
+
+[% INCLUDE allocation/menu.tt %]
+
+<script type="text/javascript">
+$(function() {
+	$('.ui-datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+});
+</script>
+
+<form name="new_allocation" action="/allocation/insert_allocation" method='post'>
+<table>
+<tr>
+<th>Person:</td>
+<td><input id='person_email' type='text' name='person_email' size='60' /></td>
+</tr>
+<tr>
+<th>on project plan?</th>
+<td><input type='checkbox' name='on_project_plan' value='1' /></td>
+</tr>
+<tr>
+<th>status:</th>
+<td><select name='status_id' size='1'>
+[% FOR task_status IN task_statuses %]
+<option value="[% task_status.id %]">[% task_status.name %]
+[% END %]
+</select>
+</td>
+</tr>
+<tr>
+<th>priority: (1 High, 10 Low)</th>
+<td>
+<select name='priority' size='1'>
+<option value="1">1
+<option value="2">2
+<option value="3">3
+<option value="4">4
+<option selected value="5">5
+<option value="6">6
+<option value="7">7
+<option value="8">8
+<option value="9">9
+<option value="10">10
+</select>
+</td>
+</tr>
+<tr>
+<th>owner:</th>
+<td><select name='owner_id' size='1'>
+<option value="">
+[% FOR p_u IN project_users %]
+<option value="[% p_u.project_user_user_id %]">[% p_u.user.full_name %]
+[% END %]
+</select>
+</td>
+</tr>
+<tr>
+<th>project:</th>
+<td>
+<select name='project_id' size='1'>
+[% FOR project IN projects %]
+<option value="[% project.project_id %]">[% project.project_short_name %] : [% project.project_name %]
+[% END %]
+</select>
+</td>
+</tr>
+<tr>
+<th>description:</th>
+<td><textarea rows='10' cols='100' name='description'></textarea></td>
+</tr>
+<tr>
+<th>scheduled start date:</th>
+<td>
+<input type='text' class='ui-datepicker' name='sched_start_date' size='60' />
+</td>
+</tr>
+<tr>
+<th>actual start date:</th>
+<td><input type='text' class='ui-datepicker' name='actual_start_date' size='60' />
+</td>
+</tr>
+<tr>
+<th>scheduled completion date:</th>
+<td><input type='text' class='ui-datepicker' name='sched_compl_date' size='60' />
+</td>
+</tr>
+<tr>
+<th>actual completion date:</th>
+<td><input type='text' class='ui-datepicker' name='actual_compl_date' size='60' />
+</td>
+</tr>
+<tr>
+<th>duration:</th>
+<td><input type='text' name='duration' size='60' /></td>
+</tr>
+<tr>
+<th>complete (y/n)</th>
+<td>
+[% IF task.complete == 'y' %]
+<input type="checkbox" name="complete" value='y' checked='y' />
+[% ELSE %]
+<input type="checkbox" name="complete" value='y' />
+[% END %]
+</td>
+</tr>
+<tr>
+<td></td><td align='right'><input type='submit' value='Create'></td>
+</tr>
+</table>
+</form>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var $inputTxt = $('#name');
+	if ($inputTxt.val() =='') {
+		$inputTxt.focus();
+	}
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[% INCLUDE project/menu.tt %]
+[% INCLUDE project/options.tt %]
+
+[% IF authorized %]
+<h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %] <a href="/project/[% project.id %]/edit">(Edit Project)</a></h1>
+[% ELSE %]
+<h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
+[% END %]
+
+
+[% IF authorized %]
+<h2>Project Users</h2>
+<table>
+<tr><th>Person</th><th>Role in Project</th><th></th></tr>
+[% FOREACH puser IN project_users %]
+<tr>
+<td>[% puser.user.full_name %] ([% puser.user.username %])</td><td>[% puser.role.display_name %]</td>
+<td>
+<form action="/project/[% project.project_id %]/remove_resource/[% puser.project_user_id %]" method="POST">
+<input type="submit" name="Remove Resource" value="Remove Reource" />
+</form>
+</td>
+</tr>
+[% END %]
+</table>
+<br />
+[% ELSE %]
+<h2>Project Users</h2>
+<table>
+<tr><th>Person</th><th>Role in Project</th></tr>
+[% FOREACH puser IN project_users %]
+<tr><td>[% puser.user.full_name %] ([% puser.user.username %])</td><td>[% puser.role.display_name %]</td></tr>
+[% END %]
+</table>
+<br />
+[% END %]
+
+
+[% IF authorized %]
+<h2>Assign Resources</h2>
+<form name="edit_users" action="/project/[% project.project_id %]/insert_resource" method="post">
+<table id='table_vertical' width="100%">
+<tr>
+<th>Role</th>
+<td>
+<select name='project_role_type_id'>
+<option value="" />
+[% FOR project_role IN project_roles -%]
+<option value="[% project_role.id %]">[% project_role.display_name %]
+[% END -%]
+</select>
+</td>
+</tr>
+<tr>
+<th>Person</th>
+<td>
+<input class="ui-autocomplete-input" id="the_user_id" name="the_user_id" />
+</td>
+</tr>
+<tr>
+<td></td>
+<td><input type="submit" name="Submit" value="Submit" /></td>
+</tr>
+</table>
+<br clear="all" />
+</form>
+[% END %]
+
+

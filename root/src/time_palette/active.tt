@@ -1,0 +1,41 @@
+
+[% INCLUDE project/menu.tt %]
+
+[% linecount = 0 %]
+<table class='sortable'>
+<tr>
+	<th>Category</th>
+	<th>Job Code</th>
+	<th>Billable</th>
+	<th>Project Name</th>
+	<th>Owner</th>
+	<th>Client Org</th>
+	<th>Client</th>
+	<th>Client Contact</th>
+	<th>Sched Completion Date</th>
+</tr>
+[% FOREACH tpp IN tpps %]
+[% linecount = linecount + 1 %]
+<tr>
+<td>[% tpp.project.category.name %]</td>
+<td><a href="/project/[% tpp.project.project_id %]">[% tpp.project_short_name %]</a></td>
+[% IF tp.project.billable == 1 %]
+<td>Yes</td>
+[% ELSE %]
+<td>No</td>
+[% END %]
+<td><a href="/project/[% tpp.project.project_id %]/tasks/active">[% tpp.project.project_name %]</a></td>
+<td><a href="/person/[% tpp.project.project_owner_id %]">[% tpp.project.owner.full_name %]</a></td>
+<td><a href="/organization/[% tpp.project.client_organization_id %]">[% tpp.project.client_organization_name %]</td>
+<td><a href="/person/[% tpp.project.client_person_id %]">[% tpp.project.client_person_name %]</td>
+<td><a href="/person/[% tpp.project.client_contact_person_id %]">[% tpp.project.client_contact_person_name %]</td>
+[% IF tpp.project.project_sched_compl_date && tpp.project.project_sched_compl_date != '0000-00-00' %]
+<td>[% tpp.project.project_sched_compl_date %]</td>
+[% ELSE %]
+<td></td>
+[% END %]
+</tr>
+[% END %]
+</table>
+
+Count: [% linecount %]

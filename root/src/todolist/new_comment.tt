@@ -1,0 +1,12 @@
+[% META title = 'ProjectTaskToDo:New Project Comment' %]
+
+[% INCLUDE authenticated_navbar.tt %]
+
+<strong>Project: [% project.project_name %]</strong><br />
+<form action='/project/insert_comment' method='post'>
+Enter Comment<br />
+<textarea rows='4' cols='80' name='comment'></textarea><br />
+<input type='hidden' name='project_id' value="[% pid %]"/>
+<input type='submit' value='Submit'>
+<input type='reset' value='Clear'><br />
+</form>

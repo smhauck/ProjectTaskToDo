@@ -1,0 +1,35 @@
+[% META title = 'ProjectTaskToDo:New Task Comment' %]
+
+[% INCLUDE task/menu.tt %]
+
+<script type="text/javascript">
+$(function() {
+	$('.ui-datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+});
+</script>
+
+<p>Task Name: <strong>[% task.task_name %]</strong></p>
+<form name="new_comment" action='/task/insert_comment' method='post'>
+Enter Comment (Warning: Comments are not editable once submitted!)<br />
+<textarea rows='10' cols='100' name='comment'></textarea><br />
+Comment Type: <select name='type' size='1'>
+[% FOR comment_type IN comment_types %]
+<option value="[% comment_type.task_comment_type_id %]" />[% comment_type.task_comment_type_name %]
+[% END %]
+</select>
+<br />
+Time Worked:
+Hours: <input type='text' name='time_worked_hours' />
+Minutes: <input type='text' name='time_worked_minutes' />
+<br />
+Billable: <input type='checkbox' name='billable' value='1' />
+<br />
+Date of Time Worked:
+<br />
+<input type='text' class="ui-datepicker" name='date_of_work' />
+<br />
+<br />
+<input type="hidden" name="task_id" value="[% tid %]" />
+<input type="submit" name="Submit" value="Submit" />
+</form>
+

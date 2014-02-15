@@ -1,0 +1,126 @@
+[% META title = "TaskMaster:Edit Project" %]
+
+[% INCLUDE authenticated_navbar.tt %]
+
+        <SCRIPT LANGUAGE="JavaScript">
+        var cal = new CalendarPopup();
+        cal.showYYearNavigation();
+        </SCRIPT>
+
+<form name="edit" action="/project/update" method="post">
+<input type="hidden" name="project_id" value="[% project.project_id %]" />
+<table border="0">
+<tr>
+<td align="right"><strong>short name</strong></td>
+<td><input type="text" name="short_name" value="[% project.project_short_name %]" size="60"></td>
+</tr>
+<tr>
+<td align="right"><strong>name</strong></td>
+<td><input type="text" name="name" value="[% project.project_name | html %]" size="60"></td>
+</tr>
+<tr>
+<td align="right"><strong>owner</strong></td>
+<td>
+<select name="owner_id" size="1">
+[% FOR user IN users %]
+[% IF project.project_owner_id == user.id %]
+<option selected value="[% user.id %]">[% user.full_name %]
+[% ELSE %]
+<option value="[% user.id %]">[% user.full_name %]
+[% END %]
+[% END %]
+</td>
+</tr>
+<tr>
+<td align="right"><strong>description</strong></td>
+<td><textarea rows="25" cols="100" name="description">[% project.project_description %]</textarea></td>
+</tr>
+<tr>
+<td align="right"><strong>requirements</strong></td>
+<td><textarea rows="25" cols="100" name="requirements_text">[% project.project_requirements_text %]</textarea></td>
+</tr>
+<tr>
+<td align="right"><strong>sched. start date</strong><br />format: yyyy-mm-dd</td>
+[% IF project.project_sched_start_date && project.project_sched_start_date != '0000-00-00' %]
+<td><input type="text" name="sched_start_date" value="[% project.project_sched_start_date %]" size="60">
+[% ELSE %]
+<td><input type="text" name="sched_start_date" value="" size="60">
+[% END %]
+<A HREF="#" onClick="cal.select(document.forms['edit'].sched_start_date,'anchor1','yyyy-MM-dd'); return false;" NAME="anchor1" ID="anchor1"><img src="http://lily.my.org/images/date.png" alt="Pick Date" border='0' /></A>
+</td>
+</tr>
+<tr>
+<td align="right"><strong>actual start date</strong><br />format: yyyy-mm-dd</td>
+[% IF project.project_actual_start_date && project.project_actual_start_date != '0000-00-00' %]
+	<td><input type="text" name="actual_start_date" value="[% project.project_actual_start_date %]" size="60">
+[% ELSE %]
+	<td><input type="text" name="actual_start_date" value="" size="60">
+[% END %]
+<A HREF="#" onClick="cal.select(document.forms['edit'].actual_start_date,'anchor2','yyyy-MM-dd'); return false;" NAME="anchor2" ID="anchor2"><img src="http://lily.my.org/images/date.png" alt="Pick Date" border='0' /></A>
+</td>
+</tr>
+<tr>
+<td align="right"><strong>sched. completion date</strong><br />format: yyyy-mm-dd</td>
+[% IF project.project_sched_compl_date && project.project_sched_compl_date != '0000-00-00' %]
+	<td><input type="text" name="sched_compl_date" value="[% project.project_sched_compl_date %]" size="60">
+[% ELSE %]
+	<td><input type="text" name="sched_compl_date" value="" size="60">
+[% END %]
+<A HREF="#" onClick="cal.select(document.forms['edit'].sched_compl_date,'anchor3','yyyy-MM-dd'); return false;" NAME="anchor3" ID="anchor3"><img src="http://lily.my.org/images/date.png" alt="Pick Date" border='0' /></A>
+</td>
+</tr>
+<tr>
+<td align="right"><strong>actual completion date</strong><br />format: yyyy-mm-dd</td>
+[% IF project.project_actual_compl_date && project.project_actual_compl_date != '0000-00-00' %]
+	<td><input type="text" name="actual_compl_date" value="[% project.project_actual_compl_date %]" size="60">
+[% ELSE %]
+	<td><input type="text" name="actual_compl_date" value="" size="60">
+[% END %]
+<A HREF="#" onClick="cal.select(document.forms['edit'].actual_compl_date,'anchor4','yyyy-MM-dd'); return false;" NAME="anchor4" ID="anchor4"><img src="http://lily.my.org/images/date.png" alt="Pick Date" border='0' /></A>
+</td>
+</tr>
+<tr>
+<td align="right"><strong>complete (y/n)</strong></td>
+<td>
+[% IF project.project_complete == 'y' %]
+	<input type="checkbox" name="complete" value='y' checked='y' />
+[% ELSE %]
+	<input type="checkbox" name="complete" value='y' />
+[% END %]
+</td>
+</tr>
+<tr>
+<td align="right"><strong>completion notes</strong></td>
+<td><textarea rows="25" cols="100" name="completion_notes">[% project.project_completion_notes %]</textarea></td>
+</tr>
+<tr>
+<td align="right"><strong>deleted (y/n)</strong></td>
+<td>
+[% IF project.deleted == 'y' %]
+<input type="checkbox" name="deleted" value='y' checked='y' />
+[% ELSE %]
+<input type="checkbox" name="deleted" value='y' />
+[% END %]
+</td>
+</tr>
+<tr>
+<td align="right"><strong>deletion date</strong></td>
+[% IF project.project_deletion_date && project.project_deletion_date != '0000-00-00' %]
+	<td><input type="text" name="deletion_date" value="[% project.project_deletion_date %]" size="60" />
+[% ELSE %]
+	<td><input type="text" name="deletion_date" value="" size="60" />
+[% END %]
+<A HREF="#" onClick="cal.select(document.forms['edit'].deletion_date,'anchor5','yyyy-MM-dd'); return false;" NAME="anchor5" ID="anchor5"><img src="http://lily.my.org/images/date.png" alt="Pick Date" border='0' /></A>
+</td>
+</tr>
+<tr>
+<td align="right"><strong>deletion notes</strong></td>
+<td><textarea rows="25" cols="100" name="deletion_notes">[% project.project_deletion_notes %]</textarea></td>
+</tr>
+<tr>
+<td align="right"><input type="reset" value="Reset"></td>
+<td align="right"><input type="submit" value="Update"></td>
+</tr>
+</table>
+</form>
+<div id="caldiv"></div>

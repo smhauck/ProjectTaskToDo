@@ -1,0 +1,44 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% META title = 'ProjectTaskToDo:My Living Tasks' %]
+
+[% INCLUDE task/menu.tt %]
+[% INCLUDE task_search_box.tt %]
+
+<span class="task_count">[% num_tasks %] active tasks</span>
+
+<table class='sortable'>
+<tr><th>Line</th><th>ID</th><th>Priority</th><th>Task Owner</th><th>Scheduled Start Date</th><th>Actual Start Date</th><th>Sched Completion Date</th><th>Project</th><th>Task Name</th></tr>
+[% linecount = 0 %]
+[% FOREACH task IN tasks %]
+[% linecount = linecount + 1 %]
+<tr>
+<td>[% linecount %]</td>
+<td>[% task.id %]</td>
+<td>[% task.priority %]</td>
+<td>[% task.owner.full_name %]</td>
+<td>[% task.sched_start_date %]</td>
+<td>[% task.actual_start_date %]</td>
+<td>[% task.sched_compl_date %]</td>
+<td><a href="/project/details/[% task.project_id %]">[% task.project.short_name %]</td>
+<td><a href="/task/details/[% task.id %]">[% task.name %]</a></td></tr>
+[% END %]
+</table>

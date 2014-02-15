@@ -1,0 +1,60 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% INCLUDE report/menu.tt %]
+[% INCLUDE report/options.tt %]
+
+[% FOREACH person IN person_time.keys -%]
+[%- FOREACH day IN person_time.$person.keys.sort -%]
+[% time_per_person_per_day = 0 %]
+<table class="time_for_person_for_date_range">
+<caption>Work Time by Project & Task for Date Range [% start_date %] - [% end_date %]</caption>
+<thead>
+<tr><th>Date of Work</th><th>Person</th><th>Project Name</th><th>Task</th><th>JobCode</th><th>Time on Project</th></tr>
+</thead>
+<tbody>
+[%- FOREACH project IN person_time.$person.$day.keys -%]
+[%- FOREACH task IN person_time.$person.$day.$project.keys -%]
+<tr>
+<td class="report_td_date">[% day %]</td>
+<td class="report_td_full_name"><a href='/person/[% person %]'>[% person_time.$person.$day.$project.$task.user_full_name %]</a></td>
+<td class="report_td_project_name"><a href='/project/[% project %]/tasks/active'>[% person_time.$person.$day.$project.$task.project_name %]</a></td>
+<td class="report_td_task_name"><a href='/task/task_with_comments/[% task %]'>[% person_time.$person.$day.$project.$task.task_name | html | html_line_break %]</a></td>
+<td class="report_td_project_short_name"><a href='/project/[% project %]'>[% person_time.$person.$day.$project.$task.project_short_name %]</a></td>
+<td class="report_td_time">[% person_time.$person.$day.$project.$task.time_by_project_by_date div 60 %] Hrs, [% person_time.$person.$day.$project.$task.time_by_project_by_date mod 60 %] Mins</td>
+[%- time_per_person_per_day = time_per_person_per_day + person_time.$person.$day.$project.$task.time_by_project_by_date -%]
+</tr>
+[% END -%]
+[%- END -%]
+<tfoot>
+<tr><td>Total</td><td></td><td></td><td></td><td></td><td>[% time_per_person_per_day div 60 %] Hrs, [% time_per_person_per_day mod 60 %] Mins</td></tr>
+</tfoot>
+</tbody>
+</table>
+<br />
+<br />
+[%- END -%]
+<br />
+<br />
+<br />
+[%- END -%]
+
+<h2>Total Time: [% total_time div 60 %] Hrs. [% total_time mod 60 %] Mins.</h2>
+

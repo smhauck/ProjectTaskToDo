@@ -1,0 +1,156 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% INCLUDE note/menu.tt %]
+
+<script type="text/javascript">
+$(function() {
+	$(".ui-datepicker").datepicker({dateFormat: "yy-mm-dd"});
+});
+</script>
+
+<form name="new_note" action="/note/insert_note" method="post">
+<table border="0">
+<tr>
+<th>title</th>
+<td><input type="text" id="title" name="title" size="36" value="[% note.title | html %]"></td>
+</tr>
+<tr>
+<th>client organization</th>
+<td>
+<select name="client_organization_id" size="1">
+	<option value="" />
+[% FOR organization IN organizations %]
+	[% IF note.client_organization_id == organization.id %]
+		<option value="[% organization.id %]" selected="selected" />[% organization.name %]
+	[% ELSE %]
+		<option value="[% organization.id %]" />[% organization.name %]
+	[% END %]
+[% END %]
+</td>
+</tr>
+<tr>
+<th>client person</th>
+<td>
+<select name="client_person_id" size="1">
+	<option value="" />
+[% FOR person IN persons %]
+	[% IF note.client_person_id == person.id %]
+		<option value="[% person.id %]" selected="selected" />[% person.full_name %]
+	[% ELSE %]
+		<option value="[% person.id %]" />[% person.full_name %]
+	[% END %]
+[% END %]
+</td>
+</tr>
+<tr>
+<th>client contact</th>
+<td>
+<select name="client_contact_person_id" size="1">
+	<option value="" />
+[% FOR person IN persons %]
+	[% IF note.client_contact_person_id == person.id %]
+		<option value="[% person.id %]" selected="selected" />[% person.full_name %]
+	[% ELSE %]
+		<option value="[% person.id %]" />[% person.full_name %]
+	[% END %]
+[% END %]
+</td>
+</tr>
+<tr>
+<th>public</th>
+<td><input type="checkbox" name="public" value="1" /></td>
+</tr>
+<tr>
+<th>project</th>
+<td>
+[% IF projects.size == 1 %]
+<select name="project_id" size="1">
+[% FOR project IN projects %]
+		<option value="[% project.project_id %]" selected="selected" />[% project.project_short_name %] : [% project.project_name %]
+[% END %]
+</select>
+[% ELSE %]
+<select name="project_id" size="1">
+	<option value="" />
+[% FOR project IN projects %]
+	[% IF note.project_id == project.project_id %]
+		<option value="[% project.project_id %]" selected="selected" />[% project.project_short_name %] : [% project.project_name %]
+	[% ELSE %]
+		<option value="[% project.project_id %]" />[% project.project_short_name %]: [% project.project_name %]
+	[% END %]
+[% END %]
+</select>
+[% END %]
+</td>
+</tr>
+<tr>
+<th>task</th>
+<td>
+[% IF projects.size == 1 %]
+<select name="task_id" size="1">
+<option value="" selected="selected" />
+[% FOR task IN tasks %]
+		<option value="[% task.task_id %]" />[% task.task_short_name %] : [% task.task_name %]
+[% END %]
+</select>
+[% ELSE %]
+<select name="task_id" size="1">
+<option value="" />
+[% FOR task IN tasks %]
+	[% IF note.task_id == task.task_id %]
+		<option value="[% task.task_id %]" selected="selected" />([% task.project.project_short_name %]) [% task.task_name %]
+	[% ELSE %]
+		<option value="[% task.task_id %]" />([% task.project.project_short_name %]) [% task.task_name %]
+	[% END %]
+[% END %]
+</select>
+[% END %]
+</td>
+</tr>
+<tr>
+<th>date</th>
+[% IF note.date_selected && note.date_selected != "0000-00-00" %]
+<td><input type="text" class="ui-datepicker" name="date_selected" value="[% note.date_selected%]" size="60">
+[% ELSE %]
+<td><input type="text" class="ui-datepicker" name="date_selected" value="" size="60">
+[% END %]
+</td>
+</tr>
+<tr>
+<th><strong>body</th>
+<td><textarea rows="20" cols="100" name="body">[% note.body | html %]</textarea></td>
+</tr>
+<tr>
+<td></td>
+<td align="right"><input type="submit" value="Create"></td>
+</tr>
+</table>
+</form>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var $inputTxt = $("#short_name");
+	if ($inputTxt.val() =="") {
+		$inputTxt.focus();
+	}
+});
+</script>
+

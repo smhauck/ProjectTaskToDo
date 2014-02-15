@@ -1,0 +1,5 @@
+
+[% INCLUDE project/menu.tt %]
+[% INCLUDE project/options.tt %]
+
+[% INCLUDE project/project_details.tt %]

@@ -1,0 +1,11 @@
+<span class="userlabel" id="sitetitle"><a href='/'>projecttasktodo</a> * <a href='/login'>login</a></span>
+
+<div class="navBar">
+<a href='/'>home</a> * 
+<a href='/login'>login</a> * 
+<a href='/new_user'>register</a> * 
+<a href='/about'>about projecttasktodo</a> * 
+<a href='/help'>help</a>
+<hr width='100%' />
+</div>
+

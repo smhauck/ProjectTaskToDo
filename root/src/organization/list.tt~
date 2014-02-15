@@ -1,0 +1,2 @@
+[% INCLUDE organization/menu.tt %]
+[% INCLUDE organization/organization_list.tt %]

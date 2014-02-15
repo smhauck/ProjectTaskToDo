@@ -1,0 +1,10 @@
+
+<table>
+<tr><td align='right'><strong>Username:</strong></td><td>[% user.username %]</td></tr>
+<tr><td align='right'><strong>Full Name:</strong></td><td>[% user.full_name %]</td></tr>
+<tr><td align='right'><strong>Email Address:</strong></td><td>[% user.contact_email %]</td></tr>
+<tr><td align='right'><strong>Phone:</strong></td><td>[% user.phone %]</td></tr>
+<tr><td align='right'><strong>Registered:</strong></td><td>[% user.registered %]</td></tr>
+<tr><td align='right'><strong>Last Modified:</strong></td><td>[% user.last_modified %]</td></tr>
+</table>
+
