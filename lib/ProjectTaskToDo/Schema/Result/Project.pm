@@ -416,6 +416,10 @@ __PACKAGE__->add_unique_constraint("project_short_name_unique", ["project_short_
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:u69Xk0aZ97dGtRT0Xcyz+A
 
 
+=head1 COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 =head1 LICENSE
 
 This file is part of ProjectTaskToDo.

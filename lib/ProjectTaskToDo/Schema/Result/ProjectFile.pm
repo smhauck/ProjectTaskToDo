@@ -85,6 +85,10 @@ __PACKAGE__->set_primary_key("id");
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:Q2z1iJfqVsOhMDlDijo9Vg
 
 
+=head1 COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 =head1 LICENSE
 
 This file is part of ProjectTaskToDo.
