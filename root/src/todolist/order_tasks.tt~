@@ -1,4 +1,4 @@
-[% META title = 'TaskMaster:Order Project Tasks' %]
+[% META title = 'ProjectTaskToDo:Order Project Tasks' %]
 
 [% INCLUDE authenticated_navbar.tt %]
 
