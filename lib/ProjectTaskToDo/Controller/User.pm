@@ -145,7 +145,7 @@ sub send_new_password : Local {
 	my $password=join '', ('.', '/', 0..9,'A'..'Z', 'a'..'z')[rand 64, rand 64, rand 64, rand 64, rand 64, rand 64, rand 64, rand 64];
 	my $crypted_password=crypt($password,$salt);
 
-	my $user= $c->model('ProjectTaskToDo::User')->find({username => $username});
+	my $user= $c->model('ProjectTaskToDoDB::User')->find({username => $username});
 
 	$user->update({
 		password=>$crypted_password,
