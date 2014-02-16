@@ -24,6 +24,7 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 
 <div class="option">
 <a href="/person/[% person.id %]/edit">Edit Account</a><br />
+<a href="/user/change_password">Change Password</a><br />
 <br />
 </div>
 
