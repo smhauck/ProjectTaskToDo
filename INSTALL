@@ -20,7 +20,7 @@ At this point you can run the appliation using the built-in, single-threaded
 web server.  Run:
   ./script/projecttasktodo_server.pl
 
-You can log in with the default administrator account, admin, with the password of 'admin'.
+You can log in with the default administrator account, admin, with the password of 'password'.
 
 
 
