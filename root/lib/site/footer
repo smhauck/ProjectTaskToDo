@@ -18,4 +18,8 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 -%]
 
 
-Copyright &copy; [% site.copyright %] * <a href="/about">About ProjectTaskToDo</a> * <a href="http://www.perl.org">Powered by Perl</a> &amp; <a href="http://www.catalystframework.org">the Catalyst Framework</a>
+<a href="/about">About</a> * <a href="/license">License</a> * <a href="http://www.perl.org">Powered by Perl</a> &amp; <a href="http://www.catalystframework.org">the Catalyst Framework</a>
+
+<div id='copyright'>Copyright &copy; [% site.copyright %]</div>
+
+

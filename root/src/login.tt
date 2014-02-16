@@ -35,7 +35,9 @@ username: <input id="username" type="text" name="username"><br />
 password: <input type="password" name="password"><br />
 <input type="Submit" name="Login" value="Login">
 </form>
+<br />
 
+<a href="/forgot_password">Forgot Password?</a>
 <br />
 
 <script type="text/javascript">

@@ -24,9 +24,15 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 =cut
 
 use Moose;
+use Mail::Mailer;
 use namespace::autoclean;
 
 BEGIN {extends 'Catalyst::Controller'; }
+
+my $webserver  = `hostname`;
+my $mailserver = "localhost";
+
+
 
 =head1 NAME
 
@@ -115,18 +121,10 @@ User forgot password and needs new one created and sent to email address on file
 
 =cut
 
-sub need_password : Global {
+sub forgot_password : Global {
 	my ( $self, $c ) = @_;
-	$c->stash->{template} = 'user/need_password.tt';
+	$c->stash->{template} = 'user/forgot_password.tt';
 }
-
-
-
-
-
-
-
-
 
 
 =head2 send_new_password
@@ -136,7 +134,7 @@ address in the user's record.
 
 =cut
 
-sub send_new_password : Local {
+sub send_new_password : Global {
 	my ($self, $c) = @_;
 	my $username= $c->req->params->{username};
 	my $email= $c->req->params->{email};
@@ -145,7 +143,7 @@ sub send_new_password : Local {
 	my $password=join '', ('.', '/', 0..9,'A'..'Z', 'a'..'z')[rand 64, rand 64, rand 64, rand 64, rand 64, rand 64, rand 64, rand 64];
 	my $crypted_password=crypt($password,$salt);
 
-	my $user= $c->model('ProjectTaskToDo::User')->find({username => $username});
+	my $user= $c->model('ProjectTaskToDoDB::User')->find({username => $username});
 
 	$user->update({
 		password=>$crypted_password,
@@ -156,24 +154,30 @@ sub send_new_password : Local {
 
 
 
-	my %mail = ( To      => "$recipient",
-		From    => 'no-reply@projecttasktodo.com',
-		Subject => 'Requested Password Update',
-		Message => "New Password:  $password"
-	);
-	sendmail(%mail) or die $Mail::Sendmail::error;
+my $mailer = new Mail::Mailer('smtp', Server => $mailserver);
+my (%mail_headers) = (
+		'To'           => "$recipient",
+		'From'         => 'passwords@projecttasktodo.org',
+		'Subject'      => 'Requested Password Update',
+		'MIME-Version' => "1.0",
+		'Content-Type' => "TEXT/HTML;",
+);
+
+#		'Message' => "New Password:  $password"
+
+
+my $open_result = $mailer->open( \%mail_headers );
+print $mailer
+"<br />\n<h1>Password Reset Request</h1>\nThis is an automated message from ProjectTaskToDo to let you know you have a new password.\n<hr />\n<br /><br />\n";
+print $mailer "Your new password is: $password<br />\n";
+print $mailer "Thank you<br />\n";
+$mailer->close;
+
+
 
 	$c->response->redirect($c->uri_for('/'));
 	#$c->detach();
 }
-
-
-
-
-
-
-
-
 
 
 
