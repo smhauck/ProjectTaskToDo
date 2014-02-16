@@ -144,43 +144,6 @@ sub authenticate : Local {
 }
 
 
-=head2 change_password
-
-=cut
-
-sub change_password : Global {
-    my ( $self, $c ) = @_;
-    $c->stash->{template} = 'change_password.tt';
-}
-
-
-=head2 create_new_password
-
-=cut
-
-sub create_new_password : Local {
-	my ($self, $c) = @_;
-	my $username= $c->req->params->{username};
-	my $email= $c->req->params->{email};
-
-	my $salt=join '', ('.', '/', 0..9,'A'..'Z', 'a'..'z')[rand 64, rand 64];
-	my $password=join '', ('.', '/', 0..9,'A'..'Z', 'a'..'z')[rand 64, rand 64, rand 64, rand 64, rand 64, rand 64, rand 64, rand 64];
-	my $crypted_password=crypt($password,$salt);
-
-	my $user= $c->model('ProjectTaskToDoDB::User')->find({username => $username});
-
-	$user->update({
-		password=>$crypted_password,
-	});
-
-# HACK:  Need to email password to user at registered address!!!
-	$c->flash->{new_password}="$password";
-
-	$c->response->redirect($c->uri_for('/'));
-	#$c->detach();
-}
-
-
 =head2 default
 
 =cut
@@ -251,6 +214,17 @@ sub lessons_learned : Local {
     $c->stash->{template} = 'lessons_learned.tt';
 }
 
+=head2 license
+
+=cut
+
+sub license : Local {
+    my ( $self, $c ) = @_;
+
+    $c->stash->{template} = 'license.tt';
+}
+
+
 
 =head2 login
 
@@ -273,14 +247,6 @@ sub logout : Global {
 }
 
 
-=head2 need_password
-
-=cut
-
-sub need_password : Global {
-    my ( $self, $c ) = @_;
-    $c->stash->{template} = 'need_password.tt';
-}
 
 
 =head2 new_user
@@ -341,61 +307,6 @@ sub register : Local {
 }
 
 
-#=head2 reset_password
-#
-#=cut
-#
-#sub reset_password : Local {
-#	my ($self, $c) = @_;
-#	my $bad_passwords=0;
-#	my $verification=0;
-#	my $old_password="";
-#	$old_password= $c->req->params->{old_password};
-#	my $new_password1= $c->req->params->{new_password1};
-#	my $new_password2= $c->req->params->{new_password2};
-#
-#	if ($old_password && $new_password1 && $new_password2)
-#	{
-#		if ($new_password1 == $new_password2)
-#		{
-#			my $salt=join '', ('.', '/', 0..9, 'A'..'Z', 'a'..'z')[rand 64, rand 64];
-#			my $new_crypted_password=crypt($new_password1,$salt);
-#
-#			my $user= $c->model('ProjectTaskToDoDB::User')->find({username => $c->user->username});
-#			my $existing_crypted_password=$user->password;
-#			if (crypt($old_password, $existing_crypted_password) eq $existing_crypted_password)
-#			{
-#				$user= $c->model('ProjectTaskToDoDB::User')->find({username => $c->user->username});
-#
-#				$user->update({
-#					password=>$new_crypted_password,
-#				});
-#
-#				# password changed
-#				$c->flash->{message}="Your password has been changed.";
-#				#$c->flash->{message}="verification: $verification";
-#				$c->response->redirect('task/today');
-#			} else {
-#				$bad_passwords=1;
-#			}
-#		} else {
-#			$bad_passwords=1;
-#		}
-#	} else {
-#		$bad_passwords=1;
-#	}
-#
-#	if ($bad_passwords)
-#	{
-#		# new passwords do not match incorrect
-#		$c->flash->{message}="There was a problem with the passwords you entered.  Please try again.";
-#		$c->response->redirect('change_password');
-#		$c->detach();
-#	}
-#
-#	$c->response->redirect($c->uri_for('/'));
-#	$c->detach();
-#}
 
 =head2 unauthorized
 
