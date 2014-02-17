@@ -21,15 +21,7 @@ You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 -%]
 
-
-<span class="userlabel" id="sitetitle"><a href='/'>projecttasktodo</a> * <a href='/login'>login</a></span>
-
-<div class="navBar">
-<a href='/'>home</a> * 
-<a href='/login'>login</a> * 
-<a href='/new_user'>register</a> * 
-<a href='/about'>about projecttasktodo</a> * 
-<a href='/help'>help</a>
+<span class="userlabel" id="sitetitle"><a href='/'>projecttasktodo</a> * <a href='/login'>login</a> * <a href='/help'>help</a></span>
 <hr width='100%' />
 </div>
 
