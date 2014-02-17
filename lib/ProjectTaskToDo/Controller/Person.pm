@@ -2,6 +2,8 @@ package ProjectTaskToDo::Controller::Person;
 
 
 use Moose;
+use POSIX qw/strftime/;
+use Date::Manip;
 use namespace::autoclean;
 
 BEGIN {extends 'Catalyst::Controller'; }
@@ -198,6 +200,7 @@ sub insert : Local {
           )
         {
             $c->stash->{authorized} = 1;
+	    my $now = strftime "%Y-%m-%d %H:%M:%S", localtime();
 
             my $username           = $c->req->params->{username};
             my $full_name          = $c->req->params->{full_name};
@@ -217,11 +220,12 @@ sub insert : Local {
             my $mobile_phone       = $c->req->params->{mobile_phone};
             my $skype_name         = $c->req->params->{skype_name};
             my $aim_name           = $c->req->params->{aim_name};
-            my $nnit_initials      = $c->req->params->{nnit_initials};
+            my $admin_notes        = $c->req->params->{admin_notes};
 
             my $person = $c->model('ProjectTaskToDoDB::Person')->create(
                 {
                     username          => $username,
+		    registered        => $now,
                     full_name         => $full_name,
                     first_name        => $first_name,
                     last_name         => $last_name,
@@ -239,7 +243,7 @@ sub insert : Local {
                     mobile_phone       => $mobile_phone,
                     skype_name         => $skype_name,
                     aim_name           => $aim_name,
-                    nnit_initials      => $nnit_initials,
+                    admin_notes        => $admin_notes,
                 }
             );
 
@@ -357,7 +361,6 @@ sub update : Chained('person_object') : PathPart('update') : Args(0) {
             my $mobile_phone       = $c->req->params->{mobile_phone};
             my $skype_name         = $c->req->params->{skype_name};
             my $aim_name           = $c->req->params->{aim_name};
-            my $nnit_initials      = $c->req->params->{nnit_initials};
             my $admin_notes        = $c->req->params->{admin_notes};
 
             $person->update(
@@ -372,8 +375,7 @@ sub update : Chained('person_object') : PathPart('update') : Args(0) {
                     office_phone      => $office_phone,
                     office_floor      => $office_floor,
                     office_department => $office_department,
-                    office_address1   =>,
-                    $office_address1,
+                    office_address1   => $office_address1,
                     office_address2    => $office_address2,
                     office_address3    => $office_address3,
                     office_city        => $office_city,
@@ -383,7 +385,6 @@ sub update : Chained('person_object') : PathPart('update') : Args(0) {
                     mobile_phone       => $mobile_phone,
                     skype_name         => $skype_name,
                     aim_name           => $aim_name,
-                    nnit_initials      => $nnit_initials,
                     admin_notes        => $admin_notes
                 }
             );

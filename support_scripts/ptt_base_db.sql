@@ -313,7 +313,6 @@ CREATE TABLE `person` (
   `mobile_phone` varchar(25) DEFAULT NULL,
   `skype_name` varchar(255) DEFAULT NULL,
   `aim_name` varchar(255) DEFAULT NULL,
-  `nnit_initials` varchar(10) DEFAULT NULL,
   `timezone` varchar(255) DEFAULT NULL,
   `created_on` datetime NOT NULL,
   `last_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -337,7 +336,7 @@ CREATE TABLE `person` (
 
 LOCK TABLES `person` WRITE;
 /*!40000 ALTER TABLE `person` DISABLE KEYS */;
-INSERT INTO `person` (`id`, `username`, `full_name`, `first_name`, `last_name`, `office_phone`, `office_floor`, `office_address1`, `office_address2`, `office_address3`, `office_city`, `office_state`, `office_postal_code`, `offie_country`, `mobile_phone`, `skype_name`, `aim_name`, `nnit_initials`, `timezone`, `created_on`, `last_modified`, `active`, `office_email`, `office_department`, `headshot`, `office_country`, `job_title_id`, `job_title`, `hire_date_text`, `admin_notes`) VALUES (1,'admin','Administrator','Administrator','Administrator','','','','','','','','',NULL,'','','','',NULL,'0000-00-00 00:00:00','2013-11-19 01:01:40','1','admin@localhost.localdomain','',NULL,'',NULL,'','','');
+INSERT INTO `person` (`id`, `username`, `full_name`, `first_name`, `last_name`, `office_phone`, `office_floor`, `office_address1`, `office_address2`, `office_address3`, `office_city`, `office_state`, `office_postal_code`, `offie_country`, `mobile_phone`, `skype_name`, `aim_name`, `timezone`, `created_on`, `last_modified`, `active`, `office_email`, `office_department`, `headshot`, `office_country`, `job_title_id`, `job_title`, `hire_date_text`, `admin_notes`) VALUES (1,'admin','Administrator','Administrator','Administrator','','','','','','','','',NULL,'','','',NULL,'0000-00-00 00:00:00','2013-11-19 01:01:40','1','admin@localhost.localdomain','',NULL,'',NULL,'','','');
 /*!40000 ALTER TABLE `person` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;

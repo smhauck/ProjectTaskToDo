@@ -51,7 +51,6 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 <tr><th>Mobile Phone:</th><td><input type="text" name="mobile_phone" value="[% person.mobile_phone | html %]" size='60' /></td></tr>
 <tr><th>Skype Name:</th><td><input type="text" name="skype_name" value="[% person.skype_name | html %]" /></td></tr>
 <tr><th>AIM Name:</th><td><input type="text" name="aim_name" value="[% person.aim_name | html %]" /></td></tr>
-<tr><th>NNIT Initials:</th><td><input type="text" name="nnit_initials" value="[% person.nnit_initials | html %]" /></td></tr>
 <tr><th>Admin Notes:</th><td><textarea name='admin_notes' cols='80' rows='10'>[% person.admin_notes %]</textarea></td></tr>
 <tr><td></td><td align="right"><input type="submit" name="Submit" value="Submit"></td></tr>
 </table>

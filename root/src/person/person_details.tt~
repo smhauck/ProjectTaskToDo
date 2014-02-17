@@ -1,4 +1,8 @@
 <!--
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 LICENSE
 
 This file is part of ProjectTaskToDo.
@@ -40,8 +44,7 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 <tr><th>Mobile Phone:</th><td>[% person.mobile_phone %]</td></tr>
 <tr><th>Skype Name:</th><td>[% person.skype_name %]</td></tr>
 <tr><th>AIM Name:</th><td>[% person.aim_name | html %]</td></tr>
-<tr><th>NNIT Initials:</th><td>[% person.nnit_initials | html %]</td></tr>
-<tr><th>Registered:</th><td>[% person.registered %]</td></tr>
+<tr><th>Registered:</th><td>[% person.created_on %]</td></tr>
 <tr><th>Last Modified:</th><td>[% person.last_modified %]</td></tr>
 [% IF authorized==1 %]
 <tr><th>Admin Notes:</th><td>[% person.admin_notes | html | html_line_break %]</td></tr>
