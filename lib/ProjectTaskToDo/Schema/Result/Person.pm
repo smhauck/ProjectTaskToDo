@@ -126,22 +126,16 @@ __PACKAGE__->table("person");
   is_nullable: 1
   size: 255
 
-=head2 nnit_initials
-
-  data_type: 'varchar'
-  is_nullable: 1
-  size: 10
-
 =head2 timezone
 
   data_type: 'varchar'
   is_nullable: 1
   size: 255
 
-=head2 created_on
+=head2 registered
 
   data_type: 'datetime'
-  is_nullable: 0
+  is_nullable: 1
 
 =head2 last_modified
 
@@ -244,12 +238,10 @@ __PACKAGE__->add_columns(
   { data_type => "varchar", is_nullable => 1, size => 255 },
   "aim_name",
   { data_type => "varchar", is_nullable => 1, size => 255 },
-  "nnit_initials",
-  { data_type => "varchar", is_nullable => 1, size => 10 },
   "timezone",
   { data_type => "varchar", is_nullable => 1, size => 255 },
-  "created_on",
-  { data_type => "datetime", is_nullable => 0 },
+  "registered",
+  { data_type => "datetime", is_nullable => 1 },
   "last_modified",
   {
     data_type     => "timestamp",
@@ -279,8 +271,8 @@ __PACKAGE__->set_primary_key("id");
 __PACKAGE__->add_unique_constraint("username_unique", ["username"]);
 
 
-# Created by DBIx::Class::Schema::Loader v0.07002 @ 2013-09-12 15:17:59
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:/qnF4r4++ncr/n3+/27AbQ
+# Created by DBIx::Class::Schema::Loader v0.07002 @ 2014-02-17 12:42:31
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:UTiPNx7eim5JhLEGgcfleg
 
 
 =head1 COPYRIGHT
@@ -308,6 +300,7 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 
 
 __PACKAGE__->add_columns(
+	registered => { data_type => 'datetime', inflate_datetime => 0 },
 	last_modified => { data_type => 'datetime', inflate_datetime => 0 }
 );
 
