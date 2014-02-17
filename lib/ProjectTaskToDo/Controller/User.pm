@@ -30,6 +30,11 @@ use namespace::autoclean;
 
 BEGIN {extends 'Catalyst::Controller'; }
 
+my $webserver  = `hostname`;
+my $mailserver = "localhost";
+
+
+
 =head1 NAME
 
 ProjectTaskToDo::Controller::User - Catalyst Controller
@@ -149,7 +154,6 @@ sub send_new_password : Global {
 	my $recipient = $user->contact_email;
 
 
-
 	my %mail = ( To      => "$recipient",
 		From    => 'no-reply@projecttasktodo.org',
 		Subject => 'Requested Password Update',
@@ -160,14 +164,6 @@ sub send_new_password : Global {
 	$c->response->redirect($c->uri_for('/'));
 	#$c->detach();
 }
-
-
-
-
-
-
-
-
 
 
 

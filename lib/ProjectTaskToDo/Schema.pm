@@ -36,4 +36,8 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 
 =cut
 
+<<<<<<< HEAD
+=======
+# __PACKAGE__->meta->make_immutable;
+>>>>>>> ResetPassword
 1;

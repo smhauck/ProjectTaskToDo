@@ -102,7 +102,7 @@ __PACKAGE__->deny_access_unless("/timepalette", [qw/member/]);
 __PACKAGE__->deny_access_unless("/user", [qw/member/]);
 
 __PACKAGE__->allow_access('/about');
-__PACKAGE__->allow_access('/create_new_password');
+__PACKAGE__->allow_access('/user/forgot_password');
 __PACKAGE__->allow_access('/help');
 __PACKAGE__->allow_access('/login');
 __PACKAGE__->allow_access('/new_user');
