@@ -1,28 +1,5 @@
 package ProjectTaskToDo::Controller::User;
 
-=head1 COPYRIGHT
-
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
-
-=head1 LICENSE
-
-This file is part of ProjectTaskToDo.
-
-ProjectTaskToDo is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-ProjectTaskToDo is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
-
-=cut
-
 use Moose;
 use Mail::Sendmail;
 
@@ -32,7 +9,6 @@ BEGIN {extends 'Catalyst::Controller'; }
 
 my $webserver  = `hostname`;
 my $mailserver = "localhost";
-
 
 
 =head1 NAME
@@ -107,6 +83,8 @@ sub reset_password : Local {
 
 =head2 change_password
 
+Displays a simple form for the user to change his own password
+
 =cut
 
 sub change_password : Local {
@@ -116,9 +94,11 @@ sub change_password : Local {
 
 
 
-=head2 need_password
+=head2 forgot_password
 
-User forgot password and needs new one created and sent to email address on file.
+User forgot password and needs new one. Form allows user
+to enter their username to have a new password generated
+and emailed to their address on file in their user account.
 
 =cut
 
@@ -231,7 +211,6 @@ sub details : Local {
 
 	$c->stash->{user}=$c->model('ProjectTaskToDoDB::User')->find({id=>$user_id});
 	$c->stash->{template}='user/details.tt';
-
 }
 
 
@@ -247,12 +226,33 @@ sub index :Path :Args(0) {
     $c->response->body('Matched ProjectTaskToDo::Controller::User in User.');
 }
 
-
 =head1 AUTHOR
 
-William B. Hauck
+William B. Hauck, <http://wbhauck.com/>
+
+=head1 COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, <http://wbhauck.com/>
+
+=head1 LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 
 =cut
+
 
 __PACKAGE__->meta->make_immutable;
 
