@@ -1,5 +1,8 @@
 package ProjectTaskToDo::Controller::Report;
-use Moose;
+
+=head1 COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
 
 =head1 LICENSE
 
@@ -20,6 +23,7 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 
 =cut
 
+use Moose;
 # use the time functions
 use POSIX qw/strftime/;
 use namespace::autoclean;
