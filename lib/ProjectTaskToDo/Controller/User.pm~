@@ -24,6 +24,8 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 =cut
 
 use Moose;
+use Mail::Sendmail;
+
 use namespace::autoclean;
 
 BEGIN {extends 'Catalyst::Controller'; }
@@ -115,9 +117,9 @@ User forgot password and needs new one created and sent to email address on file
 
 =cut
 
-sub need_password : Global {
+sub forgot_password : Global {
 	my ( $self, $c ) = @_;
-	$c->stash->{template} = 'user/need_password.tt';
+	$c->stash->{template} = 'user/forgot_password.tt';
 }
 
 
@@ -136,7 +138,7 @@ address in the user's record.
 
 =cut
 
-sub send_new_password : Local {
+sub send_new_password : Global {
 	my ($self, $c) = @_;
 	my $username= $c->req->params->{username};
 	my $email= $c->req->params->{email};
@@ -145,7 +147,7 @@ sub send_new_password : Local {
 	my $password=join '', ('.', '/', 0..9,'A'..'Z', 'a'..'z')[rand 64, rand 64, rand 64, rand 64, rand 64, rand 64, rand 64, rand 64];
 	my $crypted_password=crypt($password,$salt);
 
-	my $user= $c->model('ProjectTaskToDo::User')->find({username => $username});
+	my $user= $c->model('ProjectTaskToDoDB::User')->find({username => $username});
 
 	$user->update({
 		password=>$crypted_password,
@@ -157,7 +159,7 @@ sub send_new_password : Local {
 
 
 	my %mail = ( To      => "$recipient",
-		From    => 'no-reply@projecttasktodo.com',
+		From    => 'no-reply@projecttasktodo.org',
 		Subject => 'Requested Password Update',
 		Message => "New Password:  $password"
 	);
