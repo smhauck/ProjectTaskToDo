@@ -30,6 +30,11 @@ use namespace::autoclean;
 
 BEGIN {extends 'Catalyst::Controller'; }
 
+my $webserver  = `hostname`;
+my $mailserver = "localhost";
+
+
+
 =head1 NAME
 
 ProjectTaskToDo::Controller::User - Catalyst Controller
@@ -123,14 +128,6 @@ sub forgot_password : Global {
 }
 
 
-
-
-
-
-
-
-
-
 =head2 send_new_password
 
 Creates a new password and emails it to the user based on the email
@@ -168,14 +165,6 @@ sub send_new_password : Global {
 	$c->response->redirect($c->uri_for('/'));
 	#$c->detach();
 }
-
-
-
-
-
-
-
-
 
 
 
