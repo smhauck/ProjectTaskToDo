@@ -119,7 +119,18 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 =cut
 
 
-__PACKAGE__->has_many(map_user_role => 'ProjectTaskToDo::Schema::Result::UserRole' => 'role');
+__PACKAGE__->has_many(role_users => 'ProjectTaskToDo::Schema::Result::UserRole' => 'role');
+__PACKAGE__->has_many('users_in_role' => 'ProjectTaskToDo::Schema::Result::UserRole', 'role');
+
+
+
+
+sub has_user {
+  my ($self, $user) = @_;
+  return $self->users_in_role->find({ user => $user->id });
+}
+
+
 
 
 __PACKAGE__->meta->make_immutable;

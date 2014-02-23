@@ -161,12 +161,13 @@ __PACKAGE__->add_columns(
 );
 
 __PACKAGE__->has_many(project_users => 'ProjectTaskToDo::Schema::Result::ProjectUser', 'project_user_user_id');
-__PACKAGE__->has_many(map_user_role => 'ProjectTaskToDo::Schema::Result::UserRole', 'user');
-__PACKAGE__->many_to_many(roles => 'map_user_role', 'role');
 __PACKAGE__->has_many(notifications => 'ProjectTaskToDo::Schema::Result::Notification', 'user_to_notify');
 __PACKAGE__->has_many(taskusers => 'ProjectTaskToDo::Schema::Result::TaskUser', 'user_id');
 __PACKAGE__->has_many('time_palette' => 'ProjectTaskToDo::Schema::Result::TimePaletteProject', 'user_id');
 
+
+__PACKAGE__->has_many(user_roles => 'ProjectTaskToDo::Schema::Result::UserRole', 'user');
+__PACKAGE__->many_to_many(roles => 'user_roles', 'role');
 
 __PACKAGE__->meta->make_immutable;
 1;

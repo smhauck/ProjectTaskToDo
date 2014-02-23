@@ -145,7 +145,7 @@ sub add : Local {
     $c->stash->{template} = 'person/add.tt';
 }
 
-=head2 base
+=head2 person_base
 
 =cut
 
@@ -309,7 +309,7 @@ sub name_lookup : Local {
     $c->forward('View::JSON');
 }
 
-=head2 object
+=head2 person_object
 
 =cut
 
