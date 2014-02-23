@@ -24,6 +24,32 @@ Catalyst Controller.
 =cut
 
 
+
+=head2 user_base
+
+=cut
+
+sub user_base : Chained('/') : PathPart('user') : CaptureArgs(0) {
+    my ( $self, $c ) = @_;
+    $c->stash( user_rs => $c->model('ProjectTaskToDoDB::User') );
+}
+
+
+=head2 user_object
+
+=cut
+
+sub user_object : Chained('user_base') : PathPart('') : CaptureArgs(1) {
+    my ( $self, $c, $id ) = @_;
+    my $user = $c->stash->{user_rs}->find( { id => $id } );
+    if ( !$user ) {
+        $c->response->redirect( $c->uri_for("/") );
+        $c->detach();
+    }
+    $c->stash( user => $user );
+}
+
+
 =head2 reset_password
 
 =cut
@@ -179,6 +205,45 @@ sub update : Local {
 	$c->detach();
 }
 
+=head2 update_roles
+
+=cut
+
+sub update_roles : Chained('user_object') : PathPart('update_roles') : Args(0) {
+    my ( $self, $c ) = @_;
+    my $user_to_display = $c->stash->{user};
+    my $user_to_display_id = $user_to_display->id;
+
+	# if user_to_display has role user_maintenance
+	if ( $c->user_exists() ) {
+        	if ( $c->check_user_roles('user_maintainer' ) ) {
+
+			# update user_to_display's roles
+			my @keepers = $c->req->param('roles_assigned');
+
+                	$user_to_display->user_roles->delete;
+
+	                for my $keeper (@keepers) {
+                        	$user_to_display->user_roles->create({ role => $keeper });
+                	}
+
+			$c->response->redirect($c->uri_for("/user/$user_to_display_id"));
+			$c->detach();
+		}
+		else {
+			$c->flash->{message}="You are not authorized to edit this user.";
+			$c->response->redirect($c->uri_for("/user/$user_to_display_id"));
+		}
+	}
+	else {
+		$c->flash->{message}="You are not authorized to edit this user.";
+		$c->response->redirect($c->uri_for("/user/$user_to_display_id"));
+	}
+
+	return();
+}
+
+
 
 =head2 edit
 
@@ -199,6 +264,30 @@ sub edit : Local {
 		$c->response->redirect($c->uri_for("/user/details/$user_id"));
 	}
 }
+
+=head2 edit_roles
+
+=cut
+
+sub edit_roles : Chained('user_object') : PathPart('edit_roles') : Args(0) {
+    my ( $self, $c ) = @_;
+    my $user_to_display = $c->stash->{user};
+    my $user_to_display_id = $user_to_display->id;
+
+	if ( $c->user_exists() ) {
+        	if ( $c->check_user_roles('user_maintainer' ) ) {
+			$c->stash->{user} = $user_to_display;
+			$c->stash->{roles} = [$c->model('ProjectTaskToDoDB::Role')->search({}, { order_by => 'display_name' })];
+			$c->stash->{template} = 'user/edit_roles.tt';
+		}
+	}
+	else {
+		$c->flash->{message}="You are not authorized to edit this user.";
+		$c->response->redirect($c->uri_for("/user/details/$user_to_display_id"));
+	}
+	return();
+}
+
 
 
 =head2 details

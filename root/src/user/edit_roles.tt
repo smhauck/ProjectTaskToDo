@@ -1,8 +1,4 @@
 <!--
-COPYRIGHT
-
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
-
 LICENSE
 
 This file is part of ProjectTaskToDo.
@@ -22,14 +18,22 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 -->
 
 
-[% INCLUDE person/menu.tt %]
+[% META title = 'ProjectTaskToDo:User Edit' %]
 
-[% INCLUDE person/options.tt %]
+[% INCLUDE authenticated_navbar.tt %]
 
-[% INCLUDE person/person_details.tt %]
+        <SCRIPT LANGUAGE="JavaScript">
+        var cal = new CalendarPopup();
+        cal.showYearNavigation();
+        </SCRIPT>
 
-[% IF authorized %]
-<a href='/person/[% person.id %]/edit'>Edit this Person</a><br />
-<a href='/user/[% person.id %]/edit_roles'>Edit Person's Roles</a><br />
+<form name="edit_roles" action="/user/[% user.id %]/update_roles" method="post">
+
+
+[% FOREACH role IN roles  %]
+  <input type="checkbox" name="roles_assigned" value="[% role.id %]" [% IF role.has_user(user) %]checked="1"[% END %] />[% role.display_name %] ([% role.role %])<br />
 [% END %]
-<br />
+
+
+<input type="submit" name="Update" value="Update">
+</form>
