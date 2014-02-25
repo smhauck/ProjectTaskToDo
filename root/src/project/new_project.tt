@@ -75,10 +75,6 @@ $(function() {
 </td>
 </tr>
 <tr>
-<th>project users:<br />usernames separated by spaces</th>
-<td><textarea rows="5" cols="100" name="projectUsers"></textarea></td>
-<tr>
-<tr>
 <td><input type="reset" value="Clear"></td>
 <td><input type="submit" value="Create"></td>
 </tr>
