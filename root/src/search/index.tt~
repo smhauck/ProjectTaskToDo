@@ -1,5 +1,0 @@
-
-[% INCLUDE search/menu.tt %]
-[% INCLUDE search/options.tt %]
-
-[% INCLUDE search/search_box.tt %]
