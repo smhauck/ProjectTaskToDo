@@ -24,7 +24,8 @@ html {
 }
 
 body { font-size: 75%;
-	font-family: Verdana;
+	font-family: courier;
+	background-image: url('/static/images/manila_folder_dark_2.png');
 	background-color: #ffffff;
 	color: #000;
 	margin: 10px;
@@ -32,13 +33,13 @@ body { font-size: 75%;
 	height: 100%;
 }
 
-#header { color: #aaa; background-color: #555; border-bottom: 1px solid #000; }
-#header h1 { color: #aaa; }
+#header { color: #3e0e00; border-bottom: 1px solid #000; }
+#header h1 { color: #5c2500; font-weight: bold; font-size: 200%; }
 
 #footer {
 	clear: right;
-	color: #aaa;
-	background-color: #555;
+	color: #d6d3b6;
+	background-image: url('/static/images/manila_folder_dark_3.png');
 	text-align: center;
 	border-top: 1px solid [% site.col.line %];
 	position: relative;
@@ -48,9 +49,9 @@ body { font-size: 75%;
 	padding: 4px 0px 4px 0px;
 }
 
-#footer a:link { color: #aaa; }
-#footer a:visited { color: #aaa; }
-#footer a:hover { color: #ddd; text-decoration: underline; }
+#footer a:link { color: #d6d3b6; }
+#footer a:visited { color: #d6d3b6; }
+#footer a:hover { color: #d6d3b6; text-decoration: underline; }
 
 #project_requirements {
 	display:none;
@@ -78,18 +79,18 @@ body { font-size: 75%;
 
 /* ------------------------------- */
 
-.global_nav { display: inline; color: #000; background-color: [% site.col.userlabel %]; z-index: 0; }
-.top_nav { display: inline; color: #000; background-color: [% site.col.userlabel %]; border-style: solid; z-index: 0; }
-.nav_bar { display: inline; color: #000; background-color: [% site.col.userlabel %]; border: 0; z-index: 0; }
+.global_nav { display: inline; color: #000; z-index: 0; }
+.top_nav { display: inline; color: #000; border-style: solid; z-index: 0; }
+.nav_bar { display: inline; color: #000; border: 0; z-index: 0; }
 .nav_bar_option_active { display: inline; color: #FFF; background-color: #000; border: 0; z-index: 0; }
-.nav_bar_option_active a:link { color: #FFF; background-color: #000; }
-.nav_bar_option_active a:hover { color: #FFF; background-color: #000; }
-.nav_bar_option_active a:visited { color: #FFF; background-color: #000; }
-.nav_bar_option_nonactive { display: inline; color: #000; background-color: #FFF; border: 0; z-index: 0; }
+.nav_bar_option_active a:link { color: #000; background-color: #000; }
+.nav_bar_option_active a:hover { color: #000; background-color: #000; }
+.nav_bar_option_active a:visited { color: #000; background-color: #000; }
+.nav_bar_option_nonactive { display: inline; color: #000; background-color: #d6d3b6; border: 0; z-index: 0; }
 
-.user_label{ display: inline; float: right; color: #000; background-color: [% site.col.userlabel %]; border: 0; z-index: 0; }
+.user_label{ display: inline; float: right; color: #000; border: 0; z-index: 0; }
 
-.search_box { display: inline; color: #000; background-color: [% site.col.userlabel %]; border: 0; z-index: 0; }
+.search_box { display: inline; color: #000; border: 0; z-index: 0; }
 .project_search_box { float: right; display: inline; color: #000; background-color: [% site.col.userlabel %]; border: 0; z-index: 0; }
 .task_search_box { float: right; display: inline; color: #000; background-color: [% site.col.userlabel %]; border: 0; z-index: 0; }
 
@@ -108,8 +109,8 @@ h1 { text-align: left; }
 
 .error { color: #f00; }
 
-a:link { text-decoration: none; color: #336699; }
-a:visited { text-decoration: none; color: #993333; }
+a:link { text-decoration: none; color: #000; }
+a:visited { text-decoration: none; color: #000; }
 a:hover, a:active { text-decoration: underline; color: #000; }
 
 input { padding: 0 .2em .5em 0; margin-bottom: 0; background: #fff; color: #000; }
@@ -124,7 +125,8 @@ textarea { padding: 0 .2em .5em 0; margin-bottom: 0; background: #fff; color: #0
 table { border: 0px dotted black; empty-cells:show; }
 
 th { vertical-align: top; text-align: left; border-bottom: 1px dotted #000; border-right: 1px dotted #000; }
-tr:hover { color: #000; background: #ddd; }
+tr:hover { color: #d6d3b6; background-image: url('/static/images/manila_folder_dark_3.png'); } 
+tr:hover a:link, a:visited, a:hover { color: #d6d3b6; background-image: url('/static/images/manila_folder_dark_3.png'); } 
 td { vertical-align: top; text-align: left; border-bottom: 1px dotted #AAA; border-right: 1px dotted #AAA; }
 .table_integer { text-align: right; }
 .tdright { text-align: right; }
@@ -767,7 +769,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 ----------------------------------------------------------------------------------------------------*/
 
 .dropdown {
-	background: #fff;
+	background-image: url('/static/images/manila_folder_dark_3.png');
 	border: 1px solid #999;
 	float: left;
 	padding: 1px 0 0 1px;
@@ -775,10 +777,10 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 }
 
 .dropdown a {
-	background: #aaa url(images/gradient.gif) repeat-x;
+	background-image: url('/static/images/manila_folder_dark_3.png');
 	border: 1px solid #fff;
 	border-top-width: 0;
-	color: #333;
+	color: #d6d3b6;
 	display: block;
 	line-height: 25px;
 	overflow: hidden;
@@ -788,11 +790,11 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 
 .dropdown a:hover {
 	color: #fff;
-	background: #666;
+	background-image: url('/static/images/manila_folder_dark_3.png');
 }
 
 .dropdown ul a {
-	background: #eee;
+	background-image: url('/static/images/manila_folder_dark_3.png');
 }
 
 .dropdown li {
@@ -810,7 +812,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 }
 
 .dropdown ul {
-	background: #fff;
+	background-image: url('/static/images/manila_folder_dark_3.png');
 	border: 1px solid #999;
 	border-top-width: 0;
 	position: absolute;
