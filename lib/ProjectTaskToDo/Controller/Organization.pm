@@ -277,34 +277,6 @@ sub name_lookup : Local {
 }
 
 
-
-
-=head2 active
-
-=cut
-
-sub active : Local {
-	my ($self, $c)=@_;
-
-	if ($c->user) {
-		my $user_projects_rs = $c->model('ProjectTaskToDoDB::ProjectUser')->search(
-			{ project_user_user_id => $c->user->id }
-		);
-		$c->stash->{projects} = [$user_projects_rs->search_related('project')->search(
-			{ project_alive => 1, list_type => 1 },
-			{ order_by => 'project_name' }
-		)];
-	       	$c->stash->{pagetitle}= "Active Projects";
-	}
-	else {
-		$c->stash->{projects}='';
-	}
-	$c->stash->{template}='project/active.tt';
-}
-
-
-
-
 =head2 organization_base
 
 =cut
@@ -352,26 +324,79 @@ sub organization_object : Chained('organization_base') :PathPart('') :CaptureArg
 
 
 
+
 =head2 projects
 
 =cut
 
 sub projects : Chained('organization_object') :PathPart('projects') :Args(1) {
-    my ( $self, $c) = @_;
+    my ( $self, $c, $status) = @_;
     my $organization = $c->stash->{organization};
 
 		my $user_projects_rs = $c->model('ProjectTaskToDoDB::ProjectUser')->search(
 			{ project_user_user_id => $c->user->id }
 		);
-		$c->stash->{projects} = [$user_projects_rs->search_related('project')->search(
-			{ project_alive => 1, list_type => 1, client_organization_id => $organization->id },
-			{ order_by => 'project_name' }
-		)];
-
-
-		# $c->stash->{projects} = [$c->model('ProjectTaskToDoDB::Project')->search({ client_organization_id => $organization->id })];
+		if ($status eq 'active') {
+			$c->stash->{projects} = [$user_projects_rs->search_related('project')->search(
+				{ project_alive => 1, list_type => 1, client_organization_id => $organization->id },
+				{ order_by => 'project_name' }
+			)];
+		} elsif ($status eq 'complete') {
+			$c->stash->{projects} = [$user_projects_rs->search_related('project')->search(
+				{ project_alive => 0, status_id => 2, list_type => 1, client_organization_id => $organization->id },
+				{ order_by => 'project_name' }
+			)];
+		}
     $c->stash->{template} = 'organization/projects.tt';
 }
+
+
+=head2 tasks
+
+=cut
+
+sub tasks :Chained('organization_object') :PathPart('tasks') :Args(1) {
+    my ( $self, $c, $status) = @_;
+    my @tasks=();
+    my $organization = $c->stash->{organization};
+    my $the_org_id = $organization->id;
+
+    my $user_id = $c->user->id;
+    my $cur_date = strftime "%Y-%m-%d", localtime();
+
+    my $org_projects = $c->model('ProjectTaskToDoDB::Project')->search(
+        {
+            'client_organization_id' => { '=' => $the_org_id },
+            'deleted'        => { '<>' => 'y' },
+            'project_alive ' => { '='  => '1' }
+        }
+    );
+
+    if ($status eq 'active') {
+	@tasks = $org_projects->search_related(
+          'tasks',
+        	{
+            		'task_alive'    => { '=' => '1' },
+        	},
+        	{ order_by => 'task_name' }
+    		);
+	} elsif ($status eq 'complete') {
+	@tasks = $org_projects->search_related(
+          'tasks',
+        	{
+            		'task_alive'    => { '=' => '0' },
+            		'task_deleted'    => { '<>' => 'y' },
+        	},
+        	{ order_by => 'task_name' }
+    		);
+	}
+
+    $c->stash->{num_tasks} = $#tasks + 1;
+    $c->stash->{tasks}     = \@tasks;
+
+    $c->stash->{template} = 'organization/tasks.tt';
+}
+
 
 
 =head2 index

@@ -1,34 +1,14 @@
-<!--
-LICENSE
+[% INCLUDE organization/menu.tt %]
+[% INCLUDE organization/options.tt %]
 
-This file is part of ProjectTaskToDo.
+[% INCLUDE organization/organization_details.tt %]
 
-ProjectTaskToDo is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-ProjectTaskToDo is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--->
-
-
-[% INCLUDE project/menu.tt %]
-[% INCLUDE project/options.tt %]
-
-[% INCLUDE project/project_details.tt %]
 <br />
 
-[% IF task_type == "all" || task_type == 'active' %]
 <table class='sortable' width='100%'>
 <caption>Active Tasks</caption>
 <tr><th>ID</th><th>Order</th><th>Status</th><th>Task Name</th><th>Priority</th><th>Assigned To</th><th>Last Activity</th><th>Scheduled<br />Start<br />Date</th><th>Actual<br />Start<br />Date</th><th>Diff (Days)</th><th>Scheduled<br />Completion<br />Date</th></tr>
-[% FOREACH task IN active_tasks %]
+[% FOREACH task IN tasks %]
 <tr>
 <td>[% task.task_id %]</td>
 <td>[% task.task_order %]</td>
@@ -45,7 +25,6 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 [% END %]
 </table>
 <br />
-[% END %]
 
 [% IF task_type == "all" || task_type == 'complete' %]
 <table class='sortable' width='100%'>
