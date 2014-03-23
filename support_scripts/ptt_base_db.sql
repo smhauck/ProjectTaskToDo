@@ -211,9 +211,10 @@ CREATE TABLE `note` (
   `task_id` bigint(20) unsigned DEFAULT NULL,
   `public` char(1) NOT NULL DEFAULT '0',
   `date_selected` date DEFAULT NULL,
-  `title` tinyblob,
-  `body` longblob,
-  PRIMARY KEY (`id`)
+  `title` tinytext,
+  `body` mediumtext,
+  PRIMARY KEY (`id`),
+  FULLTEXT KEY `note_title_body_ft_idx` (`title`,`body`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -650,7 +651,7 @@ CREATE TABLE `project_status_type` (
   `description` text,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -659,8 +660,10 @@ CREATE TABLE `project_status_type` (
 
 LOCK TABLES `project_status_type` WRITE;
 /*!40000 ALTER TABLE `project_status_type` DISABLE KEYS */;
+INSERT INTO `project_status_type` VALUES (1,'Active','1',NULL),(2,'Complete','0',NULL),(3,'Deleted','0',NULL),(4,'Cancelled','0',NULL);
 /*!40000 ALTER TABLE `project_status_type` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 --
 -- Table structure for table `project_tag`
