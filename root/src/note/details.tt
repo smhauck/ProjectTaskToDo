@@ -1,22 +1,3 @@
-<!--
-LICENSE
-
-This file is part of ProjectTaskToDo.
-
-ProjectTaskToDo is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-ProjectTaskToDo is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--->
-
 
 [% INCLUDE note/menu.tt %]
 
@@ -41,13 +22,13 @@ function validate(form) {
 <tr>
 <th>client person</th>
 <td>
-[% note.client_person.full_name %]
+<a href="/person/[% note.client_person_id %]">[% note.client_person.full_name %]</a>
 </td>
 </tr>
 <tr>
 <th>client contact</th>
 <td>
-[% note.client_contact_person.full_name %]
+<a href="/person/[% note.client_contact_person_id %]">[% note.client_contact_person.full_name %]</a>
 </td>
 </tr>
 <tr>

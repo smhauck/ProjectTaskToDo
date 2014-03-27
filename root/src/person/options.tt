@@ -1,30 +1,12 @@
-[%#-
-COPYRIGHT
-
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
-
-LICENSE
-
-This file is part of ProjectTaskToDo.
-
-ProjectTaskToDo is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-ProjectTaskToDo is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--%]
-
 
 <div class="option">
-<a href="/person/[% person.id %]/edit">Edit Account</a><br />
-<a href="/user/change_password">Change Password</a><br />
+<a href="[% C.uri_for("/person/$person.id/edit") %]">Edit Account</a><br />
 <br />
+<a href="/person/[% person.id %]/my_active_projects">View Active Projects</a><br />
+<a href="/person/[% person.id %]/my_active_tasks">View Active Tasks</a><br />
+<a href="/person/[% person.id %]/my_complete_projects">View Complete Projects</a><br />
+<a href="/person/[% person.id %]/my_complete_tasks">View Complete Tasks</a><br />
+<a href="/person/[% person.id %]/notes_by_person">View Person's Notes</a><br />
+<a href="/person/[% person.id %]/notes_about_person">View Notes About Person</a><br />
 </div>
 

@@ -22,6 +22,188 @@ Catalyst Controller.
 
 
 
+=head2 notes_about_person
+
+=cut
+
+sub notes_about_person : Chained('person_object') : PathPart('notes_about_person') : Args(0) {
+    my ( $self, $c ) = @_;
+    my $person = $c->stash->{person};
+
+	$c->stash->{notes} = [$c->model('ProjectTaskToDoComDB::Note')->search(
+	[
+		{
+			client_person_id => { '=' => $person->id },
+			public => { '=' => 1 }
+		},
+		{
+			client_contact_person_id => { '=' => $person->id },
+			public => { '=' => 1 }
+		},
+		{
+			creator_id => { '=' => $c->user->id },
+			client_person_id => { '=' => $person->id },
+		},
+		{
+			creator_id => { '=' => $c->user->id },
+			client_contact_person_id => { '=' => $person->id },
+		}
+	],
+	{
+		order_by => 'title'
+	})];
+
+	$c->stash->{template}='person/notes.tt';
+}
+
+
+
+=head2 notes_by_person
+
+=cut
+
+sub notes_by_person : Chained('person_object') : PathPart('notes_by_person') : Args(0) {
+    my ( $self, $c ) = @_;
+    my $person = $c->stash->{person};
+    # my $user_id = $user->id;
+
+	$c->stash->{notes} = [$c->model('ProjectTaskToDoComDB::Note')->search(
+	{
+		creator_id => $person->id,
+		public => { '=' => 1 }
+	},
+	{
+		order_by => 'title'
+	})];
+
+	$c->stash->{template}='person/notes.tt';
+}
+
+=head2 my_active_projects
+
+=cut
+
+sub my_active_projects : Chained('person_object') : PathPart('my_active_projects') : Args(0) {
+    my ( $self, $c ) = @_;
+
+	    my $person=$c->stash->{person};
+
+        my $user_projects_rs =
+          $c->model('ProjectTaskToDoComDB::ProjectUser')
+          ->search( { project_user_user_id => $person->id } );
+        $c->stash->{projects} = [
+            $user_projects_rs->search_related('project')->search(
+                { project_alive => 1, list_type => 1 },
+                {
+                    distinct => 1,
+                    order_by => 'project_short_name'
+                }
+            )
+        ];
+
+        # tell the template which tab to highlight and page title
+        $c->stash->{whichtab}  = 'my_active_projects';
+        $c->stash->{pagetitle} = 'My Active Projects';
+    $c->stash->{template} = 'person/my_active_projects.tt';
+}
+
+
+
+=head2 my_complete_projects
+
+=cut
+
+sub my_complete_projects : Chained('person_object') : PathPart('my_complete_projects') : Args(0) {
+    my ( $self, $c ) = @_;
+
+	    my $person=$c->stash->{person};
+
+    if ( $c->user ) {
+        $c->stash->{projects} =
+          [ $c->model('ProjectTaskToDoComDB')
+              ->my_inactive_projects( $person->id ) ];
+    }
+    else {
+        $c->stash->{projects} = '';
+    }
+    $c->stash->{template} = 'person/my_complete_projects.tt';
+}
+
+
+
+=head2 my_active_tasks
+
+=cut
+
+sub my_active_tasks : Chained('person_object') : PathPart('my_active_tasks') : Args(0) {
+    my ( $self, $c ) = @_;
+
+	    my $person=$c->stash->{person};
+
+	    # my $cur_date = strftime "%Y-%m-%d", localtime();
+
+    my $alive_projects = $c->model('ProjectTaskToDoComDB::Project')->search(
+        {
+            'deleted'        => { '<>' => 'y' },
+            'project_alive ' => { '='  => '1' }
+        }
+    );
+
+    my @active_tasks = $alive_projects->search_related(
+        'tasks',
+        {
+            'task_owner_id' => { '=' => $person->id },
+            'task_alive'    => { '=' => '1' },
+            'task_deleted'  => { '<>' => 'y' },
+            'task_complete' => { '<>' => 'y' }
+        },
+        { order_by => 'task_priority' }
+    );
+
+    $c->stash->{num_tasks} = $#active_tasks + 1;
+    $c->stash->{tasks}     = \@active_tasks;
+
+    $c->stash->{template} = 'person/my_active_tasks.tt';
+}
+
+
+=head2 my_complete_tasks
+
+=cut
+
+sub my_complete_tasks : Chained('person_object') : PathPart('my_complete_tasks') : Args(0) {
+    my ( $self, $c ) = @_;
+
+	    my $person=$c->stash->{person};
+
+    # my $cur_date = strftime "%Y-%m-%d", localtime();
+
+    my $all_projects = $c->model('ProjectTaskToDoComDB::Project')->search(
+        {
+            'deleted'        => { '<>' => 'y' }
+        }
+    );
+
+    my @complete_tasks = $all_projects->search_related(
+        'tasks',
+        {
+            'task_owner_id' => { '=' => $person->id },
+            'task_alive'    => { '=' => '0' },
+            'task_deleted'  => { '<>' => 'y' },
+            'task_complete' => { '=' => 'y' }
+        },
+        { order_by => 'task_priority' }
+    );
+
+    $c->stash->{num_tasks} = $#complete_tasks + 1;
+    $c->stash->{tasks}     = \@complete_tasks;
+
+    $c->stash->{template} = 'person/my_complete_tasks.tt';
+}
+
+
+
+
 
 
 
@@ -309,7 +491,7 @@ sub name_lookup : Local {
     $c->forward('View::JSON');
 }
 
-=head2 object
+=head2 person_object
 
 =cut
 
