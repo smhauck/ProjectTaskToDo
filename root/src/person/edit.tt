@@ -1,27 +1,3 @@
-<!--
-COPYRIGHT
-
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
-
-LICENSE
-
-This file is part of ProjectTaskToDo.
-
-ProjectTaskToDo is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-ProjectTaskToDo is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--->
-
-
 [% META title = 'ProjectTaskToDo:User Edit' %]
 
 [% INCLUDE authenticated_navbar.tt %]
@@ -64,6 +40,7 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 <tr><th>Mobile Phone:</th><td><input type="text" name="mobile_phone" value="[% person.mobile_phone | html %]" /></td></tr>
 <tr><th>Skype Name:</th><td><input type="text" name="skype_name" value="[% person.skype_name | html %]" /></td></tr>
 <tr><th>AIM Name:</th><td><input type="text" name="aim_name" value="[% person.aim_name | html %]" /></td></tr>
+<tr><th>NNIT Initials:</th><td><input type="text" name="nnit_initials" value="[% person.nnit_initials | html %]" /></td></tr>
 <tr><th>Registered:</th><td>[% person.registered %]</td></tr>
 <tr><th>Last Modified:</th><td>[% person.last_modified %]</td></tr>
 <tr><th>Admin Notes:</th><td><textarea name='admin_notes' cols='80' rows='10'>[% person.admin_notes %]</textarea></td></tr>
