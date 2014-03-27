@@ -1129,7 +1129,6 @@ sub all_active : Local {
     my ( $self, $c ) = @_;
 
     if ( $c->user_exists ) {
-        if ( $c->check_user_roles('admin') ) {
 
            # tell the template which tab to highlight and the page title
             $c->stash->{whichtab}  = 'projects';
@@ -1141,7 +1140,6 @@ sub all_active : Local {
                     { order_by => 'project_short_name' }
                 )
             ];
-        }
     }
     else {
         $c->stash->{projects} = '';
@@ -1214,14 +1212,6 @@ sub all_complete : Local {
     my ( $self, $c ) = @_;
 
     if ( $c->user_exists ) {
-        if ( $c->check_user_roles('admin') ) {
-            $c->stash->{projects} =
-              [ $c->model('ProjectTaskToDoDB')->all_inactive_projects()
-              ];
-            $c->stash->{template} = 'project/complete.tt';
-        }
-    }
-    elsif ( $c->user_exists ) {
         if ( $c->check_user_roles('member') ) {
             $c->stash->{projects} =
               [ $c->model('ProjectTaskToDoDB')
