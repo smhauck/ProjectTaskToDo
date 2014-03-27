@@ -341,7 +341,7 @@ sub new_note :Path('/note') :Args(0) {
 	}
 	else
 	{
-        	$c->stash->{projects} = [ $c->model('ProjectTaskToDoDB::Project')->search( { status_id => {'=' => 1 } } ) ];
+        	$c->stash->{projects} = [ $c->model('ProjectTaskToDoDB::Project')->search( { status_id => {'=' => 1 } }, { order_by => 'project_name' } ) ];
 	}
 	if ($task_id)
 	{
