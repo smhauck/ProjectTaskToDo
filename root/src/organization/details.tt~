@@ -1,4 +1,0 @@
-[% INCLUDE organization/menu.tt %]
-[% INCLUDE organization/options.tt %]
-
-[% INCLUDE organization/organization_details.tt %]
