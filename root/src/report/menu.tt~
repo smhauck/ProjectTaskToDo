@@ -1,2 +1,0 @@
-[% INCLUDE authenticated_navbar.tt %]
-[% INCLUDE report/navbar.tt %]
