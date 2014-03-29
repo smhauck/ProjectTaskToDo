@@ -54,7 +54,7 @@ function validate(form) {
 [% ELSE -%]
 <!-- <p class='note_privacy'>(Private)</p> -->
 [% END -%]
-<p class='note_body'>[% note.body | html | html_line_break %]</p>
+<p class='note_body'>[% note.body %]</p>
 </div>
 
 <form action="/note/[% note.id %]/delete" method="POST" onsubmit="return validate(this);">

@@ -387,6 +387,15 @@ sub insert_note :Path('/note/insert_note') :Args(0) {
     $public = 0 unless $public;
     my $date_selected = $c->req->params->{date_selected};
     my $body= $c->req->params->{body};
+    # clean the dangerous tags from the body
+    # i'd like to do this in the CKEditor, but can't right now
+    $body =~ s/<script>/&lt;script&gt;/g;
+    $body =~ s/<\/script>/&lt;\/script&gt\;/g;
+    $body =~ s/<iframe>/&lt;iframe&gt;/g;
+    $body =~ s/<\/iframe>/&lt;\/iframe&gt;/g;
+    $body =~ s/<frameset>/&lt;frameset&gt;/g;
+    $body =~ s/<\/frameset>/&lt;\/frameset&gt;/g;
+
     my $project_id= $c->req->params->{project_id};
     my $client_organization_id = $c->req->params->{client_organization_id};
     $client_organization_id = '' unless $client_organization_id;
@@ -436,6 +445,15 @@ sub update :Chained('note_object') : PathPart('update') : Args(0) {
     my $public= $c->req->params->{public};
     $public = 0 unless $public;
     my $body= $c->req->params->{body};
+    # clean the dangerous tags from the body
+    # i'd like to do this in the CKEditor, but can't right now
+    $body =~ s/<script>/&lt;script&gt;/g;
+    $body =~ s/<\/script>/&lt;\/script&gt;/g;
+    $body =~ s/<iframe>/&lt;iframe&gt;/g;
+    $body =~ s/<\/iframe>/&lt;\/iframe&gt;/g;
+    $body =~ s/<frameset>/&lt;frameset&gt;/g;
+    $body =~ s/<\/frameset>/&lt;\/frameset&gt;/g;
+
     my $project_id= $c->req->params->{project_id};
     $project_id = '' unless $project_id;
     my $task_id= $c->req->params->{task_id};

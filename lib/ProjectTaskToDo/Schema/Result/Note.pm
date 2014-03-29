@@ -97,12 +97,12 @@ __PACKAGE__->table("note");
 
 =head2 title
 
-  data_type: 'tinyblob'
+  data_type: 'tinytext'
   is_nullable: 1
 
 =head2 body
 
-  data_type: 'longblob'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =cut
@@ -142,15 +142,15 @@ __PACKAGE__->add_columns(
   "date_selected",
   { data_type => "date", is_nullable => 1 },
   "title",
-  { data_type => "tinyblob", is_nullable => 1 },
+  { data_type => "tinytext", is_nullable => 1 },
   "body",
-  { data_type => "longblob", is_nullable => 1 },
+  { data_type => "mediumtext", is_nullable => 1 },
 );
 __PACKAGE__->set_primary_key("id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07002 @ 2013-09-12 15:17:59
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:pvIgn5ZTz5/KqOCoEXZu3w
+# Created by DBIx::Class::Schema::Loader v0.07002 @ 2014-03-28 18:28:31
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:HjUuTZH83dq3VpuSN7UGVA
 
 
 =head1 COPYRIGHT

@@ -29,6 +29,7 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 [% END %]
 </tr>
 
+<tr><th>Parent Org</th><td>[% organization.parent_org.name | html | html_line_break %]</td></tr>
 <tr><th>Description</th><td>[% organization.description | html | html_line_break %]</td></tr>
 <tr><th>Notes</th><td>[% organization.notes | html | html_line_break %]</td></tr>
 <tr><th>Address 1</th><td>[% organization.address_1| html | html_line_break %]</td></tr>

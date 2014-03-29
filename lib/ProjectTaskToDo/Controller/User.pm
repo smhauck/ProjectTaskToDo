@@ -113,9 +113,18 @@ Displays a simple form for the user to change his own password
 
 =cut
 
-sub change_password : Local {
+sub change_password : Chained('user_object') : PathPart('change_password') : Args(0) {
     my ( $self, $c ) = @_;
-    $c->stash->{template} = 'user/change_password.tt';
+    my $user_to_display = $c->stash->{user};
+    if ($c->user) {
+	    if ( ( $c->user->id == $user_to_display ) || ( $c->check_user_roles('admin' ) ) ) {
+    		$c->stash->{template} = 'user/change_password.tt';
+            } else {
+		$c->response->redirect($c->uri_for('/user/details'));
+	    }
+    } else {
+	$c->response->redirect($c->uri_for('/user/details'));
+    }
 }
 
 

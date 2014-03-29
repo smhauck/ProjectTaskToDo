@@ -126,6 +126,12 @@ __PACKAGE__->table("person");
   is_nullable: 1
   size: 255
 
+=head2 nnit_initials
+
+  data_type: 'varchar'
+  is_nullable: 1
+  size: 10
+
 =head2 timezone
 
   data_type: 'varchar'
@@ -135,7 +141,7 @@ __PACKAGE__->table("person");
 =head2 registered
 
   data_type: 'datetime'
-  is_nullable: 1
+  is_nullable: 0
 
 =head2 last_modified
 
@@ -238,10 +244,12 @@ __PACKAGE__->add_columns(
   { data_type => "varchar", is_nullable => 1, size => 255 },
   "aim_name",
   { data_type => "varchar", is_nullable => 1, size => 255 },
+  "nnit_initials",
+  { data_type => "varchar", is_nullable => 1, size => 10 },
   "timezone",
   { data_type => "varchar", is_nullable => 1, size => 255 },
   "registered",
-  { data_type => "datetime", is_nullable => 1 },
+  { data_type => "datetime", is_nullable => 0 },
   "last_modified",
   {
     data_type     => "timestamp",
@@ -271,8 +279,8 @@ __PACKAGE__->set_primary_key("id");
 __PACKAGE__->add_unique_constraint("username_unique", ["username"]);
 
 
-# Created by DBIx::Class::Schema::Loader v0.07002 @ 2014-02-17 12:42:31
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:UTiPNx7eim5JhLEGgcfleg
+# Created by DBIx::Class::Schema::Loader v0.07002 @ 2014-03-28 18:28:31
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:j74tpxRLy54uUOY9FAbUQA
 
 
 =head1 COPYRIGHT
