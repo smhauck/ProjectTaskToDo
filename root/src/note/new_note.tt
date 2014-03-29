@@ -20,6 +20,8 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 
 [% INCLUDE note/menu.tt %]
 
+<script src="/static/scripts/ckeditor/ckeditor.js"></script>
+
 <script type="text/javascript">
 $(function() {
 	$(".ui-datepicker").datepicker({dateFormat: "yy-mm-dd"});
@@ -154,3 +156,6 @@ $(document).ready(function(){
 });
 </script>
 
+
+
+<script>CKEDITOR.replace( 'body' );</script>

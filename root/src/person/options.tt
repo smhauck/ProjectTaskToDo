@@ -1,6 +1,8 @@
 
 <div class="option">
-<a href="[% C.uri_for("/person/$person.id/edit") %]">Edit Account</a><br />
+[% IF authorized -%]
+<a href='/person/[% person.id %]/edit'>Edit this Person</a><br />
+[% END -%]
 <br />
 <a href="/person/[% person.id %]/my_active_projects">View Active Projects</a><br />
 <a href="/person/[% person.id %]/my_active_tasks">View Active Tasks</a><br />

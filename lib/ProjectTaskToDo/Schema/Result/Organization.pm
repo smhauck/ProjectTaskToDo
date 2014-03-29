@@ -30,6 +30,12 @@ __PACKAGE__->table("organization");
   is_auto_increment: 1
   is_nullable: 0
 
+=head2 parent_org_id
+
+  data_type: 'bigint'
+  extra: {unsigned => 1}
+  is_nullable: 1
+
 =head2 recorded
 
   data_type: 'datetime'
@@ -103,6 +109,8 @@ __PACKAGE__->add_columns(
     is_auto_increment => 1,
     is_nullable => 0,
   },
+  "parent_org_id",
+  { data_type => "bigint", extra => { unsigned => 1 }, is_nullable => 1 },
   "recorded",
   { data_type => "datetime", is_nullable => 1 },
   "name",
@@ -129,9 +137,10 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07002 @ 2013-09-12 15:17:59
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:QNsF4aK/uek2pGzkmMN/Bg
+# Created by DBIx::Class::Schema::Loader v0.07002 @ 2014-03-28 18:34:06
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:OV3IRG4Zelz1FCnAjZDG4g
 
+__PACKAGE__->belongs_to('parent_org' => 'ProjectTaskToDo::Schema::Result::Organization', 'parent_org_id');
 
 =head1 COPYRIGHT
 
