@@ -2877,11 +2877,17 @@ sub update_client_organization : Local {
           ->find( { id => $client_organization_id } );
 
         if ($client) {
-
             $project->update(
                 {
                     client_organization_id   => $client->id,
                     client_organization_name => $client->name,
+                }
+            );
+        } else {
+            $project->update(
+                {
+                    client_organization_id   => '',
+                    client_organization_name => '',
                 }
             );
         }
