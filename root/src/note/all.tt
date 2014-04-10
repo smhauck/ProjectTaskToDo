@@ -20,12 +20,14 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 
 [% INCLUDE note/menu.tt %]
 
-<table border='0'>
+<table class='sortable' border='0'>
 <tr>
 <th align='right'>date</th>
 <th align='right'>creator</th>
+<th align='right' width=10%>client org</th>
+<th align='right' width=10%>client person</th>
 <th align='right'>jobcode</th>
-<th align='right'>project</th>
+<th align='right' width=10%>project</th>
 <th align='right'>task</th>
 <th align='right'>title</th>
 <!-- <th align='right'>privacy</th> -->
@@ -38,6 +40,8 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 <td></td>
 [% END %]
 <td><a href='/person/[% note.creator_id %]'>[% note.creator.full_name %]</a></td>
+<td><a href='/person/[% note.client_organization_id %]'>[% note.client_organization.name %]</a></td>
+<td><a href='/person/[% note.client_person_id %]'>[% note.client_person.full_name %]</a></td>
 <td><a href='/project/[% note.project_id %]'>[% note.project.project_short_name | html %]</a></td>
 <td><a href='/project/[% note.project_id %]'>[% note.project.project_name | html %]</a></td>
 <td><a href='/task/[% note.task_id %]'>[% note.task.task_name | html %]</a></td>
