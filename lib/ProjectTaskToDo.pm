@@ -37,7 +37,6 @@ use Catalyst::Runtime 5.80;
 #                 directory
 
 use Catalyst qw/
--Debug
 ConfigLoader
 Authentication
 Authorization::Roles
@@ -50,7 +49,7 @@ Static::Simple
 
 extends 'Catalyst';
 
-our $VERSION = '0.1.21';
+our $VERSION = '0.1.23';
 $VERSION = eval $VERSION;
 
 # Configure the application.

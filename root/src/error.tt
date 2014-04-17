@@ -26,12 +26,7 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 
 [% IF Catalyst.user %]
 	[% INCLUDE authenticated_navbar.tt %]
-	<p><strong>Welcome, [% Catalyst.user.full_name %].  Please choose an action from the above menu.</strong></p>
-	<p>You have [% num_active_tasks %] <a href="[% Catalyst.uri_for('/task/active') %]">Active Tasks</a> in [% num_active_projects %] <a href="[% Catalyst.uri_for('/project/active') %]">Projects</a>.</p>
-	<p>Overdue task information is still under development.</p>
-	<br />
-	[% PROCESS notifications.tt %]
-	<br />
+	<p><strong>We're sorry, that doesn't seemed to have worked.  Please try a different function.</strong></p>
 	<br />
 [% ELSE %]
 	[% INCLUDE unauthenticated_navbar.tt %]
