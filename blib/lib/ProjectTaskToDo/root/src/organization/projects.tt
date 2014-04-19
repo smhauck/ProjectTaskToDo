@@ -1,0 +1,48 @@
+
+[% INCLUDE organization/menu.tt %]
+[% INCLUDE organization/options.tt %]
+
+[% INCLUDE organization/organization_details.tt %]
+
+[% linecount = 0 %]
+<table class='sortable'>
+<tr>
+<th>ID</th>
+<th>Short Name</th>
+<th>Project Name</th>
+<th>Sched Start Date</th>
+<th>Actual Start Date</th>
+<th>Sched Completion Date</th>
+<th>Owner</th>
+<th>Client</th>
+<th>Contact</th>
+</tr>
+[% FOREACH project IN projects %]
+[% linecount = linecount + 1 %]
+<tr>
+<td>[% project.project_id %]</td>
+<td><a href="/project/[% project.project_id %]">[% project.project_short_name %]</a></td>
+<td><a href="/project/[% project.project_id %]/tasks/active">[% project.project_name %]</a></td>
+[% IF project.project_sched_start_date && project.project_sched_start_date != '0000-00-00' %]
+<td>[% project.project_sched_start_date %]</td>
+[% ELSE %]
+<td></td>
+[% END %]
+[% IF project.project_actual_start_date && project.project_actual_start_date != '0000-00-00' %]
+<td>[% project.project_actual_start_date %]</td>
+[% ELSE %]
+<td></td>
+[% END %]
+[% IF project.project_sched_compl_date && project.project_sched_compl_date != '0000-00-00' %]
+<td>[% project.project_sched_compl_date %]</td>
+[% ELSE %]
+<td></td>
+[% END %]
+<td><a href="/person/[% project.project_owner_id %]">[% project.owner.full_name %]</a></td>
+<td><a href="/person/[% project.client_person_id %]">[% project.client_person_name %]</td>
+<td><a href="/person/[% project.client_contact_person_id %]">[% project.client_contact_person_name %]</td>
+</tr>
+[% END %]
+</table>
+
+Count: [% linecount %]

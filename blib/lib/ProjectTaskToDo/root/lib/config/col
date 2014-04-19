@@ -1,0 +1,66 @@
+[%#
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+%]
+
+
+[% site.rgb = {
+    black  = '#000000'
+    white  = '#FFFFFF'
+    offwhite  = '#FFFFFF'
+    red    = '#FF0000'
+    green  = '#00FF00'
+    blue   = '#0000FF'
+    lightblue1 = '#CBEAF6'
+    lightblue2 = '#CBD4F6'
+    lightpurple1 = '#D7CBF6'
+    lightpurple2 = '#EDCBF6'
+    mediumblue1 = '#97D4ED'
+    mediumblue2 = '#63BFE3'
+    greenblue = '#CBF6ED'
+    purple1 = '#F6CBEA'
+    purple2 = '#F6CBD4'
+    lightgreen1 = '#CBF6D7'
+    lightgreen2 = '#D4F6CB'
+    lightbrown1 = '#EDAF97'
+    lightbrown2 = '#E38763'
+    lightbrown2 = '#E38763'
+    lightrose1 = '#F6D7CB'
+    lightrose2 = '#F6CBD4'
+    greentan1 = '#EAF6CB'
+    lighttan1 = '#F6EDCB'
+    lightgrey = '#BEBEBE'
+   };
+
+   site.col = {
+      page          = site.rgb.lightgrey
+      body          = site.rgb.white
+      content       = site.rgb.white
+      userlabel     = site.rgb.white
+      text          = site.rgb.blue
+      head          = site.rgb.lightblue1
+      footer        = site.rgb.lightblue1
+      line          = site.rgb.black
+      message       = site.rgb.red
+      error         = site.rgb.red
+      link          = site.rgb.blue
+      link_hover    = site.rgb.black
+      link_visited  = site.rgb.red
+      table_hover_text_color   = site.rgb.black
+      table_hover   = site.rgb.greentan1
+   };
+%]

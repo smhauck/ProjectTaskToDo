@@ -1,0 +1,36 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% META title = 'ProjectTaskToDo:New Task' %]
+
+[% INCLUDE task/menu.tt %]
+
+	<SCRIPT LANGUAGE="JavaScript">
+	var cal = new CalendarPopup();
+	cal.showYearNavigation();
+	</SCRIPT>
+
+<form name="pick_date" action='/task/tasks_for_date' method='post'>
+<strong>Date of Tasks:</strong>
+<input type='text' name='date' size='10' />
+<A HREF="#" onClick="cal.select(document.forms['pick_date'].date,'anchor1','yyyy-MM-dd'); return false;" NAME="anchor1" ID="anchor1"><img src="/static/images/cal.png" alt="Pick Date" border='0' /></A>
+<input type='submit' value='Get Tasks'>
+</form>
+

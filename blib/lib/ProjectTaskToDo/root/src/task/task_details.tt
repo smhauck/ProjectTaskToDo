@@ -1,0 +1,157 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% IF authorized %]
+	<h1><a href="/task/edit/[% task.task_id %]">[% task.task_name | html %]</a></h1>
+</tr>
+[% ELSE %]
+	<h1>[% task.task_name | html %]</h1>
+[% END %]
+
+<table>
+<tr>
+	<th>Status:</th>
+	<td>[% task.status.name %]</td>
+</tr>
+<!--
+<tr>
+	<th>Alive (DEBUGGING):</th>
+	<td>[% task.task_alive %]</td>
+</tr>
+-->
+<tr>
+	<th>Project:</th>
+	<td><a href="/project/[% task.task_project_id %]/tasks/active">[% task.project.project_short_name %] : [% task.project.project_name | html %]</a></td>
+</tr>
+<tr>
+	<th>On Project Plan:</th>
+	[% IF task.on_project_plan == 1 %]
+	<td>Yes</td>
+	[% ELSE %]
+	<td>No</td>
+	[% END %]
+</tr>
+<tr>
+	<th>Priority:</th>
+	<td>[% task.task_priority %]</td>
+</tr>
+<tr>
+	<th>Created By:</th>
+	<td>[% task.creator.full_name %]</td>
+</tr>
+<tr>
+	<th>Assigned To:</th>
+	<td>[% task.owner.full_name %]</td>
+</tr>
+<tr>
+	<th>Description:</th>
+	<td>[% task.task_description | html | html_line_break %]</td>
+</tr>
+<tr>
+	<th>Initially Recorded:</th>
+	<td>[% task.task_recorded | html | html_line_break %]</td>
+</tr>
+[%- IF (task.task_sched_start_date != '0000-00-00') && (task.task_sched_start_date != '') -%]
+<tr>
+	<th>Scheduled Start Date:</th>
+	<td>[% task.task_sched_start_date | html %]</td>
+</tr>
+[% END %]
+[%- IF (task.task_actual_start_date != '0000-00-00') && (task.task_actual_start_date != '') %]
+<tr>
+<tr>
+	<th>Actual Start Date:</th>
+	<td>[% task.task_actual_start_date | html %]</td>
+</tr>
+[% END %]
+[%- IF task.task_start_date_diff || task.task_start_date_diff == 0 -%]
+<tr>
+	<th>Start Date Diff (days):</th>
+	<td>[% task.task_start_date_diff | html %]</td>
+</tr>
+[% END %]
+[%- IF (task.task_sched_compl_date != '0000-00-00') && (task.task_sched_compl_date != '') -%]
+<tr>
+	<th>Scheduled Completion Date:</th>
+	<td>[% task.task_sched_compl_date | html %]</td>
+</tr>
+[% END %]
+[%- IF (task.task_actual_compl_date != '0000-00-00') && (task.task_actual_compl_date != '') -%]
+<tr>
+	<th>Actual Completion Date:</th>
+	<td>[% IF task.task_actual_compl_date != '0000-00-00' %][% task.task_actual_compl_date %][% END %]</td>
+</tr>
+[% END %]
+[%- IF task.task_compl_date_diff || task.task_compl_date_diff == 0 -%]
+<tr>
+	<th>Completion Date Diff (days):</th>
+	<td>[% task.task_compl_date_diff | html %]</td>
+</tr>
+[% END %]
+[%- IF task.task_duration && task.task_duration != 0 -%]
+<tr>
+	<th>Duration:</th>
+	<td>[% task.task_duration | html %]</td>
+</tr>
+[% END %]
+[% IF task.task_complete != 'n' && task.task_complete != '' -%]
+<tr>
+	<th>Complete (y/n):</th>
+	<td>[% task.task_complete | html %]</td>
+</tr>
+[% END %]
+[%- IF task.task_completion_notes != 'n' && task.task_completion_notes != '' -%]
+<tr>
+	<th>Completion notes:</th>
+	<td>[% task.task_completion_notes | html | html_line_break %]</td>
+</tr>
+[% END %]
+[%- IF task.task_deleted == 'y' -%]
+<tr>
+	<th>Deleted (y/n):</th>
+	<td>[% task.task_deleted | html %]</td>
+</tr>
+<tr>
+	<th>Deletion Date:</th>
+	<td>[% task.task_deletion_date | html %]</td>
+</tr>
+<tr>
+	<th>Deletion Notes:</th>
+	<td>[% task.task_deletion_notes | html %]</td>
+</tr>
+[% END %]
+<tr>
+	<th>Last Activity:</th>
+	<td>[% task.task_last_activity %]</td>
+</tr>
+
+<tr>
+<th>Time Estimate:</th>
+<td>
+[% task.time_estimate div 60 %] Hours, [% task.time_estimate mod 60 %] Minutes
+</td>
+</tr>
+
+<tr>
+	<th>Total Task Time:</th>
+	<td>[% task_time div 60 %] Hours, [% task_time mod 60 %] Minutes</td>
+</tr>
+
+</table>

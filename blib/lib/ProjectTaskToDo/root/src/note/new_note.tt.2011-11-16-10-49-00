@@ -1,0 +1,41 @@
+
+[% INCLUDE note/menu.tt %]
+
+<script type="text/javascript">
+$(function() {
+	$('.ui-datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+});
+</script>
+
+<form name="new_note" action='/note/insert_note' method='post'>
+<table border='0'>
+<tr>
+<td align='right'><strong>title</strong></td>
+<td><input type='text' id='title' name='title' size='36'></td>
+</tr>
+
+
+
+<tr>
+<td align='right'><strong>public</strong></td>
+<td><input type='checkbox' name='public' value='1' /></td>
+</tr>
+<tr>
+<td align='right'><strong>body:</strong></td>
+<td><textarea rows='10' cols='100' name='body'></textarea></td>
+</tr>
+<tr>
+<td align='right'><input type='reset' value='Clear'></td>
+<td align='right'><input type='submit' value='Create'></td>
+</tr>
+</table>
+</form>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var $inputTxt = $('#short_name');
+	if ($inputTxt.val() =='') {
+		$inputTxt.focus();
+	}
+});
+</script>

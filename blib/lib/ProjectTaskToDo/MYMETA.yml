@@ -1,0 +1,35 @@
+---
+abstract: 'Catalyst based application'
+author:
+  - '- 2014 William B. Hauck, http://wbhauck.com'
+build_requires:
+  ExtUtils::MakeMaker: 6.36
+  Test::More: 0.88
+configure_requires:
+  ExtUtils::MakeMaker: 0
+dynamic_config: 0
+generated_by: 'ExtUtils::MakeMaker version 6.62, CPAN::Meta::Converter version 2.131560'
+license: open_source
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: ProjectTaskToDo
+no_index:
+  directory:
+    - t
+    - inc
+requires:
+  Catalyst::Action::RenderView: 0
+  Catalyst::Plugin::Authentication: 0
+  Catalyst::Plugin::Authorization::ACL: 0
+  Catalyst::Plugin::Authorization::Roles: 0
+  Catalyst::Plugin::ConfigLoader: 0
+  Catalyst::Plugin::Session: 0
+  Catalyst::Plugin::Session::State::Cookie: 0
+  Catalyst::Plugin::Session::Store::DBIC: 0
+  Catalyst::Plugin::Static::Simple: 0
+  Catalyst::Runtime: 5.90042
+  Config::General: 0
+  Moose: 0
+  namespace::autoclean: 0
+version: v0.1.23

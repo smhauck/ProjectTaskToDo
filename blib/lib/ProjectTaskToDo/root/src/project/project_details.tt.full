@@ -1,0 +1,56 @@
+
+[% IF authorized %]
+<span id='project_short_name'>[ [% project.project_short_name %] ] </span> <span id='project_name'><a href="/project/[% project.id %]/edit">[% project.project_name %]</a></span>
+[% ELSE %]
+<span id='project_short_name'>[ [% project.project_short_name %] ]</span> <span id='project_name'>[% project.project_name %]</span>
+[% END %]
+
+<table>
+<tr><th>Creator</th><td><a href="/user/details/[% project.project_creator_id %]">[% project.creator.full_name %]</a></td></tr>
+<tr><th>Owner</th><td><a href="/user/details/[% project.project_owner_id %]">[% project.owner.full_name %]</a></td></tr>
+<tr><th>Client Name</th><td>[% project.client_person_name %]</td></tr>
+<tr><th>Client Email</th><td>[% project.client_person_email %]</td></tr>
+<tr><th>Client Phone</th><td>[% project.client_person_office_phone %]</td></tr>
+<tr><th>Client Dept.</th><td>[% project.client_person_department %]</td></tr>
+<tr><th>Client Contact Name</th><td>[% project.client_contact_person_name %]</td></tr>
+<tr><th>Client Contact Email</th><td>[% project.client_contact_person_email %]</td></tr>
+<tr><th>Client Contact Phone</th><td>[% project.client_contact_person_office_phone %]</td></tr>
+<tr><th>Client Contact Dept.</th><td>[% project.client_contact_person_department %]</td></tr>
+<tr><th>Client Organization</th><td><a href="/organization/[% project.client_organization_id %]">[% project.client_organization_name %]</a></td></tr>
+<tr><th>Client Organization Contact Email</th><td>[% project.client_organization_email %]</td></tr>
+<tr><th>Client Organization Phone</th><td>[% project.client_organization_office_phone %]</td></tr>
+<tr><th>Status</th><td>[% project.status.name %]</td></tr>
+<tr><th>Allocated Hours</th><td>[% project.allocated_hours %] Hrs.</td></tr>
+<tr><th>Billable Time</th><td>[% total_billable_time.0 %] Hrs. [% total_billable_time.1 %] Mins.</td></tr>
+<tr><th>NonBillable Time</th><td>[% total_nonbillable_time.0 %] Hrs. [% total_nonbillable_time.1 %] Mins.</td></tr>
+<tr><th>Total Time Spent</th><td>[% total_time.0 %] Hrs. [% total_time.1 %] Mins.</td></tr>
+[% total_time_used_in_minutes = (total_time.0 * 60) + total_time.1 %]
+<tr><th>Time Left</th><td>[% ((project.allocated_hours * 60) - total_time_used_in_minutes ) div 60 %] Hrs. [% ((project.allocated_hours * 60) - total_time_used_in_minutes ) mod 60 %] Mins.</td></tr>
+<tr><th>Description</th><td>[% project.project_description | html | html_line_break %]</td></tr>
+<tr><th>Requirements</th><td>[% project.project_requirements_text | html | html_line_break %]</td></tr>
+<tr><th>Initially Recorded</th><td>[% project.project_recorded | html %]</td></tr>
+<tr><th>Last Modified</th><td>[% project.project_last_modified | html %]</td></tr>
+[% IF project.project_sched_start_date && project.project_sched_start_date != '0000-00-00' %]
+<tr><th>Sched Start Date</th><td>[% project.project_sched_start_date | html %]</td></tr>
+[% END %]
+[% IF project.project_actual_start_date && project.project_actual_start_date != '0000-00-00' %]
+<tr><th>Actual Start Date</th><td>[% project.project_actual_start_date | html %]</td></tr>
+[% END -%]
+[% IF project.project_sched_compl_date && project.project_sched_compl_date != '0000-00-00' %]
+<tr><th>Sched Completion Date</th><td>[% project.project_sched_compl_date | html %]</td></tr>
+[% END -%]
+[% IF project.project_actual_compl_date && project.project_actual_compl_date != '0000-00-00' %]
+<tr><th>Actual Completion Date</th><td>[% project.project_actual_compl_date | html %]</td></tr>
+[% END -%]
+[% IF project.project_complete %]
+<tr><th>Complete</th><td>[% project.project_complete %]</td></tr>
+[% END -%]
+[% IF project.project_completion_notes %]
+<tr><th>Completion Notes</th><td>[% project.project_completion_notes | html | html_line_break %]</td></tr>
+[% END -%]
+[% IF project.deleted == 'y' %]
+<tr><th>Deleted</th><td>[% project.deleted | html %]</td></tr>
+<tr><th>Deletion Date</th><td>[% project.project_deletion_date | html %]</td></tr>
+<tr><th>Deletion Notes</th><td>[% project.project_deletion_notes | html | html_line_break %]</td></tr>
+[% END %]
+</table>

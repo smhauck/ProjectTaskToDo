@@ -1,0 +1,109 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% META title = 'ProjectTaskToDo:Project Plan' %]
+
+[% INCLUDE authenticated_navbar.tt %]
+[% INCLUDE task_search_box.tt %]
+
+<div class="option">
+[% IF authorized %]
+<a href="/project/edit/[% project.project_id %]">Edit This Project</a><br />
+[% END %]
+<br />
+<a href="/project/new_comment/[% project.project_id %]">Add Project Comment</a><br />
+<a href="/project/[% project.project_id %]/comments">View Project Comments([% num_comments %])</a><br />
+<br />
+<a href="/project/[% project.project_id %]/details">Hide Project Tasks</a><br />
+<a href="/project/[% project.project_id %]/tasks/active">View Active Project Tasks ([% num_active_tasks %])</a><br />
+<a href="/project/[% project.project_id %]/tasks/complete">View Completed Project Tasks ([% num_complete_tasks %])</a><br />
+<a href="/project/[% project.project_id %]/tasks/all">View All Project Tasks ([% num_tasks %])</a><br />
+<br />
+<a href="/project/view_users/[% project.project_id %]">View Project Users</a><br />
+[% IF authorized %]
+<a href="/project/edit_users/[% project.project_id %]">Edit Project Users</a><br />
+<br />
+<a href="/task/new_task/[% project.project_id %]">Add Project Task</a><br />
+[% END %]
+</div>
+
+[% INCLUDE project/project_details.tt %]
+<br />
+
+
+
+ID
+Task name
+% complete
+Duration
+Start Date
+Finish Date
+Predecessors
+Resource Names (person and percentage assigned to task)
+
+
+<table class='sortable' width='100%'>
+<caption>Active Tasks</caption>
+<tr>
+<th>ID(Order)</th>
+<th>Status</th>
+<th>Task Name</th>
+<th>Assigned To</th>
+<th>Last Activity</th>
+<th>Sched<br />Start</th>
+<th>Actual<br />Start</th>
+<th>Scheduled<br />Completion</th>
+</tr>
+[% FOREACH task IN active_tasks %]
+<tr>
+<td>[% task.task_order %]</td>
+<td>[% task.status.name %]</td>
+<td><a href="/task/task_with_comments/[% task.task_id %]">[% task.task_name %]</a></td>
+<td>[% task.owner.full_name %]</td>
+<td>[% task.task_last_modified %]</td>
+<td>[% IF task.task_sched_start_date != '0000-00-00' %][% task.task_sched_start_date %][% END %]</td>
+<td>[% IF task.task_actual_start_date != '0000-00-00' %][% task.task_actual_start_date %][% END %]</td>
+<td>[% IF task.task_sched_compl_date != '0000-00-00' %][% task.task_sched_compl_date %][% END %]</td>
+</tr>
+[% END %]
+</table>
+<br />
+
+<table class='sortable' width='100%'>
+<caption>Completed Tasks</caption>
+<tr><th>ID</th><th>Order</th><th>Task Name</th><th>Priority</th><th>Owner</th><th>Scheduled<br />Start<br />Date</th><th>Actual<br />Start<br />Date</th><th>Diff</th><th>Scheduled<br />Completion<br />Date</th><th>Actual<br />Completion<br />Date</th><th>Diff</th></tr>
+[% FOREACH task IN complete_tasks %]
+<tr>
+<td>[% task.task_id %]</td>
+<td>[% task.task_order %]</td>
+<td><a href="/task/task_with_comments/[% task.task_id %]">[% task.task_name %]</a></td>
+<td>[% task.task_priority%]</td>
+<td>[% task.owner.full_name %]</td>
+<td>[% IF task.task_sched_start_date != '0000-00-00' %][% task.task_sched_start_date %][% END %]</td>
+<td>[% IF task.task_actual_start_date != '0000-00-00' %][% task.task_actual_start_date %][% END %]</td>
+<td class='table_integer'>[% task.task_start_date_diff %]</td>
+<td>[% IF task.task_sched_compl_date != '0000-00-00' %][% task.task_sched_compl_date %][% END %]</td>
+<td>[% IF task.task_actual_compl_date != '0000-00-00' %][% task.task_actual_compl_date %][% END %]</td>
+<td class='table_integer'>[% task.task_compl_date_diff %]</td>
+</tr>
+[% END %]
+</table>
+<br />
+

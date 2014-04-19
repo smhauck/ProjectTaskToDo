@@ -1,3 +1,9 @@
+commit d75b5778e6159da747ad08a4e230a24da3149c54
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Apr 17 18:16:53 2014 -0400
+
+    made custom error page; changed Root controller to actually use it
+
 commit 81aabf7a812303d9e6b3619bad3df0116970c13b
 Author: William Hauck <wbhauck@yahoo.com>
 Date:   Thu Apr 10 19:34:40 2014 -0400

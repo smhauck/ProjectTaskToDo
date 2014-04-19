@@ -1,0 +1,122 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% META title = 'ProjectTaskToDo:Task Edit' %]
+
+[% INCLUDE authenticated_navbar.tt %]
+
+        <SCRIPT LANGUAGE="JavaScript">
+        var cal = new CalendarPopup();
+        cal.showYearNavigation();
+        </SCRIPT>
+
+<form name="edit" action="/task/update" method="post">
+<input type="hidden" name="task_id" value="[% task.task_id %]" />
+<table>
+<tr>
+<td align="right"><strong>name:</strong></td>
+<td><input type="text" name="name" value="[% task.task_name | html %]" size="60" /></td>
+</tr>
+<tr>
+<td align="right"><strong>project:</strong></td>
+<td>[% task.project.project_name %]</td>
+</tr>
+<tr>
+<td align="right"><strong>priority:</strong></td>
+<td><input type="text" name="priority" value="[% task.task_priority | html %]" size="60" /></td>
+</tr>
+<tr>
+<td align="right"><strong>owner:</strong></td>
+<td>
+<select name="owner_id" size="1">
+[% FOR user IN users %]
+<option value="[% user.id %]">[% user.full_name %]
+[% END %]
+</td>
+</tr>
+<tr>
+<td align="right"><strong>description:</strong></td>
+<td><textarea rows="15" cols="80" name="description">[% task.task_description | html %]</textarea></td>
+</tr>
+<tr>
+<td align="right"><strong>scheduled start date:</strong></td>
+<td><input type="text" name="sched_start_date" value="[% task.task_sched_start_date | html %]" size="60" />
+<A HREF="#" onClick="cal.select(document.forms['edit'].sched_start_date,'anchor1','yyyy-MM-dd'); return false;" NAME="anchor1" ID="anchor1"><img src="http://lily.my.org/images/date.png" alt="Pick Date" border='0' /></A>
+</td>
+</tr>
+<tr>
+<td align="right"><strong>actual start date:</strong></td>
+<td><input type="text" name="actual_start_date" value="[% task.task_actual_start_date | html %]" size="60" />
+<A HREF="#" onClick="cal.select(document.forms['edit'].actual_start_date,'anchor2','yyyy-MM-dd'); return false;" NAME="anchor2" ID="anchor2"><img src="http://lily.my.org/images/date.png" alt="Pick Date" border='0' /></A>
+</td>
+</tr>
+<tr>
+<td align="right"><strong>scheduled completion date:</strong></td>
+<td><input type="text" name="sched_compl_date" value="[% task.task_sched_compl_date | html %]" size="60" />
+<A HREF="#" onClick="cal.select(document.forms['edit'].sched_compl_date,'anchor3','yyyy-MM-dd'); return false;" NAME="anchor3" ID="anchor3"><img src="http://lily.my.org/images/date.png" alt="Pick Date" border='0' /></A>
+</td>
+</tr>
+<tr>
+<td align="right"><strong>actual completion date:</strong></td>
+<td><input type="text" name="actual_compl_date" value="[% task.task_actual_compl_date | html %]" size="60" />
+<A HREF="#" onClick="cal.select(document.forms['edit'].actual_compl_date,'anchor4','yyyy-MM-dd'); return false;" NAME="anchor4" ID="anchor4"><img src="http://lily.my.org/images/date.png" alt="Pick Date" border='0' /></A>
+</td>
+</tr>
+<tr>
+<td align="right"><strong>complete (y/n)</strong></td>
+<td>
+[% IF task.task_complete == 'y' %]
+<input type="checkbox" name="complete" value='y' checked='y' />
+[% ELSE %]
+<input type="checkbox" name="complete" value='y' />
+[% END %]
+</td>
+</tr>
+<tr>
+<td align="right"><strong>completion notes:</strong></td>
+<td><textarea rows="4" cols="60" name="completion_notes">[% task.task_completion_notes %]</textarea></td>
+</tr>
+<tr>
+<td align="right"><strong>deleted (y/n)</strong></td>
+<td>
+[% IF task.task_deleted == 'y' %]
+<input type="checkbox" name="deleted" value='y' checked='y' />
+[% ELSE %]
+<input type="checkbox" name="deleted" value='y' />
+[% END %]
+</td>
+</tr>
+<tr>
+<td align="right"><strong>deletion date:</strong></td>
+<td><input type="text" name="deletion_date" value="[% task.task_deletion_date %]" size="60" />
+<A HREF="#" onClick="cal.select(document.forms['edit'].deletion_date,'anchor5','yyyy-MM-dd'); return false;" NAME="anchor5" ID="anchor5"><img src="http://lily.my.org/images/date.png" alt="Pick Date" border='0' /></A>
+</td>
+</tr>
+<tr>
+<td align="right"><strong>deletion notes:</strong></td>
+<td><textarea rows="4" cols="60" name="deletion_notes">[% task.task_deletion_notes %]</textarea></td>
+</tr>
+<input type="hidden" name="action" value="updateTask">
+<tr>
+<td align="right"><input type="reset" value="Reset"></td>
+<td align="right"><input type="submit" value="Update"></td>
+</tr>
+</table>
+</form>

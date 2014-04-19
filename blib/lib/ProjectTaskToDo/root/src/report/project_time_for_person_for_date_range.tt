@@ -1,0 +1,56 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% INCLUDE report/menu.tt %]
+[% INCLUDE report/options.tt %]
+
+[% FOREACH person IN person_time.keys -%]
+[% total_person_time = 0 %]
+<table class='sortable time_report'>
+<caption>Work Time by Project & Task for Date Range [% start_date %] - [% end_date %]</caption>
+<thead>
+<tr>
+<th width='10%'>Person</th>
+<th width='60%'>Project Name</th>
+<th width='10%'>JobCode</th>
+<th width='10%'>Date of Work</th>
+<th width='10%'>Time on Project</th>
+</tr>
+</thead>
+<tbody>
+[%- FOREACH day IN person_time.$person.keys -%]
+[%- FOREACH project IN person_time.$person.$day.keys -%]
+<tr>
+<td>[% person_time.$person.$day.$project.user_full_name %]</td>
+<td>[% person_time.$person.$day.$project.project_name %]</td>
+<td>[% person_time.$person.$day.$project.project_short_name %]</td>
+<td>[% day %]</td>
+<td>[% person_time.$person.$day.$project.time_by_project_by_date div 60 %] Hrs, [% person_time.$person.$day.$project.time_by_project_by_date mod 60 %] Mins</td>
+</tr>
+[% total_person_time = total_person_time + person_time.$person.$day.$project.time_by_project_by_date %]
+[% END -%]
+[%- END -%]
+</tbody>
+<tfoot>
+<tr><td>Total</td><td></td><td></td><td></td><td>[% total_person_time div 60 %] Hrs, [% total_person_time mod 60 %] Mins</td></tr>
+</tfoot>
+</table>
+[%- END -%]
+

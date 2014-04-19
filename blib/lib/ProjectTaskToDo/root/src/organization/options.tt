@@ -1,0 +1,58 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+<div class="option">
+<a href="/organization/[% organization.id %]/edit">Edit This Organization</a><br />
+<br />
+<a href="/organization/[% organization.id %]/projects/active">View Active Projects</a><br />
+<a href="/organization/[% organization.id %]/tasks/active">View Active Tasks</a><br />
+<a href="/organization/[% organization.id %]/projects/complete">View Completed Projects</a><br />
+<a href="/organization/[% organization.id %]/tasks/complete">View Completed Tasks</a><br />
+<a href="/organization/[% organization.id %]/notes">View Notes</a><br />
+
+
+
+
+
+
+
+<!--
+<a href="/organization/[% organization.id %]/new_comment">Add Organization Comment</a><br />
+<a href="/organization/[% organization.id %]/comments">View Organization Comments ([% num_comments %])</a><br />
+<br />
+<a href="/organization/[% organization.id %]/details/">View Only Organization Details</a><br />
+<a href="/organization/[% organization.id %]/tasks/complete">View Completed Organization Tasks ([% num_complete_tasks %])</a><br />
+<a href="/organization/[% organization.id %]/tasks/all">View All Organization Tasks ([% num_tasks %])</a><br />
+<a href="/organization/[% organization.id %]/plan">View As Organization Plan</a><br />
+<br />
+<a href="/organization/[% organization.id %]/view_users">View Organization Users</a><br />
+<br />
+<a href="/organization/[% organization.id %]/content">View Organization Files</a><br />
+<br />
+[% IF authorized %]
+<a href="/organization/edit_users/[% organization.id %]">Edit Organization Users</a><br />
+<br />
+<a href="/organization/[% organization.id %]/order_tasks">Edit Task Order</a><br />
+<br />
+<a href="/task/new_task/[% organization.id %]">Add Organization Task</a><br />
+[% END %]
+-->
+</div>
+
