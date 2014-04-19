@@ -1,0 +1,88 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% META title = 'ProjectTaskToDo:Edit Task Comment' %]
+
+[% INCLUDE task/menu.tt %]
+
+<script type="text/javascript">
+$(function() {
+	$('.ui-datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+});
+</script>
+
+<form name="edit" action="/taskcomment/update" method="post">
+<input type="hidden" name="task_comment_id" value="[% tc.task_comment_id %]" />
+<table>
+<tr>
+<th align="right"><strong>body:</strong></th>
+<td><textarea rows="10" cols="100" name="task_comment_body">[% tc.task_comment_body %]</textarea></td>
+</tr>
+<tr>
+<th align="right"><strong>status:</strong></th>
+<td>
+<select name="task_comment_type_id" size="1">
+[% FOR tct IN task_comment_types %]
+	[% IF tc.task_comment_type_id == tct.task_comment_type_id %]
+		<option selected value="[% tct.task_comment_type_id %]">[% tct.task_comment_type_name %]
+	[% ELSE %]
+		<option value="[% tct.task_comment_type_id %]">[% tct.task_comment_type_name %]
+	[% END %]
+[% END %]
+</td>
+</tr>
+<tr>
+<th align="right">time worked:</th>
+<td>
+[% IF tc.task_comment_time_worked != '0' %]
+	<input type="text" name="task_comment_time_worked_hours" value="[% tc.task_comment_time_worked div 60 %]" size="60" /> Hrs.,
+	<input type="text" name="task_comment_time_worked_minutes" value="[% tc.task_comment_time_worked mod 60 %]" size="60" /> Mins.
+[% ELSE %]
+	<input type="text" name="task_comment_time_worked_hours" value="" size="60" /> Hrs.,
+	<input type="text" name="task_comment_time_worked_minutes" value="" size="60" /> Mins.
+[% END %]
+</td>
+</tr>
+<tr>
+<th>Billable:</th>
+<td>
+[% IF tc.billable != '1' %]
+<input type='checkbox' name='billable' value='1' />
+[% ELSE %]
+<input type='checkbox' name='billable' value='1' checked />
+[% END %]
+</td>
+</tr>
+<tr>
+<th align="right"><strong>date of comment:</strong></th>
+[% IF tc.task_comment_date_of_work != '0000-00-00' %]
+	<td><input type="text" class='ui-datepicker' name="task_comment_date_of_work" value="[% tc.task_comment_date_of_work | html %]" size="60" />
+[% ELSE %]
+	<td><input type="text" class='ui-datepicker' name="date_of_work" value="" size="60" />
+[% END %]
+</td>
+</tr>
+<tr>
+<td align="right"><input type="reset" value="Reset"></td>
+<td align="right"><input type="submit" value="Update"></td>
+</tr>
+</table>
+</form>
+

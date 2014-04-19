@@ -1,0 +1,56 @@
+<!--
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% INCLUDE person/menu.tt %]
+[% INCLUDE person/search_box.tt %]
+
+        <SCRIPT LANGUAGE="JavaScript">
+        var cal = new CalendarPopup();
+        cal.showYearNavigation();
+        </SCRIPT>
+
+<table class="sortable" border='0'>
+<tr>
+<th>username</th>
+<th>full name</th>
+<th>first name</th>
+<th>last name</th>
+</tr>
+[% FOREACH person IN persons %]
+<tr>
+<td><a href="/person/[% person.id %]">[% person.username %]</a></td>
+<td><a href="/person/[% person.id %]">[% person.full_name %]</a></td>
+<td><a href="/person/[% person.id %]">[% person.first_name %]</a></td>
+<td><a href="/person/[% person.id %]">[% person.last_name %]</a></td>
+</tr>
+[% END -%]
+
+</table>
+<br />
+
+
+
+
+
+

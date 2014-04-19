@@ -1,0 +1,60 @@
+<!--
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% META title = 'ProjectTaskToDo:User Edit' %]
+
+[% INCLUDE authenticated_navbar.tt %]
+
+        <SCRIPT LANGUAGE="JavaScript">
+        var cal = new CalendarPopup();
+        cal.showYearNavigation();
+        </SCRIPT>
+
+<form name="edit" action="/person/insert" method="post">
+<table>
+<tr><th>Username:</th><td><input type="text" name="username" value="[% person.username | html %]" size="60" /></td></tr>
+<tr><th>Full Name:</th><td><input type="text" name="full_name" value="[% person.full_name | html %]" size="60" /></td></tr>
+<tr><th>First Name:</th><td><input type="text" name="first_name" value="[% person.first_name | html %]" size='60' /></td></tr>
+<tr><th>Last Name:</th><td><input type="text" name="last_name" value="[% person.last_name | html %]" size='60' /></td></tr>
+<tr><th>Email Address:</th><td><input type="text" name="office_email" value="[% person.office_email | html %]" size="60" /></td></tr>
+<tr><th>Office Phone:</th><td><input type="text" name="office_phone" value="[% person.office_phone | html %]" size='60' /></td></tr>
+<tr><th>Office Floor:</th><td><input type="text" name="office_floor" value="[% person.office_floor | html %]" size='60' /></td></tr>
+<tr><th>Office Department:</th><td><input type="text" name="office_department" value="[% person.office_department | html %]" size='60' /></td></tr>
+<tr><th>Office Address 1:</th><td><input type="text" name="office_address1" value="[% person.office_address1 | html %]" size='60' /></td></tr>
+<tr><th>Office Address 2:</th><td><input type="text" name="office_address2" value="[% person.office_address2 | html %]" size='60' /></td></tr>
+<tr><th>Office Address 3:</th><td><input type="text" name="office_address3" value="[% person.office_address3 | html %]" size='60' /></td></tr>
+<tr><th>Office City:</th><td><input type="text" name="office_city" value="[% person.office_city | html %]" size='60' /></td></tr>
+<tr><th>Office State:</th><td><input type="text" name="office_state" value="[% person.office_state | html %]" size='60' /></td></tr>
+<tr><th>Office ZIP:</th><td><input type="text" name="office_postal_code" value="[% person.office_postal_code | html %]" size='60' /></td></tr>
+<tr><th>Office Country:</th><td><input type="text" name="office_country" value="[% person.office_country | html %]" size='60' /></td></tr>
+<tr><th>Mobile Phone:</th><td><input type="text" name="mobile_phone" value="[% person.mobile_phone | html %]" size='60' /></td></tr>
+<tr><th>Skype Name:</th><td><input type="text" name="skype_name" value="[% person.skype_name | html %]" /></td></tr>
+<tr><th>AIM Name:</th><td><input type="text" name="aim_name" value="[% person.aim_name | html %]" /></td></tr>
+<tr><th>Admin Notes:</th><td><textarea name='admin_notes' cols='80' rows='10'>[% person.admin_notes %]</textarea></td></tr>
+<tr><td></td><td align="right"><input type="submit" name="Submit" value="Submit"></td></tr>
+</table>
+</form>
+
+
+

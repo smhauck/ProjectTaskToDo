@@ -1,0 +1,60 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% INCLUDE organization/menu.tt %]
+
+<script type="text/javascript">
+$(function() {
+	$('.ui-datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+});
+</script>
+
+<form name="new_organization" action='/organization/insert_organization' method='post'>
+<table border='0'>
+<tr>
+<th><strong>name</th>
+<td><input type='text' name='name' size='50'></td>
+</tr>
+<tr>
+<th>description</th>
+<td><textarea name="description" cols="50" rows="10"></textarea></td>
+</tr>
+<tr>
+<th>notes</th>
+<td><textarea name="notes" cols="50" rows="10"></textarea></td>
+</tr>
+<tr>
+<th>country</th>
+<td>
+<select name='country_id' size='1'>
+<option value="" />
+[% FOR country IN countries %]
+<option value="[% country.id %]" />[% country.name %]
+[% END %]
+</select>
+</td>
+</tr>
+<tr>
+<td align='right'><input type='reset' value='Clear'></td>
+<td align='right'><input type='submit' value='Create'></td>
+</tr>
+</table>
+</form>
+

@@ -1,0 +1,49 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% META title = 'ProjectTaskToDo:Project Details' %]
+
+[% INCLUDE authenticated_navbar.tt %]
+
+<div class="option">
+[% IF authorized %]
+<a href="/project/edit/[% project.project_id %]">Edit This Project</a><br />
+[% END %]
+<br />
+<a href="/project/new_comment/[% project.project_id %]">Add Project Comment</a><br />
+<a href="/project/[% project.project_id %]/details">Hide Project Comments</a><br />
+<br />
+[% IF authorized %]
+<a href="/task/new_task/[% project.project_id %]">Add Project Task</a><br />
+[% END %]
+<a href="/project/[% project.project_id %]/tasks/all">View Project Tasks ([% num_tasks %])</a><br />
+</div>
+
+[% INCLUDE project/project_details.tt %]
+
+<h2>Comments</h2>
+[% FOREACH comment IN comments %]
+<table class='projectcomments'>
+<tr><td width="10%">Person</td><td>[% comment.user.full_name %]</td></tr>
+<tr><td>Recorded</td><td>[% comment.recorded %]</td></tr>
+<tr><td>Comment</td><td>[% comment.comment | html | html_line_break %]</td></tr>
+</table>
+<br />
+[% END %]

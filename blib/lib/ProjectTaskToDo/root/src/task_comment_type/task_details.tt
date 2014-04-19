@@ -1,0 +1,43 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+<table>
+<tr><td align='right'><strong>Task Name:</strong></td><td>[% task.task_name %] <a href="/task/edit/[% task.task_id %]">(Edit Task)</a><br /></td></tr>
+<tr><td align='right'><strong>Project:</strong></td><td><a href="/project/details/[% task.task_project_id %]">[% task.project.project_name %]</a></td></tr>
+<tr><td align='right'><strong>Priority:</strong></td><td>[% task.task_priority %]</td></tr>
+<tr><td align='right'><strong>Creator:</strong></td><td>[% task.creator.full_name %]</td></tr>
+<tr><td align='right'><strong>Assigned To:</strong></td><td>[% task.owner.full_name %]</td></tr>
+<tr><td align='right'><strong>Description:</strong></td><td>[% task.task_description | html | html_line_break %]</td></tr>
+<tr><td align='right'><strong>Scheduled start date:</strong></td><td>[% task.task_sched_start_date %]</td></tr>
+<tr><td align='right'><strong>Actual start date:</strong></td><td>[% task.task_actual_start_date %]</td></tr>
+[% IF task.task_start_date_diff || task.task_start_date_diff == 0 %]<tr><td align='right'><strong>Start date diff (days):</strong></td><td>[% task.task_start_date_diff %]</td></tr>[% END %]
+<tr><td align='right'><strong>Scheduled completion date:</strong></td><td>[% task.task_sched_compl_date %]</td></tr>
+<tr><td align='right'><strong>Actual completion date:</strong></td><td>[% task.task_actual_compl_date %]</td></tr>
+[% IF task.compl_date_diff || task.compl_date_diff == 0 %]<tr><td align='right'><strong>Completion date diff (days):</strong></td><td>[% task.task_compl_date_diff %]</td></tr>[% END %]
+<tr><td align='right'><strong>Complete (y/n):</strong></td><td>[% task.task_complete %]</td></tr>
+<tr><td align='right'><strong>Completion notes:</strong></td><td>[% task.task_completion_notes | html | html_line_break %]</td></tr>
+[% IF task.task_deleted == 'y' %]
+<tr><td align='right'><strong>Deleted (y/n):</strong></td><td>[% task.task_deleted %]</td></tr>
+<tr><td align='right'><strong>Deletion Date:</strong></td><td>[% task.task_deletion_date %]</td></tr>
+<tr><td align='right'><strong>Deletion Notes:</strong></td><td>[% task.task_deletion_notes | html | html_line_break %]</td></tr>
+[% END %]
+<tr><td align='right'><strong>Last Modified:</strong></td><td>[% task.task_modified %]</td></tr>
+</table>
+

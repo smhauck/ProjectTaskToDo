@@ -1,0 +1,45 @@
+<!--
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+<table class='sortable'>
+<tr><th>Active</th><th>ID:</th><th>Username:</th><th>First Name:</th><th>Last Name:</th><th>Full Name:</th><th>Email Address:</th><th>Office Phone:</th><th>Office Country:</th><th>Mobile Phone:</th><th>AIM</th><th>Skype Name</th>[% IF authorized %]<th>Edit</th>[% END %]</tr>
+[% FOR person IN persons %]
+<tr>
+<td>[% person.active %]</td>
+<td>[% person.id %]</td>
+<td><a href='/person/[% person.id %]/'>[% person.username %]</a></td>
+<td>[% person.first_name %]</td>
+<td>[% person.last_name %]</td>
+<td>[% person.full_name %]</td>
+<td>[% person.office_email %]</td>
+<td>[% person.office_phone %]</td>
+<td>[% person.office_country %]</td>
+<td>[% person.mobile_phone %]</td>
+<td>[% person.aim_name %]</td>
+<td>[% person.skype_name %]</td>
+<td><a href='/person/[% person.id %]/edit'>EDIT</a></td>
+</tr>
+[% END %]
+</table>
+

@@ -1,0 +1,39 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% META title = 'ProjectTaskToDo:User Edit' %]
+
+[% INCLUDE authenticated_navbar.tt %]
+
+        <SCRIPT LANGUAGE="JavaScript">
+        var cal = new CalendarPopup();
+        cal.showYearNavigation();
+        </SCRIPT>
+
+<form name="edit_roles" action="/user/[% user.id %]/update_roles" method="post">
+
+
+[% FOREACH role IN roles  %]
+  <input type="checkbox" name="roles_assigned" value="[% role.id %]" [% IF role.has_user(user) %]checked="1"[% END %] />[% role.display_name %] ([% role.role %])<br />
+[% END %]
+
+
+<input type="submit" name="Update" value="Update">
+</form>

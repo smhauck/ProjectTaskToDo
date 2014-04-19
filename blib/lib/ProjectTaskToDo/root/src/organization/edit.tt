@@ -1,0 +1,74 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% INCLUDE organization/menu.tt %]
+[% INCLUDE organization/options.tt %]
+
+<script type="text/javascript">
+$(function() {
+	$('.ui-datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+});
+</script>
+
+<form name="edit" action="/organization/update" method="post">
+<input type="hidden" name="id" value="[% organization.id %]" />
+<table border="0">
+<tr>
+<th>Name</th>
+<td><input type="text" name="name" value="[% organization.name %]" size="60"></td>
+</tr>
+<tr>
+<th>Address 1</th>
+<td><input type="text" name="address_1" value="[% organization.address_1%]" size="60"></td>
+</tr>
+<tr>
+<th>Address 2</th>
+<td><input type="text" name="address_1" value="[% organization.address_2%]" size="60"></td>
+</tr>
+<tr>
+<th>City</th>
+<td><input type="text" name="city" value="[% organization.city %]" size="60"></td>
+</tr>
+<tr>
+<th>State</th>
+<td><input type="text" name="state" value="[% organization.state %]" size="60"></td>
+</tr>
+<tr>
+<th>ZIP</th>
+<td><input type="text" name="zip" value="[% organization.zip %]" size="60"></td>
+</tr>
+<tr>
+<th>Country</th>
+<td><input type="text" name="country" value="[% organization.country %]" size="60"></td>
+</tr>
+<tr>
+<th>description</th>
+<td><textarea rows="10" cols="100" name="description">[% organization.description %]</textarea></td>
+</tr>
+<tr>
+<th>notes</th>
+<td><textarea rows="10" cols="100" name="notes">[% organization.notes %]</textarea></td>
+</tr>
+<tr>
+<td><input type="reset" value="Reset"></td>
+<td><input type="submit" value="Update"></td>
+</tr>
+</table>
+</form>

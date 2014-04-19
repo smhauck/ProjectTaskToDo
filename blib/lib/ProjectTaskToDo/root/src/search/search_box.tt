@@ -1,0 +1,77 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+
+<script type="text/javascript">
+$(function() {
+	$('.ui-datepicker').datepicker({dateFormat: 'yy-mm-dd', changeMonth: true, changeYear: true});
+});
+</script>
+
+
+
+<!-- pagetitle============START -->
+<div id="pagetitle">
+
+	<div class="but_nextprevious">
+		[% IF page > 1 %]<a href="[% uri %]?rows=[% rows %]&page=[% page - 1 %]&[% url_params %]"><img src="/static/images/but_previous.gif" alt="Previous" onmouseover="this.src = '/static/images/but_previous_over.gif'" onmouseout="this.src = '/static/images/but_previous.gif'" border="0"/></a>[% END %][% IF page > 1 && project_count >= rows %]<img src="/static/images/divider_next.gif" class="but_nextpreviousdivider"/>[% END %][% IF project_count >= rows %]<a href="[% uri %]?rows=[% rows %]&page=[% page + 1 %]&[% url_params %]"><img src="/static/images/but_next.gif" alt="Next" onmouseover="this.src = '/static/images/but_next_over.gif'" onmouseout="this.src = '/static/images/but_next.gif'" border="0"/></a>[% END %]
+	</div>
+
+	<h1>Search Projects</h1>
+</div>
+<!-- pagetitle============END -->
+
+<div id="content_top">
+
+<form class="search_box" action="/search/search_results" method="post">
+
+<table id="table_search">
+
+<tr><td>Project Start Date Range:</td><td>From: 
+<input class="ui-datepicker" name="project_start_date_start" type="text">
+To:
+<input class="ui-datepicker" name="project_start_date_end" type="text"></td></tr>
+
+<tr>
+
+<td>Job Code:</td>
+<td><input name="project_id" type="text"></td>
+
+</tr>
+
+<tr>
+
+<td>Project Name:</td>
+<td><input name="project_name" type="text"></td>
+
+</tr>
+
+<tr>
+
+<td>Project Description:</td>
+<td><input name="project_description" type="text"></td>
+
+</tr>
+
+<tr><td></td><td><button style="border: 0pt none;" name="submit" value="submit"><img src="/static/images/but_search.gif" name="Search" alt="Search" onmouseover="this.src = '/static/images/but_search_over.gif'" onmouseout="this.src = '/static/images/but_search.gif'" border="0"></button></td></tr>
+
+</table>
+</form>
+

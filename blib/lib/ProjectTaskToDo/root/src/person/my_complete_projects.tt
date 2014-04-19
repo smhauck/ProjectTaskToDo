@@ -1,0 +1,18 @@
+
+[% INCLUDE person/menu.tt %]
+
+[% INCLUDE person/options.tt %]
+
+[% INCLUDE person/person_details.tt %]
+
+
+[% linecount = 0 %]
+<table class='sortable'>
+<tr><th>ID</th><th>Sched Start Date</th><th>Actual Start Date</th><th>Short Name</th><th>Project Name</th></tr>
+[% FOREACH project IN projects %]
+[% linecount = linecount + 1 %]
+<tr><td>[% project.project_id %]</td><td>[% project.project_sched_start_date %]</td><td>[% project.project_actual_start_date %]</td><td><a href="/project/[% project.project_id %]">[% project.project_short_name %]</a></td><td><a href="/project/[% project.project_id %]/tasks/all">[% project.project_name %]</a></td></tr>
+[% END %]
+</table>
+
+Count: [% linecount %]

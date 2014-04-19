@@ -1,0 +1,38 @@
+[% INCLUDE person/menu.tt %]
+
+[% INCLUDE person/options.tt %]
+
+[% INCLUDE person/person_details.tt %]
+
+<span class="task_count">[% num_tasks %] complee tasks</span>
+
+<table class='sortable'>
+<tr>
+<th>ID</th>
+<th>Priority</th>
+<th>Project</th>
+<th>Task Name</th>
+<th>Estimation</th>
+<th>Scheduled Start</th>
+<th>Actual Start</th>
+<th>Due Date</th>
+<th>Last Activity</th>
+</tr>
+[% linecount = 0 %]
+[% FOREACH task IN tasks %]
+[% linecount = linecount + 1 %]
+<tr>
+<td>[% task.task_id %]</td>
+<td>[% task.task_priority %]</td>
+<td><a href="/project/[% task.task_project_id %]/tasks/active">[% task.project.project_short_name.replace(' ', '&nbsp;') %]</td>
+<td><a href="/task/task_with_comments/[% task.task_id %]">[% task.task_name %]</a></td>
+<td>[% task.time_estimate div 60 %] Hrs. [% task.time_estimate mod 60 %] Min. </td>
+<td>[% IF task.task_sched_start_date != '0000-00-00' %][% task.task_sched_start_date %][% END %]</td>
+<td>[% IF task.task_actual_start_date != '0000-00-00' %][% task.task_actual_start_date %][% END %]</td>
+<td>[% IF task.task_sched_compl_date != '0000-00-00' %][% task.task_sched_compl_date %][% END %]</td>
+<td>[% task.task_last_activity %]</td>
+</tr>
+[% END %]
+</table>
+
+Count: [% linecount %]
