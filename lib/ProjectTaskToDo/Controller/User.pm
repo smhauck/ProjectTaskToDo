@@ -169,7 +169,8 @@ sub send_new_password : Global {
 	my $recipient = $user->contact_email;
 
 
-	my %mail = ( To      => "$recipient",
+	my %mail = (
+		To      => "$recipient",
 		From    => 'no-reply@projecttasktodo.org',
 		Subject => 'Requested Password Update',
 		Message => "New Password:  $password"
