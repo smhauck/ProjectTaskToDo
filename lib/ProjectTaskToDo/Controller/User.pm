@@ -116,8 +116,8 @@ Displays a simple form for the user to change his own password
 sub change_password : Chained('user_object') : PathPart('change_password') : Args(0) {
     my ( $self, $c ) = @_;
     my $user_to_display = $c->stash->{user};
-    if ($c->user) {
-	    if ( ( $c->user->id == $user_to_display ) || ( $c->check_user_roles('admin' ) ) ) {
+    if ($c->user_exists) {
+	    if ( ( $c->user->id == $user_to_display->id ) || ( $c->check_user_roles('admin') ) ) {
     		$c->stash->{template} = 'user/change_password.tt';
             } else {
 		$c->response->redirect($c->uri_for('/user/details'));

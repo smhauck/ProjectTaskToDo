@@ -49,7 +49,7 @@ Static::Simple
 
 extends 'Catalyst';
 
-our $VERSION = '0.1.23';
+our $VERSION = '0.1.24';
 $VERSION = eval $VERSION;
 
 # Configure the application.
@@ -101,7 +101,6 @@ __PACKAGE__->deny_access_unless("/timepalette", [qw/member/]);
 __PACKAGE__->deny_access_unless("/user", [qw/member/]);
 
 __PACKAGE__->allow_access('/about');
-__PACKAGE__->allow_access('/user/forgot_password');
 __PACKAGE__->allow_access('/help');
 __PACKAGE__->allow_access('/login');
 __PACKAGE__->allow_access('/new_user');

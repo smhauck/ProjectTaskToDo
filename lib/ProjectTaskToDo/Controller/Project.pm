@@ -465,10 +465,6 @@ sub update_link : Chained('project_object') : PathPart('update_link') :
 
       my $cur_date = strftime "%Y-%m-%d", localtime();
 
-    my $link_text    = $c->req->params->{link_text};
-    my $link_url     = $c->req->params->{link_url};
-    my $link_type_id = $c->req->params->{link_type_id};
-    my $description  = $c->req->params->{description};
 
     my $recorded = strftime "%Y-%m-%d %H-%M-%S", localtime();
 
@@ -478,12 +474,12 @@ sub update_link : Chained('project_object') : PathPart('update_link') :
 
     $project_link->update(
         {
-            link_type_id => $link_type_id,
-            link_text    => $link_text,
-            link_url     => $link_url,
+            link_type_id => $c->req->params->{link_type_id},
+            link_text    => $c->req->params->{link_text},
+            link_url     => $c->req->params->{link_url},
             project_id   => $project->id,
             creator_id   => $creator_id,
-            description  => $description,
+            description  => $c->req->params->{description},
         }
     );
 
@@ -507,22 +503,18 @@ sub insert_link : Chained('project_object') : PathPart('insert_link') :
 
       my $cur_date = strftime "%Y-%m-%d", localtime();
 
-    my $link_text    = $c->req->params->{link_text};
-    my $link_url     = $c->req->params->{link_url};
-    my $link_type_id = $c->req->params->{link_type_id};
-    my $description  = $c->req->params->{description};
 
     my $recorded = strftime "%Y-%m-%d %H-%M-%S", localtime();
 
     my $project_link =
       $c->model('ProjectTaskToDoDB::ProjectLink')->create(
         {
-            link_type_id => $link_type_id,
-            link_text    => $link_text,
-            link_url     => $link_url,
+            link_type_id => $c->req->params->{link_type_id},
+            link_text    => $c->req->params->{link_text},
+            link_url     => $c->req->params->{link_url},
             project_id   => $project->id,
             creator_id   => $creator_id,
-            description  => $description,
+            description  => $c->req->params->{description},
         }
       );
 

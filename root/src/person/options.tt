@@ -10,5 +10,8 @@
 <a href="/person/[% person.id %]/my_complete_tasks">View Complete Tasks</a><br />
 <a href="/person/[% person.id %]/notes_by_person">View Person's Notes</a><br />
 <a href="/person/[% person.id %]/notes_about_person">View Notes About Person</a><br />
+[% IF Catalyst.user.id == person.id %]
+<a href="/user/[% person.id %]/change_password">Change Password</a><br />
+[% END %]
 </div>
 
