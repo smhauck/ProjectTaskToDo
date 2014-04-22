@@ -1,3 +1,21 @@
+commit 7631c5d9a0b8ed9998244c4d5b17ae24bf03555f
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Apr 22 10:08:29 2014 -0400
+
+    small user fixes
+
+commit e209f95dd1c52febea636620db5ba6ecc16c6710
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Apr 21 20:26:00 2014 -0400
+
+    fixed bug where users could not change their password
+
+commit 3f7e7827f87caabe73b7e47595bc6dd5502c04b0
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Apr 18 20:04:21 2014 -0400
+
+    updated Makefile.PL to include the appropriate modules
+
 commit d75b5778e6159da747ad08a4e230a24da3149c54
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Thu Apr 17 18:16:53 2014 -0400
