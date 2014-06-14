@@ -1,3 +1,75 @@
+commit 643ae73a081f3257c2729bc63f20d714059d9f04
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 14 10:30:14 2014 -0400
+
+    changing from header and footer classes to html tags
+
+commit f32f271c29bfecbb3bf559ba820a457ad0e7c1ac
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 14 10:29:25 2014 -0400
+
+    fixing broken link
+
+commit a9961a3bede25a562805d52429c44b6f04b6ee6c
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 14 10:27:33 2014 -0400
+
+    mid-progress update to what data to enter for new password
+
+commit 563930982169c91872de7e3b0b56a64685a07ea9
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 14 10:25:24 2014 -0400
+
+    updated version
+
+commit b22c2e23a9a8d9df4abedeaf4797b80b59aa2561
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 14 10:25:01 2014 -0400
+
+    updated copyright
+
+commit 6c8d04a1e160692931ca70638febbbd781840742
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 14 10:23:55 2014 -0400
+
+    removing divs for header and footer as the header and footer now contain appropriate tags
+
+commit e8fdb3f04e6a2974b137329155c1ccbe75173465
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 14 10:22:49 2014 -0400
+
+    changing to HTML5 headers; using header tag instead of a div
+
+commit 367a3d7033e3f269ece91b133af856a4f26aab05
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 14 10:21:51 2014 -0400
+
+    tweaks to layout, links
+
+commit 9b04f0214e3a83bb298ec9735616e09962ad921e
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 14 10:20:40 2014 -0400
+
+    adding more filetypes to ignore
+
+commit d283c814678c238a76dcdfe0f16812a4627cab0f
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Apr 24 11:59:33 2014 -0400
+
+    more HTML5 stuff
+
+commit 8b01cc7b721783eac9d94143c7df1d4d41b23836
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Apr 24 11:53:40 2014 -0400
+
+    changed to HTML5 DOCTYPE
+
+commit 1c7b4c371f924dbc41d74a89374c3f2f42b1d933
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Apr 22 10:09:00 2014 -0400
+
+    updating Changes log
+
 commit 7631c5d9a0b8ed9998244c4d5b17ae24bf03555f
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Apr 22 10:08:29 2014 -0400
