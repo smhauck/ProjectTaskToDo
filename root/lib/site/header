@@ -18,6 +18,6 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 %]
 
 
-<!-- BEGIN site/header -->
-<h1 class="title">[% pagetitle or template.title or site.title %]</h1>
-<!-- END site/header -->
+<header>
+<h1>[% pagetitle or template.title or site.title %]</h1>
+</header>
