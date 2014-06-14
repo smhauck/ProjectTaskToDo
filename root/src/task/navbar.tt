@@ -24,7 +24,7 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 	<a href='/task/today'>today's tasks</a> * 
 </span>
 <span class="nav_bar_option[%- IF whichtab=='active_tasks' -%]_active[%- END -%]">
-	<a href='/task/active'>my active tasks</a> * 
+	<a href='/task/my_active'>my active tasks</a> * 
 </span>
 <span class="nav_bar_option[%- IF whichtab=='create_new_task' -%]_active[%- END -%]">
 <a href='/task/new_task'>create new task</a> * 
