@@ -27,10 +27,19 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 [% FOREACH notification IN notifications %]
 	[% IF loop.first %]
 	<h2>Latest Project &amp; Task Modifications</h2>
-<table class='sortable' id='tasknotifications'>
+<table class="table sortable">
 <tr><th>Recorded</th><th>Person Made Modification</th><th>Notification Type</th><th>Project</th><th>Task</th><th>Body</th><th></th></tr>
 	[% END %]
 	[% notification_count = notification_count + 1 %]
+	<tr>
+	<td colspan=6></td>
+	<td>
+		<form action="[% Catalyst.uri_for('/ack_note') %]" method="POST">
+		<input type="hidden" name="notification_number" value="ALL" />
+		<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-remove"></i> Dismiss All</button>
+		</form>
+	</td>
+	</tr>
 	<tr>
 	<td>[% notification.recorded %]</td>
 	<td>[% notification.creator.full_name %]</td>
@@ -54,19 +63,26 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 		<td></td>
 	[% END %]
 	<td>[% notification.body | html | html_line_break %]</td>
-	<td><a href="[% Catalyst.uri_for('/ack_note', notification.id) %]">DISMISS</a></td>
+	<td><a href="[% Catalyst.uri_for('/ack_note', notification.id) %]"><button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-remove"></i> Dismiss</button></a></td>
 	</tr>
 	[% IF loop.last %]
+	<tr>
+	<td colspan=6></td>
+	<td>
+		<form action="[% Catalyst.uri_for('/ack_note') %]" method="POST">
+		<input type="hidden" name="notification_number" value="ALL" />
+		<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-remove"></i> Dismiss All</button>
+		</form>
+	</td>
+	</tr>
 	</table>
 	Notification Count: [% notification_count %]<br />
 	<br />
 
-	<div id="ack_note_all">
 		<form action="[% Catalyst.uri_for('/ack_note') %]" method="POST">
 		<input type="hidden" name="notification_number" value="ALL" />
-		<input type="submit" value="DISMISS ALL NOTIFICATIONS" />
+		<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-remove"></i> Dismiss All</button>
 		</form>
-	</div>
 	[% END %]
 [% END %]
 
