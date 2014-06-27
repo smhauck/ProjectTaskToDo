@@ -1,4 +1,18 @@
-<!--
+<table class="table">
+<tr><th>Username:</th><td>[% user.username %]</td></tr>
+<tr><th>Full Name:</th><td>[% user.full_name %]</td></tr>
+<tr><th>Email Address:</th><td>[% user.contact_email | html %]</td></tr>
+<tr><th>Phone:</th><td>[% user.phone %]</td></tr>
+<tr><th>Registered:</th><td>[% user.registered %]</td></tr>
+<tr><th>Last Modified:</th><td>[% user.last_modified %]</td></tr>
+</table>
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 LICENSE
 
 This file is part of ProjectTaskToDo.
@@ -15,15 +29,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--->
-
-
-<table>
-<tr><td align='right'><strong>Username:</strong></td><td>[% user.username %]</td></tr>
-<tr><td align='right'><strong>Full Name:</strong></td><td>[% user.full_name %]</td></tr>
-<tr><td align='right'><strong>Email Address:</strong></td><td>[% user.contact_email %]</td></tr>
-<tr><td align='right'><strong>Phone:</strong></td><td>[% user.phone %]</td></tr>
-<tr><td align='right'><strong>Registered:</strong></td><td>[% user.registered %]</td></tr>
-<tr><td align='right'><strong>Last Modified:</strong></td><td>[% user.last_modified %]</td></tr>
-</table>
-
+%]
