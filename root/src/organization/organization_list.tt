@@ -1,4 +1,24 @@
-<!--
+<table class='sortable'>
+<tr>
+<th>Name:</th><th>Description</th><th>Country</th>
+</tr>
+[% FOR organization IN organizations %]
+<tr>
+<td><a href='/organization/[% organization.id %]/'>[% organization.name %]</a></td>
+<td>[% organization.description %]</td>
+<td>[% organization.country.name %]</td>
+<td><a href='/organization/[% organization.id %]/edit'>EDIT</a></td>
+</tr>
+[% END %]
+</table>
+
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 LICENSE
 
 This file is part of ProjectTaskToDo.
@@ -15,20 +35,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--->
-
-
-<table class='sortable'>
-<tr>
-<th>Name:</th><th>Description</th><th>Country</th>
-</tr>
-[% FOR organization IN organizations %]
-<tr>
-<td><a href='/organization/[% organization.id %]/'>[% organization.name %]</a></td>
-<td>[% organization.description %]</td>
-<td>[% organization.country.name %]</td>
-<td><a href='/organization/[% organization.id %]/edit'>EDIT</a></td>
-</tr>
-[% END %]
-</table>
-
+%]

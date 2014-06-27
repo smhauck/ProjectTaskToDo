@@ -1,4 +1,19 @@
-<!--
+[% INCLUDE project/menu.tt %]
+[% INCLUDE project/options.tt %]
+
+[% INCLUDE project/project_details.tt %]
+
+<h2>Project Users</h2>
+[% FOREACH puser IN project_users %]
+[% puser.user.full_name %] ([% puser.user.username %])<br />
+[% END %]
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 LICENSE
 
 This file is part of ProjectTaskToDo.
@@ -15,16 +30,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--->
-
-
-[% INCLUDE project/menu.tt %]
-[% INCLUDE project/options.tt %]
-
-[% INCLUDE project/project_details.tt %]
-
-<h2>Project Users</h2>
-[% FOREACH puser IN project_users %]
-[% puser.user.full_name %] ([% puser.user.username %])<br />
-[% END %]
-
+%]

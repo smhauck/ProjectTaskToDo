@@ -1,4 +1,115 @@
-[%#-
+<nav>
+
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">ProjectTaskToDo</a>
+
+<!-- 
+      <form action="/performance/results" method="post" class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+	 <input type="text" class="ui-autocomplete-input form-control" placeholder="Search" id="performance_title" name="performance_title" />
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+-->
+
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Person<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+		<li><a href='/person/add'>add new person</a></li>
+		<li><a href='/person/list'>list all people</a></li>
+		<li><a href='/person/search'>search people</a></li>
+            <li class="divider"></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Organization <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+		<li><a href='/organization/new'>add new organization</a></li>
+		<li><a href='/organization/list'>list all organizations</a></li>
+		<li><a href='/organization/search'>search organization</a></li>
+            <li class="divider"></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Task <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+		<li><a href='/task/today'>today's tasks</a></li>
+		<li><a href='/task/my_active'>my active tasks</a></li>
+		<li><a href='/task/my_complete'>my complete tasks</a></li>
+		<li><a href='/task/new_task'>create new task</a></li>
+		<li><a href='/task/search'>search tasks</a></li>
+            <li class="divider"></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+			<li><a href='/project/my_active'>my active</a></li>
+			<li><a href='/project/my_complete'>my complete projects</a></li>
+			<li><a href='/project/all_active'>all active projects</a></li>
+			<li><a href='/project/all_complete'>all complete projects</a></li>
+			<li><a href='/project/new'>create new project</a></li>
+			<li><a href='/project/search'>search projects</a></li>
+            <li class="divider"></li>
+          </ul>
+        </li>
+        <!-- <li><a href='/timepalette'>Time Palette</a></li> -->
+        <li><a href='/report'>Reports</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Note <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+			<li><a href='/note'>new note</a></li>
+			<li><a href='/note/my_all'>all my notes</a></li>
+			<li><a href='/note/my_personal'>my personal notes</a></li>
+			<li><a href='/note/my_public'>my public notes</a></li>
+			<li><a href='/note/all_public'>all public notes</a></li>
+			<li><a href='/note/search'>search</a></li>
+            <li class="divider"></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/help">Help</a></li>
+        [% IF Catalyst.user -%]
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+<i class="glyphicon glyphicon-user"></i>
+ [% Catalyst.user.username %] <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/user/details/[% Catalyst.user.id %]" class="navbar-link">Account Information</a></li>
+            <li><a href="/blog">My Blogs</a></li>
+            <li class="divider"></li>
+            <li><a href="[% Catalyst.uri_for("/logout") %]" class="navbar-link">Logout</a></li>
+          </ul>
+        </li>
+        [% END -%]
+      </ul>
+    </div><!-- /.navbar-collapse -->
+   
+[% IF error -%]
+<div>
+[% error %]
+</div>
+[% END -%]
+
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+[%#
 COPYRIGHT
 
 Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
@@ -19,98 +130,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--%]
-
-
-<nav>
-[% IF error -%]
-<div>
-[% error %]
-</div>
-[% END -%]
-
-<span class="user_label" id="sitetitle">
-[% IF Catalyst.user -%]
-<a href='/person/[% Catalyst.user.id %]'>
-[% Catalyst.user.full_name %] ([% Catalyst.user.username %])<br />
-<a href='/help'>help</a> <a href="[% Catalyst.uri_for('/logout') %]">logout</a>
-[% END -%]
-</a>
-</span>
-<ul class='dropdown'>
-	<li class='dropdown_trigger'>
-		<a href='/'>home</a>
-	</li>
-</ul>
-<ul class='dropdown'>
-	<li class='dropdown_trigger'>
-		<a href='/person/[% Catalyst.user.id %]'>person</a>
-	<ul>
-		<li><a href='/person/add'>add new person</a></li>
-		<li><a href='/person/list'>list all people</a></li>
-		<li><a href='/person/search'>search people</a></li>
-	</ul>
-	</li>
-</ul>
-<ul class='dropdown'>
-	<li class='dropdown_trigger'>
-		<a href='/organization/new'>organizations</a>
-	<ul>
-		<li><a href='/organization/new'>add new organization</a></li>
-		<li><a href='/organization/list'>list all organizations</a></li>
-		<li><a href='/organization/search'>search organization</a></li>
-	</ul>
-	</li>
-</ul>
-<ul class='dropdown'>
-	<li class='dropdown_trigger'>
-		<a href='/task/today'>tasks</a>
-	<ul>
-		<li><a href='/task/today'>today's tasks</a></li>
-		<li><a href='/task/my_active'>my active tasks</a></li>
-		<li><a href='/task/my_complete'>my complete tasks</a></li>
-		<li><a href='/task/new_task'>create new task</a></li>
-		<li><a href='/task/search'>search tasks</a></li>
-	</ul>
-	</li>
-</ul>
-<ul class='dropdown'>
-	<li class='dropdown_trigger'>
-		<a href='/project/active'>projects</a>
-		<ul>
-			<li><a href='/project/my_active'>my active</a></li>
-			<li><a href='/project/my_complete'>my complete projects</a></li>
-			<li><a href='/project/all_active'>all active projects</a></li>
-			<li><a href='/project/all_complete'>all complete projects</a></li>
-			<li><a href='/project/new'>create new project</a></li>
-			<li><a href='/project/search'>search projects</a></li>
-		</ul>
-	</li>
-</ul>
-<ul class='dropdown'>
-	<li class='dropdown_trigger'>
-		<a href='/timepalette'>time palette</a>
-	</li>
-</ul>
-<ul class='dropdown'>
-	<li class='dropdown_trigger'>
-		<a href='/report'>reports</a>
-	</li>
-</ul>
-<ul class='dropdown'>
-	<li class='dropdown_trigger'>
-		<a href='/note'>notes</a>
-		<ul>
-			<li><a href='/note'>new note</a></li>
-			<li><a href='/note/my_all'>all my notes</a></li>
-			<li><a href='/note/my_personal'>my personal notes</a></li>
-			<li><a href='/note/my_public'>my public notes</a></li>
-			<li><a href='/note/all_public'>all public notes</a></li>
-			<li><a href='/note/search'>search</a></li>
-		</ul>
-	</li>
-</ul>
-</div>
-</div>
-<br clear='all' />
-</nav>
+%]

@@ -1,4 +1,8 @@
-[%#-
+[% INCLUDE authenticated_navbar.tt %]
+[% INCLUDE person/navbar.tt %]
+
+
+[%#
 COPYRIGHT
 
 Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
@@ -19,8 +23,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--%]
-
-
-[% INCLUDE authenticated_navbar.tt %]
-[% INCLUDE person/navbar.tt %]
+%]

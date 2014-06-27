@@ -1,0 +1,45 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% INCLUDE project/menu.tt %]
+[% INCLUDE project/search_box.tt %]
+
+<table class="sortable" border='0'>
+<tr><th>ShortName</th><th>Name</th><th>Description</th></tr>
+[% FOREACH project IN projects %]
+<tr>
+<td><a href="/project/[% project.project_id %]">[% project.project_short_name %]</a></td>
+<td><a href="/project/[% project.id %]">[% project.project_name %]</a></td>
+<td>[% project.project_description %]</td>
+</tr>
+[% END -%]
+
+</table>
+<br />
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var $inputTxt = $("#project_short_name");
+	if ($inputTxt.val() =="") {
+		$inputTxt.focus();
+	}
+});
+</script>
+

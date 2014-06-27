@@ -1,4 +1,22 @@
-<!--
+[% META title = 'ProjectTaskToDo:Tasks For Date' %]
+
+<div class="container">
+<center><h2>[% date_picked %]</h2></center>
+
+<table class='sortable'>
+<tr><th width='5%'>Priority</th><th width='8%'>Scheduled Start Date</th><th width='8%'>Actual Start Date</th><th width='8%'>Scheduled Completion Date</th><th width='10%'>Project Short Name</th><th width=61%'>Task Name</th></tr>
+[% FOREACH task IN tasks %]
+<tr><td>[% task.task_priority%]</td><td>[% task.task_sched_start_date %]</td><td>[% task.task_actual_start_date %]</td><td>[% task.task_sched_compl_date %]</td><td><a href="/project/details/[% task.task_project_id %]">[% task.project.project_short_name %]</a><td><a href="/task/details/[% task.task_id %]">[% task.task_name %]</a></td></tr>
+[% END %]
+</table>
+</div><!-- class="container" -->
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 LICENSE
 
 This file is part of ProjectTaskToDo.
@@ -15,18 +33,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--->
-
-
-[% META title = 'ProjectTaskToDo:Tasks For Date' %]
-
-[% INCLUDE task/menu.tt %]
-
-<center><h2>[% date_picked %]</h2></center>
-
-<table class='sortable'>
-<tr><th width='5%'>Priority</th><th width='8%'>Scheduled Start Date</th><th width='8%'>Actual Start Date</th><th width='8%'>Scheduled Completion Date</th><th width='10%'>Project Short Name</th><th width=61%'>Task Name</th></tr>
-[% FOREACH task IN tasks %]
-<tr><td>[% task.task_priority%]</td><td>[% task.task_sched_start_date %]</td><td>[% task.task_actual_start_date %]</td><td>[% task.task_sched_compl_date %]</td><td><a href="/project/details/[% task.task_project_id %]">[% task.project.project_short_name %]</a><td><a href="/task/details/[% task.task_id %]">[% task.task_name %]</a></td></tr>
-[% END %]
-</table>
+%]

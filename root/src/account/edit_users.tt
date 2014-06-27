@@ -1,0 +1,80 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% INCLUDE project/menu.tt %]
+[% INCLUDE project/options.tt %]
+
+
+<script type="text/javascript">
+	$(function() {
+		$("#the_user_id").autocomplete({
+			minLength: 2,
+			source: "/person/name_lookup"
+		});
+	});
+</script>
+
+<table>
+<tr><td>Project ID</td><td>[% project.project_id %]</td></tr>
+[% IF authorized %]
+<tr><td>Project Name</td><td>[% project.project_name %] <a href="/project/[% project.id %]/edit">(Edit Project)</a></td></tr>
+[% ELSE %]
+<tr><td>Project Name</td><td>[% project.project_name %]</td></tr>
+[% END %]
+<tr><td>Short Name</td><td>[% project.project_short_name %]</a></td></tr>
+<tr><td>Creator</td><td>[% project.creator.full_name %]</td></tr>
+<tr><td>Owner</td><td>[% project.owner.full_name %]</td></tr>
+<tr><td>Last Modified</td><td>[% project.project_recorded %]</td></tr>
+</table>
+<br />
+
+<h2>Project Users</h2>
+
+
+
+<form name="edit_users" action="/project/[% project.project_id %]/insert_resource" method="post">
+<h2>Assign Resources</h2>
+<table id='table_vertical' width="100%">
+<tr>
+<th>Role</th>
+<td>
+<select name='project_role_type_id'>
+<option value="" />
+[% FOR project_role IN project_roles -%]
+<option value="[% project_role.id %]">[% project_role.display_name %]
+[% END -%]
+</select>
+</td>
+</tr>
+<tr>
+<th>Person</th>
+<td>
+<input class="ui-autocomplete-input" id="the_user_id" name="the_user_id" />
+</td>
+</tr>
+</table>
+<br clear="all" />
+<div class="bottom_buttons">
+<input type="submit" name="Submit" value="Submit" /></td>
+</div>
+</form>
+
+
+

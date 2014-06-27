@@ -1,4 +1,18 @@
-<!--
+<div class="global_nav">
+<span class="nav_bar">
+<a href='/organization/new'>add new organization</a> * 
+<a href='/organization/list'>list all organizations</a> * 
+<a href='/organization/search'>search organizations</a>
+<hr width='100%' />
+</span>
+</div>
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 LICENSE
 
 This file is part of ProjectTaskToDo.
@@ -15,14 +29,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--->
-
-
-<div class="global_nav">
-<span class="nav_bar">
-<a href='/organization/new'>add new organization</a> * 
-<a href='/organization/list'>list all organizations</a> * 
-<a href='/organization/search'>search organizations</a>
-<hr width='100%' />
-</span>
-</div>
+%]

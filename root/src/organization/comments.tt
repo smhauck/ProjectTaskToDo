@@ -1,4 +1,23 @@
-<!--
+[% INCLUDE project/menu.tt %]
+[% INCLUDE project/options.tt %]
+[% INCLUDE project/project_details.tt %]
+
+<h2>Comments</h2>
+[% FOREACH comment IN comments %]
+<table class='projectcomments'>
+<tr><td width="10%">Person</td><td>[% comment.user.full_name %]</td></tr>
+<tr><td>Recorded</td><td>[% comment.recorded %]</td></tr>
+<tr><td>Comment</td><td>[% comment.comment | html | html_line_break %]</td></tr>
+</table>
+<br />
+[% END %]
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 LICENSE
 
 This file is part of ProjectTaskToDo.
@@ -15,19 +34,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--->
-
-
-[% INCLUDE project/menu.tt %]
-[% INCLUDE project/options.tt %]
-[% INCLUDE project/project_details.tt %]
-
-<h2>Comments</h2>
-[% FOREACH comment IN comments %]
-<table class='projectcomments'>
-<tr><td width="10%">Person</td><td>[% comment.user.full_name %]</td></tr>
-<tr><td>Recorded</td><td>[% comment.recorded %]</td></tr>
-<tr><td>Comment</td><td>[% comment.comment | html | html_line_break %]</td></tr>
-</table>
-<br />
-[% END %]
+%]

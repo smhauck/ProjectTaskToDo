@@ -18,7 +18,9 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 -->
 
 
+<div class="container">
 <table>
+<tr><th>Account</th><td>[% project.account.title %]</a></td></tr>
 <tr><th>Category</th><td>[% project.category.name %]</a></td></tr>
 <tr><th>Status</th><td>[% project.status.name %]</td></tr>
 [% IF project.billable == 1 %]
@@ -108,3 +110,4 @@ $("#hide_project_requirements").click(function () {
 });
 </script>
 
+</div><!-- class="container" -->

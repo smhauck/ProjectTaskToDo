@@ -1,0 +1,54 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+[% INCLUDE account/menu.tt %]
+
+<script type="text/javascript">
+$(function() {
+	$(".ui-datepicker").datepicker({dateFormat: "yy-mm-dd"});
+});
+</script>
+
+<h2>New Account</h1>
+<form name="new_account" action="/account/insert_account" method="post">
+<table border="0">
+<tr>
+<th>title:</th>
+<td><input type="text" name="title" size="60"></td>
+</tr>
+<tr>
+<th>description:</th>
+<td><textarea rows="5" cols="100" name="description"></textarea></td>
+</tr>
+<tr>
+<td><input type="reset" value="Clear"></td>
+<td><input type="submit" value="Create"></td>
+</tr>
+</table>
+</form>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var $inputTxt = $("#short_name");
+	if ($inputTxt.val() =="") {
+		$inputTxt.focus();
+	}
+});
+</script>

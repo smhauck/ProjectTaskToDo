@@ -1,3 +1,22 @@
+[% META title = 'ProjectTaskToDo' %]
+
+<span class="userlabel" id="sitetitle"><a href='/'>projecttasktodo</a> * <a href='/user/displayDetails/[% user %]'>user: [% user %]</a></span>
+
+<div class="navBar">
+<a href='/'>home</a> * 
+<a href='/task/today'>today's tasks</a> * 
+<a href='/task/new_task'>create new task</a> * 
+<a href='/task/active'>active tasks</a> * 
+<a href='/project/active'>active projects</a> * 
+<a href='/project/new_project'>create new project</a> * 
+<a href='/about'>about projecttasktodo</a> * 
+<a href='/help'>help</a>
+<hr width='100%' />
+</div>
+
+This is the authenticate.tt file.<br />
+
+
 [%#
 COPYRIGHT
 
@@ -20,22 +39,3 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 %]
-
-
-[% META title = 'ProjectTaskToDo' %]
-
-<span class="userlabel" id="sitetitle"><a href='/'>projecttasktodo</a> * <a href='/user/displayDetails/[% user %]'>user: [% user %]</a></span>
-
-<div class="navBar">
-<a href='/'>home</a> * 
-<a href='/task/today'>today's tasks</a> * 
-<a href='/task/new_task'>create new task</a> * 
-<a href='/task/active'>active tasks</a> * 
-<a href='/project/active'>active projects</a> * 
-<a href='/project/new_project'>create new project</a> * 
-<a href='/about'>about projecttasktodo</a> * 
-<a href='/help'>help</a>
-<hr width='100%' />
-</div>
-
-This is the authenticate.tt file.<br />

@@ -1,0 +1,45 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+<table>
+<tr><th>Creator</th><td><a href="/person/[% account.account_creator_id %]">[% account.creator.full_name %]</a></td></tr>
+<tr><th>Owner</th><td><a href="/person/[% account.account_owner_id %]">[% account.owner.full_name %]</a></td></tr>
+<tr><th>Registerd</th><td>[% account.registered %]</td></tr>
+<tr><th>Last Modified</th><td>[% account.account_last_modified | html %]</td></tr>
+<tr><th>Description</th><td>[% account.description | html | html_line_break %]</td></tr>
+<tr><th>Notes</th><td>[% account.notes | html | html_line_break %]</td></tr>
+<tr>
+<th>Projects</th>
+<td>
+[% FOREACH project IN account.projects %]
+<a href='/project/[% project.project_id %]'>[% project.project_name %]</a><br />
+[% END %]
+</td>
+</tr>
+<tr>
+<th>Users</th>
+<td>
+[% FOREACH user IN account.users %]
+<a href='/user/[% user.id %]'>[% user.full_name %]</a><br />
+[% END %]
+</td>
+</tr>
+</table>
+

@@ -1,4 +1,16 @@
-<!--
+<span class="task_search_box">
+<form class="task_search_box" action="/task/search" method="post">
+<input type="text" name="criteria" />
+<input type="submit" name="Search" value="Search Tasks" />
+</form>
+</span>
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 LICENSE
 
 This file is part of ProjectTaskToDo.
@@ -15,12 +27,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--->
-
-
-<span class="task_search_box">
-<form class="task_search_box" action="/task/search" method="post">
-<input type="text" name="criteria" />
-<input type="submit" name="Search" value="Search Tasks" />
-</form>
-</span>
+%]

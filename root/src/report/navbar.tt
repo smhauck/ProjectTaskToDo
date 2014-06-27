@@ -1,4 +1,16 @@
-<!--
+<div class="global_nav">
+<span class="nav_bar">
+<span class="nav_bar_option">
+</span>
+</span>
+</div>
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 LICENSE
 
 This file is part of ProjectTaskToDo.
@@ -15,12 +27,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--->
-
-
-<div class="global_nav">
-<span class="nav_bar">
-<span class="nav_bar_option">
-</span>
-</span>
-</div>
+%]

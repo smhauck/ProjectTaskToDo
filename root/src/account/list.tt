@@ -1,0 +1,50 @@
+<!--
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+<script type="text/javascript">
+$(function() {
+	$('.ui-datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+});
+</script>
+
+
+[% INCLUDE account/menu.tt %]
+
+[% linecount = 0 -%]
+
+<table class='sortable'>
+<tr>
+	<th>Creator</th>
+	<th>Owner</th>
+	<th>Created</th>
+	<th>Title</th>
+</tr>
+[% FOREACH account IN accounts -%]
+[% linecount = linecount + 1 -%]
+<tr>
+<td><a href="/person/[% account.creator_id %]">[% account.creator.full_name %]</a></td>
+<td><a href="/person/[% account.owner_id %]">[% account.owner.full_name %]</a></td>
+<td><a href="/account/[% account.id %]">[% account.registered %]</a></td>
+<td><a href="/account/[% account.id %]">[% account.title %]</a></td>
+</tr>
+[% END %]
+</table>
+Count: [% linecount %]
+
