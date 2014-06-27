@@ -1,25 +1,14 @@
-<!--
-LICENSE
+    <div class="container">
 
-This file is part of ProjectTaskToDo.
+      <div class="blog-header">
+        <h1 class="blog-title">The Bootstrap Blog</h1>
+        <p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>
+      </div>
 
-ProjectTaskToDo is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+      <div class="row">
 
-ProjectTaskToDo is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
+        <div class="col-sm-8 blog-main">
 
-You should have received a copy of the GNU Affero General Public License
-along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--->
-
-
-[% INCLUDE project/menu.tt %]
-[% INCLUDE project/options.tt %]
 
 <h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
 [% IF task_type == "all" || task_type == 'active' %]
@@ -76,3 +65,34 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 <h2>Project Details</h2>
 [% INCLUDE project/project_details_no_name.tt %]
 
+        </div><!-- /.blog-main -->
+
+
+[% INCLUDE project/options.tt %]
+
+
+</div><!-- class="container" -->
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+%]

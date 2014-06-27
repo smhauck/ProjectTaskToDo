@@ -1,5 +1,6 @@
 [% META title = 'Today\'s Tasks' %]
 
+<div class="container">
 <form name="today" action='/task/today/' method='post'>
 Display Tasks For...
 <select name='project_to_display' onChange="document.today.submit()">
@@ -35,7 +36,7 @@ Display Tasks For...
 [% ELSIF task.project.list_type == 2 %]
 	<td><a href="/todolist/[% task.task_project_id %]/tasks/active">[% task.project.project_short_name.replace(' ', '&nbsp;') %]</td>
 [% END %]
-<td><a href="/task/task_with_comments/[% task.task_id %]">[% task.task_name %]</a></td>
+<td><a href="/task/[% task.task_id %]/comments">[% task.task_name %]</a></td>
 <td>[% task.status.name %]</td>
 <td>[% IF task.task_sched_start_date != '0000-00-00' %][% task.task_sched_start_date %][% END %]</td>
 <td>[% IF task.task_actual_start_date != '0000-00-00' %][% task.task_actual_start_date %][% END %]</td>
@@ -51,7 +52,14 @@ Count: [% linecount %]<br />
 
 Total Time: [% total_time div 60 %] Hrs, [% total_time mod 60 %] Mins<br />
 
-<!--
+</div><!-- class="container" -->
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 LICENSE
 
 This file is part of ProjectTaskToDo.
@@ -68,5 +76,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--->
-
+%]

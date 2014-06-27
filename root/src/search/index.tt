@@ -1,4 +1,14 @@
-<!--
+[% INCLUDE search/menu.tt %]
+[% INCLUDE search/options.tt %]
+
+[% INCLUDE search/search_box.tt %]
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 LICENSE
 
 This file is part of ProjectTaskToDo.
@@ -15,10 +25,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--->
-
-
-[% INCLUDE search/menu.tt %]
-[% INCLUDE search/options.tt %]
-
-[% INCLUDE search/search_box.tt %]
+%]

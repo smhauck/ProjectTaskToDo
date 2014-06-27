@@ -1,26 +1,6 @@
-<!--
-LICENSE
-
-This file is part of ProjectTaskToDo.
-
-ProjectTaskToDo is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-ProjectTaskToDo is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--->
-
-
 [% META title = 'ProjectTaskToDo:Active Tasks' %]
 
-[% INCLUDE task/menu.tt %]
+<div class="container">
 
 <span class="task_count">[% num_tasks %] active tasks</span>
 
@@ -43,7 +23,7 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 <td>[% task.task_id %]</td>
 <td>[% task.task_priority %]</td>
 <td><a href="/project/[% task.task_project_id %]/tasks/active">[% task.project.project_short_name.replace(' ', '&nbsp;') %]</td>
-<td><a href="/task/task_with_comments/[% task.task_id %]">[% task.task_name %]</a></td>
+<td><a href="/task/comments/[% task.task_id %]">[% task.task_name %]</a></td>
 <td>[% task.time_estimate div 60 %] Hrs. [% task.time_estimate mod 60 %] Min. </td>
 <td>[% IF task.task_sched_start_date != '0000-00-00' %][% task.task_sched_start_date %][% END %]</td>
 <td>[% IF task.task_actual_start_date != '0000-00-00' %][% task.task_actual_start_date %][% END %]</td>
@@ -54,3 +34,28 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 </table>
 
 Count: [% linecount %]
+</div><!-- class="container" -->
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+%]

@@ -1,10 +1,6 @@
-
-[% INCLUDE note/menu.tt %]
-
-
+<div class="container">
 <script>
 function validate(form) {
-
     return confirm('Do you really want to delete this note?');
 }
 </script>
@@ -13,24 +9,30 @@ function validate(form) {
 <div class='note'>
 <h1 class='note_title'><a href='/note/[% note.id %]/edit'>[% note.title %]</a></h1>
 <table>
+[% IF note.client_organization_id -%]
 <tr>
 <th>client organization</th>
 <td>
 <a href="/organization/[% note.client_organization_id %]">[% note.client_organization.name %]</a>
 </td>
 </tr>
+[% END -%]
+[% IF note.client_person_id -%]
 <tr>
 <th>client person</th>
 <td>
 <a href="/person/[% note.client_person_id %]">[% note.client_person.full_name %]</a>
 </td>
 </tr>
+[% END -%]
+[% IF note.client_contact_person_id -%]
 <tr>
 <th>client contact</th>
 <td>
 <a href="/person/[% note.client_contact_person_id %]">[% note.client_contact_person.full_name %]</a>
 </td>
 </tr>
+[% END -%]
 <tr>
 [% IF note.project_id -%]
 <th>Related Project</th>
@@ -61,3 +63,28 @@ function validate(form) {
 <input type="submit" name="Delete Note" value="Delete Note" />
 </form>
 
+</div><!-- class="container" -->
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+%]

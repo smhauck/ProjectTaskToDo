@@ -1,4 +1,22 @@
-<!--
+[% META title = 'ProjectTaskToDo:New Project Comment' %]
+
+[% INCLUDE authenticated_navbar.tt %]
+
+<strong>Project: [% project.project_name %]</strong><br />
+<form action='/project/insert_comment' method='post'>
+Enter Comment<br />
+<textarea rows='4' cols='80' name='comment'></textarea><br />
+<input type='hidden' name='project_id' value="[% pid %]"/>
+<input type='submit' value='Submit'>
+<input type='reset' value='Clear'><br />
+</form>
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 LICENSE
 
 This file is part of ProjectTaskToDo.
@@ -15,18 +33,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--->
-
-
-[% META title = 'ProjectTaskToDo:New Project Comment' %]
-
-[% INCLUDE authenticated_navbar.tt %]
-
-<strong>Project: [% project.project_name %]</strong><br />
-<form action='/project/insert_comment' method='post'>
-Enter Comment<br />
-<textarea rows='4' cols='80' name='comment'></textarea><br />
-<input type='hidden' name='project_id' value="[% pid %]"/>
-<input type='submit' value='Submit'>
-<input type='reset' value='Clear'><br />
-</form>
+%]

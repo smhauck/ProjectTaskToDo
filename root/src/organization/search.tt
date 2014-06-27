@@ -1,4 +1,33 @@
-<!--
+<div class="container">
+[% INCLUDE organization/search_box.tt %]
+
+        <SCRIPT LANGUAGE="JavaScript">
+        var cal = new CalendarPopup();
+        cal.showYearNavigation();
+        </SCRIPT>
+
+<table class="table sortable">
+<tr>
+<th>username</th>
+<th>full name</th>
+<th>first name</th>
+<th>last name</th>
+</tr>
+[% FOREACH organization IN organizations %]
+<tr>
+<td><a href="/organization/[% organization.id %]">[% organization.name %]</a></td>
+</tr>
+[% END -%]
+
+</table>
+</div><!-- class="container" -->
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 LICENSE
 
 This file is part of ProjectTaskToDo.
@@ -15,29 +44,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--->
-
-
-[% INCLUDE organization/menu.tt %]
-[% INCLUDE organization/search_box.tt %]
-
-        <SCRIPT LANGUAGE="JavaScript">
-        var cal = new CalendarPopup();
-        cal.showYearNavigation();
-        </SCRIPT>
-
-<table class="sortable" border='0'>
-<tr>
-<th>username</th>
-<th>full name</th>
-<th>first name</th>
-<th>last name</th>
-</tr>
-[% FOREACH organization IN organizations %]
-<tr>
-<td><a href="/organization/[% organization.id %]">[% organization.name %]</a></td>
-</tr>
-[% END -%]
-
-</table>
-<br />
+%]

@@ -1,4 +1,19 @@
-<!--
+<div class="global_nav">
+<span class="nav_bar">
+<a href='/task/new_task'>create new task</a> * 
+<a href='/todolist/new'>create new todolist</a> * 
+<a href='/todolist/active'>my active todolists</a> * 
+<a href='/todolist/complete'>completed todolists</a>
+<hr width='100%' />
+</span>
+</div>
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 LICENSE
 
 This file is part of ProjectTaskToDo.
@@ -15,15 +30,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--->
-
-
-<div class="global_nav">
-<span class="nav_bar">
-<a href='/task/new_task'>create new task</a> * 
-<a href='/todolist/new'>create new todolist</a> * 
-<a href='/todolist/active'>my active todolists</a> * 
-<a href='/todolist/complete'>completed todolists</a>
-<hr width='100%' />
-</span>
-</div>
+%]

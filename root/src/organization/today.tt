@@ -1,4 +1,18 @@
-<!--
+[% INCLUDE authenticated_navbar.tt2 %]
+
+<table>
+<tr><th>Priority</th><th>SchedStartDate</th><th>Task Name</th></tr>
+[% FOREACH task IN tasks -%]
+<tr><td>[% task.priority%]</td><td>[% task.schedStartDate %]</td><td>[% task.name %]</td></tr>
+[% END -%]
+</table>
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 LICENSE
 
 This file is part of ProjectTaskToDo.
@@ -15,14 +29,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--->
-
-
-[% INCLUDE authenticated_navbar.tt2 %]
-
-<table>
-<tr><th>Priority</th><th>SchedStartDate</th><th>Task Name</th></tr>
-[% FOREACH task IN tasks -%]
-<tr><td>[% task.priority%]</td><td>[% task.schedStartDate %]</td><td>[% task.name %]</td></tr>
-[% END -%]
-</table>
+%]
