@@ -1,27 +1,19 @@
-    <div class="container">
+<div class="container">
 
-      <div class="blog-header">
-        <h1 class="blog-title">The Bootstrap Blog</h1>
-        <p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>
-      </div>
-
-      <div class="row">
-
-        <div class="col-sm-8 blog-main">
-
-
+<div class="row">
+<div class="col-sm-8 blog-main">
 <h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
 [% IF task_type == "all" || task_type == 'active' %]
 <span>
-<table class='sortable'>
+<table class="table sortable">
 <caption>Active Tasks</caption>
 <tr><th>ID</th><th>Task Order</th><th>Status</th><th>Task Name</th><th>Priority</th><th>Assigned To</th><th>Last Activity</th><th>Scheduled<br />Start<br />Date</th><th>Actual<br />Start<br />Date</th><th>Diff (Days)</th><th>Scheduled<br />Completion<br />Date</th></tr>
 [% FOREACH task IN active_tasks %]
 <tr>
-<td><a href="/task/task_with_comments/[% task.task_id %]">[% task.task_id %]</a></td>
+<td><a href="/task/[% task.task_id %]/comments">[% task.task_id %]</a></td>
 <td>[% task.task_order %]</td>
 <td>[% task.status.name %]</td>
-<td><a href="/task/task_with_comments/[% task.task_id %]">[% task.task_name | html | html_line_break %]</a></td>
+<td><a href="/task/[% task.task_id %]/comments">[% task.task_name | html | html_line_break %]</a></td>
 <td>[% task.task_priority%]</td>
 <td><a href="/person/[% task.task_owner_id %]">[% task.owner.full_name %]</a></td>
 <td>[% task.task_last_modified %]</td>
@@ -45,7 +37,7 @@
 <tr>
 <td>[% task.task_id %]</td>
 <td>[% task.task_order %]</td>
-<td><a href="/task/task_with_comments/[% task.task_id %]">[% task.task_name | html | html_line_break %]</a></td>
+<td><a href="/task/[% task.task_id %]/comments">[% task.task_name | html | html_line_break %]</a></td>
 <td>[% task.task_priority%]</td>
 <td>[% task.owner.full_name %]</td>
 <td>[% IF task.task_sched_start_date != '0000-00-00' %][% task.task_sched_start_date %][% END %]</td>
@@ -65,7 +57,7 @@
 <h2>Project Details</h2>
 [% INCLUDE project/project_details_no_name.tt %]
 
-        </div><!-- /.blog-main -->
+</div><!-- /.blog-main -->
 
 
 [% INCLUDE project/options.tt %]
