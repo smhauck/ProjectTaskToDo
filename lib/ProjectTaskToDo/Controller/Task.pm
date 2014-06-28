@@ -279,7 +279,7 @@ sub complete : Local {
     }
     else {
         $c->flash->{message} = "You are not authorized to edit this task.";
-        $c->response->redirect( $c->uri_for("/task/details/$task_id") );
+        $c->response->redirect( $c->uri_for("/task/$task_id") );
     }
 
     $c->stash->{task} = $c->model('ProjectTaskToDoDB::Task')->find( { task_id => $task_id } );
@@ -290,7 +290,7 @@ sub complete : Local {
             as     => ['count']
         }
     );
-    $c->response->redirect( $c->uri_for("/task/task_with_comments/$task_id") );
+    $c->response->redirect( $c->uri_for("/task/$task_id/comments") );
     $c->detach();
 }
 
@@ -298,9 +298,10 @@ sub complete : Local {
 
 =cut
 
-sub details : Local {
-    my ( $self, $c, $task_id ) = @_;
-    my $task            = $c->model('ProjectTaskToDoDB::Task')->find( { task_id => $task_id } );
+sub details : Chained('task_object') : PathPart('') : Args(0) {
+    my ( $self, $c ) = @_;
+    my $task            = $c->stash->{task};
+    my $task_id = $task->id;
     my $task_project_id = $task->task_project_id;
     my $project         = $c->model('ProjectTaskToDoDB::Project')->find( { project_id => $task_project_id } );
 
@@ -387,7 +388,7 @@ sub edit : Local {
     }
     else {
         $c->flash->{message} = "You are not authorized to edit this task.";
-        $c->response->redirect( $c->uri_for("/task/details/$task_id") );
+        $c->response->redirect( $c->uri_for("/task/$task_id") );
     }
 }
 
@@ -456,7 +457,7 @@ sub insert_comment : Local {
         );
     }
 
-    $c->response->redirect( $c->uri_for("/task/task_with_comments/$task_id") );
+    $c->response->redirect( $c->uri_for("/task/$task_id/comments") );
     $c->detach();
 }
 
@@ -573,7 +574,7 @@ sub insert_task : Local {
         );
     }
 
-    $c->response->redirect( $c->uri_for("/task/details/$task_id") );
+    $c->response->redirect( $c->uri_for("/task/$task_id") );
     $c->detach();
 }
 
@@ -766,10 +767,10 @@ sub tasks_for_date : Local {
 
 =cut
 
-sub task_with_comments : Local {
-    my ( $self, $c, $task_id ) = @_;
-    if ($task_id) {
-    my $task            = $c->model('ProjectTaskToDoDB::Task')->find( { task_id => $task_id } );
+sub comments : Chained('task_object') : PathPart('comments') : Args(0) {
+    my ( $self, $c ) = @_;
+    my $task            = $c->stash->{task};
+    my $task_id = $task->id;
     my $task_project_id = $task->task_project_id;
     my $project         = $c->model('ProjectTaskToDoDB::Project')->find( { project_id => $task_project_id } );
     my $authorized      = 0;
@@ -814,9 +815,8 @@ sub task_with_comments : Local {
             $c->stash->{comments} =
               [ $c->model('ProjectTaskToDoDB::TaskComment')
                   ->search( { task_comment_task_id => $task_id }, { order_by => 'task_comment_recorded desc' } ) ];
-            $c->stash->{template} = 'task/task_with_comments.tt';
+            $c->stash->{template} = 'task/comments.tt';
         }
-    }
 	}
     else {
 
@@ -1076,7 +1076,7 @@ sub update : Local {
     }
     else {
         $c->flash->{message} = "You are not authorized to edit this task.";
-        $c->response->redirect( $c->uri_for("/task/details/$task_id") );
+        $c->response->redirect( $c->uri_for("/task/$task_id") );
     }
 
     $c->stash->{task} = $c->model('ProjectTaskToDoDB::Task')->find( { task_id => $task_id } );
@@ -1087,7 +1087,7 @@ sub update : Local {
             as     => ['count']
         }
     );
-    $c->response->redirect( $c->uri_for("/task/task_with_comments/$task_id") );
+    $c->response->redirect( $c->uri_for("/task/$task_id/comments") );
     $c->detach();
 }
 
