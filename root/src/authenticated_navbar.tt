@@ -88,7 +88,7 @@
  [% Catalyst.user.username %] <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="/user/details/[% Catalyst.user.id %]" class="navbar-link">Account Information</a></li>
-            <li><a href="/blog">My Blogs</a></li>
+            <!-- <li><a href="/blog">My Blogs</a></li> -->
             <li class="divider"></li>
             <li><a href="[% Catalyst.uri_for("/logout") %]" class="navbar-link">Logout</a></li>
           </ul>
