@@ -122,7 +122,8 @@ $(function() {
 </tr>
 <tr>
 <td></td>
-<td align="right"><input type="submit" value="Create"></td>
+<td align="right"><button type="submit" class="btn btn-primary">Submit</button></td>
+
 </tr>
 </table>
 </form>
