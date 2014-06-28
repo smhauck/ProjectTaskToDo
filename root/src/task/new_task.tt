@@ -9,17 +9,17 @@ $(function() {
 </script>
 
 <form name="new_task" action="/task/insert_task" method='post'>
-<table>
+<table class="table">
 <tr>
-<th>name:</td>
+<th>Title</td>
 <td><input id='name' type='text' name='name' size='60' /></td>
 </tr>
 <tr>
-<th>on project plan?</th>
+<th>Add to Project Plan</th>
 <td><input type='checkbox' name='on_project_plan' value='1' /></td>
 </tr>
 <tr>
-<th>status:</th>
+<th>Status</th>
 <td><select name='status_id' size='1'>
 [% FOR task_status IN task_statuses %]
 <option value="[% task_status.id %]">[% task_status.name %]
@@ -28,7 +28,7 @@ $(function() {
 </td>
 </tr>
 <tr>
-<th>priority: (1 High, 10 Low)</th>
+<th>Priority (1 High, 10 Low)</th>
 <td>
 <select name='priority' size='1'>
 <option value="1">1
@@ -45,7 +45,7 @@ $(function() {
 </td>
 </tr>
 <tr>
-<th>owner:</th>
+<th>Owner</th>
 <td><select name='owner_id' size='1'>
 <option value="">
 [% FOR p_u IN project_users %]
@@ -55,7 +55,7 @@ $(function() {
 </td>
 </tr>
 <tr>
-<th>project:</th>
+<th>Project</th>
 <td>
 <select name='project_id' size='1'>
 [% FOR project IN projects %]
@@ -65,32 +65,32 @@ $(function() {
 </td>
 </tr>
 <tr>
-<th>description:</th>
+<th>Description</th>
 <td><textarea rows='10' cols='100' name='description'></textarea></td>
 </tr>
 <tr>
-<th>scheduled start date:</th>
+<th>Scheduled Start Date</th>
 <td>
 <input type='text' class='ui-datepicker' name='sched_start_date' size='60' />
 </td>
 </tr>
 <tr>
-<th>actual start date:</th>
+<th>Actual Start Date</th>
 <td><input type='text' class='ui-datepicker' name='actual_start_date' size='60' />
 </td>
 </tr>
 <tr>
-<th>scheduled completion date:</th>
+<th>Scheduled Completion Date</th>
 <td><input type='text' class='ui-datepicker' name='sched_compl_date' size='60' />
 </td>
 </tr>
 <tr>
-<th>actual completion date:</th>
+<th>Actual Completion Date</th>
 <td><input type='text' class='ui-datepicker' name='actual_compl_date' size='60' />
 </td>
 </tr>
 <tr>
-<th>duration:</th>
+<th>Duration</th>
 <td><input type='text' name='duration' size='60' /></td>
 </tr>
 <tr>
@@ -104,14 +104,14 @@ $(function() {
 </td>
 </tr>
 <tr>
-<th>Time Estimate:</th>
+<th>Time Estimate</th>
 <td>
-Hours: <input type="text" name="time_estimate_hours" />
-Minutes: <input type="text" name="time_estimate_minutes" />
+Hours <input type="text" name="time_estimate_hours" />
+Minutes <input type="text" name="time_estimate_minutes" />
 </td>
 </tr>
 <tr>
-<td></td><td align='right'><input type='submit' value='Create'></td>
+<td></td><td align="right"><button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Create</button></td>
 </tr>
 </table>
 </form>
