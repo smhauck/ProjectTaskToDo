@@ -1,0 +1,108 @@
+[% META title = 'Pause To See' -%]
+
+<div class="container">
+<h2>Technology</h2>
+<p>ProjectTaskToDo makes use of other's technologies, and I'd like to give them credit.  While not every Perl module is listed, some are because they do a significant amount of heavy lifting.</p>
+
+<p>Thank you individuals, groups, and organizations who work on these tools.</p>
+
+<div class="alert alert-danger">
+<p><strong>IMPORTANT!</strong> Please note that use of their technology is in no way intended to imply that these organizations, groups, individuals, projects, etc. endorse ProjectTaskToDo.</p>
+</div>
+
+
+
+
+<h3><a href="" target="_blank"></a></h3>
+
+
+
+
+<div class="container">
+<h3><a href="http://httpd.apache.org" target="_blank">Apache HTTPD Server</a></h3>
+</div>
+
+<hr>
+
+<div class="container">
+<h3><a href="http://getbootstrap.com" target="_blank">Bootstrap Front-end Framework</a></h3>
+<p>The MIT License (MIT)</p>
+
+<p>Copyright (c) 2011-2014 Twitter, Inc</p>
+
+<p>
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</div>
+
+<hr>
+
+<div class="container">
+<h3><a href="http://www.catalystframework.org" target="_blank">Catalyst MVC Framework for Perl</a></h3>
+</div>
+
+<hr>
+
+<div class="container">
+<h3><a href="http://www.dbix-class.org" target="_blank">DBIx::Class</a></h3>
+<p>The object-relational mapper for Perl</p>
+</div>
+
+<hr>
+
+<div class="container">
+<h3><a href="http://glyphicons.com" target="_blank">GLYPHICONS</a></h3>
+<p><a href="http://glyphicons.com" target="_blank">by Jan Kova&rcaron;&iacute;k</a></p>
+<p>The MIT License (MIT)</p>
+
+<p>Copyright (c) 2011-2014 Jan Kova&rcaron;&iacute;k</p>
+
+<p>
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</div>
+
+<hr>
+
+<div class="container">
+<h3><a href="http://jquery.com" target="_blank">jQuery Javascript Library</a></h3>
+</div>
+
+<hr>
+
+<div class="container">
+<h3><a href="http://jqueryui.com" target="_blank">jQuery UI Plugin</a></h3>
+</div>
+
+<hr>
+
+<div class="container">
+<h3><a href="https://mariadb.org" target="_blank">MariaDB Relational Database</a></h3>
+</div>
+
+<hr>
+
+<div class="container">
+<h3><a href="http://perl.apache.org" target="_blank">mod_perl</a></h3>
+<p>Perl embedded into the Apache HTTPD Server</p>
+</div>
+
+<hr>
+
+<div class="container">
+<h3><a href="http://www.perl.org" target="_blank">Perl Programming Language</a></h3>
+</div>
+
+<hr>
+
+<div class="container">
+<h3><a href="http://www.template-toolkit.org" target="_blank">Template Toolkit</a></h3>
+</div>
+
+</div> <!-- container -->
