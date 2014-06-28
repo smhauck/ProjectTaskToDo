@@ -169,5 +169,11 @@ __PACKAGE__->has_many('time_palette' => 'ProjectTaskToDo::Schema::Result::TimePa
 __PACKAGE__->has_many(user_roles => 'ProjectTaskToDo::Schema::Result::UserRole', 'user');
 __PACKAGE__->many_to_many(roles => 'user_roles', 'role');
 
+
+# Account relationships
+__PACKAGE__->has_many(map_account_user => 'ProjectTaskToDo::Schema::Result::AccountUser', 'user_id');
+__PACKAGE__->many_to_many(accounts => 'map_account_user', 'user');
+
+
 __PACKAGE__->meta->make_immutable;
 1;
