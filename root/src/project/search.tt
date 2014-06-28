@@ -1,7 +1,7 @@
-[% INCLUDE project/menu.tt %]
+<div class="container">
 [% INCLUDE project/search_box.tt %]
 
-<table class="sortable" border='0'>
+<table class="table sortable">
 <tr><th>ShortName</th><th>Name</th><th>Description</th></tr>
 [% FOREACH project IN projects %]
 <tr>
@@ -22,6 +22,7 @@ $(document).ready(function(){
 	}
 });
 </script>
+</div><!-- class="container" -->
 
 
 [%#
