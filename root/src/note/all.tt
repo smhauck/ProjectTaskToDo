@@ -1,30 +1,30 @@
 <div class="container">
 <table class="table sortable">
 <tr>
-<th align='right'>date</th>
-<th align='right'>creator</th>
-<th align='right' width=10%>client org</th>
-<th align='right' width=10%>client person</th>
-<th align='right'>jobcode</th>
-<th align='right' width=10%>project</th>
-<th align='right'>task</th>
-<th align='right'>title</th>
-<!-- <th align='right'>privacy</th> -->
+<th>date</th>
+<th>creator</th>
+<th>client org</th>
+<th>client person</th>
+<th>jobcode</th>
+<th>project</th>
+<th>task</th>
+<th>title</th>
+<!-- <th>privacy</th> -->
 </tr>
 [% FOREACH note IN notes %]
 <tr>
-[% IF note.date_selected && note.date_selected != '0000-00-00' %]
+[% IF note.date_selected && note.date_selected != "0000-00-00" %]
 <td>[% note.date_selected %]</td>
 [% ELSE %]
 <td></td>
 [% END %]
-<td><a href='/person/[% note.creator_id %]'>[% note.creator.full_name %]</a></td>
-<td><a href='/person/[% note.client_organization_id %]'>[% note.client_organization.name %]</a></td>
-<td><a href='/person/[% note.client_person_id %]'>[% note.client_person.full_name %]</a></td>
-<td><a href='/project/[% note.project_id %]'>[% note.project.project_short_name | html %]</a></td>
-<td><a href='/project/[% note.project_id %]'>[% note.project.project_name | html %]</a></td>
-<td><a href='/task/[% note.task_id %]'>[% note.task.task_name | html %]</a></td>
-<td><a href='/note/[% note.id %]'>[% note.title | html %]</a></td>
+<td><a href="/person/[% note.creator_id %]">[% note.creator.full_name %]</a></td>
+<td><a href="/person/[% note.client_organization_id %]">[% note.client_organization.name %]</a></td>
+<td><a href="/person/[% note.client_person_id %]">[% note.client_person.full_name %]</a></td>
+<td><a href="/project/[% note.project_id %]">[% note.project.project_short_name | html %]</a></td>
+<td><a href="/project/[% note.project_id %]">[% note.project.project_name | html %]</a></td>
+<td><a href="/task/[% note.task_id %]">[% note.task.task_name | html %]</a></td>
+<td><a href="/note/[% note.id %]">[% note.title | html %]</a></td>
 [% IF note.public %]
 <!-- <td>PUBLIC</td> -->
 [% ELSE %]

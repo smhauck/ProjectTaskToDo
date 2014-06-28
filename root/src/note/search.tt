@@ -1,4 +1,4 @@
-[% INCLUDE note/menu.tt %]
+<div class="container">
 [% INCLUDE note/options.tt %]
 
 [% INCLUDE note/search_box.tt %]
@@ -6,7 +6,7 @@
 [% linecount = 0 -%]
 [% odd = 2 -%]
 
-<table width='80%'>
+<table class="table">
 <tbody>
 <thead>
 <tr>
@@ -23,6 +23,7 @@
 </tbody>
 </table>
 <br />
+</div><!-- class="container" -->
 
 
 [%#

@@ -1,3 +1,4 @@
+
 <script type="text/javascript">
 $(function() {
 	$('.ui-datepicker').datepicker({dateFormat: 'yy-mm-dd', changeMonth: true, changeYear: true});
@@ -21,7 +22,7 @@ $(function() {
 
 <form class="search_box" action="/note/search" method="post">
 
-<table id="table_search">
+<table class="table">
 
 <tr><td>Note Date Range:</td><td>From: 
 <input class="ui-datepicker" name="date_start" type="text">
@@ -46,6 +47,7 @@ To:
 
 </table>
 </form>
+</div><!-- class="container" -->
 
 
 [%#
