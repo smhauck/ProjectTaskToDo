@@ -1,6 +1,4 @@
-[% INCLUDE project/menu.tt %]
-[% INCLUDE project/options.tt %]
-
+<div class="container">
 [% INCLUDE project/project_details.tt %]
 
 <br />
@@ -20,6 +18,7 @@ Enter Comment<br />
 &nbsp;
 <input type='submit' value='Submit'>
 </form>
+</div><!-- class="container" -->
 
 
 [%#
