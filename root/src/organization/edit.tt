@@ -1,4 +1,4 @@
-[% INCLUDE organization/menu.tt %]
+<div class="container">
 [% INCLUDE organization/options.tt %]
 
 <script type="text/javascript">
@@ -9,7 +9,7 @@ $(function() {
 
 <form name="edit" action="/organization/update" method="post">
 <input type="hidden" name="id" value="[% organization.id %]" />
-<table border="0">
+<table class="table">
 <tr>
 <th>Name</th>
 <td><input type="text" name="name" value="[% organization.name %]" size="60"></td>
@@ -48,10 +48,11 @@ $(function() {
 </tr>
 <tr>
 <td><input type="reset" value="Reset"></td>
-<td><input type="submit" value="Update"></td>
+<td><button type="submit" class="btn btn-primary">Submit</button></td>
 </tr>
 </table>
 </form>
+</div><!-- class="container" -->
 
 
 [%#

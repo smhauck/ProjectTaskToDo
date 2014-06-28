@@ -1,7 +1,8 @@
-[% INCLUDE organization/menu.tt %]
+<div class="container">
 [% INCLUDE organization/options.tt %]
 
 [% INCLUDE organization/organization_details.tt %]
+</div><!-- class="container" -->
 
 
 [%#
