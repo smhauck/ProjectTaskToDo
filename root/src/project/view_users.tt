@@ -1,14 +1,7 @@
-<script type="text/javascript">
-	$(function() {
-		$("#the_user_id").autocomplete({
-			minLength: 2,
-			source: "/person/name_lookup"
-		});
-	});
-</script>
+<div class="container">
+<div class="row">
+<div class="col-sm-8 blog-main">
 
-[% INCLUDE project/menu.tt %]
-[% INCLUDE project/options.tt %]
 
 [% IF authorized %]
 <h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %] <a href="/project/[% project.id %]/edit">(Edit Project)</a></h1>
@@ -19,14 +12,14 @@
 
 [% IF authorized %]
 <h2>Project Users</h2>
-<table>
+<table class="table">
 <tr><th>Person</th><th>Role in Project</th><th></th></tr>
 [% FOREACH puser IN project_users %]
 <tr>
 <td><a href="/person/[% puser.project_user_user_id %]">[% puser.user.full_name %] ([% puser.user.username %])</a></td><td>[% puser.role.display_name %]</td>
 <td>
 <form action="/project/[% project.project_id %]/remove_resource/[% puser.project_user_id %]" method="POST">
-<input type="submit" name="Remove Resource" value="Remove Reource" />
+<button type="submit" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Remove</button>
 </form>
 </td>
 </tr>
@@ -48,9 +41,10 @@
 [% IF authorized %]
 <h2>Assign Resources</h2>
 <form name="edit_users" action="/project/[% project.project_id %]/insert_resource" method="post">
-<table id='table_vertical' width="100%">
+<table class="table">
+<tr><th>Person</th><th>Role in Project</th><th></th></tr>
 <tr>
-<th>Role</th>
+<td><input class="ui-autocomplete-input" id="the_user_id" name="the_user_id" /></td>
 <td>
 <select name='project_role_type_id'>
 <option value="" />
@@ -59,21 +53,27 @@
 [% END -%]
 </select>
 </td>
-</tr>
-<tr>
-<th>Person</th>
-<td>
-<input class="ui-autocomplete-input" id="the_user_id" name="the_user_id" />
-</td>
-</tr>
-<tr>
-<td></td>
-<td><input type="submit" name="Submit" value="Submit" /></td>
+<td><button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Add</button></td>
 </tr>
 </table>
-<br clear="all" />
 </form>
 [% END %]
+
+</div><!-- /.blog-main -->
+
+
+[% INCLUDE project/options.tt %]
+
+<script type="text/javascript">
+	$(function() {
+		$("#the_user_id").autocomplete({
+			minLength: 2,
+			source: "/person/name_lookup"
+		});
+	});
+</script>
+
+</div><!-- class="container" -->
 
 
 [%#
