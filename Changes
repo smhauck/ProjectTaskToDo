@@ -1,3 +1,195 @@
+commit 9db3c56ca30c995f538b0ee29e5becf9be2f5993
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 17:37:42 2014 -0400
+
+    removed lessons_learned link; that type of stuff belongs in a blog, not in the app
+
+commit 34550b222538e9dd0b3c1eaa659f1d9ab16a1362
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 17:32:24 2014 -0400
+
+    Bootstrap stuff
+
+commit 073374d9a0b5c73d75c6d74629453c524f7d6b64
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 17:31:48 2014 -0400
+
+    commented out blog menu item as blogs are not yet implemented
+
+commit 29104ee106aadc9b9bd90aa45d9a458df504cb17
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 16:38:33 2014 -0400
+
+    removed extra navbar
+
+commit 2bcb03ea1b310f85c27f0102ed66612eb7715366
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 16:37:07 2014 -0400
+
+    changed button style
+
+commit 5f78c217229e047325fac6771c1cf62927b1d3a7
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 16:34:01 2014 -0400
+
+    Bootstrap changes
+
+commit 758e63861ebb74653ec713fc01495a00cd1c6435
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 16:20:10 2014 -0400
+
+    Bootstrap changes
+
+commit 7b2629396008a6450b32267610436a1597ff042b
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 16:18:33 2014 -0400
+
+    Bootstrap classes
+
+commit aafcda64eda26c30f1dfef89df139e3359e331d0
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 16:17:45 2014 -0400
+
+    Bootstrap stuff; removed extra navbar
+
+commit c99f4c428e84b4fd8f3a68e62a9a240f6b367f70
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 16:16:28 2014 -0400
+
+    added technology link to footer
+
+commit 11972e241714eb1e962fca40351891412e53acf8
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 16:06:36 2014 -0400
+
+    added some relationshiops
+
+commit 3f4df4531edce0ed1b2831329efc86027642ef7d
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 16:05:32 2014 -0400
+
+    added technology routine
+
+commit 0de4f0ef7bdb2fb30e05684915058a83b7ef013f
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 16:04:42 2014 -0400
+
+    fixed bug: changed url for comments
+
+commit c9e8548e70bfb84befb94a5125d67861385b532d
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 15:33:51 2014 -0400
+
+    removed extra navbar
+
+commit aac5c25ac0503ad69d8937c2e42739a0f3bd080a
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 15:33:13 2014 -0400
+
+    removed extra nav tag
+
+commit 4dfa6dbcbfe0d7316518f99e62d5c9831743f878
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 15:32:26 2014 -0400
+
+    inital commit of file
+
+commit d382129b776034bfc996f9f402e3f00630c8f7f0
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 15:32:07 2014 -0400
+
+    removing retired or backup files
+
+commit 9605eec460099d5444cd3a5314527768e1da795e
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 15:30:57 2014 -0400
+
+    retired files
+
+commit 358f2b22b63ff9556011d4f178bfcb0cde7d0323
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 15:30:12 2014 -0400
+
+    always show requirements
+
+commit 0836dbae27d67ffa4ad0bc09e95b1a5aeace47ee
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 15:29:17 2014 -0400
+
+    reoganizing
+
+commit e53c5ab5f08c67e95b2670c486b30b9f6f1290b9
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 15:28:32 2014 -0400
+
+    changed layout from vertical tables to horizontal table
+
+commit f8c0ab2aad9b30b1641c65f72bfb9570e69a5dd4
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 15:28:07 2014 -0400
+
+    added container div for Bootstrap
+
+commit 6772cea5e3306f2bafea5d4a6431b2fe99a0b16f
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 15:27:35 2014 -0400
+
+    changed layout from vertical tables to horizontal table
+
+commit 267c9b0b1efa5e88ea8a4e0e14fbc7d0262dc6ed
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 15:26:37 2014 -0400
+
+    more Bootstrap changes; minor bug fixes
+
+commit 20fb696753df4020634beb7ec7992ae0d5c576b8
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jun 27 10:51:56 2014 -0400
+
+    migrating to Twitter Bootstrap
+
+commit 737fb71bcf56023512ffb8366ab7f09cc2640e79
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jun 27 10:49:27 2014 -0400
+
+    migrating to Twitter Bootstrap
+
+commit 2e56619e52186e70f1fa15bdd6a2bec1f7e73f01
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jun 27 09:18:45 2014 -0400
+
+    moved task_with_comments.tt to comments.tt
+
+commit 73a7b3d337bf6df8116de5da534e6adef5abeaf3
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jun 27 08:35:29 2014 -0400
+
+    removed redundant navbar
+
+commit b113efe1a47b1afcee2324dff76f417b50d1eae1
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jun 27 08:34:05 2014 -0400
+
+    added dismiss all on top; made both top and bottom in table
+
+commit 969180c9da09acaf768b7cf762bc3f5106fa6ee0
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Jun 16 23:01:57 2014 -0400
+
+    migrating to Bootstrap frontend web framework
+
+commit c8b2521cbb1e3cdd0db3b3ef45eebfee40067adf
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Jun 16 23:00:33 2014 -0400
+
+    migrating to Bootstrap frontend web framework
+
+commit b3cc70cd65a332b7957f146206346e20cbf23ec5
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 14 10:36:46 2014 -0400
+
+    updated change log
+
 commit 643ae73a081f3257c2729bc63f20d714059d9f04
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 14 10:30:14 2014 -0400
