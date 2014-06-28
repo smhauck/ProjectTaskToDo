@@ -1,8 +1,6 @@
 [% META title = 'ProjectTaskToDo : About' %]
 
 <div class="container">
-<h2>See our <a href="[% Catalyst.uri_for("/lessons_learned") %]">Lessons Learned</a></h2>
-
 <h2>Credits</h2>
 <p>
 The ProjectTaskToDo was written by William B. Hauck.  The system utilizes the following technologies (in no particular order):
