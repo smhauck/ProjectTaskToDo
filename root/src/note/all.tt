@@ -1,7 +1,5 @@
 <div class="container">
-[% INCLUDE note/menu.tt %]
-
-<table class='sortable' border='0'>
+<table class="table sortable">
 <tr>
 <th align='right'>date</th>
 <th align='right'>creator</th>
