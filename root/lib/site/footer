@@ -1,4 +1,17 @@
-[%#-
+<footer>
+  <div class="container">
+    <p class="text-muted"><a href="/about">About</a> * <a href="/license">License</a> * <a href="/technology">Technology</a></p>
+    <p class="text-muted">Follow development on the <a href="http://www.projecttasktodo.org/blog.shtml">development blog</a> and the <a href="https://github.com/wbhauck/ProjectTaskToDo/blob/master/Changes">Project Change Log</a></p>
+    <p class="text-muted">&copy; [% site.copyright %]</p>
+  </div>
+</footer>
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 LICENSE
 
 This file is part of ProjectTaskToDo.
@@ -15,13 +28,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--%]
-
-
-<footer>
-  <div class="container">
-    <p class="text-muted"><a href="/about">About</a> * <a href="/license">License</a> * <a href="http://www.perl.org">Powered by Perl</a> &amp; <a href="http://www.catalystframework.org">the Catalyst Framework</a></p>
-    <p class="text-muted">&copy; [% site.copyright %]</p>
-  </div>
-</footer>
-
+%]
