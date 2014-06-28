@@ -412,8 +412,8 @@ __PACKAGE__->set_primary_key("project_id");
 __PACKAGE__->add_unique_constraint("project_short_name_unique", ["project_short_name"]);
 
 
-# Created by DBIx::Class::Schema::Loader v0.07002 @ 2013-09-12 15:17:59
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:u69Xk0aZ97dGtRT0Xcyz+A
+# Created by DBIx::Class::Schema::Loader v0.07002 @ 2014-05-15 22:48:27
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:TaoZXyaUVoDyjEBvoxGMVQ
 
 
 =head1 COPYRIGHT
@@ -462,11 +462,14 @@ __PACKAGE__->add_columns(
 );
 
 
+__PACKAGE__->has_many('project_users' => 'ProjectTaskToDo::Schema::Result::ProjectUser', 'project_user_project_id');
+
+
+
 __PACKAGE__->has_many('files' => 'ProjectTaskToDo::Schema::Result::ProjectFile', { 'foreign.project_id' => 'self.project_id' } );
 __PACKAGE__->has_many('notes' => 'ProjectTaskToDo::Schema::Result::Note', { 'foreign.project_id' => 'self.project_id' } );
 __PACKAGE__->belongs_to('status' => 'ProjectTaskToDo::Schema::Result::ProjectStatusType', 'status_id');
 __PACKAGE__->has_many('tasks' => 'ProjectTaskToDo::Schema::Result::Task', 'task_project_id');
-__PACKAGE__->has_many('project_users' => 'ProjectTaskToDo::Schema::Result::ProjectUser', 'project_user_project_id');
 __PACKAGE__->belongs_to('creator' => 'ProjectTaskToDo::Schema::Result::User', 'project_creator_id');
 __PACKAGE__->belongs_to('owner' => 'ProjectTaskToDo::Schema::Result::User', 'project_owner_id');
 __PACKAGE__->belongs_to('category' => 'ProjectTaskToDo::Schema::Result::ProjectCategory', 'category_id');
