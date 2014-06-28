@@ -284,6 +284,11 @@ sub register : Local {
 }
 
 
+sub technology : Local {
+	my ($self, $c) = @_;
+#	$c->stash->{template} = 'technology.tt';
+}
+
 
 =head2 unauthorized
 
