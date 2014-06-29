@@ -1,67 +1,65 @@
 <div class="container">
-[%- notification_count = 0 -%]
-
-[% FOREACH notification IN notifications %]
-	[% IF loop.first %]
-	<h2>Latest Project &amp; Task Modifications</h2>
+[% IF notifications.size > 0 -%]
+<h2>Latest Project &amp; Task Modifications</h2>
 <table class="table sortable">
+<thead>
 <tr><th>Recorded</th><th>Person Made Modification</th><th>Notification Type</th><th>Project</th><th>Task</th><th>Body</th><th></th></tr>
-	[% END %]
-	[% notification_count = notification_count + 1 %]
-	<tr>
-	<td colspan=6></td>
-	<td>
-		<form action="[% Catalyst.uri_for('/ack_note') %]" method="POST">
-		<input type="hidden" name="notification_number" value="ALL" />
-		<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-remove"></i> Dismiss All</button>
-		</form>
-	</td>
-	</tr>
-	<tr>
-	<td>[% notification.recorded %]</td>
-	<td>[% notification.creator.full_name %]</td>
-	[% IF notification.notification_type == 1 %]
-	<td>Project Update</td>
-	[% ELSIF notification.notification_type == 2 %]
-	<td>Project Comment Added</td>
-	[% ELSIF notification.notification_type == 3 %]
-	<td>Task Update</td>
-	[% ELSIF notification.notification_type == 4 %]
-	<td>Task Comment Added</td>
-	[% END %]
-	[% IF notification.project_id %]
-		<td><a href="/project/[% notification.project.id %]/comments">[% notification.project.project_short_name %]</a></td>
-	[% ELSE %]
-		<td></td>
-	[% END %]
-	[% IF notification.task_id %]
-		<td><a href="[% Catalyst.uri_for('/task/task_with_comments', notification.task_id) %]">[% notification.task_id %]: [% notification.task.task_name %]</a></td>
-	[% ELSE %]
-		<td></td>
-	[% END %]
-	<td>[% notification.body | html | html_line_break %]</td>
-	<td><a href="[% Catalyst.uri_for('/ack_note', notification.id) %]"><button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-remove"></i> Dismiss</button></a></td>
-	</tr>
-	[% IF loop.last %]
-	<tr>
-	<td colspan=6></td>
-	<td>
-		<form action="[% Catalyst.uri_for('/ack_note') %]" method="POST">
-		<input type="hidden" name="notification_number" value="ALL" />
-		<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-remove"></i> Dismiss All</button>
-		</form>
-	</td>
-	</tr>
-	</table>
-	Notification Count: [% notification_count %]<br />
-	<br />
-
-		<form action="[% Catalyst.uri_for('/ack_note') %]" method="POST">
-		<input type="hidden" name="notification_number" value="ALL" />
-		<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-remove"></i> Dismiss All</button>
-		</form>
-	[% END %]
-[% END %]
+<tr>
+<td>Notification Count: [% notifications.size %]</td>
+<td colspan=5></td>
+<td>
+<form action="[% Catalyst.uri_for('/ack_note') %]" method="POST">
+<input type="hidden" name="notification_number" value="ALL" />
+<button type="submit" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Dismiss All</button>
+</form>
+</td>
+</tr>
+</thead>
+<tbody>
+[% FOREACH notification IN notifications %]
+<tr>
+<td>[% notification.recorded %]</td>
+<td>[% notification.creator.full_name %]</td>
+[% IF notification.notification_type == 1 -%]
+<td>Project Update</td>
+[% ELSIF notification.notification_type == 2 -%]
+<td>Project Comment Added</td>
+[% ELSIF notification.notification_type == 3 -%]
+<td>Task Update</td>
+[% ELSIF notification.notification_type == 4 -%]
+<td>Task Comment Added</td>
+[% END -%]
+[% IF notification.project_id -%]
+<td><a href="/project/[% notification.project.id %]/comments">[% notification.project.project_short_name %]</a></td>
+[% ELSE -%]
+<td></td>
+[% END -%]
+[% IF notification.task_id %]
+<td><a href="[% Catalyst.uri_for('/task/task_with_comments', notification.task_id) %]">[% notification.task_id %]: [% notification.task.task_name %]</a></td>
+[% ELSE -%]
+<td></td>
+[% END -%]
+<td>[% notification.body | html | html_line_break %]</td>
+<td><a href="[% Catalyst.uri_for('/ack_note', notification.id) %]"><button type="submit" class="btn btn-warning"><i class="glyphicon glyphicon-remove"></i> Dismiss</button></a></td>
+</tr>
+[% END -%]
+</tbody>
+<tfoot>
+<tr>
+<td>Notification Count: [% notifications.size %]</td>
+<td colspan=5></td>
+<td>
+<form action="[% Catalyst.uri_for('/ack_note') %]" method="POST">
+<input type="hidden" name="notification_number" value="ALL" />
+<button type="submit" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Dismiss All</button>
+</form>
+</td>
+</tr>
+</tfoot>
+</table>
+[% ELSE -%]
+<h2>No Notifications</h2>
+[% END -%]
 </div><!-- class="container" -->
 
 
