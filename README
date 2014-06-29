@@ -1,7 +1,6 @@
 ProjectTaskToDo
+www.projecttasktodo.org
 Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
-
-
 
 =============
 This software comes with ABSOLUTELY NO WARRANTY. For details, see
@@ -27,13 +26,11 @@ License:
   accompanying LICENSE file for more details.
 
 
-
 THIS IS BETA SOFTWARE:
 =====================
-There are a number of features that are still in development.  They work only
-partially or not at all.  Development continues and updates will be posted to
-the GitHub site.
-
+  There are a number of features that are still in development.  They work only
+  partially or not at all.  Development continues and updates will be posted to
+  the GitHub site.
 
 
 Documentation:
@@ -41,16 +38,18 @@ Documentation:
   COMING SOON:  You can find quick documentation in README.* and the long version online at
   http://doc.projecttasktodo.org/.
 
-Software requirements:
+
+Software Requirements:
 ======================
 
   Perl
-    * Perl 5.8.8 or higher
+    * Perl 5.12 or higher
 
   Webserver
-    * Apache2+mod_perl2 or higher
+    * Apache2 with  mod_perl2 or higher
 
   Databases
+    * MariaDB 5.5 or higher
     * MySQL 5.1 or higher
 
 
