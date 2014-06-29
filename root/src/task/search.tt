@@ -6,7 +6,7 @@
 <tr><th>Project</th><th>Task Name</th><th>Task Description</th></tr>
 [% FOREACH task IN tasks %]
 <tr>
-<td><a href="/task/[% task.project.project_id %]">[% task.project.project_short_name %]</a></td>
+<td><a href="/project/[% task.project.project_id %]">[% task.project.project_short_name %]</a></td>
 <td><a href="/task/[% task.id %]/comments">[% task.task_name %]</a></td>
 <td>[% task.task_description %]</td>
 </tr>
