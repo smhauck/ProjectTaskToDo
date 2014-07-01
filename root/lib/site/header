@@ -1,4 +1,17 @@
+<div class="container">
+[% IF Catalyst.user -%]
+  [% INCLUDE authenticated_navbar.tt %]
+[% ELSE -%]
+  [% INCLUDE unauthenticated_navbar.tt %]
+[% END -%]
+</div><!-- class="container" -->
+
+
 [%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
 LICENSE
 
 This file is part of ProjectTaskToDo.
@@ -16,10 +29,3 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 %]
-
-[% IF Catalyst.user -%]
-  [% INCLUDE authenticated_navbar.tt %]
-[% ELSE -%]
-  [% INCLUDE unauthenticated_navbar.tt %]
-[% END -%]
-

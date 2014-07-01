@@ -1,35 +1,16 @@
-[%#
-LICENSE
-
-This file is part of ProjectTaskToDo.
-
-ProjectTaskToDo is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-ProjectTaskToDo is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
-%]
-
-
 <!DOCTYPE html>
 
 <html lang="en">
  <head>
   <meta charset="UTF-8">
+  <meta http-equiv="expires" content="-1" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Expires" content="-1" />
 
   <title>ProjectTaskToDo: [% pagetitle or template.title or site.title %]</title>
 
   <link href="/static/css/bootstrap.css" rel="stylesheet">
   <link href="/static/css/projecttasktodo.css" rel="stylesheet">
+  <link href="/static/css/blog.css" rel="stylesheet">
 
 [% IF template.name == 'project/order_tasks.tt' %]
   <script src="/static/scripts/jquery-1.11.1.min.js"></script>
@@ -51,3 +32,27 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 [% content %]
  </body>
 </html>
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+%]
