@@ -23,7 +23,7 @@
 <td>[% task.task_id %]</td>
 <td>[% task.task_priority %]</td>
 <td><a href="/project/[% task.task_project_id %]/tasks/active">[% task.project.project_short_name.replace(' ', '&nbsp;') %]</td>
-<td><a href="/task/comments/[% task.task_id %]">[% task.task_name %]</a></td>
+<td><a href="/task/[% task.task_id %]"/comments>[% task.task_name %]</a></td>
 <td>[% task.time_estimate div 60 %] Hrs. [% task.time_estimate mod 60 %] Min. </td>
 <td>[% IF task.task_sched_start_date != '0000-00-00' %][% task.task_sched_start_date %][% END %]</td>
 <td>[% IF task.task_actual_start_date != '0000-00-00' %][% task.task_actual_start_date %][% END %]</td>
