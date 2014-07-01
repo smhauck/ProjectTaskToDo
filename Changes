@@ -1,3 +1,141 @@
+commit fd63b8825ce38b43f66306a00e1c83b9bac60468
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 1 18:43:45 2014 -0400
+
+    want to use font families from main bootstrap.css
+
+commit a1673aed7aeca9bd67e6a381fa28974608b6c15a
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 1 10:33:11 2014 -0400
+
+    default data for roles, task comment types, etc.
+
+commit eef096cff99ea7e787290fa4ce3ac21585b975c2
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 1 10:27:28 2014 -0400
+
+    moved blog styles to blog.css
+
+commit a5c3973c1178f98f73e6cd7a36d9e78c497d0a32
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 1 10:25:31 2014 -0400
+
+    removed css from my other project; used as examples
+
+commit f2f4ab2e25599d01aefdf3d7879cfe46047d5aaa
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 1 10:24:10 2014 -0400
+
+    added Bootstrap blog css
+
+commit c3832c1bcc1174c0276c6632665f5fa70cf7924d
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 1 10:22:29 2014 -0400
+
+    minor updates
+
+commit 50d49fd01c94449707a4d66cbdcdf59a146a239e
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 1 10:17:36 2014 -0400
+
+    moved license info to bottom; it was annoying up top
+
+commit 6609680ce7ab96a0cb81a031bf15eec0d2d13c13
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 1 10:12:20 2014 -0400
+
+    making options work in bootstrap blog style
+
+commit 141a23e8f1f16eb7ad471a1dd6103d8fa77324d3
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 1 10:11:54 2014 -0400
+
+    fixed comments link
+
+commit c817f3aa84321a469d5b12b1050f60020639b6ed
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 1 10:03:09 2014 -0400
+
+    only display notifications if user exists
+
+commit 06560d00b83f495a33eb07dce9b6225484516bb3
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 1 09:55:05 2014 -0400
+
+    capitalized menu items
+
+commit 38164957c8fbac29476f5235b5a031820164b65f
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 1 09:54:29 2014 -0400
+
+    removed extra navbar; added container div
+
+commit 19800b10528e53ac80bea8f6a6074c10c678ebc5
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jun 29 18:05:24 2014 -0400
+
+    fixed bug; displaying task name instead of project name
+
+commit 4d12dedde4125747d5902acb0de7dcd667d5270c
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jun 29 18:04:30 2014 -0400
+
+    fixed bug; displaying task name instead of project name
+
+commit 831d7a5e51a72b5cf73a03a9e8a2f3661c5cd212
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jun 29 14:13:41 2014 -0400
+
+    title wrong since copied from my other project
+
+commit cae9f6bf9b96437ffed655990394fb20b20d3fa6
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jun 29 10:13:41 2014 -0400
+
+    updated required perl and db info; formatting change
+
+commit 1d58c944fb766cda891c46db40aebaca6098bef7
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jun 29 10:07:29 2014 -0400
+
+    removing extraneous file
+
+commit d6280d2652b736f2b7d25a8350cddad6c6b20990
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jun 29 09:55:10 2014 -0400
+
+    removed extraneous file
+
+commit 1001e4930c9bf896222459b5a58f1664866cc8a5
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jun 29 09:48:53 2014 -0400
+
+    changed button styles, made it one big table, and cleaned it up a bit
+
+commit db021767762de4b76e33c03c0fc0cdecfd3eb03a
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 18:01:39 2014 -0400
+
+    removed old db file
+
+commit 1c1c86a279dc8c6abc544d656979d9618d9249cc
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 18:00:25 2014 -0400
+
+    removed old db file
+
+commit d5bb32733f4011ba20da846c4ea28cb8eb3b4141
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 17:56:15 2014 -0400
+
+    updated schema dump
+
+commit 21367ec0024766f1ca01a3f40e1b5d812e06990a
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jun 28 17:46:22 2014 -0400
+
+    updated change log, version number
+
 commit 9db3c56ca30c995f538b0ee29e5becf9be2f5993
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 17:37:42 2014 -0400
