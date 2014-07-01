@@ -13,38 +13,6 @@ table tr:hover {
 }
 
 /* =================================================================== */
-/* Blog name and description */
-
-.blog-header {
-  padding-top: 20px;
-    padding-bottom: 20px;
-  }
-.blog-title {
-  margin-top: 30px;
-  margin-bottom: 0;
-  font-size: 60px;
-  font-weight: normal;
-}
-.blog-description {
-  font-size: 20px;
-  color: #999;
-}
-
-/* =================================================================== */
-/* Blog posts */
-
-.blog-post {
-  margin-bottom: 60px;
-}
-.blog-post-title {
-  margin-bottom: 5px;
-  font-size: 40px;
-}
-.blog-post-meta {
-  margin-bottom: 20px;
-  color: #999;
-}
-
 /* =================================================================== */
 
 
