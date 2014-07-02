@@ -1,4 +1,4 @@
-[% INCLUDE project/menu.tt %]
+<div class="container">
 [% INCLUDE project/options.tt %]
 
 <script type="text/javascript">
@@ -62,56 +62,56 @@ $(function() {
 <td><textarea rows="10" cols="100" name="requirements_text">[% project.project_requirements_text %]</textarea></td>
 </tr>
 <tr>
-<th>sched. start date<br />format: yyyy-mm-dd</th>
+<th>sched. start date</th>
 [% IF project.project_sched_start_date && project.project_sched_start_date != "0000-00-00" %]
 <td><input type="text" class="ui-datepicker" name="sched_start_date" value="[% project.project_sched_start_date %]" size="60">
 [% ELSE %]
-<td><input type="text" class="ui-datepicker" name="sched_start_date" value="" size="60">
+<td><input type="text" class="ui-datepicker" name="sched_start_date" value="" placeholder="yyyy-mm-dd" size="60" />
 [% END %]
 </td>
 </tr>
 <tr>
-<th>actual start date<br />format: yyyy-mm-dd</th>
+<th>actual start date</th>
 [% IF project.project_actual_start_date && project.project_actual_start_date != "0000-00-00" %]
-	<td><input type="text" class="ui-datepicker" name="actual_start_date" value="[% project.project_actual_start_date %]" size="60">
+	<td><input type="text" class="ui-datepicker" name="actual_start_date" value="[% project.project_actual_start_date %]" placeholder="yyyy-mm-dd" size="60" />
 [% ELSE %]
-	<td><input type="text" class="ui-datepicker" name="actual_start_date" value="" size="60">
+	<td><input type="text" class="ui-datepicker" name="actual_start_date" value="" placeholder="yyyy-mm-dd" size="60" />
 [% END %]
 </td>
 </tr>
 <tr>
-<th>sched. completion date<br />format: yyyy-mm-dd</th>
+<th>sched. completion date</th>
 [% IF project.project_sched_compl_date && project.project_sched_compl_date != "0000-00-00" %]
-	<td><input type="text" class="ui-datepicker" name="sched_compl_date" value="[% project.project_sched_compl_date %]" size="60">
+	<td><input type="text" class="ui-datepicker" name="sched_compl_date" value="[% project.project_sched_compl_date %]" placeholder="yyyy-mm-dd" size="60" />
 [% ELSE %]
-	<td><input type="text" class="ui-datepicker" name="sched_compl_date" value="" size="60">
+	<td><input type="text" class="ui-datepicker" name="sched_compl_date" value="" placeholder="yyyy-mm-dd" size="60" />
 [% END %]
 </td>
 </tr>
 <tr>
-<th>actual completion date<br />format: yyyy-mm-dd</th>
+<th>actual completion date</th>
 [% IF project.project_actual_compl_date && project.project_actual_compl_date != "0000-00-00" %]
-	<td><input type="text" class="ui-datepicker" name="actual_compl_date" value="[% project.project_actual_compl_date %]" size="60">
+	<td><input type="text" class="ui-datepicker" name="actual_compl_date" value="[% project.project_actual_compl_date %]" placeholder="yyyy-mm-dd" size="60" />
 [% ELSE %]
-	<td><input type="text" class="ui-datepicker" name="actual_compl_date" value="" size="60">
+	<td><input type="text" class="ui-datepicker" name="actual_compl_date" value="" placeholder="yyyy-mm-dd" size="60" />
 [% END %]
 </td>
 </tr>
 <tr>
-<th>scheduled go live date<br />format: yyyy-mm-dd</th>
+<th>scheduled go live date</th>
 [% IF project.sched_go_live_date && project.sched_go_live_date != "0000-00-00" %]
-	<td><input type="text" class="ui-datepicker" name="sched_go_live_date" value="[% project.sched_go_live_date %]" size="60">
+	<td><input type="text" class="ui-datepicker" name="sched_go_live_date" value="[% project.sched_go_live_date %]" placeholder="yyyy-mm-dd" size="60" />
 [% ELSE %]
-	<td><input type="text" class="ui-datepicker" name="sched_go_live_date" value="" size="60">
+	<td><input type="text" class="ui-datepicker" name="sched_go_live_date" value="" placeholder="yyyy-mm-dd" size="60" />
 [% END %]
 </td>
 </tr>
 <tr>
-<th>actual go live date<br />format: yyyy-mm-dd</th>
+<th>actual go live date</th>
 [% IF project.actual_go_live_date && project.actual_go_live_date != "0000-00-00" %]
-	<td><input type="text" class="ui-datepicker" name="actual_go_live_date" value="[% project.actual_go_live_date %]" size="60">
+	<td><input type="text" class="ui-datepicker" name="actual_go_live_date" value="[% project.actual_go_live_date %]" placeholder="yyyy-mm-dd" size="60" />
 [% ELSE %]
-	<td><input type="text" class="ui-datepicker" name="actual_go_live_date" value="" size="60">
+	<td><input type="text" class="ui-datepicker" name="actual_go_live_date" value="" placeholder="yyyy-mm-dd" size="60" />
 [% END %]
 </td>
 </tr>
@@ -125,6 +125,7 @@ $(function() {
 </tr>
 </table>
 </form>
+</div><!-- class="container" -->
 
 
 [%#
