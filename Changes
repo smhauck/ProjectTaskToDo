@@ -1,3 +1,27 @@
+commit 0d6a3bf06b7aca2fb0bd0f71513bbba07632d4f2
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 2 10:30:35 2014 -0400
+
+    cleaned up form; made it Bootstrap-style
+
+commit 0e2380d016bf2b8044aa8c05fb2913e865cca8dd
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 2 10:24:57 2014 -0400
+
+    formatted and added space between submit button and forgot password link
+
+commit 9dee0ae4a13c3b0893f8f53efebc85b5cf78e0ac
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 1 20:58:02 2014 -0400
+
+    fixed css issue with jquery-ui; updated it to version 1.11 as well
+
+commit 2d6d2ea1594f13f68cb889913f17229b14ab3a2d
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 1 18:44:24 2014 -0400
+
+    updated version and change log
+
 commit fd63b8825ce38b43f66306a00e1c83b9bac60468
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Jul 1 18:43:45 2014 -0400
