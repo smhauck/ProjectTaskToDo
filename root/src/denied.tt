@@ -1,12 +1,13 @@
 [% META title = 'ProjectTaskToDo' %]
 
 <div class="container">
-<p>That function is restricted to authorized users.</p>
-<p>You are either not logged in or do not have sufficient previleges to access that function.</p>
-<p>Please <a href="[% Catalyst.uri_for('/login') %]">login</a> to use the system.</p>
+	<p>That function is restricted to authorized users.</p>
+	<p>You are either not logged in or do not have sufficient previleges to access that function.</p>
+	<p>Please <a href="[% Catalyst.uri_for('/login') %]">login</a> to use the system.</p>
 </div><!-- class="container" -->
 
-[%#-
+
+[%#
 COPYRIGHT
 
 Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
@@ -27,5 +28,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--%]
-
+%]
