@@ -1,6 +1,6 @@
 <div class="container">
 [% linecount = 0 %]
-<table class='sortable'>
+<table class="table sortable">
 <tr>
 	<th>Category</th>
 	<th>Job Code</th>
