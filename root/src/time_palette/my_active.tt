@@ -11,7 +11,7 @@ $(function() {
 [% linecount = 0 -%]
 
 <form action='/project/add_times' method='post'>
-<table class='sortable'>
+<table class="table sortable">
 <tr>
 	<th>Owner</th>
 	<th>B</th>
