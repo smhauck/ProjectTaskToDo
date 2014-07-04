@@ -18,7 +18,7 @@
 <h2>Project Links</h2>
 <form action='/project/[% project.project_id %]/insert_link' method='POST'>
 <table class="table">
-<tr><th>Display Text</th><th>Link URL</th><th>Type</th><th>Description</th></tr>
+<tr><th>Display Text</th><th>Link URL</th><th>Type</th><th>Description</th><th><th></tr>
 <tr>
 <td><input type='text' name='link_text' /></td>
 <td><input type='text' name='link_url' /></td>
@@ -30,9 +30,8 @@
 </select>
 </td>
 <td><textarea name='description'></textarea></td>
-<td><a href="/project/[% project.project_id %]/edit_link/[% link.id %]">Edit</a></td>
+<td><button type="submit" class="btn btn-primary">Submit</button></td>
 </tr>
-<tr><th></th><th></th><th></th><th><button type="submit" class="btn btn-primary">Submit</button></th></tr>
 </table>
 </form>
 <br />
