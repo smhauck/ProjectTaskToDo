@@ -1,0 +1,58 @@
+<!-- BEGIN options.tt -->
+<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+<div class="sidebar-module sidebar-module-inset">
+
+
+<div class="sidebar-module">
+<h4>Options</h4>
+<ol class="list-unstyled">
+[% IF authorized -%]
+<li><a href="/task/edit/[% task.id %]">Edit Task</a></li>
+[% END -%]
+<li>&nbsp;</li>
+<li><a href="/task/[% task.id %]">Hide Time Worked / Comments</a></li>
+<li>&nbsp;</li>
+[% IF task.task_status_id != 2 %]
+<li>
+<form action='/task/complete' method='POST'>
+<input type='hidden' name='task_id' value='[% task.task_id %]' />
+<button type='submit' name='submit'>Mark Complete</button>
+</form>
+</li>
+<li>&nbsp;</li>
+<li>&nbsp;</li>
+<li><a href="/task/new_comment/[% task.id %]">Add Time Worked / Comment</a></li>
+<li>&nbsp;</li>
+<li>&nbsp;</li>
+<li><a href="/task/new_task/[% task.task_project_id %]">Add Project Task</a></li>
+[% END %]
+</ol>
+</div><!-- class="sidebar-module" -->
+
+</div><!-- class="col-sm-3 col-sm-offset-1 blog-sidebar" -->
+</div><!-- class="sidebar-module sidebar-module-inset" -->
+<!-- END options.tt -->
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+%]

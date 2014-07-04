@@ -1,3 +1,4 @@
+<!-- BEGIN footer -->
 <div class="container">
 <footer>
   <div class="container">
@@ -7,6 +8,8 @@
   </div><!-- class="container" -->
 </footer>
 </div><!-- class="container" -->
+<!-- END footer -->
+
 
 [%#
 COPYRIGHT

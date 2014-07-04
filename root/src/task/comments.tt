@@ -1,25 +1,11 @@
+<!-- BEGIN comments.tt -->
 [% META title = 'ProjectTaskToDo:Task Details' %]
 
 <div class="container">
-<div class="option">
-[% IF authorized %]
-<a href="/task/edit/[% task.id %]">Edit Task</a><br />
-[% END %]
-<br />
-<a href="/task/new_comment/[% task.id %]">Add Time Worked / Comment</a><br />
-<a href="/task/[% task.id %]">Hide Time Worked / Comments</a><br />
-[% IF task.task_status_id != 2 %]
-<form action='/task/complete' method='POST'>
-<input type='hidden' name='task_id' value='[% task.task_id %]' />
-<button type='submit' name='submit'>Mark Complete</button>
-</form>
-<br />
-<a href="/task/new_task/[% task.task_project_id %]">Add Project Task</a><br />
-[% END %]
-</div>
+<div class="row">
+<div class="col-sm-8 blog-main">
 
 [% INCLUDE task/task_details.tt %]
-<br />
 
 <h2>Comments</h2>
 
@@ -55,20 +41,26 @@
 [% END %]
 <!--
 <tr>
-<td colspan=6>Total Billable Time: [% total_billable_time div 60 %] Hours, [% total_billable_time mod 60 %] Minutes</td>
+<td colspan=7>Total Billable Time: [% total_billable_time div 60 %] Hours, [% total_billable_time mod 60 %] Minutes</td>
 </tr>
 <tr>
-<td colspan=6>Total Nonbillable Time: [% total_nonbillable_time div 60 %] Hours, [% total_nonbillable_time mod 60 %] Minutes</td>
+<td colspan=7>Total Nonbillable Time: [% total_nonbillable_time div 60 %] Hours, [% total_nonbillable_time mod 60 %] Minutes</td>
 </tr>
 -->
 
 <tr>
-<td colspan=6>Total Time: [% total_time div 60 %] Hours, [% total_time mod 60 %] Minutes</td>
+<td colspan=7>Total Time: [% total_time div 60 %] Hours, [% total_time mod 60 %] Minutes</td>
 </tr>
 </table>
-<br />
+</div><!-- class="col-sm-8 blog-main" -->
 
+
+
+[% INCLUDE task/options.tt %]
+
+</div><!-- class="row" -->
 </div><!-- class="container" -->
+<!-- END comments.tt -->
 
 
 [%#
