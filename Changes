@@ -1,3 +1,52 @@
+commit 8e81023a53036f274f1f3dd07ca4f602096579bc
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 3 21:20:39 2014 -0400
+
+    fixed bug: link to tasks was borked
+
+commit 3d13a733eb4d47404806fd54341ab8a0a20d236d
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 3 21:12:01 2014 -0400
+
+    made task/edit a Chained action; modified all links from
+    task/edit/task_id to task/task_id/edit
+
+commit 22c2e8b67a525be7051e8abf3a28e2cb2e9468a7
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 3 20:32:27 2014 -0400
+
+    making options more Bootstrap-styled
+
+commit b849009dc7d8a1b8d8a8a1535dba839d5052329c
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 3 00:01:40 2014 -0400
+
+    table class=table
+
+commit bc67a0bde937fcd7224007f851003655482118ed
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 2 23:57:01 2014 -0400
+
+    table class=table
+
+commit b5aa7830e105e030ca12ea494bcfbec3528522d5
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 2 10:40:56 2014 -0400
+
+    removed redundant navbar
+
+commit 5260d9b20d1f659519c1e6c194677f27bc84be22
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 2 10:35:06 2014 -0400
+
+    formatted a little better
+
+commit 3bee2597917e1440fa12cc6f871ed0950984c203
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 2 10:34:10 2014 -0400
+
+    removed duplicate license section
+
 commit 0d6a3bf06b7aca2fb0bd0f71513bbba07632d4f2
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 2 10:30:35 2014 -0400

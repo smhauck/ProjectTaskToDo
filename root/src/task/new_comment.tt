@@ -29,7 +29,8 @@ Date of Time Worked:
 <br />
 <br />
 <input type="hidden" name="task_id" value="[% tid %]" />
-<input type="submit" name="Submit" value="Submit" />
+<button type="submit" class="btn btn-primary">Submit</button>
+
 </form>
 </div><!-- class="container" -->
 
