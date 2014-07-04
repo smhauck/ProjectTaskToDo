@@ -35,7 +35,7 @@
 <td></td>
 [% END -%]
 [% IF notification.task_id %]
-<td><a href="[% Catalyst.uri_for('/task/task_with_comments', notification.task_id) %]">[% notification.task_id %]: [% notification.task.task_name %]</a></td>
+<td><a href="[% Catalyst.uri_for('/task', notification.task_id, 'comments') %]">[% notification.task_id %]: [% notification.task.task_name %]</a></td>
 [% ELSE -%]
 <td></td>
 [% END -%]
