@@ -1,12 +1,17 @@
+<!-- BEGIN tasks.tt -->
+[% META title = 'ProjectTaskToDo:Task Details' %]
+
 <div class="container">
 <div class="row">
-<div class="col-sm-8 blog-main">
+<div class="col-sm-9 blog-main">
+
 <h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
+
+
 [% IF task_type == "all" || task_type == 'active' %]
-<span>
 <table class="table sortable">
 <caption>Active Tasks</caption>
-<tr><th>ID</th><th>Task Order</th><th>Status</th><th>Task Name</th><th>Priority</th><th>Assigned To</th><th>Last Activity</th><th>Scheduled<br />Start<br />Date</th><th>Actual<br />Start<br />Date</th><th>Diff (Days)</th><th>Scheduled<br />Completion<br />Date</th></tr>
+<tr><th>ID</th><th>Task Order</th><th>Status</th><th>Task Name</th><th>Priority</th><th>Assigned To</th><th>Last Activity</th><th>Sched Start Date</th><th>Actual<br />Start<br />Date</th><th>Diff (Days)</th><th>Sched Compl Date</th></tr>
 [% FOREACH task IN active_tasks %]
 <tr>
 <td><a href="/task/[% task.task_id %]/comments">[% task.task_id %]</a></td>
@@ -23,15 +28,12 @@
 </tr>
 [% END %]
 </table>
-</span>
-<br />
 [% END %]
 
 [% IF task_type == "all" || task_type == 'complete' %]
-<span>
-<table class='sortable'>
+<table class="table sortable">
 <caption>Completed Tasks</caption>
-<tr><th>ID</th><th>Task Order</th><th>Task Name</th><th>Priority</th><th>Owner</th><th>Scheduled<br />Start<br />Date</th><th>Actual<br />Start<br />Date</th><th>Diff (Days)</th><th>Scheduled<br />Completion<br />Date</th><th>Actual<br />Completion<br />Date</th><th>Diff (Days)</th></tr>
+<tr><th>ID</th><th>Task Order</th><th>Task Name</th><th>Priority</th><th>Owner</th><th>Sched Start Date</th><th>Actual Start Date</th><th>Diff (Days)</th><th>Sched Compl Date</th><th>Actual Compl Date</th><th>Diff (Days)</th></tr>
 [% FOREACH task IN complete_tasks %]
 <tr>
 <td>[% task.task_id %]</td>
@@ -48,22 +50,24 @@
 </tr>
 [% END %]
 </table>
-</span>
-<br />
 [% END %]
-<br />
 
 <h2>Project Details</h2>
 [% INCLUDE project/project_details_no_name.tt %]
 
-</div><!-- /.blog-main -->
 
+
+
+
+
+</div><!-- class="col-sm-9 blog-main" -->
 
 [% INCLUDE project/options.tt %]
 
-
 </div><!-- class="row" -->
 </div><!-- class="container" -->
+<!-- END tasks.tt -->
+
 
 
 [%#

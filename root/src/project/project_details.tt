@@ -1,3 +1,4 @@
+<!-- BEGIN project_details.tt -->
 <div class="container">
 
 [% IF authorized %]
@@ -84,20 +85,8 @@
 </tr>
 </table>
 
-<script>
-$("#show_project_requirements").click(function () {
-  $("#project_requirements").toggle()
-  $("#show_project_requirements").toggle()
-  $("#hide_project_requirements").toggle()
-});
-$("#hide_project_requirements").click(function () {
-  $("#project_requirements").toggle()
-  $("#show_project_requirements").toggle()
-  $("#hide_project_requirements").toggle()
-});
-</script>
-
 </div><!-- class="container" -->
+<!-- END project_details.tt -->
 
 
 [%#

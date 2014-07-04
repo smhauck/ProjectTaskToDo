@@ -1,3 +1,4 @@
+<!-- BEGIN authenticated_navbar.tt -->
 <nav class="navbar navbar-default" role="navigation">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -95,7 +96,7 @@
         </li>
         [% END -%]
       </ul>
-    </div><!-- /.navbar-collapse -->
+    </div><!-- .navbar-collapse -->
    
 [% IF error -%]
 <div>
@@ -103,8 +104,9 @@
 </div>
 [% END -%]
 
-  </div><!-- /.container-fluid -->
+  </div><!-- class="container" -->
 </nav>
+<!-- END authenticated_navbar.tt -->
 
 
 [%#

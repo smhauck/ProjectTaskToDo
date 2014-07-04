@@ -1,25 +1,5 @@
-<!--
-LICENSE
-
-This file is part of ProjectTaskToDo.
-
-ProjectTaskToDo is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-ProjectTaskToDo is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--->
-
-
 <div class="container">
-<table>
+<table class="table">
 <tr><th>Account</th><td>[% project.account.title %]</a></td></tr>
 <tr><th>Category</th><td>[% project.category.name %]</a></td></tr>
 <tr><th>Status</th><td>[% project.status.name %]</td></tr>
@@ -53,9 +33,8 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
  Mins.</td></tr>
 <tr><th>Description</th><td>[% project.project_description | html | html_line_break %]</td></tr>
 <tr>
-<th id='show_project_requirements'>Requirements (Show)</th>
-<th id='hide_project_requirements'>Requirements (Hide)</th>
-<td id='project_requirements'>[% project.project_requirements_text | html | html_line_break %]</td><tr>
+<th>Requirements</th>
+<td>[% project.project_requirements_text | html | html_line_break %]</td><tr>
 <tr><th>Initially Recorded</th><td>[% project.project_recorded | html %]</td></tr>
 <tr><th>Last Modified</th><td>[% project.project_last_modified | html %]</td></tr>
 [% IF project.project_sched_start_date && project.project_sched_start_date != '0000-00-00' %]
@@ -97,17 +76,28 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 </tr>
 </table>
 
-<script>
-$("#show_project_requirements").click(function () {
-  $("#project_requirements").toggle()
-  $("#show_project_requirements").toggle()
-  $("#hide_project_requirements").toggle()
-});
-$("#hide_project_requirements").click(function () {
-  $("#project_requirements").toggle()
-  $("#show_project_requirements").toggle()
-  $("#hide_project_requirements").toggle()
-});
-</script>
-
 </div><!-- class="container" -->
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+%]

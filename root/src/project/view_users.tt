@@ -1,14 +1,9 @@
 <div class="container">
 <div class="row">
-<div class="col-sm-8 blog-main">
+<div class="col-sm-9 blog-main">
 
 
-[% IF authorized %]
-<h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %] <a href="/project/[% project.id %]/edit">(Edit Project)</a></h1>
-[% ELSE %]
 <h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
-[% END %]
-
 
 [% IF authorized %]
 <h2>Project Users</h2>
@@ -59,10 +54,11 @@
 </form>
 [% END %]
 
-</div><!-- /.blog-main -->
-
+</div><!-- class="col-sm-9 blog-main" -->
 
 [% INCLUDE project/options.tt %]
+</div><!-- class="row" -->
+</div><!-- class="container" -->
 
 <script type="text/javascript">
 	$(function() {
@@ -72,8 +68,6 @@
 		});
 	});
 </script>
-
-</div><!-- class="container" -->
 
 
 [%#

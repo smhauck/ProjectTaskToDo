@@ -1,54 +1,60 @@
-<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+<!-- BEGIN options.tt -->
+<div class="col-sm-2 col-sm-offset-1 blog-sidebar">
+<div class="sidebar-module sidebar-module-inset">
+
 
 <div class="sidebar-module">
 <h4>Options</h4>
 <ol class="list-unstyled">
 [% IF authorized -%]
-<li><a href="/project/[% project.project_id %]/edit">Edit This Project</a></li>
-<li><a href="/project/[% project.project_id %]/edit_client_organization">Change Project Client Organization</a></li>
-<li><a href="/project/[% project.project_id %]/edit_client_person">Change Project Client Person</a></li>
-<li><a href="/project/[% project.project_id %]/edit_client_contact">Change Project Client Contact</a></li>
-<li><a href="/project/[% project.project_id %]/edit_status">Change Project Status</a></li>
+<li><a href="/project/[% project.project_id %]/edit">Edit</a></li>
+<li><a href="/project/[% project.project_id %]/edit_client_organization">Change Client Organization</a></li>
+<li><a href="/project/[% project.project_id %]/edit_client_person">Change Client Person</a></li>
+<li><a href="/project/[% project.project_id %]/edit_client_contact">Change Client Contact</a></li>
+<li><a href="/project/[% project.project_id %]/edit_status">Change Status</a></li>
 [% END -%]
 <li>&nbsp;</li>
-<li><a href="/project/[% project.project_id %]/new_comment">Add Project Comment</a></li>
-<li><a href="/project/[% project.project_id %]/comments">View Project Comments ([% num_comments %])</a></li>
+<li><a href="/project/[% project.project_id %]/new_comment">Add Comment</a></li>
+<li><a href="/project/[% project.project_id %]/comments">View Comments ([% num_comments %])</a></li>
 <li>&nbsp;</li>
-<li><a href="/project/[% project.project_id %]">View Only Project Details</a></li>
-<li><a href="/project/[% project.project_id %]/tasks/active">View Active Project Tasks ([% num_active_tasks %])</a></li>
-<li><a href="/project/[% project.project_id %]/tasks/complete">View Completed Project Tasks ([% num_complete_tasks %])</a></li>
-<li><a href="/project/[% project.project_id %]/tasks/all">View All Project Tasks ([% num_tasks %])</a></li>
-<li><a href="/project/[% project.project_id %]/plan">View As Project Plan</a></li>
-<li><a href="/project/[% project.project_id %]/order_tasks">Order Tasks in Project Plan</a></li>
+<li><a href="/project/[% project.project_id %]">View Only Details</a></li>
+<li><a href="/project/[% project.project_id %]/tasks/active">View Active Tasks ([% num_active_tasks %])</a></li>
+<li><a href="/project/[% project.project_id %]/tasks/complete">View Completed Tasks ([% num_complete_tasks %])</a></li>
+<li><a href="/project/[% project.project_id %]/tasks/all">View All Tasks ([% num_tasks %])</a></li>
+<li><a href="/project/[% project.project_id %]/plan">View As Plan</a></li>
+<li><a href="/project/[% project.project_id %]/order_tasks">Order Tasks in Plan</a></li>
 <li>&nbsp;</li>
-<li><a href="/project/[% project.project_id %]/add_to_timepalette">Add Project to TimePalette</a></li>
-<li><a href="/project/[% project.project_id %]/remove_from_timepalette">Remove Project from TimePalette</a></li>
+<li>TimePalette</li>
+<li><a href="/project/[% project.project_id %]/add_to_timepalette">Add</a></li>
+<li><a href="/project/[% project.project_id %]/remove_from_timepalette">Remove</a></li>
 <li>&nbsp;</li>
-<li><a href="/project/[% project.project_id %]/view_users">View Project Users ([% num_project_users %])</a></li>
+<li><a href="/project/[% project.project_id %]/view_users">View Users ([% num_project_users %])</a></li>
 <li>&nbsp;</li>
-<li><a href="/project/[% project.project_id %]/view_links">View Project Links ([% num_links %])</a></li>
+<li><a href="/project/[% project.project_id %]/view_links">View Links ([% num_links %])</a></li>
 [% IF authorized -%]
 <!--
 <li><a href="/project/[% project.project_id %]/order_tasks">Edit Task Order</a></li>
 -->
 [% END -%]
-<li><a href="/project/[% project.project_id %]/notes">View Project Notes<br />(Personal: [% num_notes_personal %] / Public: [% num_notes_public %])</a></li>
+<li><a href="/project/[% project.project_id %]/notes">View Notes<br />(Personal: [% num_notes_personal %] / Public: [% num_notes_public %])</a></li>
 <li>&nbsp;</li>
-<li><a href='/note?project=[% project.project_id %]'>Add new note for project</a></li>
+<li><a href='/note?project=[% project.project_id %]'>Add New Note</a></li>
 <li>&nbsp;</li>
-<li><a href="/project/[% project.project_id %]/content">View Project Files</a></li>
+<li><a href="/project/[% project.project_id %]/content">View Files</a></li>
 <li>&nbsp;</li>
 <li>&nbsp;</li>
 [% IF authorized -%]
-<li><a href="/task/new_task/[% project.project_id %]">Add Project Task</a></li>
+<li><a href="/task/new_task/[% project.project_id %]">Add Task</a></li>
 [% END -%]
 <li>&nbsp;</li>
-<li><a href="/project/[% project.project_id %]/time_by_person">Overall Project Time By Person</a></li>
-<li><a href="/project/[% project.project_id %]/time_by_day_by_person">Project Time By Day By Person</a></li>
+<li><a href="/project/[% project.project_id %]/time_by_person">Overall Time By Person</a></li>
+<li><a href="/project/[% project.project_id %]/time_by_day_by_person">Time By Day By Person</a></li>
 </ol>
 </div><!-- class="sidebar-module" -->
 
-</div><!-- /.blog-sidebar -->
+</div><!-- class="col-sm-3 col-sm-offset-1 blog-sidebar" -->
+</div><!-- class="sidebar-module sidebar-module-inset" -->
+<!-- END options.tt -->
 
 
 [%#

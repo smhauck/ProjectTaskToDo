@@ -1,14 +1,14 @@
 <!-- BEGIN search_box.tt -->
+
 <script type="text/javascript">
 $(function() {
-	$('.ui-datepicker').datepicker({dateFormat: 'yy-mm-dd', changeMonth: true, changeYear: true});
+	$('.ui-datepicker').datepicker({dateFormat: 'yy-mm-dd'});
 });
 </script>
 
 <h1>Search Notes</h1>
 
 <form class="search_box" action="/note/search" method="post">
-
 <table class="table">
 
 <tr>

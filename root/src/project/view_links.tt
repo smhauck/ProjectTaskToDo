@@ -1,3 +1,5 @@
+<!-- BEGIN view_links.tt -->
+<div class="container">
 <script type="text/javascript">
 	$(function() {
 		$("#the_user_id").autocomplete({
@@ -7,8 +9,10 @@
 	});
 </script>
 
-[% INCLUDE project/menu.tt %]
-[% INCLUDE project/options.tt %]
+<div class="container">
+<div class="row">
+<div class="col-sm-9 blog-main">
+
 
 [% IF authorized %]
 <h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %] <a href="/project/[% project.id %]/edit">(Edit Project)</a></h1>
@@ -19,7 +23,7 @@
 
 [% IF authorized %]
 <h2>Project Links</h2>
-<table>
+<table class="table sortable">
 <tr><th>Link</th><th>Type</th><th>Description</th></tr>
 [% FOREACH link IN project.links %]
 <tr>
@@ -52,6 +56,16 @@
 
 
 <p><a href='/project/[% project.project_id %]/add_link'>Add Another Link</a></p>
+
+
+
+</div><!-- class="col-sm-9 blog-main" -->
+
+[% INCLUDE project/options.tt %]
+
+</div><!-- class="row" -->
+</div><!-- class="container" -->
+<!-- END view_links.tt -->
 
 
 [%#

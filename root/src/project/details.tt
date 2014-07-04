@@ -1,9 +1,20 @@
+<!-- BEGIN details.tt -->
+[% META title = 'ProjectTaskToDo:Task Details' %]
+
 <div class="container">
-[% INCLUDE project/options.tt %]
+<div class="row">
+<div class="col-sm-9 blog-main">
 
 <h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
 [% INCLUDE project/project_details_no_name.tt %]
+
+</div><!-- class="col-sm-9 blog-main" -->
+
+[% INCLUDE project/options.tt %]
+
+</div><!-- class="row" -->
 </div><!-- class="container" -->
+<!-- END details.tt -->
 
 
 [%#
