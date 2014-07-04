@@ -1,41 +1,19 @@
+<!-- BEGIN details.tt -->
 [% META title = 'ProjectTaskToDo:Task Details' %]
+
 <div class="container">
 <div class="row">
-
 <div class="col-sm-8 blog-main">
+
 [% INCLUDE task/task_details.tt %]
+
 </div><!-- class="col-sm-8 blog-main" -->
 
+[% INCLUDE task/options.tt %]
 
-
-<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-
-<div class="sidebar-module">
-<h4>Options</h4>
-<!-- <ol class="list-unstyled"> -->
-
-[% IF authorized %]
-<a href="/task/edit/[% task.id %]">Edit Task</a><br />
-[% END %]
-<br />
-<a href="/task/new_comment/[% task.id %]">Add Time Worked / Comments</a><br />
-<a href="/task/[% task.id %]/comments">View Time Worked / Comments ([% num_comments %])</a><br />
-[% IF task.task_status_id != 2 %]
-<form action='/task/complete' method='POST'>
-<input type='hidden' name='task_id' value='[% task.task_id %]' />
-<button type='submit' name='submit'>Mark Complete</button>
-</form>
-<br />
-<a href="/task/new_task/[% task.task_project_id %]">Add Project Task</a><br />
-[% END %]
-<a href='/note?task=[% task.task_id %]'>Add new note for Task</a><br />
-</div><!-- class="option">
-
-</div><!-- class="sidebar-module" -->
-</div><!-- class="col-sm-3 col-sm-offset-1 blog-sidebar" -->
-
-</div><!-- class="row">
+</div><!-- class="row" -->
 </div><!-- class="container" -->
+<!-- END details.tt -->
 
 
 [%#

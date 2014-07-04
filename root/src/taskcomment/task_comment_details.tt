@@ -1,5 +1,5 @@
 [% IF authorized %]
-	<h1><a href="/task/edit/[% task.task_id %]">[% task.task_name %]</a></h1>
+	<h1><a href="/task/[% task.task_id %]/edit">[% task.task_name %]</a></h1>
 </tr>
 [% ELSE %]
 	<h1>[% task.task_name %]</h1>

@@ -10,7 +10,7 @@ $(function() {
 
 <form name="edit" action="/task/update" method="post">
 <input type="hidden" name="task_id" value="[% task.task_id %]" />
-<table>
+<table class="table">
 <tr>
 <th>name:</th>
 <td><input type="text" name="name" value="[% task.task_name | html %]" size="60" /></td>
@@ -19,13 +19,14 @@ $(function() {
 <th>status:</th>
 <td>
 <select name="status_id" size="1">
-[% FOR task_status IN task_statuses %]
-	[% IF task.task_status_id == task_status.id %]
-		<option selected value="[% task_status.id %]">[% task_status.name %]
-	[% ELSE %]
-		<option value="[% task_status.id %]">[% task_status.name %]
-	[% END %]
-[% END %]
+[% FOR task_status IN task_statuses -%]
+	[% IF task.task_status_id == task_status.id -%]
+		<option value="[% task_status.id %]" selected>[% task_status.name %]</option>
+	[% ELSE -%]
+		<option value="[% task_status.id %]">[% task_status.name %]</option>
+	[% END -%]
+[% END -%]
+</select>
 </td>
 </tr>
 <tr>
@@ -34,11 +35,12 @@ $(function() {
 <select name="project_id" size="1">
 [% FOR project IN projects %]
 	[% IF task.task_project_id == project.project_id %]
-		<option value="[% project.project_id %]" selected="selected" />[% project.project_short_name %] : [% project.project_name %]
+		<option value="[% project.project_id %]" selected="selected">[% project.project_short_name %] : [% project.project_name %]</option>
 	[% ELSE %]
-		<option value="[% project.project_id %]" />[% project.project_short_name %] : [% project.project_name %]
+		<option value="[% project.project_id %]">[% project.project_short_name %] : [% project.project_name %]</option>
 	[% END %]
 [% END %]
+</select>
 </td>
 </tr>
 <tr>
@@ -54,54 +56,54 @@ $(function() {
 <td>
 <select name='priority' size='1'>
 [% IF task.task_priority == 1 %]
-<option selected value="1" />1
+<option selected value="1">1</option>
 [% ELSE %]
-<option value="1" />1
+<option value="1">1</option>
 [% END %]
 [% IF task.task_priority == 2 %]
-<option selected value="2" />2
+<option selected value="2">2</option>
 [% ELSE %]
-<option value="2" />2
+<option value="2">2</option>
 [% END %]
 [% IF task.task_priority == 3 %]
-<option selected value="3" />3
+<option selected value="3">3</option>
 [% ELSE %]
-<option value="3" />3
+<option value="3">3</option>
 [% END %]
 [% IF task.task_priority == 4 %]
-<option selected value="4" />4
+<option selected value="4">4</option>
 [% ELSE %]
-<option value="4" />4
+<option value="4">4</option>
 [% END %]
 [% IF task.task_priority == 5 %]
-<option selected value="5" />5
+<option selected value="5">5</option>
 [% ELSE %]
-<option value="5" />5
+<option value="5">5</option>
 [% END %]
 [% IF task.task_priority == 6 %]
-<option selected value="6" />6
+<option selected value="6">6</option>
 [% ELSE %]
-<option value="6" />6
+<option value="6">6</option>
 [% END %]
 [% IF task.task_priority == 7 %]
-<option selected value="7" />7
+<option selected value="7">7</option>
 [% ELSE %]
-<option value="7" />7
+<option value="7">7</option>
 [% END %]
 [% IF task.task_priority == 8 %]
-<option selected value="8" />8
+<option selected value="8">8</option>
 [% ELSE %]
-<option value="8" />8
+<option value="8">8</option>
 [% END %]
 [% IF task.task_priority == 9 %]
-<option selected value="9" />9
+<option selected value="9">9</option>
 [% ELSE %]
-<option value="9" />9
+<option value="9">9</option>
 [% END %]
 [% IF task.task_priority == 10 %]
-<option selected value="10" />10
+<option selected value="10">10</option>
 [% ELSE %]
-<option value="10" />10
+<option value="10">10</option>
 [% END %]
 </select>
 </td>
@@ -110,13 +112,14 @@ $(function() {
 <th>owner:</th>
 <td>
 <select name="owner_id" size="1">
-[% FOR pu IN project_users %]
-[% IF task.task_owner_id == pu.project_user_user_id %]
-<option selected value="[% pu.project_user_user_id %]">[% pu.user.full_name %]
-[% ELSE %]
-<option value="[% pu.project_user_user_id %]">[% pu.user.full_name %]
-[% END %]
-[% END %]
+[% FOR pu IN project_users -%]
+[% IF task.task_owner_id == pu.project_user_user_id -%]
+<option selected value="[% pu.project_user_user_id %]">[% pu.user.full_name %]</option>
+[% ELSE -%]
+<option value="[% pu.project_user_user_id %]">[% pu.user.full_name %]</option>
+[% END -%]
+[% END -%]
+</select>
 </td>
 </tr>
 <tr>
@@ -171,8 +174,8 @@ Minutes: <input type="text" name="time_estimate_minutes" value="[% task.time_est
 </td>
 </tr>
 <tr>
-<td align="right"><input type="reset" value="Reset"></td>
-<td align="right"><input type="submit" value="Update"></td>
+<td><input type="reset" value="Reset"></td>
+<td><input type="submit" value="Update"></td>
 </tr>
 </table>
 </form>

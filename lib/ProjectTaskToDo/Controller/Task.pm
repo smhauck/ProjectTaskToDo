@@ -368,9 +368,10 @@ sub details : Chained('task_object') : PathPart('') : Args(0) {
 
 =cut
 
-sub edit : Local {
-    my ( $self, $c, $task_id ) = @_;
-    my $task = $c->model('ProjectTaskToDoDB::Task')->find( { task_id => $task_id } );
+sub edit : Chained('task_object') : PathPart('edit') : Args(0) {
+    my ( $self, $c ) = @_;
+    my $task = $c->stash->{task};
+    my $task_id = $task->id;
     my $cur_user_id = $c->user->id;
 
     if (   ( $task->task_owner_id == $c->user->id )

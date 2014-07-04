@@ -35,7 +35,7 @@
 
 [% FOREACH task IN tasks %]
 <table>
-<tr><td align='right'><strong>Task Name</strong></td><td><a href="/task/edit/[% task.id %]">[% task.name %]</a></td></tr>
+<tr><td align='right'><strong>Task Name</strong></td><td><a href="/task/[% task.id %]/edit">[% task.name %]</a></td></tr>
 [% pid = task.project_id - 1 %]
 <tr><td align='right'><strong>Project</strong></td><td>[% projects.$pid.name %]</td></tr>
 <tr><td align='right'><strong>Priority</strong></td><td>[% task.priority%]</td></tr>

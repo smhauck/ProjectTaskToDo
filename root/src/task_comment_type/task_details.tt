@@ -1,5 +1,5 @@
 <table>
-<tr><td align='right'><strong>Task Name:</strong></td><td>[% task.task_name %] <a href="/task/edit/[% task.task_id %]">(Edit Task)</a><br /></td></tr>
+<tr><td align='right'><strong>Task Name:</strong></td><td>[% task.task_name %] <a href="/task/[% task.task_id %]/edit">(Edit Task)</a><br /></td></tr>
 <tr><td align='right'><strong>Project:</strong></td><td><a href="/project/details/[% task.task_project_id %]">[% task.project.project_name %]</a></td></tr>
 <tr><td align='right'><strong>Priority:</strong></td><td>[% task.task_priority %]</td></tr>
 <tr><td align='right'><strong>Creator:</strong></td><td>[% task.creator.full_name %]</td></tr>

@@ -7,7 +7,7 @@
 <h4>Options</h4>
 <ol class="list-unstyled">
 [% IF authorized -%]
-<li><a href="/task/edit/[% task.id %]">Edit Task</a></li>
+<li><a href="/task/[% task.id %]/edit">Edit Task</a></li>
 [% END -%]
 <li>&nbsp;</li>
 <li><a href="/task/[% task.id %]">Hide Time Worked / Comments</a></li>

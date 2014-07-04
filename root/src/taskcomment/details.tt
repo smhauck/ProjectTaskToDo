@@ -4,7 +4,7 @@
 
 <div class="option">
 [% IF authorized %]
-<a href="/task/edit/[% task.id %]">Edit Task</a><br />
+<a href="/task/[% task.id %]/edit">Edit Task</a><br />
 [% END %]
 <br />
 <a href="/task/new_comment/[% task.id %]">Add Time Worked / Comments</a><br />

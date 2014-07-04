@@ -3,7 +3,7 @@
 [% INCLUDE authenticated_navbar.tt %]
 
 <div class="option">
-<a href="/task/edit/[% task.id %]">Edit Task</a><br />
+<a href="/task/[% task.id %]/edit">Edit Task</a><br />
 <br />
 <a href="/task/new_comment/[% task.id %]">Add Time Worked / Comments</a><br />
 <a href="/task/task_with_comments/[% task.id %]">View Time Worked / Comments ([% num_comments %])</a><br />

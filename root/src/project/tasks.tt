@@ -1,5 +1,4 @@
 <div class="container">
-
 <div class="row">
 <div class="col-sm-8 blog-main">
 <h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
@@ -63,6 +62,7 @@
 [% INCLUDE project/options.tt %]
 
 
+</div><!-- class="row" -->
 </div><!-- class="container" -->
 
 
