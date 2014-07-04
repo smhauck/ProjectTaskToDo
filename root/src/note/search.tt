@@ -1,18 +1,18 @@
 <div class="container">
-[% INCLUDE note/options.tt %]
 
 [% INCLUDE note/search_box.tt %]
 
 [% linecount = 0 -%]
 [% odd = 2 -%]
 
+[% IF notes.size > 0 -%]
 <table class="table">
-<tbody>
 <thead>
 <tr>
 	<th>Title</th>
 </tr>
 </thead>
+<tbody>
 [% FOREACH note IN notes %]
 [%- linecount = linecount + 1 %]
 <tr>
@@ -22,7 +22,7 @@
 [% END -%]
 </tbody>
 </table>
-<br />
+[% END -%]
 </div><!-- class="container" -->
 
 
