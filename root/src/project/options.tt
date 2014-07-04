@@ -31,6 +31,7 @@
 <li><a href="/project/[% project.project_id %]/view_users">View Users ([% num_project_users %])</a></li>
 <li>&nbsp;</li>
 <li><a href="/project/[% project.project_id %]/view_links">View Links ([% num_links %])</a></li>
+<li>&nbsp;</li>
 [% IF authorized -%]
 <!--
 <li><a href="/project/[% project.project_id %]/order_tasks">Edit Task Order</a></li>
