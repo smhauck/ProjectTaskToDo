@@ -21,7 +21,7 @@
 </li>
 <li>&nbsp;</li>
 <li>&nbsp;</li>
-<li><a href="/task/new_comment/[% task.id %]">Add Time Worked / Comment</a></li>
+<li><a href="/task/[% task.id %]/new_comment">Add Time Worked / Comment</a></li>
 <li>&nbsp;</li>
 <li>&nbsp;</li>
 <li><a href="/task/new_task/[% task.task_project_id %]">Add Project Task</a></li>

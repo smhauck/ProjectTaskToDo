@@ -398,12 +398,13 @@ sub edit : Chained('task_object') : PathPart('edit') : Args(0) {
 
 =cut
 
-sub insert_comment : Local {
+sub insert_comment : Chained('task_object') : PathPart('insert_comment') : Args(0) {
     my ( $self, $c ) = @_;
+    my $task = $c->stash->{task};
+    my $task_id = $task->id;
 
     my $creator_id = $c->user->id;
 
-    my $task_id  = $c->req->params->{task_id};
     my $billable = $c->req->params->{billable};
     $billable = 0 unless $billable;
     my $type         = $c->req->params->{type};
@@ -443,7 +444,6 @@ sub insert_comment : Local {
     );
 
     # create a notification for each project user
-    my $task = $c->model('ProjectTaskToDoDB::Task')->find( { task_id => $task_id } );
     my $project = $task->project;
 
     for my $pu ( $project->project_users ) {
@@ -619,12 +619,10 @@ sub my_living : Local {
 
 =cut
 
-sub new_comment : Local {
-    my ( $self, $c, $task_id ) = @_;
-
-
-    my $task = $c->model('ProjectTaskToDoDB::Task')->find( { task_id => $task_id } );
-
+sub new_comment : Chained('task_object') : PathPart('new_comment') : Args(0) {
+    my ( $self, $c ) = @_;
+    my $task = $c->stash->{task};
+    my $task_id = $task->id;
 
     # allow commenting if $c->user is a project user
 #    if ( $project->has_user( $c->user ) ) {
@@ -641,9 +639,9 @@ sub new_comment : Local {
     # show the form if $c->user is a project user
     #if ($project->has_user($c->user)) {
 
-    $c->stash->{task}          = $c->model('ProjectTaskToDoDB::Task')->find( { task_id => $task_id } );
+    $c->stash->{task}          = $task;
     $c->stash->{comment_types} = [ $c->model('ProjectTaskToDoDB::TaskCommentType')->all ];
-    $c->stash->{tid}           = $task_id;
+    # $c->stash->{tid}           = $task_id;
     $c->stash->{template}      = 'task/new_comment.tt';
 }
 

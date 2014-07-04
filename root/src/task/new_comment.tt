@@ -8,7 +8,7 @@ $(function() {
 </script>
 
 <p>Task Name: <strong>[% task.task_name %]</strong></p>
-<form name="new_comment" action='/task/insert_comment' method='post'>
+<form name="new_comment" action="/task/[% task.task_id %]/insert_comment" method="post">
 Enter Comment (Warning: Comments are not editable once submitted!)<br />
 <textarea rows='10' cols='100' name='comment'></textarea><br />
 Comment Type: <select name='type' size='1'>
