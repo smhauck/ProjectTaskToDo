@@ -1,11 +1,7 @@
 [% META title = 'ProjectTaskToDo' %]
 <div class="container">
 	<h2 class="form-signin-heading">Please sign in</h2>
-	<form class="form-signin" role="form" action="/authenticate" method="post">
-		<input type="username" name="username" class="form-control" placeholder="Username" required autofocus>
-		<input type="password" name="password" class="form-control" placeholder="Password" required>
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-	</form>
+	[% INCLUDE login_form.tt %]
 	<br />
 	<p><a href="/forgot_password">Forgot Password?</a></p>
 </div> <!-- /container -->
