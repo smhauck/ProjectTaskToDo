@@ -1,6 +1,6 @@
+<!-- BEGIN edit_roles.tt -->
 [% META title = 'ProjectTaskToDo:User Edit' %]
-
-[% INCLUDE authenticated_navbar.tt %]
+<div class="container">
 
         <SCRIPT LANGUAGE="JavaScript">
         var cal = new CalendarPopup();
@@ -9,14 +9,17 @@
 
 <form name="edit_roles" action="/user/[% user.id %]/update_roles" method="post">
 
-
+<h1>User: [% user.username %]</h1>
 [% FOREACH role IN roles  %]
   <input type="checkbox" name="roles_assigned" value="[% role.id %]" [% IF role.has_user(user) %]checked="1"[% END %] />[% role.display_name %] ([% role.role %])<br />
 [% END %]
 
 
-<input type="submit" name="Update" value="Update">
+<button type="submit" class="btn btn-primary">Submit</button>
+
 </form>
+</div><!-- class="container" -->
+<!-- END edit_roles.tt -->
 
 
 [%#

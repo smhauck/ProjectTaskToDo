@@ -1,12 +1,28 @@
-[% META title = 'ProjectTaskToDo:User Details' %]
+<!-- BEGIN details.tt -->
+[% META title = 'ProjectTaskToDo User Details' %]
 <div class="container">
-<div class="option">
-<a href="/user/edit/[% user.id %]">Edit Account</a><br />
-<a href="/user/change_password/[% user.id %]">Change Password</a><br />
-<br />
-</div>
+
+
+
+
+
+<div class="container">
+<div class="row">
+<div class="col-sm-9 blog-main">
+
+<h1>User: [% user.full_name %]</h1>
 [% INCLUDE user/user_details.tt %]
+
+</div><!-- class="col-sm-9 blog-main" -->
+
+[% INCLUDE user/options.tt %]
+
+</div><!-- class="row" -->
 </div><!-- class="container" -->
+<!-- END details.tt -->
+ 
+
+
 
 
 [%#

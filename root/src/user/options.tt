@@ -1,0 +1,52 @@
+<!-- BEGIN options.tt -->
+<div class="col-sm-2 col-sm-offset-1 blog-sidebar">
+<div class="sidebar-module sidebar-module-inset">
+
+<div class="sidebar-module">
+<h4>Options</h4>
+<ol class="list-unstyled">
+[% IF authorized -%]
+<li><a href='/person/[% person.id %]/edit'>Edit this Person</a></li>
+<li><a href='/user/[% person.id %]/edit_roles'>Edit Person's Roles</a></li>
+[% END -%]
+<li><a href="/user/edit/[% user.id %]">Edit Account</a></li>
+<li><a href="/user/change_password/[% user.id %]">Change Password</a></li>
+<li>&nbsp;</li>
+<li><a href="/person/[% person.id %]/my_active_projects">View Active Projects</a></li>
+<li><a href="/person/[% person.id %]/my_active_tasks">View Active Tasks</a></li>
+<li><a href="/person/[% person.id %]/my_complete_projects">View Complete Projects</a></li>
+<li><a href="/person/[% person.id %]/my_complete_tasks">View Complete Tasks</a></li>
+<li><a href="/person/[% person.id %]/notes_by_person">View Person's Notes</a></li>
+<li><a href="/person/[% person.id %]/notes_about_person">View Notes About Person</a></li>
+[% IF Catalyst.user.id == person.id -%]
+<li><a href="/user/[% person.id %]/change_password">Change Password</a></li>
+[% END -%]
+</div><!-- class="sidebar-module" -->
+
+</div><!-- class="col-sm-3 col-sm-offset-1 blog-sidebar" -->
+</div><!-- class="sidebar-module sidebar-module-inset" -->
+<!-- END options.tt -->
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+%]

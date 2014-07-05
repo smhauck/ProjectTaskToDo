@@ -1,3 +1,45 @@
+commit 7237aa3c6eee72beb5ce12dcdf53c535a6d4df28
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 4 10:58:04 2014 -0400
+
+    cleaned formatting
+
+commit 2d210a50e51bde33b3ce0ca6a4127c0ba0415d9b
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 4 10:51:56 2014 -0400
+
+    more formatting
+
+commit b9f1eec3a2936d6e7fe1c3232db18e28ef76bd90
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 4 10:41:22 2014 -0400
+
+    cleaning up layout to make options appear on right; tables class=table; buttons Bootstrap-style
+
+commit 31a42857a777b1ea29bae7defa6049a7b959d649
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 4 07:08:10 2014 -0400
+
+    added style to hide extra div added by jquery ui datepicker
+
+commit 3060956c98c8b08253e1145dae54c5606773f661
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 4 01:16:38 2014 -0400
+
+    fixed layout a bit; only display note results table if notes.size > 0
+
+commit 0ff5531a493df5b66413424e4b016d275cb60441
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 4 00:34:24 2014 -0400
+
+    made new_comment / insert_comment chained actions
+
+commit b5ab1e166558fe70f8399d2e00d7f8b3046d8aa1
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 4 00:18:34 2014 -0400
+
+    changed button style;updated changelog
+
 commit 8e81023a53036f274f1f3dd07ca4f602096579bc
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Thu Jul 3 21:20:39 2014 -0400
