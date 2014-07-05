@@ -1,4 +1,5 @@
-<table>
+<!-- BEGIN project_details.tt -->
+<table class="table">
 <tr><th>ID:</th><td>[% person.id %]</td></tr>
 <tr><th>Username:</th><td>[% person.username %]</td></tr>
 <tr><th>First Name:</th><td>[% person.first_name %]</td></tr>
@@ -26,6 +27,7 @@
 <tr><th>Admin Notes:</th><td>[% person.admin_notes | html | html_line_break %]</td></tr>
 [% END %]
 </table>
+<!-- END project_details.tt -->
 
 
 [%#

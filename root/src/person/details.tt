@@ -1,12 +1,28 @@
-[% INCLUDE person/options.tt %]
+<!-- BEGIN details.tt -->
+[% META title = 'ProjectTaskToDo Person Details' %]
 
+<div class="container">
+<div class="row">
+<div class="col-sm-9 blog-main">
+
+<h1>Person: [% person.full_name %]</h1>
 [% INCLUDE person/person_details.tt %]
 
-[% IF authorized %]
-<a href='/person/[% person.id %]/edit'>Edit this Person</a><br />
-<a href='/user/[% person.id %]/edit_roles'>Edit Person's Roles</a><br />
-[% END %]
-<br />
+</div><!-- class="col-sm-9 blog-main" -->
+
+[% INCLUDE person/options.tt %]
+
+</div><!-- class="row" -->
+</div><!-- class="container" -->
+<!-- END details.tt -->
+
+
+
+
+
+
+
+
 
 
 [%#

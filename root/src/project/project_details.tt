@@ -1,5 +1,4 @@
 <!-- BEGIN project_details.tt -->
-<div class="container">
 
 [% IF authorized %]
 <span id='project_short_name'>[ [% project.project_short_name %] ] </span> <span id='project_name'><a href="/project/[% project.id %]/edit">[% project.project_name %]</a></span>
@@ -85,7 +84,6 @@
 </tr>
 </table>
 
-</div><!-- class="container" -->
 <!-- END project_details.tt -->
 
 

@@ -1,4 +1,4 @@
-<div class="container">
+<!-- BEGIN project_details_no_name.tt -->
 <table class="table">
 <tr><th>Account</th><td>[% project.account.title %]</a></td></tr>
 <tr><th>Category</th><td>[% project.category.name %]</a></td></tr>
@@ -76,7 +76,7 @@
 </tr>
 </table>
 
-</div><!-- class="container" -->
+<!-- END project_details_no_name.tt -->
 
 
 [%#

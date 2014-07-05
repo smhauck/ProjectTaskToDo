@@ -1,13 +1,10 @@
+<!-- BEGIN list.tt -->
 <div class="container">
 [% INCLUDE person/search_box.tt %]
 
-<div class="option">
-<a href="/person/[% person.id %]/edit">Edit Account</a><br />
-<br />
-</div>
-
 [% INCLUDE person/person_list.tt %]
 </div><!-- class="container" -->
+<!-- END list.tt -->
 
 
 [%#

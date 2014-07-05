@@ -1,6 +1,13 @@
-<div class="option">
+<!-- BEGIN options.tt -->
+<div class="col-sm-2 col-sm-offset-1 blog-sidebar">
+<div class="sidebar-module sidebar-module-inset">
+
+<div class="sidebar-module">
+<h4>Options</h4>
+<ol class="list-unstyled">
 [% IF authorized -%]
 <a href='/person/[% person.id %]/edit'>Edit this Person</a><br />
+<a href='/user/[% person.id %]/edit_roles'>Edit Person's Roles</a><br />
 [% END -%]
 <br />
 <a href="/person/[% person.id %]/my_active_projects">View Active Projects</a><br />
@@ -12,7 +19,11 @@
 [% IF Catalyst.user.id == person.id %]
 <a href="/user/[% person.id %]/change_password">Change Password</a><br />
 [% END %]
-</div>
+</div><!-- class="sidebar-module" -->
+
+</div><!-- class="col-sm-3 col-sm-offset-1 blog-sidebar" -->
+</div><!-- class="sidebar-module sidebar-module-inset" -->
+<!-- END options.tt -->
 
 
 [%#
