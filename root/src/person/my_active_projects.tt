@@ -1,5 +1,4 @@
-[% INCLUDE person/menu.tt %]
-
+<div class="container">
 [% INCLUDE person/options.tt %]
 
 [% INCLUDE person/person_details.tt %]
@@ -47,6 +46,7 @@
 </table>
 
 Count: [% linecount %]
+</div><!-- class="container" -->
 
 
 [%#
