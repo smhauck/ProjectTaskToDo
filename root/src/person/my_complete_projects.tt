@@ -1,9 +1,12 @@
-[% INCLUDE person/menu.tt %]
+<!-- BEGIN my_complete_projects.tt -->
+[% META title = 'ProjectTaskToDo My Complete Projects' %]
 
-[% INCLUDE person/options.tt %]
+<div class="container">
+<div class="row">
+<div class="col-sm-9 blog-main">
 
+<h1>Person: [% person.full_name %]</h1>
 [% INCLUDE person/person_details.tt %]
-
 
 [% linecount = 0 %]
 <table class='sortable'>
@@ -15,6 +18,14 @@
 </table>
 
 Count: [% linecount %]
+
+</div><!-- class="col-sm-9 blog-main" -->
+
+[% INCLUDE person/options.tt %]
+
+</div><!-- class="row" -->
+</div><!-- class="container" -->
+<!-- END my_complete_projects.tt -->
 
 
 [%#

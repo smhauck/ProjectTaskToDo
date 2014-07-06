@@ -1,10 +1,12 @@
-[% INCLUDE person/menu.tt %]
+<!-- BEGIN notes.tt -->
 
-[% INCLUDE person/options.tt %]
+<div class="container">
+<div class="row">
+<div class="col-sm-9 blog-main">
 
-[% INCLUDE person/person_details.tt %]
+<h1>Person: [% person.full_name %]</h1>
 
-<table border='0'>
+<table class="table">
 <tr>
 <th align='right'>date</th>
 <th align='right'>creator</th>
@@ -34,6 +36,15 @@
 </tr>
 [% END %]
 </table>
+
+
+</div><!-- class="col-sm-9 blog-main" -->
+
+[% INCLUDE person/options.tt %]
+
+</div><!-- class="row" -->
+</div><!-- class="container" -->
+<!-- END notes.tt -->
 
 
 [%#
