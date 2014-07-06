@@ -1,12 +1,15 @@
-[% INCLUDE person/menu.tt %]
+<!-- BEGIN my_active_tasks.tt -->
+[% META title = 'ProjectTaskToDo:Task Details' %]
 
-[% INCLUDE person/options.tt %]
+<div class="container">
+<div class="row">
+<div class="col-sm-9 blog-main">
 
 [% INCLUDE person/person_details.tt %]
 
 <span class="task_count">[% num_tasks %] active tasks</span>
 
-<table class='sortable'>
+<table class="table sortable">
 <tr>
 <th>ID</th>
 <th>Priority</th>
@@ -36,6 +39,14 @@
 </table>
 
 Count: [% linecount %]
+
+</div><!-- class="col-sm-9 blog-main" -->
+
+[% INCLUDE person/options.tt %]
+
+</div><!-- class="row" -->
+</div><!-- class="container" -->
+<!-- END my_active_tasks.tt -->
 
 
 [%#

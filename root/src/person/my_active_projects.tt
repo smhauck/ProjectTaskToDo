@@ -1,7 +1,12 @@
-<div class="container">
-[% INCLUDE person/options.tt %]
+<!-- BEGIN my_active_projects.tt -->
 
+<div class="container">
+<div class="row">
+<div class="col-sm-9 blog-main">
+
+<h1>Person: [% person.full_name %]</h1>
 [% INCLUDE person/person_details.tt %]
+
 
 [% IF authorized %]
 <a href="[% C.uri_for("/person/$person.id/edit") %]">Edit this Person</a><br />
@@ -9,7 +14,7 @@
 [% END %]
 <br />
 [% linecount = 0 %]
-<table class='sortable'>
+<table class="table sortable">
 <tr>
 	<th>Category</th>
 	<th>Job Code</th>
@@ -46,7 +51,16 @@
 </table>
 
 Count: [% linecount %]
+
+
+
+</div><!-- class="col-sm-9 blog-main" -->
+
+[% INCLUDE person/options.tt %]
+
+</div><!-- class="row" -->
 </div><!-- class="container" -->
+<!-- END my_active_projects.tt -->
 
 
 [%#
