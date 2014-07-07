@@ -77,10 +77,10 @@ sub search : Local {
             {%where_clause},
             {
                 select => [
-                    { distinct => ['id'] }, 'name'
+                    { distinct => ['id'] }, 'name', 'parent_org_id'
                 ],
                 as => [
-                    qw/id name/
+                    qw/id name parent_org_id/
                 ],
                 order_by => 'name',
                 page     => $page,
