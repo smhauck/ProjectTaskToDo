@@ -1,9 +1,10 @@
-[% INCLUDE report/menu.tt %]
-[% INCLUDE report/options.tt %]
+<!-- BEGIN project_time_for_person_for_date_range.tt -->
+<div class="container">
+ [% INCLUDE report/options.tt %]
 
 [% FOREACH person IN person_time.keys -%]
 [% total_person_time = 0 %]
-<table class='sortable time_report'>
+<table class="table sortable">
 <caption>Work Time by Project & Task for Date Range [% start_date %] - [% end_date %]</caption>
 <thead>
 <tr>
@@ -33,6 +34,8 @@
 </tfoot>
 </table>
 [%- END -%]
+</div><!-- class="container" -->
+<!-- END project_time_for_person_for_date_range.tt -->
 
 
 [%#
