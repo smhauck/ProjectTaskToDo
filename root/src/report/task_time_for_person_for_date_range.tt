@@ -1,4 +1,5 @@
-[% INCLUDE report/menu.tt %]
+<!-- BEGIN task_time_for_person_for_date_range.tt -->
+<div class="container">
 [% INCLUDE report/options.tt %]
 
 [% FOREACH person IN person_time.keys -%]
@@ -37,6 +38,8 @@
 [%- END -%]
 
 <h2>Total Time: [% total_time div 60 %] Hrs. [% total_time mod 60 %] Mins.</h2>
+</div><!-- class="container" -->
+<!-- END task_time_for_person_for_date_range.tt -->
 
 
 [%#

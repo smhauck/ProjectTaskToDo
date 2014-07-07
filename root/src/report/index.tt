@@ -1,3 +1,4 @@
+<!-- BEGIN index.tt -->
 <div class="container">
 <script type='text/javascript'>
 $(function() {
@@ -35,7 +36,8 @@ between
 <input type='text' class='ui-datepicker' name='start_date' value='[% cur_date %]' size='60'>
  and 
 <input type='text' class='ui-datepicker' name='end_date' value='[% cur_date %]' size='60' />
-<input type='submit' value='Run Report' />
+<button type="submit" class="btn btn-primary">Run Report</button>
+
 </form>
 
 <br />
@@ -58,11 +60,12 @@ between
 <input type='text' class='ui-datepicker' name='start_date' value='[% cur_date %]' size='60'>
  and 
 <input type='text' class='ui-datepicker' name='end_date' value='[% cur_date %]' size='60' />
-<input type='submit' value='Run Report' />
+<button type="submit" class="btn btn-primary">Run Report</button>
 </form>
 
 <br />
 </div><!-- class="container" -->
+<!-- END index.tt -->
 
 
 [%#
