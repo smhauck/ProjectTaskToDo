@@ -18,7 +18,13 @@
 [% FOREACH organization IN organizations %]
 <tr>
 <td><a href="/organization/[% organization.id %]">[% organization.name %]</a></td>
+[% IF organization.parent_org_id -%]
 <td><a href="/organization/[% organization.parent_org_id %]">[% organization.parent_org.name %]</a></td>
+[% ELSE -%]
+<td>&nbsp;</td>
+[% END -%]
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 </tr>
 [% END -%]
 
