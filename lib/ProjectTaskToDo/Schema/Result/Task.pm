@@ -293,29 +293,6 @@ __PACKAGE__->set_primary_key("task_id");
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:5vHOWCZyhVqOddLITeUrNA
 
 
-=head1 COPYRIGHT
-
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
-
-=head1 LICENSE
-
-This file is part of ProjectTaskToDo.
-
-ProjectTaskToDo is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-ProjectTaskToDo is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
-
-=cut
-
 
 __PACKAGE__->add_columns(
         task_recorded => { data_type => 'datetime', inflate_datetime => 0 },
@@ -363,3 +340,27 @@ sub total_project_time {
 
 __PACKAGE__->meta->make_immutable;
 1;
+
+
+=head1 COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
+=head1 LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+
+=cut

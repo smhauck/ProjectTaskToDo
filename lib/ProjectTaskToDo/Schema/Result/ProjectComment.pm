@@ -82,6 +82,18 @@ __PACKAGE__->set_primary_key("comment_id");
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:KPeT+tyqUiGD9IqEH8M0OQ
 
 
+__PACKAGE__->add_columns(
+	recorded => { data_type => 'timestamp', inflate_datetime => 0 },
+);
+
+
+__PACKAGE__->belongs_to('user' => 'ProjectTaskToDo::Schema::Result::User', 'user_id');
+
+
+__PACKAGE__->meta->make_immutable;
+1;
+
+
 =head1 COPYRIGHT
 
 Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
@@ -104,15 +116,3 @@ You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 
 =cut
-
-
-__PACKAGE__->add_columns(
-	recorded => { data_type => 'timestamp', inflate_datetime => 0 },
-);
-
-
-__PACKAGE__->belongs_to('user' => 'ProjectTaskToDo::Schema::Result::User', 'user_id');
-
-
-__PACKAGE__->meta->make_immutable;
-1;

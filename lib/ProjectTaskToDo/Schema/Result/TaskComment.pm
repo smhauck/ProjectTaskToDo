@@ -115,6 +115,22 @@ __PACKAGE__->set_primary_key("task_comment_id");
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:bLfxf1IN/McDkcbIz27cAw
 
 
+__PACKAGE__->add_columns(
+	task_comment_recorded => { data_type => 'datetime', inflate_datetime => 0 },
+	task_comment_date_of_work => { data_type => 'date', inflate_datetime => 0 },
+);
+
+
+__PACKAGE__->belongs_to('comment_creator' => 'ProjectTaskToDo::Schema::Result::User', 'task_comment_user_id');
+__PACKAGE__->belongs_to('task' => 'ProjectTaskToDo::Schema::Result::Task', 'task_comment_task_id');
+__PACKAGE__->belongs_to('is_type' => 'ProjectTaskToDo::Schema::Result::TaskCommentType', 'task_comment_type_id');
+
+
+
+__PACKAGE__->meta->make_immutable;
+1;
+
+
 =head1 COPYRIGHT
 
 Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
@@ -137,19 +153,3 @@ You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 
 =cut
-
-
-__PACKAGE__->add_columns(
-	task_comment_recorded => { data_type => 'datetime', inflate_datetime => 0 },
-	task_comment_date_of_work => { data_type => 'date', inflate_datetime => 0 },
-);
-
-
-__PACKAGE__->belongs_to('comment_creator' => 'ProjectTaskToDo::Schema::Result::User', 'task_comment_user_id');
-__PACKAGE__->belongs_to('task' => 'ProjectTaskToDo::Schema::Result::Task', 'task_comment_task_id');
-__PACKAGE__->belongs_to('is_type' => 'ProjectTaskToDo::Schema::Result::TaskCommentType', 'task_comment_type_id');
-
-
-
-__PACKAGE__->meta->make_immutable;
-1;

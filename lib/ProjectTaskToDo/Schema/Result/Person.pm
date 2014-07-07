@@ -283,6 +283,17 @@ __PACKAGE__->add_unique_constraint("username_unique", ["username"]);
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:j74tpxRLy54uUOY9FAbUQA
 
 
+
+__PACKAGE__->add_columns(
+	registered => { data_type => 'datetime', inflate_datetime => 0 },
+	last_modified => { data_type => 'datetime', inflate_datetime => 0 }
+);
+
+
+__PACKAGE__->meta->make_immutable;
+1;
+
+
 =head1 COPYRIGHT
 
 Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
@@ -305,13 +316,3 @@ You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 
 =cut
-
-
-__PACKAGE__->add_columns(
-	registered => { data_type => 'datetime', inflate_datetime => 0 },
-	last_modified => { data_type => 'datetime', inflate_datetime => 0 }
-);
-
-
-__PACKAGE__->meta->make_immutable;
-1;

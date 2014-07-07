@@ -107,6 +107,15 @@ __PACKAGE__->set_primary_key("id");
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:McgDtDnX+3kEgyGjZMdXnw
 
 
+__PACKAGE__->belongs_to('creator' => 'ProjectTaskToDo::Schema::Result::Person', 'id');
+__PACKAGE__->belongs_to('project' => 'ProjectTaskToDo::Schema::Result::Project', 'project_id');
+__PACKAGE__->belongs_to('type' => 'ProjectTaskToDo::Schema::Result::ProjectLinkType', 'link_type_id');
+
+
+__PACKAGE__->meta->make_immutable;
+1;
+
+
 =head1 COPYRIGHT
 
 Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
@@ -129,12 +138,3 @@ You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 
 =cut
-
-
-__PACKAGE__->belongs_to('creator' => 'ProjectTaskToDo::Schema::Result::Person', 'id');
-__PACKAGE__->belongs_to('project' => 'ProjectTaskToDo::Schema::Result::Project', 'project_id');
-__PACKAGE__->belongs_to('type' => 'ProjectTaskToDo::Schema::Result::ProjectLinkType', 'link_type_id');
-
-
-__PACKAGE__->meta->make_immutable;
-1;

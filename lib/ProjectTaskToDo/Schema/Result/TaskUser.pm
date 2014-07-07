@@ -83,6 +83,14 @@ __PACKAGE__->add_unique_constraint("task_user_role", ["task_id", "user_id", "rol
 # Created by DBIx::Class::Schema::Loader v0.07002 @ 2013-09-12 15:17:59
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:E6IoaxvcpIhZTxaLyWfrpQ
 
+__PACKAGE__->belongs_to('task' => 'ProjectTaskToDo::Schema::Result::Task', 'task_id');
+__PACKAGE__->belongs_to('user' => 'ProjectTaskToDo::Schema::Result::Task', 'user_id');
+
+
+
+__PACKAGE__->meta->make_immutable;
+1;
+
 
 =head1 COPYRIGHT
 
@@ -106,11 +114,3 @@ You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 
 =cut
-
-
-__PACKAGE__->belongs_to(task => 'ProjectTaskToDo::Schema::Result::Task', 'task_id');
-__PACKAGE__->belongs_to(user => 'ProjectTaskToDo::Schema::Result::Task', 'user_id');
-
-
-__PACKAGE__->meta->make_immutable;
-1;

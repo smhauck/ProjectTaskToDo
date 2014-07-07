@@ -90,6 +90,19 @@ __PACKAGE__->add_unique_constraint(
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:MZRonyRA7YCRsFg2WYgddA
 
 
+__PACKAGE__->many_to_many('users', 'project_users', 'user');
+__PACKAGE__->belongs_to('user' => 'ProjectTaskToDo::Schema::Result::User', 'project_user_user_id');
+__PACKAGE__->belongs_to('project' => 'ProjectTaskToDo::Schema::Result::Project', 'project_user_project_id');
+
+__PACKAGE__->many_to_many('roles', 'project_users', 'role');
+__PACKAGE__->belongs_to('role' => 'ProjectTaskToDo::Schema::Result::Role', 'project_user_role_id');
+
+
+
+__PACKAGE__->meta->make_immutable;
+1;
+
+
 =head1 COPYRIGHT
 
 Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
@@ -112,17 +125,3 @@ You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 
 =cut
-
-
-
-__PACKAGE__->many_to_many('users', 'project_users', 'user');
-__PACKAGE__->belongs_to('user' => 'ProjectTaskToDo::Schema::Result::User', 'project_user_user_id');
-__PACKAGE__->belongs_to('project' => 'ProjectTaskToDo::Schema::Result::Project', 'project_user_project_id');
-
-__PACKAGE__->many_to_many('roles', 'project_users', 'role');
-__PACKAGE__->belongs_to('role' => 'ProjectTaskToDo::Schema::Result::Role', 'project_user_role_id');
-
-
-
-__PACKAGE__->meta->make_immutable;
-1;

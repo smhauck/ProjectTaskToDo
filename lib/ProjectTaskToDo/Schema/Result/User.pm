@@ -131,6 +131,31 @@ __PACKAGE__->add_unique_constraint("username_unique", ["username"]);
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:9YGSLxlboVtTIlMdjwRhGw
 
 
+
+__PACKAGE__->add_columns(
+	registered => { data_type => 'datetime', inflate_datetime => 0 },
+	last_modified => { data_type => 'datetime', inflate_datetime => 0 }
+);
+
+__PACKAGE__->has_many('project_users' => 'ProjectTaskToDo::Schema::Result::ProjectUser', 'project_user_user_id');
+__PACKAGE__->has_many('notifications' => 'ProjectTaskToDo::Schema::Result::Notification', 'user_to_notify');
+__PACKAGE__->has_many('taskusers' => 'ProjectTaskToDo::Schema::Result::TaskUser', 'user_id');
+__PACKAGE__->has_many('time_palette' => 'ProjectTaskToDo::Schema::Result::TimePaletteProject', 'user_id');
+
+
+__PACKAGE__->has_many('user_roles' => 'ProjectTaskToDo::Schema::Result::UserRole', 'user');
+__PACKAGE__->many_to_many('roles' => 'user_roles', 'role');
+
+
+# Account relationships
+__PACKAGE__->has_many('map_account_user' => 'ProjectTaskToDo::Schema::Result::AccountUser', 'user_id');
+__PACKAGE__->many_to_many('accounts' => 'map_account_user', 'user');
+
+
+__PACKAGE__->meta->make_immutable;
+1;
+
+
 =head1 COPYRIGHT
 
 Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
@@ -153,27 +178,3 @@ You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 
 =cut
-
-
-__PACKAGE__->add_columns(
-	registered => { data_type => 'datetime', inflate_datetime => 0 },
-	last_modified => { data_type => 'datetime', inflate_datetime => 0 }
-);
-
-__PACKAGE__->has_many(project_users => 'ProjectTaskToDo::Schema::Result::ProjectUser', 'project_user_user_id');
-__PACKAGE__->has_many(notifications => 'ProjectTaskToDo::Schema::Result::Notification', 'user_to_notify');
-__PACKAGE__->has_many(taskusers => 'ProjectTaskToDo::Schema::Result::TaskUser', 'user_id');
-__PACKAGE__->has_many('time_palette' => 'ProjectTaskToDo::Schema::Result::TimePaletteProject', 'user_id');
-
-
-__PACKAGE__->has_many(user_roles => 'ProjectTaskToDo::Schema::Result::UserRole', 'user');
-__PACKAGE__->many_to_many(roles => 'user_roles', 'role');
-
-
-# Account relationships
-__PACKAGE__->has_many(map_account_user => 'ProjectTaskToDo::Schema::Result::AccountUser', 'user_id');
-__PACKAGE__->many_to_many(accounts => 'map_account_user', 'user');
-
-
-__PACKAGE__->meta->make_immutable;
-1;

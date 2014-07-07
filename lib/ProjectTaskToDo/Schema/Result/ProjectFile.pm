@@ -85,6 +85,15 @@ __PACKAGE__->set_primary_key("id");
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:Q2z1iJfqVsOhMDlDijo9Vg
 
 
+__PACKAGE__->add_columns(
+	last_modified => { data_type => 'timestamp', inflate_datetime => 0 },
+);
+
+
+__PACKAGE__->meta->make_immutable;
+1;
+
+
 =head1 COPYRIGHT
 
 Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
@@ -107,12 +116,3 @@ You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 
 =cut
-
-
-__PACKAGE__->add_columns(
-	last_modified => { data_type => 'timestamp', inflate_datetime => 0 },
-);
-
-
-__PACKAGE__->meta->make_immutable;
-1;

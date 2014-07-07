@@ -64,6 +64,10 @@ __PACKAGE__->add_unique_constraint("name", ["name"]);
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:IDqGQA52F2dguDM3iSH4EA
 
 
+__PACKAGE__->meta->make_immutable;
+1;
+
+
 =head1 COPYRIGHT
 
 Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
@@ -86,7 +90,3 @@ You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 
 =cut
-
-
-__PACKAGE__->meta->make_immutable;
-1;

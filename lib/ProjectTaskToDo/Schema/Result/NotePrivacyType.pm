@@ -1,4 +1,4 @@
-package ProjectTaskToDo::Schema::Result::ProjectCategory;
+package ProjectTaskToDo::Schema::Result::NotePrivacyType;
 
 # Created by DBIx::Class::Schema::Loader
 # DO NOT MODIFY THE FIRST PART OF THIS FILE
@@ -15,25 +15,33 @@ __PACKAGE__->load_components("InflateColumn::DateTime", "PK::Auto");
 
 =head1 NAME
 
-ProjectTaskToDo::Schema::Result::ProjectCategory
+ProjectTaskToDo::Schema::Result::NotePrivacyType
 
 =cut
 
-__PACKAGE__->table("project_category");
+__PACKAGE__->table("note_privacy_type");
 
 =head1 ACCESSORS
 
 =head2 id
 
-  data_type: 'bigint'
+  data_type: 'tinyint'
   extra: {unsigned => 1}
   is_auto_increment: 1
   is_nullable: 0
 
-=head2 name
+=head2 active
+
+  data_type: 'char'
+  default_value: 1
+  is_nullable: 0
+  size: 1
+
+=head2 title
 
   data_type: 'varchar'
-  is_nullable: 1
+  default_value: 'NEED TITLE'
+  is_nullable: 0
   size: 255
 
 =head2 description
@@ -46,23 +54,31 @@ __PACKAGE__->table("project_category");
 __PACKAGE__->add_columns(
   "id",
   {
-    data_type => "bigint",
+    data_type => "tinyint",
     extra => { unsigned => 1 },
     is_auto_increment => 1,
     is_nullable => 0,
   },
-  "name",
-  { data_type => "varchar", is_nullable => 1, size => 255 },
+  "active",
+  { data_type => "char", default_value => 1, is_nullable => 0, size => 1 },
+  "title",
+  {
+    data_type => "varchar",
+    default_value => "NEED TITLE",
+    is_nullable => 0,
+    size => 255,
+  },
   "description",
   { data_type => "text", is_nullable => 1 },
 );
 __PACKAGE__->set_primary_key("id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07002 @ 2013-09-12 15:17:59
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:ZNR7xDVsbjNE2ePyn0ITpg
+# Created by DBIx::Class::Schema::Loader v0.07002 @ 2014-04-25 13:49:53
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:MJ5WVFDJCrdoNaw5xBBrww
 
 
+# You can replace this text with custom content, and it will be preserved on regeneration
 __PACKAGE__->meta->make_immutable;
 1;
 

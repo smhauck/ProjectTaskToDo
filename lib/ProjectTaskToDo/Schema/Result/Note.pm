@@ -153,6 +153,22 @@ __PACKAGE__->set_primary_key("id");
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:HjUuTZH83dq3VpuSN7UGVA
 
 
+__PACKAGE__->add_columns(
+	date_selected => { data_type => 'date', inflate_datetime => 0 },
+);
+
+__PACKAGE__->belongs_to('creator' => 'ProjectTaskToDo::Schema::Result::Person', 'creator_id');
+__PACKAGE__->belongs_to('client_organization' => 'ProjectTaskToDo::Schema::Result::Organization', 'client_organization_id');
+__PACKAGE__->belongs_to('client_person' => 'ProjectTaskToDo::Schema::Result::Person', 'client_person_id');
+__PACKAGE__->belongs_to('client_contact_person' => 'ProjectTaskToDo::Schema::Result::Person', 'client_contact_person_id');
+__PACKAGE__->belongs_to('project' => 'ProjectTaskToDo::Schema::Result::Project', 'project_id');
+__PACKAGE__->belongs_to('task' => 'ProjectTaskToDo::Schema::Result::Task', 'task_id');
+
+
+__PACKAGE__->meta->make_immutable;
+1;
+
+
 =head1 COPYRIGHT
 
 Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
@@ -175,19 +191,3 @@ You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 
 =cut
-
-
-__PACKAGE__->add_columns(
-	date_selected => { data_type => 'date', inflate_datetime => 0 },
-);
-
-__PACKAGE__->belongs_to('creator' => 'ProjectTaskToDo::Schema::Result::Person', 'creator_id');
-__PACKAGE__->belongs_to('client_organization' => 'ProjectTaskToDo::Schema::Result::Organization', 'client_organization_id');
-__PACKAGE__->belongs_to('client_person' => 'ProjectTaskToDo::Schema::Result::Person', 'client_person_id');
-__PACKAGE__->belongs_to('client_contact_person' => 'ProjectTaskToDo::Schema::Result::Person', 'client_contact_person_id');
-__PACKAGE__->belongs_to('project' => 'ProjectTaskToDo::Schema::Result::Project', 'project_id');
-__PACKAGE__->belongs_to('task' => 'ProjectTaskToDo::Schema::Result::Task', 'task_id');
-
-
-__PACKAGE__->meta->make_immutable;
-1;

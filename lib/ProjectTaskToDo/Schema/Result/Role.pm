@@ -95,6 +95,20 @@ __PACKAGE__->set_primary_key("id");
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:C4+z1+c7Ln2E39rTQJSFow
 
 
+__PACKAGE__->has_many('role_users' => 'ProjectTaskToDo::Schema::Result::UserRole' => 'role');
+__PACKAGE__->has_many('users_in_role' => 'ProjectTaskToDo::Schema::Result::UserRole', 'role');
+
+
+sub has_user {
+  my ($self, $user) = @_;
+  return $self->users_in_role->find({ user => $user->id });
+}
+
+
+__PACKAGE__->meta->make_immutable;
+1;
+
+
 =head1 COPYRIGHT
 
 Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
@@ -117,21 +131,3 @@ You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 
 =cut
-
-
-__PACKAGE__->has_many(role_users => 'ProjectTaskToDo::Schema::Result::UserRole' => 'role');
-__PACKAGE__->has_many('users_in_role' => 'ProjectTaskToDo::Schema::Result::UserRole', 'role');
-
-
-
-
-sub has_user {
-  my ($self, $user) = @_;
-  return $self->users_in_role->find({ user => $user->id });
-}
-
-
-
-
-__PACKAGE__->meta->make_immutable;
-1;
