@@ -1,3 +1,81 @@
+commit 0354bdf92d5818413aa86fd128069f44460338f3
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Jul 7 09:53:54 2014 -0400
+
+    cleaning up layout some more for oganization and reports
+
+commit e3abc5c8823e626f51ec671d7280d2d9e767ac31
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Jul 7 09:48:41 2014 -0400
+
+    cleaning up file formatting
+
+commit 1d87e69e94007e76349021cbbaaf3c4a4b14dbd7
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Jul 7 01:01:50 2014 -0400
+
+    removed dup navbar; adding blog style for options
+
+commit b9a052673b9aa3efa528a71fc067d4edeef7c566
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Jul 7 00:52:42 2014 -0400
+
+    removed dup navbar; adding blog style for options
+
+commit 6c988a585004e803b97c2e7cba12e392677d2a94
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Jul 7 00:37:41 2014 -0400
+
+    removed dup navbar; adding blog style for options
+
+commit 4b70d9dc508cc1108f90a5711c2534c4cae91efb
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 6 15:39:29 2014 -0400
+
+    removed dup navbar; adding blog style for options
+
+commit e6e168abe5c705b75353823726dffb91166894d3
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 6 14:22:06 2014 -0400
+
+    removed dup navbar; adding blog style for options
+
+commit a198b8f4546d9f9ae2bb6f24bfd99ca64cc41151
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 6 14:14:51 2014 -0400
+
+    removed dup navbar; adding blog style for options
+
+commit 38f460c78441181b2c0c8444b9168c9541540b43
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 6 13:31:17 2014 -0400
+
+    removed dup navbar; adding blog style for options
+
+commit d700ab31f48008746bfd2cd060ef818846ca567c
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 6 00:49:23 2014 -0400
+
+    starting to fix layout
+
+commit 7e36a40bf1b8f77200de1f265b63bc2bb895d51f
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 5 13:19:11 2014 -0400
+
+    formatting tweak; broke login_form out into own file to be included in default and login pages
+
+commit b47274259e4c014e0dd085298772a84c61dc2fde
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 5 10:14:01 2014 -0400
+
+    more template clean up
+
+commit c1a066c0d8b42c19c1412f8441573b5b5cbd0c03
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 5 10:03:27 2014 -0400
+
+    cleaning up user templates; broke options out into separate file
+
 commit 7237aa3c6eee72beb5ce12dcdf53c535a6d4df28
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Fri Jul 4 10:58:04 2014 -0400
