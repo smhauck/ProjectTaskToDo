@@ -9,14 +9,16 @@
 
 <table class="table sortable">
 <tr>
-<th>username</th>
-<th>full name</th>
-<th>first name</th>
-<th>last name</th>
+<th>Name</th>
+<th>Parent Org</th>
+<th>Country</th>
+<th>Description</th>
+<th></th>
 </tr>
 [% FOREACH organization IN organizations %]
 <tr>
 <td><a href="/organization/[% organization.id %]">[% organization.name %]</a></td>
+<td><a href="/organization/[% organization.parent_org_id %]">[% organization.parent_org.name %]</a></td>
 </tr>
 [% END -%]
 

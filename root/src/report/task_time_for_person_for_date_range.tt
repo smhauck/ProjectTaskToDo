@@ -2,15 +2,15 @@
 <div class="container">
 [% INCLUDE report/options.tt %]
 
-[% FOREACH person IN person_time.keys -%]
-[%- FOREACH day IN person_time.$person.keys.sort -%]
-[% time_per_person_per_day = 0 %]
-<table class="time_for_person_for_date_range">
+<table class="table">
 <caption>Work Time by Project & Task for Date Range [% start_date %] - [% end_date %]</caption>
 <thead>
 <tr><th>Date of Work</th><th>Person</th><th>Project Name</th><th>Task</th><th>JobCode</th><th>Time on Project</th></tr>
 </thead>
 <tbody>
+[% FOREACH person IN person_time.keys -%]
+[%- FOREACH day IN person_time.$person.keys.sort -%]
+[% time_per_person_per_day = 0 %]
 [%- FOREACH project IN person_time.$person.$day.keys -%]
 [%- FOREACH task IN person_time.$person.$day.$project.keys -%]
 <tr>
@@ -24,18 +24,13 @@
 </tr>
 [% END -%]
 [%- END -%]
+[%- END -%]
+[%- END -%]
 <tfoot>
-<tr><td>Total</td><td></td><td></td><td></td><td></td><td>[% time_per_person_per_day div 60 %] Hrs, [% time_per_person_per_day mod 60 %] Mins</td></tr>
+<tr><td>Total</td><td></td><td></td><td></td><td></td><td>[% total_time div 60 %] Hrs. [% total_time mod 60 %] Mins.</td></tr>
 </tfoot>
 </tbody>
 </table>
-<br />
-<br />
-[%- END -%]
-<br />
-<br />
-<br />
-[%- END -%]
 
 <h2>Total Time: [% total_time div 60 %] Hrs. [% total_time mod 60 %] Mins.</h2>
 </div><!-- class="container" -->

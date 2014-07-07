@@ -1,3 +1,4 @@
+<!-- BEGIN new_organization -->
 <div class="container">
 
 <script type="text/javascript">
@@ -7,7 +8,7 @@ $(function() {
 </script>
 
 <form name="new_organization" action='/organization/insert_organization' method='post'>
-<table border='0'>
+<table class="table">
 <tr>
 <th><strong>name</th>
 <td><input type='text' name='name' size='50'></td>
@@ -32,13 +33,15 @@ $(function() {
 </td>
 </tr>
 <tr>
-<td align='right'><input type='reset' value='Clear'></td>
-<td align='right'><input type='submit' value='Create'></td>
+<td align='right'><input type='reset' value='Rest'></td>
+<td><button type="submit" class="btn btn-primary">Submit</button></td>
+
 </tr>
 </table>
 </form>
 
 </div><!-- class="container" -->
+<!-- END new_organization -->
 
 
 [%#
