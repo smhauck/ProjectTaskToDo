@@ -1,17 +1,23 @@
-<div class="option">
-<a href="/organization/[% organization.id %]/edit">Edit This Organization</a><br />
-<br />
-<a href="/organization/[% organization.id %]/projects/active">View Active Projects</a><br />
-<a href="/organization/[% organization.id %]/tasks/active">View Active Tasks</a><br />
-<a href="/organization/[% organization.id %]/projects/complete">View Completed Projects</a><br />
-<a href="/organization/[% organization.id %]/tasks/complete">View Completed Tasks</a><br />
-<a href="/organization/[% organization.id %]/notes">View Notes</a><br />
+<!-- BEGIN options.tt -->
+<div class="col-sm-2 col-sm-offset-1 blog-sidebar">
+<div class="sidebar-module sidebar-module-inset">
 
 
+<div class="sidebar-module">
+<h4>Options</h4>
+<ol class="list-unstyled">
+<li><a href="/organization/[% organization.id %]/edit">Edit This Organization</a><br />
+<li>&nbsp;</li>
+<li><a href="/organization/[% organization.id %]/projects/active">View Active Projects</a></li>
+<li><a href="/organization/[% organization.id %]/tasks/active">View Active Tasks</a></li>
+<li><a href="/organization/[% organization.id %]/projects/complete">View Completed Projects</a></li>
+<li><a href="/organization/[% organization.id %]/tasks/complete">View Completed Tasks</a></li>
+<li><a href="/organization/[% organization.id %]/notes">View Notes</a></li>
+</ol>
+</div><!-- class="sidebar-module" -->
 
-
-
-
+</div><!-- class="col-sm-3 col-sm-offset-1 blog-sidebar" -->
+</div><!-- class="sidebar-module sidebar-module-inset" -->
 
 <!--
 <a href="/organization/[% organization.id %]/new_comment">Add Organization Comment</a><br />
@@ -34,8 +40,7 @@
 <a href="/task/new_task/[% organization.id %]">Add Organization Task</a><br />
 [% END %]
 -->
-</div>
-
+<!-- END options.tt -->
 
 
 [%#

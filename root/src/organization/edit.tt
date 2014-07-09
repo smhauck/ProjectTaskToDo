@@ -1,5 +1,6 @@
 <div class="container">
-[% INCLUDE organization/options.tt %]
+<div class="row">
+<div class="col-sm-9 blog-main">
 
 <script type="text/javascript">
 $(function() {
@@ -52,6 +53,11 @@ $(function() {
 </tr>
 </table>
 </form>
+
+</div><!-- class="col-sm-9 blog-main" -->
+
+[% INCLUDE organization/options.tt %]
+</div><!-- class="row" -->
 </div><!-- class="container" -->
 
 
