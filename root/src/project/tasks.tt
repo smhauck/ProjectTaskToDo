@@ -52,14 +52,6 @@
 </table>
 [% END %]
 
-<h2>Project Details</h2>
-[% INCLUDE project/project_details_no_name.tt %]
-
-
-
-
-
-
 </div><!-- class="col-sm-9 blog-main" -->
 
 [% INCLUDE project/options.tt %]
@@ -67,7 +59,6 @@
 </div><!-- class="row" -->
 </div><!-- class="container" -->
 <!-- END tasks.tt -->
-
 
 
 [%#
