@@ -22,8 +22,6 @@ Enter Comment<br />
 <tr><td>[% comment.user.full_name %]</td><td>[% comment.recorded %]</td><td>[% comment.comment | html | html_line_break %]</td><td><a href='/project/[% project.project_id %]/edit_comment/[% comment.comment_id %]'>Edit Comment</a></td></tr>
 [% END %]
 </table>
-[% ELSE -%]
-<h2>There are no Comments for this Project</h2>
 [% END -%]
 
 </div><!-- class="col-sm-9 blog-main" -->
