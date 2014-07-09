@@ -1,3 +1,10 @@
+<!-- BEGIN notes.tt -->
+[% META title = 'ProjectTaskToDo Project Notes' %]
+
+<div class="container">
+<div class="row">
+<div class="col-sm-9 blog-main">
+
 <script type="text/javascript">
 	$(function() {
 		$("#the_user_id").autocomplete({
@@ -7,54 +14,45 @@
 	});
 </script>
 
-[% INCLUDE project/menu.tt %]
+<h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
+
+<h2>Project Notes</h2>
+
+<table class="table">
+<tr>
+<th>Date</th>
+<th>Creator</th>
+<th>Task</th>
+<th>Title</th>
+<th>Audience</th>
+</tr>
+[% FOREACH note IN notes_personal -%]
+<tr>
+<td>[% note.date_selected %]</td>
+<td><a href='/person/[% note.creator_id %]'>[% note.creator.full_name %]</a></td>
+<td><a href='/task/[% note.task_id %]'>[% note.task.task_name | html %]</a></td>
+<td><a href='/note/[% note.id %]'>[% note.title | html %]</a></td>
+<td>PERSONAL</td>
+</tr>
+[% END -%]
+[% FOREACH note IN notes_public -%]
+<tr>
+<td>[% note.date_selected %]</td>
+<td><a href='/person/[% note.creator_id %]'>[% note.creator.full_name %]</a></td>
+<td><a href='/task/[% note.task_id %]'>[% note.task.task_name | html %]</a></td>
+<td><a href='/note/[% note.id %]'>[% note.title | html %]</a></td>
+<td>PUBLIC</td>
+</tr>
+[% END -%]
+</table>
+
+</div><!-- class="col-sm-9 blog-main" -->
+
 [% INCLUDE project/options.tt %]
 
-<h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %] <a href="/project/[% project.id %]/edit">(Edit Project)</a></h1>
-
-<br />
-<a href='/note?project=[% project.project_id %]'>Add new note for project</a><br />
-<br />
-<table border='0'>
-<tr>
-<th align='right'>date</th>
-<th align='right'>creator</th>
-<th align='right'>project</th>
-<th align='right'>task</th>
-<th align='right'>title</th>
-<th align='right'>audience</th>
-</tr>
-[% FOREACH note IN notes_personal %]
-<tr>
-<td>[% note.date_selected %]</td>
-<td><a href='/person/[% note.creator_id %]'>[% note.creator.full_name %]</a></td>
-<td><a href='/project/[% note.project_id %]'>[% note.project.project_short_name | html %]</a></td>
-<td><a href='/task/[% note.task_id %]'>[% note.task.task_name | html %]</a></td>
-<td><a href='/note/[% note.id %]'>[% note.title | html %]</a></td>
-[% IF note.public %]
-<td>PUBLIC</td>
-[% ELSE %]
-<td>PERSONAL</td>
-[% END %]
-</tr>
-[% END %]
-[% FOREACH note IN notes_public %]
-<tr>
-<td>[% note.date_selected %]</td>
-<td><a href='/person/[% note.creator_id %]'>[% note.creator.full_name %]</a></td>
-<td><a href='/project/[% note.project_id %]'>[% note.project.project_short_name | html %]</a></td>
-<td><a href='/task/[% note.task_id %]'>[% note.task.task_name | html %]</a></td>
-<td><a href='/note/[% note.id %]'>[% note.title | html %]</a></td>
-[% IF note.public %]
-<td>PUBLIC</td>
-[% ELSE %]
-<td>PERSONAL</td>
-[% END %]
-</tr>
-[% END %]
-</table>
-<br />
-<a href='/note?project=[% project.project_id %]'>Add new note for project</a><br />
+</div><!-- class="row" -->
+</div><!-- class="container" -->
+<!-- END notes.tt -->
 
 
 [%#
