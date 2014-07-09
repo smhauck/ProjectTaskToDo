@@ -1,6 +1,5 @@
 <!-- BEGIN project_details_no_name.tt -->
 <table class="table">
-<tr><th>Account</th><td>[% project.account.title %]</a></td></tr>
 <tr><th>Category</th><td>[% project.category.name %]</a></td></tr>
 <tr><th>Status</th><td>[% project.status.name %]</td></tr>
 [% IF project.billable == 1 %]
