@@ -1,16 +1,38 @@
-[% INCLUDE project/menu.tt %]
-[% INCLUDE project/options.tt %]
+<!-- BEGIN new_comment.tt -->
+[% META title = 'ProjectTaskToDo Project Comments' %]
 
-[% INCLUDE project/project_details.tt %]
+<div class="container">
+<div class="row">
+<div class="col-sm-9 blog-main">
 
-<br />
+<h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
+
 <form action='/project/insert_comment' method='post'>
 Enter Comment<br />
-<textarea rows='20' cols='80' name='comment'></textarea><br />
+<textarea rows='5' cols='80' name='comment'></textarea><br />
 <input type='hidden' name='project_id' value="[% pid %]"/>
-<input type='submit' value='Submit'>
-<input type='reset' value='Clear'><br />
+<button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+[% IF comments.size > 0 -%]
+<h2>Comments</h2>
+<table class="table sortable">
+<tr><th>Person</th><th>Recorded</th><th>Comment</th><th></th></tr>
+[% FOREACH comment IN comments %]
+<tr><td>[% comment.user.full_name %]</td><td>[% comment.recorded %]</td><td>[% comment.comment | html | html_line_break %]</td><td><a href='/project/[% project.project_id %]/edit_comment/[% comment.comment_id %]'>Edit Comment</a></td></tr>
+[% END %]
+</table>
+[% ELSE -%]
+<h2>There are no Comments for this Project</h2>
+[% END -%]
+
+</div><!-- class="col-sm-9 blog-main" -->
+
+[% INCLUDE project/options.tt %]
+
+</div><!-- class="row" -->
+</div><!-- class="container" -->
+<!-- END new_comment.tt -->
 
 
 [%#
