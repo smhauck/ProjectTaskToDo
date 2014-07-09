@@ -24,8 +24,8 @@
 <tr><th>Office ZIP:</th><td><input type="text" name="office_postal_code" value="[% person.office_postal_code | html %]" size='60' /></td></tr>
 <tr><th>Office Country:</th><td><input type="text" name="office_country" value="[% person.office_country | html %]" size='60' /></td></tr>
 <tr><th>Mobile Phone:</th><td><input type="text" name="mobile_phone" value="[% person.mobile_phone | html %]" size='60' /></td></tr>
-<tr><th>Skype Name:</th><td><input type="text" name="skype_name" value="[% person.skype_name | html %]" /></td></tr>
-<tr><th>AIM Name:</th><td><input type="text" name="aim_name" value="[% person.aim_name | html %]" /></td></tr>
+<tr><th>Skype Name:</th><td><input type="text" name="skype_name" value="[% person.skype_name | html %]" size="60" /></td></tr>
+<tr><th>AIM Name:</th><td><input type="text" name="aim_name" value="[% person.aim_name | html %]" size="60" /></td></tr>
 <tr><th>Admin Notes:</th><td><textarea name='admin_notes' cols='80' rows='5'>[% person.admin_notes %]</textarea></td></tr>
 <tr><td></td><td align="right"><button type="submit" class="btn btn-primary">Submit</button></td></tr>
 </table>
