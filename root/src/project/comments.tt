@@ -6,10 +6,8 @@
 <div class="col-sm-9 blog-main">
 
 <h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
-[% INCLUDE project/project_details_no_name.tt %]
 
-
-
+[% IF comments.size > 0 -%]
 <h2>Comments</h2>
 <table class="table sortable">
 <tr><th>Person</th><th>Recorded</th><th>Comment</th><th></th></tr>
@@ -17,6 +15,9 @@
 <tr><td>[% comment.user.full_name %]</td><td>[% comment.recorded %]</td><td>[% comment.comment | html | html_line_break %]</td><td><a href='/project/[% project.project_id %]/edit_comment/[% comment.comment_id %]'>Edit Comment</a></td></tr>
 [% END %]
 </table>
+[% ELSE -%]
+<h2>There are no Comments for this Project</h2>
+[% END -%]
 
 </div><!-- class="col-sm-9 blog-main" -->
 
