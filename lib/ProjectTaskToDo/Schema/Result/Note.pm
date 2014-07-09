@@ -154,6 +154,7 @@ __PACKAGE__->set_primary_key("id");
 
 
 __PACKAGE__->add_columns(
+	created => { data_type => 'datetime', inflate_datetime => 0 },
 	date_selected => { data_type => 'date', inflate_datetime => 0 },
 );
 

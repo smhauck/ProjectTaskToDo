@@ -1,24 +1,26 @@
 <div class="container">
 <table class="table sortable">
 <tr>
-<th>date</th>
-<th>creator</th>
-<th>client org</th>
-<th>client person</th>
-<th>jobcode</th>
-<th>project</th>
-<th>task</th>
-<th>title</th>
+<th>Created</th>
+<th>Creator</th>
+<th>Related Date</th>
+<th>Client Organization</th>
+<th>Client Person</th>
+<th>Jobcode</th>
+<th>Project</th>
+<th>Task</th>
+<th>Title</th>
 <!-- <th>privacy</th> -->
 </tr>
 [% FOREACH note IN notes %]
 <tr>
+<td>[% note.created %]</a></td>
+<td><a href="/person/[% note.creator_id %]">[% note.creator.full_name %]</a></td>
 [% IF note.date_selected && note.date_selected != "0000-00-00" %]
 <td>[% note.date_selected %]</td>
 [% ELSE %]
 <td></td>
 [% END %]
-<td><a href="/person/[% note.creator_id %]">[% note.creator.full_name %]</a></td>
 <td><a href="/person/[% note.client_organization_id %]">[% note.client_organization.name %]</a></td>
 <td><a href="/person/[% note.client_person_id %]">[% note.client_person.full_name %]</a></td>
 <td><a href="/project/[% note.project_id %]">[% note.project.project_short_name | html %]</a></td>
