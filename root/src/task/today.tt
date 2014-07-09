@@ -12,7 +12,7 @@ Display Tasks For...
 </select>
 </form>
 
-<table class='sortable'>
+<table class="table sortable">
 <tr>
 <th>ID</th>
 <th>Priority</th>
