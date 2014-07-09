@@ -7,12 +7,12 @@
 
 <h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
 
-
-[% IF task_type == "all" || task_type == 'active' %]
+[% IF task_type == "all" || task_type == 'active' -%]
+[% IF active_tasks.size > 0 -%]
 <table class="table sortable">
 <caption>Active Tasks</caption>
 <tr><th>ID</th><th>Task Order</th><th>Status</th><th>Task Name</th><th>Priority</th><th>Assigned To</th><th>Last Activity</th><th>Sched Start Date</th><th>Actual<br />Start<br />Date</th><th>Diff (Days)</th><th>Sched Compl Date</th></tr>
-[% FOREACH task IN active_tasks %]
+[% FOREACH task IN active_tasks -%]
 <tr>
 <td><a href="/task/[% task.task_id %]/comments">[% task.task_id %]</a></td>
 <td>[% task.task_order %]</td>
@@ -26,15 +26,19 @@
 <td class='table_integer'>[% task.task_start_date_diff %]</td>
 <td>[% IF task.task_sched_compl_date != '0000-00-00' %][% task.task_sched_compl_date %][% END %]</td>
 </tr>
-[% END %]
+[% END -%]
 </table>
-[% END %]
+[% ELSE -%]
+<h2>No Active Tasks</h2>
+[% END -%]
+[% END -%]
 
-[% IF task_type == "all" || task_type == 'complete' %]
+[% IF task_type == "all" || task_type == 'complete' -%]
+[% IF complete_tasks.size > 0 -%]
 <table class="table sortable">
 <caption>Completed Tasks</caption>
 <tr><th>ID</th><th>Task Order</th><th>Task Name</th><th>Priority</th><th>Owner</th><th>Sched Start Date</th><th>Actual Start Date</th><th>Diff (Days)</th><th>Sched Compl Date</th><th>Actual Compl Date</th><th>Diff (Days)</th></tr>
-[% FOREACH task IN complete_tasks %]
+[% FOREACH task IN complete_tasks -%]
 <tr>
 <td>[% task.task_id %]</td>
 <td>[% task.task_order %]</td>
@@ -48,9 +52,12 @@
 <td>[% IF task.task_actual_compl_date != '0000-00-00' %][% task.task_actual_compl_date %][% END %]</td>
 <td class='table_integer'>[% task.task_compl_date_diff %]</td>
 </tr>
-[% END %]
+[% END -%]
 </table>
-[% END %]
+[% ELSE -%]
+<h2>No Complete Tasks</h2>
+[% END -%]
+[% END -%]
 
 </div><!-- class="col-sm-9 blog-main" -->
 
