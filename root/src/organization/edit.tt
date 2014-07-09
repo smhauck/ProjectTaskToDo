@@ -16,30 +16,6 @@ $(function() {
 <td><input type="text" name="name" value="[% organization.name %]" size="60"></td>
 </tr>
 <tr>
-<th>Address 1</th>
-<td><input type="text" name="address_1" value="[% organization.address_1%]" size="60"></td>
-</tr>
-<tr>
-<th>Address 2</th>
-<td><input type="text" name="address_1" value="[% organization.address_2%]" size="60"></td>
-</tr>
-<tr>
-<th>City</th>
-<td><input type="text" name="city" value="[% organization.city %]" size="60"></td>
-</tr>
-<tr>
-<th>State</th>
-<td><input type="text" name="state" value="[% organization.state %]" size="60"></td>
-</tr>
-<tr>
-<th>ZIP</th>
-<td><input type="text" name="zip" value="[% organization.zip %]" size="60"></td>
-</tr>
-<tr>
-<th>Country</th>
-<td><input type="text" name="country" value="[% organization.country %]" size="60"></td>
-</tr>
-<tr>
 <th>description</th>
 <td><textarea rows="10" cols="100" name="description">[% organization.description %]</textarea></td>
 </tr>

@@ -12,11 +12,6 @@
 <tr><th>Parent Org</th><td>[% organization.parent_org.name | html | html_line_break %]</td></tr>
 <tr><th>Description</th><td>[% organization.description | html | html_line_break %]</td></tr>
 <tr><th>Notes</th><td>[% organization.notes | html | html_line_break %]</td></tr>
-<tr><th>Address 1</th><td>[% organization.address_1| html | html_line_break %]</td></tr>
-<tr><th>Address 2</th><td>[% organization.address_2| html | html_line_break %]</td></tr>
-<tr><th>City</th><td>[% organization.city | html | html_line_break %]</td></tr>
-<tr><th>State</th><td>[% organization.state | html | html_line_break %]</td></tr>
-<tr><th>Zip</th><td>[% organization.zip | html | html_line_break %]</td></tr>
 <tr><th>Country</th><td>[% organization.country | html | html_line_break %]</td></tr>
 </table>
 
