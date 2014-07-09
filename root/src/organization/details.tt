@@ -1,8 +1,20 @@
+<!-- BEGIN details.tt -->
+[% META title = 'ProjectTaskToDo Organization Details' %]
+
 <div class="container">
+<div class="row">
+<div class="col-sm-9 blog-main">
+
+<h1>Organization: [% organization.name %]</h1>
+[% INCLUDE organization/organization_details.tt %]
+
+</div><!-- class="col-sm-9 blog-main" -->
+
 [% INCLUDE organization/options.tt %]
 
-[% INCLUDE organization/organization_details.tt %]
+</div><!-- class="row" -->
 </div><!-- class="container" -->
+<!-- END details.tt -->
 
 
 [%#
