@@ -140,7 +140,7 @@ __PACKAGE__->set_primary_key("id");
 # Created by DBIx::Class::Schema::Loader v0.07002 @ 2014-03-28 18:34:06
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:OV3IRG4Zelz1FCnAjZDG4g
 
-__PACKAGE__->belongs_to('parent_org' => 'ProjectTaskToDo::Schema::Result::Organization', 'parent_org_id');
+__PACKAGE__->belongs_to('parent_org' => 'ProjectTaskToDo::Schema::Result::Organization', { 'foreign.id' => 'self.parent_org_id' } );
 
 
 __PACKAGE__->meta->make_immutable;
