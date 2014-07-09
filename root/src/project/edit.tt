@@ -1,5 +1,10 @@
+<!-- BEGIN edit.tt -->
+[% META title = 'ProjectTaskToDo:Task Details' %]
+
 <div class="container">
-[% INCLUDE project/options.tt %]
+<div class="row">
+<div class="col-sm-9 blog-main">
+
 
 <script type="text/javascript">
 $(function() {
@@ -7,9 +12,11 @@ $(function() {
 });
 </script>
 
+<h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
+
 <form name="edit" action="/project/update" method="post">
 <input type="hidden" name="project_id" value="[% project.project_id %]" />
-<table border="0">
+<table class="table">
 <tr>
 <th>category</th>
 <td>
@@ -125,7 +132,14 @@ $(function() {
 </tr>
 </table>
 </form>
+
+</div><!-- class="col-sm-9 blog-main" -->
+
+[% INCLUDE project/options.tt %]
+
+</div><!-- class="row" -->
 </div><!-- class="container" -->
+<!-- END edit.tt -->
 
 
 [%#

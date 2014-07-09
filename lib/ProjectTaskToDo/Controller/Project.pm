@@ -1,6 +1,5 @@
 package ProjectTaskToDo::Controller::Project;
 
-
 use Moose;
 use POSIX qw/strftime/;
 use Date::Manip;
@@ -53,14 +52,10 @@ sub search : Local {
     #################################################################
 
     my (
-        $project_sched_start_date_start,
-        $project_sched_start_date_end,
-        $project_actual_start_date_start,
-        $project_actual_start_date_end,
-        $project_id,
-        $project_short_name,
-        $project_name,
-        $project_description,
+        $project_sched_start_date_start,  $project_sched_start_date_end,
+        $project_actual_start_date_start, $project_actual_start_date_end,
+        $project_id,                      $project_short_name,
+        $project_name,                    $project_description,
         $client_department
     ) = undef;
 
@@ -115,8 +110,7 @@ sub search : Local {
     {
         $where_clause{project_sched_start_date} = {
             -between => [
-                $project_sched_start_date_start,
-                $project_sched_start_date_end
+                $project_sched_start_date_start, $project_sched_start_date_end
             ]
         };
         $url_params .=
@@ -163,10 +157,8 @@ sub search : Local {
                 {%where_clause},
                 {
                     select => [
-                        { distinct => ['project_id'] },
-                        'project_short_name',
-                        'project_name',
-                        'project_description'
+                        { distinct => ['project_id'] }, 'project_short_name',
+                        'project_name', 'project_description'
                     ],
                     as => [
                         qw/project_id project_short_name project_name project_description/
@@ -209,11 +201,9 @@ sub notes : Chained('project_object') : PathPart('notes') : Args(0) {
                 $c->stash->{authorized} = 1;
             }
 
-            $c->stash->{notes_public} = [
-                $c->model('ProjectTaskToDoDB::Note')->search(
-                    { project_id => $project_id, public => 1 }
-                )
-            ];
+            $c->stash->{notes_public} =
+              [ $c->model('ProjectTaskToDoDB::Note')
+                  ->search( { project_id => $project_id, public => 1 } ) ];
 
             $c->stash->{notes_personal} = [
                 $c->model('ProjectTaskToDoDB::Note')->search(
@@ -227,17 +217,15 @@ sub notes : Chained('project_object') : PathPart('notes') : Args(0) {
 
             $c->stash->{project} = $project;
 
-            $c->stash->{pagetitle} =
-              $project->project_name . " : Notes";
-            $c->stash->{template} = 'project/notes.tt';
+            $c->stash->{pagetitle} = $project->project_name . " : Notes";
+            $c->stash->{template}  = 'project/notes.tt';
 
         }
     }
     else {
 
         # $c->user is not a project user
-        $c->flash->{message} =
-          "You are not authorized to view this project.";
+        $c->flash->{message} = "You are not authorized to view this project.";
         $c->response->redirect( $c->uri_for("/") );
     }
 }
@@ -248,8 +236,8 @@ FIX ME: need to make sure user is authorized to edit project
 
 =cut
 
-sub remove_link : Chained('project_object') : PathPart('remove_link') :
-  Args(1) {
+sub remove_link : Chained('project_object') : PathPart('remove_link') : Args(1)
+{
     my ( $self, $c, $link_id ) = @_;
 
     # grab the project from the stash
@@ -285,8 +273,7 @@ sub remove_link : Chained('project_object') : PathPart('remove_link') :
     else {
 
         # $c->user is not a project user
-        $c->flash->{message} =
-          "You are not authorized to edit that project.";
+        $c->flash->{message} = "You are not authorized to edit that project.";
         $c->response->redirect( $c->uri_for("/") );
     }
 }
@@ -302,7 +289,7 @@ sub update_comment : Local {
     my $now      = strftime "%Y-%m-%d %H:%M:%S", localtime();
     my $alive    = undef;
 
-#grab the comment_id and check if the user is authorized to update the comment
+  #grab the comment_id and check if the user is authorized to update the comment
     my $comment =
       $c->model('ProjectTaskToDoDB::ProjectComment')
       ->find( { comment_id => $comment_id } );
@@ -320,19 +307,16 @@ sub update_comment : Local {
         );
     }
     else {
-        $c->flash->{message} =
-          "You are not authorized to edit this comment.";
-        $c->response->redirect(
-            $c->uri_for("/project/comments/$comment_id") );
+        $c->flash->{message} = "You are not authorized to edit this comment.";
+        $c->response->redirect( $c->uri_for("/project/comments/$comment_id") );
     }
 
-    $c->response->redirect(
-        $c->uri_for("/project/$project_id/comments") );
+    $c->response->redirect( $c->uri_for("/project/$project_id/comments") );
     $c->detach();
 }
 
-sub edit_comment : Chained('project_object') : PathPart('edit_comment')
-  : Args(1) {
+sub edit_comment : Chained('project_object') : PathPart('edit_comment') :
+  Args(1) {
     my ( $self, $c, $comment_id ) = @_;
 
     my $project    = $c->stash->{project};
@@ -344,11 +328,10 @@ sub edit_comment : Chained('project_object') : PathPart('edit_comment')
         $c->stash->{comment} =
           $c->model('ProjectTaskToDoDB::ProjectComment')
           ->find( { comment_id => $comment_id } );
-        $c->stash->{project} = $project;
-        $c->stash->{pid}     = $project_id;
-        $c->stash->{pagetitle} =
-          $project->project_name . " : Add Comment";
-        $c->stash->{template} = "project/edit_comment.tt";
+        $c->stash->{project}   = $project;
+        $c->stash->{pid}       = $project_id;
+        $c->stash->{pagetitle} = $project->project_name . " : Add Comment";
+        $c->stash->{template}  = "project/edit_comment.tt";
     }
     else {
         $c->flash->{message} =
@@ -397,13 +380,12 @@ sub add_to_timepalette : Chained('project_object') :
 
 # FIX ME: check if entry already exists.  if so, respond with message saying so.  Else, create entry.
 
-    my $tpentry =
-      $c->model('ProjectTaskToDoDB::TimePaletteProject')->create(
+    my $tpentry = $c->model('ProjectTaskToDoDB::TimePaletteProject')->create(
         {
             user_id    => $user_id,
             project_id => $project_id,
         }
-      );
+    );
 
     $c->response->redirect( $c->uri_for("/project/$project_id") );
     $c->detach();
@@ -431,22 +413,19 @@ sub edit_client_organization : Chained('project_object') :
 # FIX ME:  need clean way to do this in the Schema
 # select sum(task_comment_time_worked) div 60, sum(task_comment_time_worked) mod 60 from task_comment, task where task_comment.task_comment_task_id = task.task_id and task.task_project_id = 6;
             my @total_project_time =
-              $c->model('ProjectTaskToDoDB')
-              ->total_project_time($project_id);
+              $c->model('ProjectTaskToDoDB')->total_project_time($project_id);
             $c->stash->{total_time} = $total_project_time[0];
             ######################
 
             $c->stash->{pagetitle} =
               $project->project_name . " : Edit Client Organization";
-            $c->stash->{template} =
-              'project/edit_client_organization.tt';
+            $c->stash->{template} = 'project/edit_client_organization.tt';
         }
     }
     else {
         $c->flash->{message} =
-"You are not authorized to edit this project's client information.";
-        $c->response->redirect(
-            $c->uri_for("/project/details/$project_id") );
+          "You are not authorized to edit this project's client information.";
+        $c->response->redirect( $c->uri_for("/project/details/$project_id") );
     }
 }
 
@@ -454,8 +433,8 @@ sub edit_client_organization : Chained('project_object') :
 
 =cut
 
-sub update_link : Chained('project_object') : PathPart('update_link') :
-  Args(1) {
+sub update_link : Chained('project_object') : PathPart('update_link') : Args(1)
+{
     my ( $self, $c, $link_id ) = @_;
 
     my $project    = $c->stash->{project};
@@ -465,12 +444,10 @@ sub update_link : Chained('project_object') : PathPart('update_link') :
 
       my $cur_date = strftime "%Y-%m-%d", localtime();
 
-
     my $recorded = strftime "%Y-%m-%d %H-%M-%S", localtime();
 
     my $project_link =
-      $c->model('ProjectTaskToDoDB::ProjectLink')
-      ->find( { id => $link_id } );
+      $c->model('ProjectTaskToDoDB::ProjectLink')->find( { id => $link_id } );
 
     $project_link->update(
         {
@@ -483,8 +460,7 @@ sub update_link : Chained('project_object') : PathPart('update_link') :
         }
     );
 
-    $c->response->redirect(
-        $c->uri_for("/project/$project_id/view_links") );
+    $c->response->redirect( $c->uri_for("/project/$project_id/view_links") );
     $c->detach();
 }
 
@@ -492,8 +468,8 @@ sub update_link : Chained('project_object') : PathPart('update_link') :
 
 =cut
 
-sub insert_link : Chained('project_object') : PathPart('insert_link') :
-  Args(0) {
+sub insert_link : Chained('project_object') : PathPart('insert_link') : Args(0)
+{
     my ( $self, $c ) = @_;
 
     my $project    = $c->stash->{project};
@@ -503,11 +479,9 @@ sub insert_link : Chained('project_object') : PathPart('insert_link') :
 
       my $cur_date = strftime "%Y-%m-%d", localtime();
 
-
     my $recorded = strftime "%Y-%m-%d %H-%M-%S", localtime();
 
-    my $project_link =
-      $c->model('ProjectTaskToDoDB::ProjectLink')->create(
+    my $project_link = $c->model('ProjectTaskToDoDB::ProjectLink')->create(
         {
             link_type_id => $c->req->params->{link_type_id},
             link_text    => $c->req->params->{link_text},
@@ -516,10 +490,9 @@ sub insert_link : Chained('project_object') : PathPart('insert_link') :
             creator_id   => $creator_id,
             description  => $c->req->params->{description},
         }
-      );
+    );
 
-    $c->response->redirect(
-        $c->uri_for("/project/$project_id/view_links") );
+    $c->response->redirect( $c->uri_for("/project/$project_id/view_links") );
     $c->detach();
 }
 
@@ -527,8 +500,7 @@ sub insert_link : Chained('project_object') : PathPart('insert_link') :
 
 =cut
 
-sub add_links : Chained('project_object') : PathPart('add_link') :
-  Args(0) {
+sub add_links : Chained('project_object') : PathPart('add_link') : Args(0) {
     my ( $self, $c ) = @_;
 
     my $project    = $c->stash->{project};
@@ -545,28 +517,24 @@ sub add_links : Chained('project_object') : PathPart('add_link') :
                 $c->stash->{authorized} = 1;
             }
 
-            $c->stash->{project_users} = [
-                $c->model('ProjectTaskToDoDB::ProjectUser')->search(
-                    { project_user_project_id => $project_id }
-                )
-            ];
+            $c->stash->{project_users} =
+              [ $c->model('ProjectTaskToDoDB::ProjectUser')
+                  ->search( { project_user_project_id => $project_id } ) ];
 
             $c->stash->{project} = $project;
 
             $c->stash->{link_types} =
               [ $c->model('ProjectTaskToDoDB::ProjectLinkType')
                   ->search( {}, { order_by => 'name' } ) ];
-            $c->stash->{pagetitle} =
-              $project->project_name . " : Links";
-            $c->stash->{template} = 'project/add_link.tt';
+            $c->stash->{pagetitle} = $project->project_name . " : Links";
+            $c->stash->{template}  = 'project/add_link.tt';
 
         }
     }
     else {
 
         # $c->user is not a project user
-        $c->flash->{message} =
-          "You are not authorized to view this project.";
+        $c->flash->{message} = "You are not authorized to view this project.";
         $c->response->redirect( $c->uri_for("/") );
     }
 }
@@ -575,8 +543,7 @@ sub add_links : Chained('project_object') : PathPart('add_link') :
 
 =cut
 
-sub view_links : Chained('project_object') : PathPart('view_links') :
-  Args(0) {
+sub view_links : Chained('project_object') : PathPart('view_links') : Args(0) {
     my ( $self, $c ) = @_;
 
     my $project    = $c->stash->{project};
@@ -593,25 +560,21 @@ sub view_links : Chained('project_object') : PathPart('view_links') :
                 $c->stash->{authorized} = 1;
             }
 
-            $c->stash->{project_users} = [
-                $c->model('ProjectTaskToDoDB::ProjectUser')->search(
-                    { project_user_project_id => $project_id }
-                )
-            ];
+            $c->stash->{project_users} =
+              [ $c->model('ProjectTaskToDoDB::ProjectUser')
+                  ->search( { project_user_project_id => $project_id } ) ];
 
             $c->stash->{project} = $project;
 
-            $c->stash->{pagetitle} =
-              $project->project_name . " : Links";
-            $c->stash->{template} = 'project/view_links.tt';
+            $c->stash->{pagetitle} = $project->project_name . " : Links";
+            $c->stash->{template}  = 'project/view_links.tt';
 
         }
     }
     else {
 
         # $c->user is not a project user
-        $c->flash->{message} =
-          "You are not authorized to view this project.";
+        $c->flash->{message} = "You are not authorized to view this project.";
         $c->response->redirect( $c->uri_for("/") );
     }
 }
@@ -620,8 +583,7 @@ sub view_links : Chained('project_object') : PathPart('view_links') :
 
 =cut
 
-sub edit_link : Chained('project_object') : PathPart('edit_link') :
-  Args(1) {
+sub edit_link : Chained('project_object') : PathPart('edit_link') : Args(1) {
     my ( $self, $c, $link_id ) = @_;
 
     my $project    = $c->stash->{project};
@@ -650,17 +612,15 @@ sub edit_link : Chained('project_object') : PathPart('edit_link') :
               $c->model('ProjectTaskToDoDB::ProjectLink')
               ->find( { id => $link_id } );
 
-            $c->stash->{pagetitle} =
-              $project->project_name . " : Edit Link";
-            $c->stash->{template} = 'project/edit_link.tt';
+            $c->stash->{pagetitle} = $project->project_name . " : Edit Link";
+            $c->stash->{template}  = 'project/edit_link.tt';
 
         }
     }
     else {
 
         # $c->user is not a project user
-        $c->flash->{message} =
-          "You are not authorized to view this project.";
+        $c->flash->{message} = "You are not authorized to view this project.";
         $c->response->redirect( $c->uri_for("/") );
     }
 }
@@ -820,8 +780,7 @@ sub insert_multiple_tasks : Path('/project/insert_multiple_tasks') {
 
         # skip record if no time or comment submitted
         next
-          unless (
-               ( $c->request->param("time_worked-$cur_project") > 0 )
+          unless ( ( $c->request->param("time_worked-$cur_project") > 0 )
             || ( $c->request->param("comment-$cur_project") ) );
 
         if ($debuggg) {
@@ -829,16 +788,12 @@ sub insert_multiple_tasks : Path('/project/insert_multiple_tasks') {
               $c->request->param("date_of_work-$cur_project"), "\n";
             print 'time_worked: ',
               $c->request->param("time_worked-$cur_project"), "\n";
-            print 'comment: ',
-              $c->request->param("comment-$cur_project"), "\n";
-            print 'type: ', $c->request->param("type-$cur_project"),
-              "\n";
+            print 'comment: ', $c->request->param("comment-$cur_project"), "\n";
+            print 'type: ',    $c->request->param("type-$cur_project"),    "\n";
         }
 
-        my $data_of_work =
-          $c->request->param("date_of_work-$cur_project");
-        my $time_worked =
-          $c->request->param("time_worked-$cur_project");
+        my $data_of_work   = $c->request->param("date_of_work-$cur_project");
+        my $time_worked    = $c->request->param("time_worked-$cur_project");
         my $comment        = $c->request->param("comment-$cur_project");
         my $type           = $c->request->param("type-$cur_project");
         my $form_name      = $c->request->params->{form_name};
@@ -847,8 +802,7 @@ sub insert_multiple_tasks : Path('/project/insert_multiple_tasks') {
             $project_number = $cur_project;
         }
         elsif ( $form_name eq 'time_palette' ) {
-            $project_number =
-              $c->request->param("project_number-$cur_project");
+            $project_number = $c->request->param("project_number-$cur_project");
         }
 
         my $task_type = $c->model('CSISDB::TaskType')->find($type);
@@ -863,16 +817,13 @@ sub insert_multiple_tasks : Path('/project/insert_multiple_tasks') {
                 task_name           => $task_type->name(),
                 task_owner_id       => $creator_id,
                 task_status_id      => 2,
-                task_type_id => $c->request->param("type-$cur_project"),
+                task_type_id        => $c->request->param("type-$cur_project"),
                 task_actual_compl_date =>
                   $c->request->param("date_of_work-$cur_project"),
                 task_modified_by_user_id => $creator_id,
-                task_comment =>
-                  $c->request->param("comment-$cur_project"),
-                time_worked =>
-                  $c->request->param("time_worked-$cur_project"),
-                component_id =>
-                  $c->request->param("component-$cur_project"),
+                task_comment => $c->request->param("comment-$cur_project"),
+                time_worked  => $c->request->param("time_worked-$cur_project"),
+                component_id => $c->request->param("component-$cur_project"),
             }
         );
 
@@ -911,8 +862,7 @@ sub time_by_day_by_person : Chained('project_object') :
         $c->stash->{task_type} = $task_type;
 
         my @total_project_time =
-          $c->model('ProjectTaskToDoDB')
-          ->total_project_time($project_id);
+          $c->model('ProjectTaskToDoDB')->total_project_time($project_id);
         $c->stash->{total_time}         = $total_project_time[0];
         $c->stash->{total_project_time} = $total_project_time[0];
 
@@ -927,10 +877,8 @@ sub time_by_day_by_person : Chained('project_object') :
             my $task_comment_rs =
               $c->model('ProjectTaskToDoDB::TaskComment')->search(
                 {
-                    task_comment_task_id => {
-                        'IN' =>
-                          $task_rs->get_column('task_id')->as_query
-                    },
+                    task_comment_task_id =>
+                      { 'IN' => $task_rs->get_column('task_id')->as_query },
                 },
                 {
                     select => [
@@ -940,15 +888,11 @@ sub time_by_day_by_person : Chained('project_object') :
                         { sum => 'task_comment_time_worked' }
                     ],
                     as => [
-                        'task_comment_id',
-                        'task_comment_date_of_work',
-                        'task_comment_user_id',
-                        'time_sum'
+                        'task_comment_id',      'task_comment_date_of_work',
+                        'task_comment_user_id', 'time_sum'
                     ],
-                    group_by => [
-                        'task_comment_user_id',
-                        'task_comment_date_of_work'
-                    ],
+                    group_by =>
+                      [ 'task_comment_user_id', 'task_comment_date_of_work' ],
                     order_by => ['task_comment_date_of_work']
                 }
               );
@@ -957,11 +901,9 @@ sub time_by_day_by_person : Chained('project_object') :
                 if ( $row->get_column('time_sum') > 0 ) {
                     $person_time{ $row->comment_creator->id }
                       { $row->task_comment_date_of_work } = {
-                        task_comment_user_id =>
-                          $row->task_comment_user_id,
-                        user_full_name =>
-                          $row->comment_creator->full_name,
-                        total_time => $row->get_column('time_sum')
+                        task_comment_user_id => $row->task_comment_user_id,
+                        user_full_name => $row->comment_creator->full_name,
+                        total_time     => $row->get_column('time_sum')
                       };
                 }
             }
@@ -972,8 +914,7 @@ sub time_by_day_by_person : Chained('project_object') :
     else {
 
         # $c->user is not a project user
-        $c->flash->{message} =
-          "You are not authorized to view that project.";
+        $c->flash->{message} = "You are not authorized to view that project.";
         $c->response->redirect( $c->uri_for("/") );
     }
 
@@ -1017,51 +958,43 @@ sub add_times : Path('/project/add_times') {
           unless (
             (
                 (
-                    (
-                        $c->request->param(
-                            "time_worked_hr-$cur_project") > 0
-                    )
+                    ( $c->request->param("time_worked_hr-$cur_project") > 0 )
                     || (
-                        $c->request->param(
-                            "time_worked_min-$cur_project") > 0
-                    )
+                        $c->request->param("time_worked_min-$cur_project") > 0 )
                 )
                 && ( $c->request->param("task_id-$cur_project") )
             )
             || ( $c->request->param("comment_body-$cur_project") )
           );
 
-        my $date_of_work =
-          $c->request->param("date_of_work-$cur_project");
+        my $date_of_work = $c->request->param("date_of_work-$cur_project");
         if ( !$date_of_work ) { $date_of_work = $cur_date; }
 
         my $time_worked_min =
           $c->request->param("time_worked_min-$cur_project");
 
-# need to multiply time_worked_hr by 60 since system stores it in minutes
+       # need to multiply time_worked_hr by 60 since system stores it in minutes
         my $time_worked_hr =
           60 * $c->request->param("time_worked_hr-$cur_project");
 
         # now add the hours and the minutes
         my $time_worked = $time_worked_hr + $time_worked_min;
 
-        my $comment_body =
-          $c->request->param("comment_body-$cur_project");
-        my $task_id = $c->request->param("task_id-$cur_project");
+        my $comment_body = $c->request->param("comment_body-$cur_project");
+        my $task_id      = $c->request->param("task_id-$cur_project");
 
         # if no $task_id, create a new task using the $comment_body
         # immediately complete the task as well as make it not alive
         if ( !$task_id ) {
             my $task = $c->model('ProjectTaskToDoDB::Task')->create(
                 {
-                    task_name       => $comment_body,
-                    task_creator_id => $c->user->id,
-                    task_owner_id   => $c->user->id,
-                    task_status_id  => 2,
-                    task_alive      => 0,
-                    task_project_id => $cur_project,
-                    task_description =>
-                      "Task created through Time Palette",
+                    task_name        => $comment_body,
+                    task_creator_id  => $c->user->id,
+                    task_owner_id    => $c->user->id,
+                    task_status_id   => 2,
+                    task_alive       => 0,
+                    task_project_id  => $cur_project,
+                    task_description => "Task created through Time Palette",
                     task_actual_start_date   => $date_of_work,
                     task_actual_compl_date   => $date_of_work,
                     task_recorded            => $now,
@@ -1072,8 +1005,7 @@ sub add_times : Path('/project/add_times') {
             $task_id = $task->task_id;
         }
 
-        my $task_comment =
-          $c->model('ProjectTaskToDoDB::TaskComment')->create(
+        my $task_comment = $c->model('ProjectTaskToDoDB::TaskComment')->create(
             {
                 task_comment_date_of_work => $date_of_work,
                 task_comment_time_worked  => $time_worked,
@@ -1082,7 +1014,7 @@ sub add_times : Path('/project/add_times') {
                 task_comment_task_id      => $task_id,
                 task_comment_user_id      => $creator_id
             }
-          );
+        );
     }
 
     $c->response->redirect( $c->request->referer() );
@@ -1102,7 +1034,7 @@ sub active : Local {
         $c->stash->{projects} = [
             $user_projects_rs->search_related('project')->search(
                 { project_alive => 1, list_type => 1 },
-                { order_by => 'project_short_name' }
+                { order_by      => 'project_short_name' }
             )
         ];
         $c->stash->{pagetitle} = "Active Projects";
@@ -1122,16 +1054,16 @@ sub all_active : Local {
 
     if ( $c->user_exists ) {
 
-           # tell the template which tab to highlight and the page title
-            $c->stash->{whichtab}  = 'projects';
-            $c->stash->{pagetitle} = 'All Active Projects';
+        # tell the template which tab to highlight and the page title
+        $c->stash->{whichtab}  = 'projects';
+        $c->stash->{pagetitle} = 'All Active Projects';
 
-            $c->stash->{projects} = [
-                $c->model('ProjectTaskToDoDB::Project')->search(
-                    { project_alive => 1, list_type => 1 },
-                    { order_by => 'project_short_name' }
-                )
-            ];
+        $c->stash->{projects} = [
+            $c->model('ProjectTaskToDoDB::Project')->search(
+                { project_alive => 1, list_type => 1 },
+                { order_by      => 'project_short_name' }
+            )
+        ];
     }
     else {
         $c->stash->{projects} = '';
@@ -1152,8 +1084,7 @@ sub base : Chained('/') : PathPart('project') : CaptureArgs(0) {
 
 =cut
 
-sub comments : Chained('project_object') : PathPart('comments') :
-  Args(0) {
+sub comments : Chained('project_object') : PathPart('comments') : Args(0) {
     my ( $self, $c ) = @_;
 
     my $project    = $c->stash->{project};
@@ -1172,8 +1103,7 @@ sub comments : Chained('project_object') : PathPart('comments') :
 # FIX ME:  need clean way to do this in the Schema
 # select sum(task_comment_time_worked) div 60, sum(task_comment_time_worked) mod 60 from task_comment, task where task_comment.task_comment_task_id = task.task_id and task.task_project_id = 6;
         my @total_project_time =
-          $c->model('ProjectTaskToDoDB')
-          ->total_project_time($project_id);
+          $c->model('ProjectTaskToDoDB')->total_project_time($project_id);
         $c->stash->{total_time} = $total_project_time[0];
         ######################
 
@@ -1190,8 +1120,7 @@ sub comments : Chained('project_object') : PathPart('comments') :
     else {
 
         # $c->user is not a project user
-        $c->flash->{message} =
-          "You are not authorized to view that project.";
+        $c->flash->{message} = "You are not authorized to view that project.";
         $c->response->redirect( $c->uri_for("/") );
     }
 }
@@ -1229,8 +1158,8 @@ sub my_complete : Local {
 
     if ( $c->user ) {
         $c->stash->{projects} =
-          [ $c->model('ProjectTaskToDoDB')
-              ->my_inactive_projects( $c->user->id ) ];
+          [ $c->model('ProjectTaskToDoDB')->my_inactive_projects( $c->user->id )
+          ];
     }
     else {
         $c->stash->{projects} = '';
@@ -1270,8 +1199,7 @@ sub content : Chained('project_object') : PathPart('content') : Args {
 # FIX ME:  need clean way to do this in the Schema
 # select sum(task_comment_time_worked) div 60, sum(task_comment_time_worked) mod 60 from task_comment, task where task_comment.task_comment_task_id = task.task_id and task.task_project_id = 6;
         my @total_project_time =
-          $c->model('ProjectTaskToDoDB')
-          ->total_project_time($project_id);
+          $c->model('ProjectTaskToDoDB')->total_project_time($project_id);
         $c->stash->{total_time} = $total_project_time[0];
         ######################
 
@@ -1280,8 +1208,7 @@ sub content : Chained('project_object') : PathPart('content') : Args {
     else {
 
         # $c->user is not a project user
-        $c->flash->{message} =
-          'You are not authorized to view that project.';
+        $c->flash->{message} = 'You are not authorized to view that project.';
         $c->response->redirect( $c->uri_for('/') );
     }
 }
@@ -1313,22 +1240,19 @@ sub details : Chained('project_object') : PathPart('') : Args(0) {
 # FIX ME:  need clean way to do this in the Schema
 # select sum(task_comment_time_worked) div 60, sum(task_comment_time_worked) mod 60 from task_comment, task where task_comment.task_comment_task_id = task.task_id and task.task_project_id = 6;
             my @total_project_time =
-              $c->model('ProjectTaskToDoDB')
-              ->total_project_time($project_id);
+              $c->model('ProjectTaskToDoDB')->total_project_time($project_id);
             $c->stash->{total_time} = $total_project_time[0];
             ######################
 
-            $c->stash->{pagetitle} =
-              $project->project_name . " : Details";
-            $c->stash->{template} = 'project/details.tt';
+            $c->stash->{pagetitle} = $project->project_name . " : Details";
+            $c->stash->{template}  = 'project/details.tt';
 
         }
     }
     else {
 
         # $c->user is not a project user
-        $c->flash->{message} =
-          "You are not authorized to view that project.";
+        $c->flash->{message} = "You are not authorized to view that project.";
         $c->response->redirect( $c->uri_for("/") );
     }
 }
@@ -1347,20 +1271,16 @@ sub edit : Chained('project_object') : PathPart('edit') : Args(0) {
     {
         $c->stash->{authorized} = 1;
         $c->stash->{project}    = $project;
-        $c->stash->{users}      = [
-            $c->model('ProjectTaskToDoDB::User')->search(
-                { 'active' => 1 }, { order_by => 'full_name' }
-            )
-        ];
+        $c->stash->{users} =
+          [ $c->model('ProjectTaskToDoDB::User')
+              ->search( { 'active' => 1 }, { order_by => 'full_name' } ) ];
         $c->stash->{cats} =
           [ $c->model('ProjectTaskToDoDB::ProjectCategory')->all() ];
-        $c->stash->{pagetitle} =
-          $project->project_name . " : Edit Project";
-        $c->stash->{template} = 'project/edit.tt';
+        $c->stash->{pagetitle} = $project->project_name . " : Edit Project";
+        $c->stash->{template}  = 'project/edit.tt';
     }
     else {
-        $c->flash->{message} =
-          "You are not authorized to edit this project.";
+        $c->flash->{message} = "You are not authorized to edit this project.";
         $c->response->redirect( $c->uri_for("/project/$project_id") );
     }
 }
@@ -1389,8 +1309,7 @@ sub edit_client_person : Chained('project_object') :
 # FIX ME:  need clean way to do this in the Schema
 # select sum(task_comment_time_worked) div 60, sum(task_comment_time_worked) mod 60 from task_comment, task where task_comment.task_comment_task_id = task.task_id and task.task_project_id = 6;
         my @total_project_time =
-          $c->model('ProjectTaskToDoDB')
-          ->total_project_time($project_id);
+          $c->model('ProjectTaskToDoDB')->total_project_time($project_id);
         $c->stash->{total_time} = $total_project_time[0];
         ######################
 
@@ -1400,9 +1319,8 @@ sub edit_client_person : Chained('project_object') :
     }
     else {
         $c->flash->{message} =
-"You are not authorized to edit this project's client information.";
-        $c->response->redirect(
-            $c->uri_for("/project/details/$project_id") );
+          "You are not authorized to edit this project's client information.";
+        $c->response->redirect( $c->uri_for("/project/details/$project_id") );
     }
 }
 
@@ -1428,20 +1346,17 @@ sub edit_client_contact : Chained('project_object') :
 # FIX ME:  need clean way to do this in the Schema
 # select sum(task_comment_time_worked) div 60, sum(task_comment_time_worked) mod 60 from task_comment, task where task_comment.task_comment_task_id = task.task_id and task.task_project_id = 6;
         my @total_project_time =
-          $c->model('ProjectTaskToDoDB')
-          ->total_project_time($project_id);
+          $c->model('ProjectTaskToDoDB')->total_project_time($project_id);
         $c->stash->{total_time} = $total_project_time[0];
         ######################
 
-        $c->stash->{pagetitle} =
-          $project->project_name . " : Edit Client";
-        $c->stash->{template} = 'project/edit_client_contact.tt';
+        $c->stash->{pagetitle} = $project->project_name . " : Edit Client";
+        $c->stash->{template}  = 'project/edit_client_contact.tt';
     }
     else {
         $c->flash->{message} =
-"You are not authorized to edit this project's client information.";
-        $c->response->redirect(
-            $c->uri_for("/project/details/$project_id") );
+          "You are not authorized to edit this project's client information.";
+        $c->response->redirect( $c->uri_for("/project/details/$project_id") );
     }
 }
 
@@ -1449,8 +1364,8 @@ sub edit_client_contact : Chained('project_object') :
 
 =cut
 
-sub edit_status : Chained('project_object') : PathPart('edit_status') :
-  Args(0) {
+sub edit_status : Chained('project_object') : PathPart('edit_status') : Args(0)
+{
     my ( $self, $c ) = @_;
 
     my $project    = $c->stash->{project};
@@ -1461,20 +1376,18 @@ sub edit_status : Chained('project_object') : PathPart('edit_status') :
     {
         $c->stash->{authorized} = 1;
 
-        my $living_task_count =
-          $c->model('ProjectTaskToDoDB::Task')->search(
+        my $living_task_count = $c->model('ProjectTaskToDoDB::Task')->search(
             {
                 task_project_id => $project->id,
                 task_alive      => 1
             },
-          );
+        );
 
         ######################
 # FIX ME:  need clean way to do this in the Schema
 # select sum(task_comment_time_worked) div 60, sum(task_comment_time_worked) mod 60 from task_comment, task where task_comment.task_comment_task_id = task.task_id and task.task_project_id = 6;
         my @total_project_time =
-          $c->model('ProjectTaskToDoDB')
-          ->total_project_time($project_id);
+          $c->model('ProjectTaskToDoDB')->total_project_time($project_id);
         $c->stash->{total_time} = $total_project_time[0];
         ######################
 
@@ -1485,25 +1398,21 @@ sub edit_status : Chained('project_object') : PathPart('edit_status') :
             $c->stash->{stats} =
               [ $c->model('ProjectTaskToDoDB::ProjectStatusType')
                   ->search( {}, { order_by => 'name' } ) ];
-            $c->stash->{pagetitle} =
-              $project->project_name . " : Edit Status";
-            $c->stash->{template} = 'project/edit_status.tt';
+            $c->stash->{pagetitle} = $project->project_name . " : Edit Status";
+            $c->stash->{template}  = 'project/edit_status.tt';
         }
         else {
             $c->stash->{project} = $project;
             $c->stash->{stats} =
               [ $c->model('ProjectTaskToDoDB::ProjectStatusType')
                   ->search( {}, { order_by => 'name' } ) ];
-            $c->stash->{pagetitle} =
-              $project->project_name . " : Edit Status";
-            $c->stash->{template} = 'project/edit_status.tt';
+            $c->stash->{pagetitle} = $project->project_name . " : Edit Status";
+            $c->stash->{template}  = 'project/edit_status.tt';
         }
     }
     else {
-        $c->flash->{message} =
-          "You are not authorized to edit this project.";
-        $c->response->redirect(
-            $c->uri_for("/project/details/$project_id") );
+        $c->flash->{message} = "You are not authorized to edit this project.";
+        $c->response->redirect( $c->uri_for("/project/details/$project_id") );
     }
 }
 
@@ -1535,15 +1444,13 @@ sub assign_resources : Local {
             )
         ];
 
-        $c->stash->{pagetitle} =
-          $project->project_name . " : Edit Users";
-        $c->stash->{template} = 'project/edit_users.tt';
+        $c->stash->{pagetitle} = $project->project_name . " : Edit Users";
+        $c->stash->{template}  = 'project/edit_users.tt';
     }
     else {
         $c->flash->{message} =
           "You are not authorized to edit this project's users.";
-        $c->response->redirect(
-            $c->uri_for("/project/details/$project_id") );
+        $c->response->redirect( $c->uri_for("/project/details/$project_id") );
     }
 }
 
@@ -1564,7 +1471,7 @@ sub insert_comment : Local {
     my ( $self, $c ) = @_;
     my $project_id = $c->req->params->{project_id};
     my $comment    = $c->req->params->{comment};
-    my $pc = $c->model('ProjectTaskToDoDB::ProjectComment')->create(
+    my $pc         = $c->model('ProjectTaskToDoDB::ProjectComment')->create(
         {
             project_id => $project_id,
             user_id    => $c->user->id,
@@ -1580,14 +1487,13 @@ sub insert_comment : Local {
             as     => ['count']
         }
       );
-    $c->stash->{num_tasks} =
-      $c->model('ProjectTaskToDoDB::Task')->search(
+    $c->stash->{num_tasks} = $c->model('ProjectTaskToDoDB::Task')->search(
         { task_project_id => $project_id },
         {
             select => [ { count => 'task_project_id' } ],
             as     => ['count']
         }
-      );
+    );
 
     # create a notification for each project user
     my $project =
@@ -1606,16 +1512,15 @@ sub insert_comment : Local {
         );
     }
 
-    $c->response->redirect(
-        $c->uri_for("/project/$project_id/comments") );
+    $c->response->redirect( $c->uri_for("/project/$project_id/comments") );
 }
 
 =head2 insert_file
 
 =cut
 
-sub insert_file : Chained('project_object') : PathPart('insert_file') :
-  Args(0) {
+sub insert_file : Chained('project_object') : PathPart('insert_file') : Args(0)
+{
     my ( $self, $c ) = @_;
 
     my $project    = $c->stash->{project};
@@ -1650,11 +1555,7 @@ sub insert_file : Chained('project_object') : PathPart('insert_file') :
             my $cmd_result = system($mkdir_cmd);
         }
 
-        if (
-            $upload->copy_to(
-                "$project_files_directory/$clean_filename")
-          )
-        {
+        if ( $upload->copy_to("$project_files_directory/$clean_filename") ) {
 
             my $id = $project_id . '_' . $clean_filename;
 
@@ -1686,8 +1587,7 @@ sub insert_file : Chained('project_object') : PathPart('insert_file') :
         # $c->user is not a creative_services_member
         $c->flash->{message} =
           'You are not authorized to add files to this project.';
-        $c->response->redirect(
-            $c->uri_for("/project/$project_id/content") );
+        $c->response->redirect( $c->uri_for("/project/$project_id/content") );
 
     }
 }
@@ -1755,26 +1655,24 @@ sub insert_project : Local {
     my $project_id = $project->project_id;
 
     #insert the project's $creator_id into the project_user table
-    my $project_owner =
-      $c->model('ProjectTaskToDoDB::ProjectUser')->create(
+    my $project_owner = $c->model('ProjectTaskToDoDB::ProjectUser')->create(
         {
             project_user_project_id => $project_id,
             project_user_role_id    => 4,
             project_user_user_id    => $creator_id,
         }
-      );
+    );
 
     if ( $creator_id != $owner_id ) {
 
         #insert the project's $owner_id into the project_user table
-        $project_owner =
-          $c->model('ProjectTaskToDoDB::ProjectUser')->create(
+        $project_owner = $c->model('ProjectTaskToDoDB::ProjectUser')->create(
             {
                 project_user_project_id => $project_id,
                 project_user_role_id    => 5,
                 project_user_user_id    => $owner_id,
             }
-          );
+        );
     }
 
 # create a notification for each project user
@@ -1799,8 +1697,8 @@ sub insert_project : Local {
 
 =cut
 
-sub insert_resource : Chained('project_object') :
-  PathPart('insert_resource') : Args(0) {
+sub insert_resource : Chained('project_object') : PathPart('insert_resource') :
+  Args(0) {
     my ( $self, $c ) = @_;
 
     # grab the project from the stash
@@ -1818,7 +1716,7 @@ sub insert_resource : Chained('project_object') :
         {
             'project_user_project_id' => { '=' => $project_id },
             'project_user_user_id'    => { '=' => $the_user_id },
-            'project_user_role_id' => { '=' => $project_role_type_id }
+            'project_user_role_id'    => { '=' => $project_role_type_id }
         }
     );
 
@@ -1834,8 +1732,7 @@ sub insert_resource : Chained('project_object') :
           );
     }
 
-    $c->response->redirect(
-        $c->uri_for("/project/$project_id/view_users") );
+    $c->response->redirect( $c->uri_for("/project/$project_id/view_users") );
 
     $c->detach();
 }
@@ -1847,7 +1744,7 @@ sub insert_resource : Chained('project_object') :
 sub insert_users : Local {
     my ( $self, $c ) = @_;
 
-  #grab the project_id and check if user is authorized to update project
+    #grab the project_id and check if user is authorized to update project
     my $project_id = $c->req->params->{project_id};
     my $project =
       $c->model('ProjectTaskToDoDB::Project')
@@ -1863,14 +1760,13 @@ sub insert_users : Local {
 
         for my $cur_user (@project_users) {
 
-            my $puser =
-              $c->model('ProjectTaskToDoDB::ProjectUser')->create(
+            my $puser = $c->model('ProjectTaskToDoDB::ProjectUser')->create(
                 {
                     project_user_id         => '',
                     project_user_project_id => $project_id,
                     project_user_user_id    => $cur_user,
                 }
-              );
+            );
         }
 
         $c->response->redirect(
@@ -1878,8 +1774,7 @@ sub insert_users : Local {
         $c->detach();
     }
     else {
-        $c->flash->{message} =
-          "You are not authorized to edit this project.";
+        $c->flash->{message} = "You are not authorized to edit this project.";
         $c->response->redirect( $c->uri_for("/project/$project_id") );
     }
 }
@@ -1920,22 +1815,30 @@ sub my_active : Local {
 
 =cut
 
-sub new_comment : Chained('project_object') : PathPart('new_comment') :
-  Args(0) {
+sub new_comment : Chained('project_object') : PathPart('new_comment') : Args(0)
+{
     my ( $self, $c ) = @_;
 
     my $project    = $c->stash->{project};
     my $project_id = $project->project_id;
 
-    # show the form if $c->user is a project user
-    if ( $project->has_user( $c->user ) ) {
+    # show the details if $c->user is a project user
+    if ( $c->user_exists ) {
+        if (   ( $project->has_user( $c->user ) )
+            || ( $c->check_user_roles('member') ) )
+        {
+            if (   ( $project->project_owner_id == $c->user->id )
+                || ( $c->check_user_roles('member') ) )
+            {
+                $c->stash->{authorized} = 1;
+            }
 
 # my $project = $c->model('ProjectTaskToDoDB::Project')->find({project_id=>$project_id});
-        $c->stash->{project} = $project;
-        $c->stash->{pid}     = $project_id;
-        $c->stash->{pagetitle} =
-          $project->project_name . " : Add Comment";
-        $c->stash->{template} = 'project/new_comment.tt';
+            $c->stash->{project}   = $project;
+            $c->stash->{pid}       = $project_id;
+            $c->stash->{pagetitle} = $project->project_name . " : Add Comment";
+            $c->stash->{template}  = 'project/new_comment.tt';
+        }
     }
     else {
         $c->flash->{message} =
@@ -1966,8 +1869,8 @@ sub new_project : Chained('base') : PathPart('new') : Args(0) {
 
 =cut
 
-sub order_tasks : Chained('project_object') : PathPart('order_tasks') :
-  Args(0) {
+sub order_tasks : Chained('project_object') : PathPart('order_tasks') : Args(0)
+{
     my ( $self, $c ) = @_;
     my $project    = $c->stash->{project};
     my $project_id = $project->project_id;
@@ -2007,7 +1910,7 @@ sub plan : Chained('project_object') : PathPart('plan') : Args(0) {
     my $project    = $c->stash->{project};
     my $project_id = $project->project_id;
 
- # show the details if $c->user is a project user or Digitas Team Member
+    # show the details if $c->user is a project user or Digitas Team Member
     if ( $c->user_exists ) {
         if (   ( $project->has_user( $c->user ) )
             || ( $c->check_user_roles('member') ) )
@@ -2023,8 +1926,7 @@ sub plan : Chained('project_object') : PathPart('plan') : Args(0) {
 # FIX ME:  need clean way to do this in the Schema
 # select sum(task_comment_time_worked) div 60, sum(task_comment_time_worked) mod 60 from task_comment, task where task_comment.task_comment_task_id = task.task_id and task.task_project_id = 6;
             my @total_project_time =
-              $c->model('ProjectTaskToDoDB')
-              ->total_project_time($project_id);
+              $c->model('ProjectTaskToDoDB')->total_project_time($project_id);
             $c->stash->{total_time} = $total_project_time[0];
             ######################
 
@@ -2079,8 +1981,7 @@ sub plan : Chained('project_object') : PathPart('plan') : Args(0) {
     else {
 
         # $c->user is not a project user
-        $c->flash->{message} =
-          "You are not authorized to view that project.";
+        $c->flash->{message} = "You are not authorized to view that project.";
         $c->response->redirect( $c->uri_for("/") );
     }
 }
@@ -2089,12 +1990,10 @@ sub plan : Chained('project_object') : PathPart('plan') : Args(0) {
 
 =cut
 
-sub project_file_base : Chained('project_object') :
-  PathPart('project_file') : CaptureArgs(0) {
+sub project_file_base : Chained('project_object') : PathPart('project_file') :
+  CaptureArgs(0) {
     my ( $self, $c ) = @_;
-    $c->stash(
-        project_file_rs => $c->model('ProjectTaskToDoDB::ProjectFile')
-    );
+    $c->stash( project_file_rs => $c->model('ProjectTaskToDoDB::ProjectFile') );
 }
 
 =head2 project_file_object
@@ -2113,13 +2012,12 @@ sub project_file_object : Chained('project_file_base') : PathPart('') :
     $c->stash( project_file => $project_file );
 }
 
-
 =head2 project_file_delete
 
 =cut
 
-sub project_file_delete : Chained('project_file_object') :
-  PathPart('delete') : Args(0) {
+sub project_file_delete : Chained('project_file_object') : PathPart('delete') :
+  Args(0) {
     my ( $self, $c ) = @_;
     my $project_file = $c->stash->{project_file};
     if ( !$project_file ) {
@@ -2144,24 +2042,20 @@ sub project_file_delete : Chained('project_file_object') :
         my $id = $project->id . '_' . $filename;
 
         my $project_file =
-          $c->model('ProjectTaskToDoComDB::ProjectFile')
-          ->find( { id => $id } );
+          $c->model('ProjectTaskToDoComDB::ProjectFile')->find( { id => $id } );
 
         $project_file->delete();
 
-	my $project_id = $project->id;
-        $c->response->redirect(
-            $c->uri_for("/project/$project_id/content") );
+        my $project_id = $project->id;
+        $c->response->redirect( $c->uri_for("/project/$project_id/content") );
         $c->detach();
     }
     else {
         $c->flash->{message} =
           'There was an error deleting your file from the project.';
-        $c->response->redirect(
-            $c->uri_for("/project/$project->id/content") );
+        $c->response->redirect( $c->uri_for("/project/$project->id/content") );
     }
 }
-
 
 =head2 project_object
 
@@ -2198,8 +2092,7 @@ sub project_object : Chained('base') : PathPart('') : CaptureArgs(1) {
     );
     $c->stash->{num_active_tasks} = $num_active_tasks;
 
-    my $num_complete_tasks =
-      $c->model('ProjectTaskToDoDB::Task')->search(
+    my $num_complete_tasks = $c->model('ProjectTaskToDoDB::Task')->search(
         {
             task_project_id => $project_id,
             task_status_id  => '2',
@@ -2208,11 +2101,10 @@ sub project_object : Chained('base') : PathPart('') : CaptureArgs(1) {
             select => [ { count => 'task_project_id' } ],
             as     => ['count']
         },
-      );
+    );
     $c->stash->{num_complete_tasks} = $num_complete_tasks;
 
-    my $num_notes_personal =
-      $c->model('ProjectTaskToDoDB::Note')->search(
+    my $num_notes_personal = $c->model('ProjectTaskToDoDB::Note')->search(
         {
             project_id => $project->project_id,
             creator_id => $c->user->id,
@@ -2222,7 +2114,7 @@ sub project_object : Chained('base') : PathPart('') : CaptureArgs(1) {
             select => [ { count => 'project_id' } ],
             as     => ['count']
         }
-      );
+    );
     $c->stash->{num_notes_personal} = $num_notes_personal;
 
     my $num_notes_public = $c->model('ProjectTaskToDoDB::Note')->search(
@@ -2237,14 +2129,13 @@ sub project_object : Chained('base') : PathPart('') : CaptureArgs(1) {
     );
     $c->stash->{num_notes_public} = $num_notes_public;
 
-    my $num_project_users =
-      $c->model('ProjectTaskToDoDB::ProjectUser')->search(
+    my $num_project_users = $c->model('ProjectTaskToDoDB::ProjectUser')->search(
         { project_user_project_id => $project->project_id, },
         {
             select => [ { count => 'project_user_project_id' } ],
             as     => ['count']
         }
-      );
+    );
     $c->stash->{num_project_users} = $num_project_users;
 
     $c->stash->{num_links} =
@@ -2261,8 +2152,8 @@ sub project_object : Chained('base') : PathPart('') : CaptureArgs(1) {
 
 =cut
 
-sub remove_resource : Chained('project_object') :
-  PathPart('remove_resource') : Args(1) {
+sub remove_resource : Chained('project_object') : PathPart('remove_resource') :
+  Args(1) {
     my ( $self, $c, $project_user_id ) = @_;
 
     # grab the project from the stash
@@ -2277,8 +2168,8 @@ sub remove_resource : Chained('project_object') :
       $c->model('ProjectTaskToDoDB::ProjectUser')
       ->find( { project_user_id => $project_user_id } );
 
-# cannot delete the project user if the user is the project owner
-# and we're trying to delete the project user with role of project owner
+    # cannot delete the project user if the user is the project owner
+    # and we're trying to delete the project user with role of project owner
     if (
         ( $project_user_instance->role->role ne 'project_owner' )
         || (
@@ -2361,8 +2252,7 @@ sub tasks : Chained('project_object') : PathPart('tasks') : Args {
 # select sum(task_comment_time_worked) div 60, sum(task_comment_time_worked) mod 60 from task_comment, task where task_comment.task_comment_task_id = task.task_id and task.task_project_id = 6;
 
             my @total_project_time =
-              $c->model('ProjectTaskToDoDB')
-              ->total_project_time($project_id);
+              $c->model('ProjectTaskToDoDB')->total_project_time($project_id);
             $c->stash->{total_time} = $total_project_time[0];
             ######################
 
@@ -2446,16 +2336,14 @@ sub tasks : Chained('project_object') : PathPart('tasks') : Args {
 #
             ###############
 
-            $c->stash->{pagetitle} =
-              $project->project_name . " : Tasks";
-            $c->stash->{template} = 'project/tasks.tt';
+            $c->stash->{pagetitle} = $project->project_name . " : Tasks";
+            $c->stash->{template}  = 'project/tasks.tt';
         }
     }
     else {
 
         # $c->user is not a project user
-        $c->flash->{message} =
-          "You are not authorized to view that project.";
+        $c->flash->{message} = "You are not authorized to view that project.";
         $c->response->redirect( $c->uri_for("/") );
     }
 }
@@ -2479,8 +2367,8 @@ sub tasks_with_details : Local {
 
 =cut
 
-sub time_by_person : Chained('project_object') :
-  PathPart('time_by_person') : Args {
+sub time_by_person : Chained('project_object') : PathPart('time_by_person')
+  : Args {
     my ( $self, $c, $task_type ) = @_;
 
     # tell the template which tab to highlight and page title
@@ -2505,16 +2393,15 @@ sub time_by_person : Chained('project_object') :
         $c->stash->{task_type} = $task_type;
 
         my @total_project_time =
-          $c->model('ProjectTaskToDoDB')
-          ->total_project_time($project_id);
+          $c->model('ProjectTaskToDoDB')->total_project_time($project_id);
         $c->stash->{total_time}         = $total_project_time[0];
         $c->stash->{total_project_time} = $total_project_time[0];
 
         if ( $c->user_exists() ) {
 
-# grab the total_project_time
-#$c->stash->{total_project_time} =
-#  $c->model('ProjectTaskToDoDB::Task')->total_project_time($project_id);
+       # grab the total_project_time
+       #$c->stash->{total_project_time} =
+       #  $c->model('ProjectTaskToDoDB::Task')->total_project_time($project_id);
 
             my @person_time = ();
 
@@ -2525,10 +2412,8 @@ sub time_by_person : Chained('project_object') :
             my $task_comment_rs =
               $c->model('ProjectTaskToDoDB::TaskComment')->search(
                 {
-                    task_comment_task_id => {
-                        'IN' =>
-                          $task_rs->get_column('task_id')->as_query
-                    },
+                    task_comment_task_id =>
+                      { 'IN' => $task_rs->get_column('task_id')->as_query },
                 },
                 {
                     select => [
@@ -2545,11 +2430,9 @@ sub time_by_person : Chained('project_object') :
                     push(
                         @person_time,
                         {
-                            task_comment_user_id =>
-                              $row->task_comment_user_id,
-                            user_full_name =>
-                              $row->comment_creator->full_name,
-                            total_time => $row->get_column('time_sum')
+                            task_comment_user_id => $row->task_comment_user_id,
+                            user_full_name => $row->comment_creator->full_name,
+                            total_time     => $row->get_column('time_sum')
                         }
                     );
                 }
@@ -2562,8 +2445,7 @@ sub time_by_person : Chained('project_object') :
     else {
 
         # $c->user is not a project user
-        $c->flash->{message} =
-          "You are not authorized to view that project.";
+        $c->flash->{message} = "You are not authorized to view that project.";
         $c->response->redirect( $c->uri_for("/") );
     }
 
@@ -2580,7 +2462,7 @@ sub update : Local {
 
     my $cur_date = strftime "%Y-%m-%d", localtime();
 
-  #grab the project_id and check if user is authorized to update project
+    #grab the project_id and check if user is authorized to update project
     my $project_id = $c->req->params->{project_id};
     my $project =
       $c->model('ProjectTaskToDoDB::Project')
@@ -2629,12 +2511,11 @@ sub update : Local {
         my $deleted       = $c->req->params->{deleted};
         my $deletion_date = $c->req->params->{deletion_date};
 
-        my $sched_go_live_date = $c->req->params->{sched_go_live_date};
-        my $actual_go_live_date =
-          $c->req->params->{actual_go_live_date};
+        my $sched_go_live_date  = $c->req->params->{sched_go_live_date};
+        my $actual_go_live_date = $c->req->params->{actual_go_live_date};
 
-       #check if user is marking project complete.  if so, need to check
-       # that all tasks for this project are either complete or deleted
+        #check if user is marking project complete.  if so, need to check
+        # that all tasks for this project are either complete or deleted
         my $complete = $c->req->params->{complete};
         if ($complete) {
             if (   ( !$actual_compl_date )
@@ -2668,8 +2549,7 @@ sub update : Local {
 
         # make sure actual_start_date <= actual_compl_date
         if ( $actual_start_date && $actual_compl_date ) {
-            my $flag =
-              Date_Cmp( $actual_compl_date, $actual_start_date );
+            my $flag = Date_Cmp( $actual_compl_date, $actual_start_date );
             if ( $flag < 0 ) {
                 $c->flash->{message} =
 "The Actual Completion Date must be equal to or later than the Actual Start Date.<br />Use your browser's Back button to continue the Task Update.";
@@ -2722,8 +2602,7 @@ sub update : Local {
         $c->response->redirect("/project/$project_id");
     }
     else {
-        $c->flash->{message} =
-          "You are not authorized to edit this project.";
+        $c->flash->{message} = "You are not authorized to edit this project.";
         $c->response->redirect( $c->uri_for("/project/$project_id") );
     }
 }
@@ -2735,7 +2614,7 @@ sub update : Local {
 sub update_client_person : Local {
     my ( $self, $c, $project_id ) = @_;
 
-  #grab the project_id and check if user is authorized to update project
+    #grab the project_id and check if user is authorized to update project
     my $project =
       $c->model('ProjectTaskToDoDB::Project')
       ->find( { project_id => $project_id } );
@@ -2759,10 +2638,9 @@ sub update_client_person : Local {
 
             $project->update(
                 {
-                    client_person_id   => $client->id,
-                    client_person_name => $client_person_name,
-                    client_person_department =>
-                      $client->office_department,
+                    client_person_id           => $client->id,
+                    client_person_name         => $client_person_name,
+                    client_person_department   => $client->office_department,
                     client_person_office_phone => $client->office_phone,
                     client_person_email        => $client->office_email,
                 }
@@ -2785,7 +2663,7 @@ sub update_client_person : Local {
 sub update_client_contact : Local {
     my ( $self, $c, $project_id ) = @_;
 
-  #grab the project_id and check if user is authorized to update project
+    #grab the project_id and check if user is authorized to update project
     my $project =
       $c->model('ProjectTaskToDoDB::Project')
       ->find( { project_id => $project_id } );
@@ -2805,15 +2683,13 @@ sub update_client_contact : Local {
 
         if ($client_contact) {
             my $client_contact_person_name =
-                $client_contact->first_name . " "
-              . $client_contact->last_name;
+              $client_contact->first_name . " " . $client_contact->last_name;
             my $client_contact_person_office_phone =
               $client_contact->office_phone;
 
             $project->update(
                 {
-                    client_contact_person_name =>
-                      $client_contact_person_name,
+                    client_contact_person_name => $client_contact_person_name,
                     client_contact_person_department =>
                       $client_contact->office_department,
                     client_contact_person_office_phone =>
@@ -2850,7 +2726,7 @@ sub update_client_contact : Local {
 sub update_client_organization : Local {
     my ( $self, $c, $project_id ) = @_;
 
-  #grab the project_id and check if user is authorized to update project
+    #grab the project_id and check if user is authorized to update project
     my $project =
       $c->model('ProjectTaskToDoDB::Project')
       ->find( { project_id => $project_id } );
@@ -2861,8 +2737,7 @@ sub update_client_organization : Local {
 
         # if authorized, grab rest of parameters and update
 
-        my $client_organization_id =
-          $c->req->param('client_organization_id');
+        my $client_organization_id = $c->req->param('client_organization_id');
 
         my $client =
           $c->model('ProjectTaskToDoDB::Organization')
@@ -2875,7 +2750,8 @@ sub update_client_organization : Local {
                     client_organization_name => $client->name,
                 }
             );
-        } else {
+        }
+        else {
             $project->update(
                 {
                     client_organization_id   => '',
@@ -2899,8 +2775,8 @@ Grab the new task order to keep from the order parameter.
 
 =cut
 
-sub update_order : Chained('project_object') : PathPart('update_order')
-  : Args(0) {
+sub update_order : Chained('project_object') : PathPart('update_order') :
+  Args(0) {
     my ( $self, $c ) = @_;
     my $project    = $c->stash->{project};
     my $project_id = $project->project_id;
@@ -2916,8 +2792,7 @@ sub update_order : Chained('project_object') : PathPart('update_order')
     for my $cur_id (@orders) {
         $cur_task_position++;
         my $task =
-          $c->model('ProjectTaskToDoDB::Task')
-          ->find( { task_id => $cur_id } );
+          $c->model('ProjectTaskToDoDB::Task')->find( { task_id => $cur_id } );
         $task->update( { task_order => $cur_task_position } );
     }
 
@@ -2938,8 +2813,8 @@ Update the project status
 
 =cut
 
-sub update_status : Chained('project_object') :
-  PathPart('update_status') : Args(0) {
+sub update_status : Chained('project_object') : PathPart('update_status') :
+  Args(0) {
     my ( $self, $c ) = @_;
 
     my $status_id = '';
@@ -2956,14 +2831,13 @@ sub update_status : Chained('project_object') :
     if ($status_id) {
 
         # grab all status possibilities from ProjectStatusType table
-        my $stats =
-          $c->model('ProjectTaskToDoDB::ProjectStatusType')->search();
+        my $stats = $c->model('ProjectTaskToDoDB::ProjectStatusType')->search();
 
         # default to no
         my $alive = 0;
 
-# loop through the status types to see if the project is still alive or not
-#print "STATUS_ID = $status_id\n";
+     # loop through the status types to see if the project is still alive or not
+     #print "STATUS_ID = $status_id\n";
         while ( my $stat = $stats->next ) {
             if ( $status_id == $stat->id ) {
                 $alive = $stat->living;
@@ -2981,8 +2855,7 @@ sub update_status : Chained('project_object') :
         $c->response->redirect("/project/$project_id");
     }
     else {
-        $c->flash->{message} =
-          'Please pick a status from the list below.';
+        $c->flash->{message} = 'Please pick a status from the list below.';
         $c->response->redirect("/project/$project_id/edit_status");
     }
 
@@ -3041,8 +2914,8 @@ sub update_status : Chained('project_object') :
 
 =cut
 
-sub upload_file : Chained('project_object') : PathPart('upload_file') :
-  Args(0) {
+sub upload_file : Chained('project_object') : PathPart('upload_file') : Args(0)
+{
     my ( $self, $c ) = @_;
 
     my $project    = $c->stash->{project};
@@ -3071,8 +2944,7 @@ sub upload_file : Chained('project_object') : PathPart('upload_file') :
 
 =cut
 
-sub view_users : Chained('project_object') : PathPart('view_users') :
-  Args(0) {
+sub view_users : Chained('project_object') : PathPart('view_users') : Args(0) {
     my ( $self, $c ) = @_;
 
     my $project    = $c->stash->{project};
@@ -3089,11 +2961,9 @@ sub view_users : Chained('project_object') : PathPart('view_users') :
                 $c->stash->{authorized} = 1;
             }
 
-            $c->stash->{project_users} = [
-                $c->model('ProjectTaskToDoDB::ProjectUser')->search(
-                    { project_user_project_id => $project_id }
-                )
-            ];
+            $c->stash->{project_users} =
+              [ $c->model('ProjectTaskToDoDB::ProjectUser')
+                  ->search( { project_user_project_id => $project_id } ) ];
 
             $c->stash->{project} = $project;
 
@@ -3105,17 +2975,15 @@ sub view_users : Chained('project_object') : PathPart('view_users') :
                 )
             ];
 
-            $c->stash->{pagetitle} =
-              $project->project_name . " : Users";
-            $c->stash->{template} = 'project/view_users.tt';
+            $c->stash->{pagetitle} = $project->project_name . " : Users";
+            $c->stash->{template}  = 'project/view_users.tt';
 
         }
     }
     else {
 
         # $c->user is not a project user
-        $c->flash->{message} =
-          "You are not authorized to view this project.";
+        $c->flash->{message} = "You are not authorized to view this project.";
         $c->response->redirect( $c->uri_for("/") );
     }
 }

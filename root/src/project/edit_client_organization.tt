@@ -1,7 +1,9 @@
-[% INCLUDE project/menu.tt %]
+<!-- BEGIN end_client_organization.tt -->
+[% META title = 'ProjectTaskToDo Edit Client Organization' %]
 
-[% INCLUDE project/options.tt %]
-
+<div class="container">
+<div class="row">
+<div class="col-sm-9 blog-main">
 
 <script type="text/javascript">
 	$(function() {
@@ -19,7 +21,14 @@ Project Client Organization: <input class="ui-autocomplete-input" id="client_org
 </form>
 <br />
 
-[% INCLUDE project/project_details.tt %]
+
+</div><!-- class="col-sm-9 blog-main" -->
+
+[% INCLUDE project/options.tt %]
+
+</div><!-- class="row" -->
+</div><!-- class="container" -->
+<!-- BEGIN end_client_organization.tt -->
 
 
 [%#
