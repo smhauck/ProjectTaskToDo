@@ -1,5 +1,14 @@
+<!-- BEGIN comments.tt -->
+[% META title = 'ProjectTaskToDo Project Comments' %]
+
 <div class="container">
-[% INCLUDE project/project_details.tt %]
+<div class="row">
+<div class="col-sm-9 blog-main">
+
+<h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
+[% INCLUDE project/project_details_no_name.tt %]
+
+
 
 <h2>Comments</h2>
 <table class="table sortable">
@@ -9,8 +18,13 @@
 [% END %]
 </table>
 
+</div><!-- class="col-sm-9 blog-main" -->
+
 [% INCLUDE project/options.tt %]
+
+</div><!-- class="row" -->
 </div><!-- class="container" -->
+<!-- END comments.tt -->
 
 
 [%#
