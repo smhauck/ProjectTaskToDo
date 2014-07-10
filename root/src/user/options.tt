@@ -10,7 +10,7 @@
 <li><a href='/user/[% person.id %]/edit_roles'>Edit Person's Roles</a></li>
 [% END -%]
 <li><a href="/user/edit/[% user.id %]">Edit Account</a></li>
-<li><a href="/user/change_password/[% user.id %]">Change Password</a></li>
+<li><a href="/user/[% user.id %]/change_password">Change Password</a></li>
 <li>&nbsp;</li>
 <li><a href="/person/[% person.id %]/my_active_projects">View Active Projects</a></li>
 <li><a href="/person/[% person.id %]/my_active_tasks">View Active Tasks</a></li>
