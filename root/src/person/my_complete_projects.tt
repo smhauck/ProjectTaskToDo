@@ -9,7 +9,7 @@
 <h2>My Complete Projects</h2>
 
 [% linecount = 0 %]
-<table class='sortable'>
+<table class="table sortable">
 <tr><th>ID</th><th>Sched Start Date</th><th>Actual Start Date</th><th>Short Name</th><th>Project Name</th></tr>
 [% FOREACH project IN projects %]
 [% linecount = linecount + 1 %]
