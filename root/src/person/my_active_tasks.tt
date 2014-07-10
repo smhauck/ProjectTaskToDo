@@ -5,9 +5,9 @@
 <div class="row">
 <div class="col-sm-9 blog-main">
 
-[% INCLUDE person/person_details.tt %]
+<h1>Person: [% person.full_name %]</h1>
 
-<span class="task_count">[% num_tasks %] active tasks</span>
+<h2>My Active Tasks ([% num_tasks %])</h2>
 
 <table class="table sortable">
 <tr>

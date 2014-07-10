@@ -7,7 +7,7 @@
 
 <h1>Person: [% person.full_name %]</h1>
 
-<span class="task_count">[% num_tasks %] complee tasks</span>
+<h2>My Complete Tasks ([% num_tasks %])</h2>
 
 <table class="table sortable">
 <tr>
