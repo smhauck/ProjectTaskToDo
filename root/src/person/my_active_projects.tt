@@ -5,9 +5,7 @@
 <div class="col-sm-9 blog-main">
 
 <h1>Person: [% person.full_name %]</h1>
-[% INCLUDE person/person_details.tt %]
-
-
+<h2>My Active Projects</h1>
 [% IF authorized %]
 <a href="[% C.uri_for("/person/$person.id/edit") %]">Edit this Person</a><br />
 <a href="[% C.uri_for("/person/$person.id/edit_roles") %]">Edit Person's Roles</a><br />
