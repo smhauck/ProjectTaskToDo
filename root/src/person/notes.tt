@@ -8,15 +8,15 @@
 
 <table class="table">
 <tr>
-<th align='right'>date</th>
-<th align='right'>creator</th>
-<th align='right'>jobcode</th>
-<th align='right'>project</th>
-<th align='right'>task</th>
-<th align='right'>title</th>
-<!-- <th align='right'>privacy</th> -->
+<th>Related Date</th>
+<th>Creator</th>
+<th>Jobcode</th>
+<th>Project</th>
+<th>Task</th>
+<th>Title</th>
+<th>Privacy</th>
 </tr>
-[% FOREACH note IN notes %]
+[% FOREACH note IN notes -%]
 <tr>
 [% IF note.date_selected && note.date_selected != '0000-00-00' %]
 <td>[% note.date_selected %]</td>
@@ -28,13 +28,13 @@
 <td><a href='/project/[% note.project_id %]'>[% note.project.project_name | html %]</a></td>
 <td><a href='/task/[% note.task_id %]'>[% note.task.task_name | html %]</a></td>
 <td><a href='/note/[% note.id %]'>[% note.title | html %]</a></td>
-[% IF note.public %]
-<!-- <td>PUBLIC</td> -->
-[% ELSE %]
-<!-- <td>PRIVATE</td> -->
-[% END %]
+[% IF note.public -%]
+<td>PUBLIC</td>
+[% ELSE -%]
+<td>PRIVATE</td>
+[% END -%]
 </tr>
-[% END %]
+[% END -%]
 </table>
 
 
