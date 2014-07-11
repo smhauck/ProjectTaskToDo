@@ -11,11 +11,11 @@ $(function() {
 <form name="new_note" action="/note/insert_note" method="post">
 <table class="table">
 <tr>
-<th>title</th>
+<th>Title</th>
 <td><input type="text" id="title" name="title" size="36" value="[% note.title | html %]"></td>
 </tr>
 <tr>
-<th>client organization</th>
+<th>Client Organization</th>
 <td>
 <select name="client_organization_id" size="1">
 	<option value="" />
@@ -29,7 +29,7 @@ $(function() {
 </td>
 </tr>
 <tr>
-<th>client person</th>
+<th>Client Person</th>
 <td>
 <select name="client_person_id" size="1">
 	<option value="" />
@@ -43,7 +43,7 @@ $(function() {
 </td>
 </tr>
 <tr>
-<th>client contact</th>
+<th>Client Contact</th>
 <td>
 <select name="client_contact_person_id" size="1">
 	<option value="" />
@@ -57,11 +57,11 @@ $(function() {
 </td>
 </tr>
 <tr>
-<th>public</th>
+<th>Public</th>
 <td><input type="checkbox" name="public" value="1" /></td>
 </tr>
 <tr>
-<th>project</th>
+<th>Project</th>
 <td>
 [% IF projects.size == 1 %]
 <select name="project_id" size="1">
@@ -84,7 +84,7 @@ $(function() {
 </td>
 </tr>
 <tr>
-<th>task</th>
+<th>Task</th>
 <td>
 [% IF projects.size == 1 %]
 <select name="task_id" size="1">
@@ -108,7 +108,7 @@ $(function() {
 </td>
 </tr>
 <tr>
-<th>date</th>
+<th>Date</th>
 [% IF note.date_selected && note.date_selected != "0000-00-00" %]
 <td><input type="text" class="ui-datepicker" name="date_selected" value="[% note.date_selected%]" size="60">
 [% ELSE %]
@@ -117,7 +117,7 @@ $(function() {
 </td>
 </tr>
 <tr>
-<th><strong>body</th>
+<th>Body</th>
 <td><textarea rows="20" cols="100" name="body">[% note.body | html %]</textarea></td>
 </tr>
 <tr>

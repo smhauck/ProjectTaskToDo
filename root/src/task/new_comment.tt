@@ -1,4 +1,4 @@
-[% META title = 'ProjectTaskToDo:New Task Comment' %]
+[% META title = 'New Task Comment' %]
 
 <div class="container">
 <script type="text/javascript">
