@@ -1,6 +1,7 @@
 <div class="container">
 [% INCLUDE project/search_box.tt %]
 
+[% IF projects.size > 0 -%]
 <table class="table sortable">
 <tr><th>ShortName</th><th>Name</th><th>Description</th></tr>
 [% FOREACH project IN projects %]
@@ -9,6 +10,7 @@
 <td><a href="/project/[% project.id %]">[% project.project_name %]</a></td>
 <td>[% project.project_description %]</td>
 </tr>
+[% END -%]
 [% END -%]
 
 </table>
