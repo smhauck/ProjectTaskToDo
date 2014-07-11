@@ -172,6 +172,8 @@ sub search : Local {
 
         $c->stash->{project_count} = @$projects;
         $c->stash->{projects}      = $projects;
+	$c->stash->{criteria} = 1 if (%where_clause);
+	$c->stash->{projects_found} = @$projects;
 
         $c->stash->{url_params} = $url_params;
     }
@@ -2197,27 +2199,6 @@ sub remove_resource : Chained('project_object') : PathPart('remove_resource') :
     }
 }
 
-=head2 search
-
-=cut
-
-#sub search : Local {
-#    my ( $self, $c ) = @_;
-#    my $criteria = "";
-#    $criteria = $c->req->params->{criteria};
-#    $c->stash->{criteria} = $criteria;
-#    if ($criteria) {
-#
-##$c->stash->{projects} = [$c->model('ProjectTaskToDoDB::Project')->search_like( criteria=> ("\%$criteria\%" ))];
-#        $c->stash->{projects} = [
-#            $c->model('ProjectTaskToDoDB::Project')->search_literal(
-#"match (project_short_name, project_name, project_description) against (?) and status_id <> '3'",
-#                $criteria
-#            )
-#        ];
-#    }
-#    $c->stash->{template} = 'project/search.tt';
-#}
 
 =head2 tasks
 

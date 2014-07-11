@@ -1,7 +1,7 @@
 <div class="container">
 [% INCLUDE project/search_box.tt %]
 
-[% IF projects.size > 0 -%]
+[% IF projects_found -%]
 <table class="table sortable">
 <tr><th>ShortName</th><th>Name</th><th>Description</th></tr>
 [% FOREACH project IN projects %]
@@ -11,6 +11,8 @@
 <td>[% project.project_description %]</td>
 </tr>
 [% END -%]
+[% ELSIF criteria -%]
+<h2>No Projects Matched Search</h2>
 [% END -%]
 
 </table>
