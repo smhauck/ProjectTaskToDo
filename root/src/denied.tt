@@ -1,10 +1,10 @@
-[% META title = 'ProjectTaskToDo' %]
-
+<!-- BEGIN denied.tt -->
 <div class="container">
 	<p>That function is restricted to authorized users.</p>
 	<p>You are either not logged in or do not have sufficient previleges to access that function.</p>
 	<p>Please <a href="[% Catalyst.uri_for('/login') %]">login</a> to use the system.</p>
 </div><!-- class="container" -->
+<!-- END denied.tt -->
 
 
 [%#

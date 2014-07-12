@@ -1,4 +1,5 @@
-[% META title = 'ProjectTaskToDo' %]
+<!-- BEGIN error.tt -->
+[% META title = 'ERROR' %]
 
 <div class="container">
 [% IF Catalyst.user %]
@@ -8,6 +9,7 @@
 	<p>Please <a href="[% Catalyst.uri_for('/login') %]">login</a> to use the system.</p>
 [% END %]
 </div><!-- class="container" -->
+<!-- END error.tt -->
 
 
 [%#

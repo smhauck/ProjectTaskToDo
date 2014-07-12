@@ -1,4 +1,4 @@
-[% META title = 'ProjectTaskToDo:Lessons Learned' %]
+[% META title = 'Lessons Learned' %]
 
 <div class="container">
 <h2>Database Related</h2>

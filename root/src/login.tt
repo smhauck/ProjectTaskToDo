@@ -1,4 +1,4 @@
-[% META title = 'ProjectTaskToDo' %]
+[% META title = 'Login' %]
 <div class="container">
 	<h2 class="form-signin-heading">Please sign in</h2>
 	[% INCLUDE login_form.tt %]

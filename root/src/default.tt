@@ -1,4 +1,4 @@
-[% META title = 'ProjectTaskToDo' %]
+<!-- BEGIN default.tt -->
 <div class="container">
 [% IF Catalyst.user -%]
 [% PROCESS notifications.tt %]
@@ -7,6 +7,7 @@
 	[% INCLUDE login_form.tt %]
 [% END -%]
 </div><!-- class="container" -->
+<!-- END default.tt -->
 
 
 [%#

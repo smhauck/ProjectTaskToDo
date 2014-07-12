@@ -1,4 +1,4 @@
-[% META title = 'ProjectTaskToDo' %]
+[% META title = 'Authenticate' %]
 
 <span class="userlabel" id="sitetitle"><a href='/'>projecttasktodo</a> * <a href='/user/displayDetails/[% user %]'>user: [% user %]</a></span>
 

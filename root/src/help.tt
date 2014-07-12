@@ -1,28 +1,5 @@
-[%#-
-COPYRIGHT
-
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
-
-LICENSE
-
-This file is part of ProjectTaskToDo.
-
-ProjectTaskToDo is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-ProjectTaskToDo is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
--%]
-
-
-[% META title = 'ProjectTaskToDo:Help' %]
+<!-- BEGIN help.tt -->
+[% META title = 'Help' %]
 
 
 <div class="container">
@@ -69,3 +46,28 @@ along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 <li>Task comments can not be edited after 15 minutes.  This gives enough time to correct typos but blocks users from going back and changing history.  (Future updates will allow comment modification but record it in a history table.)</li>
 </ul>
 </div><!-- class="container" -->
+<!-- END help.tt -->
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+%]
