@@ -2,7 +2,7 @@
 <div class="container">
 <footer>
   <div class="container">
-    <p class="text-muted"><a href="/about">About</a> * <a href="/license">License</a> * <a href="/technology">Technology</a></p>
+    <p class="text-muted"><a href="/license">License</a> * <a href="/technology">Technology</a></p>
     <p class="text-muted">Follow development on the <a href="http://www.projecttasktodo.org/blog.shtml">development blog</a> and the <a href="https://github.com/wbhauck/ProjectTaskToDo/blob/master/Changes">Project Change Log</a></p>
     <p class="text-muted">&copy; [% site.copyright %]</p>
   </div><!-- class="container" -->
