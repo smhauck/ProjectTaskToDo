@@ -1,6 +1,5 @@
+<!-- BEGIN edit.tt -->
 <div class="container">
-
-<script src="/static/scripts/ckeditor/ckeditor.js"></script>
 
 <script type="text/javascript">
 $(function() {
@@ -123,6 +122,7 @@ $(document).ready(function(){
 
 <script>CKEDITOR.replace( 'body' );</script>
 </div><!-- class="container" -->
+<!-- END edit.tt -->
 
 
 [%#
