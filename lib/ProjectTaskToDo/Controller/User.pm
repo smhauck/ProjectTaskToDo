@@ -102,7 +102,7 @@ sub reset_password : Local {
 		$c->detach();
 	}
 
-	$c->response->redirect($c->uri_for('/user/details'));
+	$c->response->redirect($c->uri_for('/'));
 	$c->detach();
 }
 
@@ -207,11 +207,11 @@ sub update : Local {
 	}
 	else {
 		$c->flash->{message}="You are not authorized to edit this user.";
-		$c->response->redirect($c->uri_for("/user/details/$user_id"));
+		$c->response->redirect($c->uri_for("/person/$user_id"));
 	}
 
 	$c->stash->{user}=$c->model('ProjectTaskToDoDB::User')->find({id=>$user_id});
-	$c->response->redirect($c->uri_for("/user/details/$user_id"));
+	$c->response->redirect($c->uri_for("/person/$user_id"));
 	$c->detach();
 }
 
@@ -237,17 +237,17 @@ sub update_roles : Chained('user_object') : PathPart('update_roles') : Args(0) {
                         	$user_to_display->user_roles->create({ role => $keeper });
                 	}
 
-			$c->response->redirect($c->uri_for("/user/$user_to_display_id"));
+			$c->response->redirect($c->uri_for("/person/$user_to_display_id"));
 			$c->detach();
 		}
 		else {
 			$c->flash->{message}="You are not authorized to edit this user.";
-			$c->response->redirect($c->uri_for("/user/$user_to_display_id"));
+			$c->response->redirect($c->uri_for("/person/$user_to_display_id"));
 		}
 	}
 	else {
 		$c->flash->{message}="You are not authorized to edit this user.";
-		$c->response->redirect($c->uri_for("/user/$user_to_display_id"));
+		$c->response->redirect($c->uri_for("/person/$user_to_display_id"));
 	}
 
 	return();
@@ -271,7 +271,7 @@ sub edit : Local {
 	}
 	else {
 		$c->flash->{message}="You are not authorized to edit this task.";
-		$c->response->redirect($c->uri_for("/user/details/$user_id"));
+		$c->response->redirect($c->uri_for("/person/$user_id"));
 	}
 }
 
@@ -293,7 +293,7 @@ sub edit_roles : Chained('user_object') : PathPart('edit_roles') : Args(0) {
 	}
 	else {
 		$c->flash->{message}="You are not authorized to edit this user.";
-		$c->response->redirect($c->uri_for("/user/details/$user_to_display_id"));
+		$c->response->redirect($c->uri_for("/person/$user_to_display_id"));
 	}
 	return();
 }
