@@ -23,7 +23,7 @@
 <tr><th>AIM Name:</th><td>[% person.aim_name | html %]</td></tr>
 <tr><th>Registered:</th><td>[% person.registered %]</td></tr>
 <tr><th>Last Modified:</th><td>[% person.last_modified %]</td></tr>
-[% IF authorized==1 %]
+[% IF admin == 1 %]
 <tr><th>Admin Notes:</th><td>[% person.admin_notes | html | html_line_break %]</td></tr>
 [% END %]
 </table>

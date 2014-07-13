@@ -352,6 +352,10 @@ sub details : Chained('person_object') : PathPart('') : Args(0) {
         {
             $c->stash->{authorized} = 1;
         }
+	if ( $c->check_user_roles('administrator'))
+		{
+			$c->stash->{admin} = 1; 
+		}
     }
 
     $c->stash->{template} = 'person/details.tt';

@@ -30,7 +30,7 @@ sub notes_about_person : Chained('person_object') : PathPart('notes_about_person
     my ( $self, $c ) = @_;
     my $person = $c->stash->{person};
 
-	$c->stash->{notes} = [$c->model('ProjectTaskToDoComDB::Note')->search(
+	$c->stash->{notes} = [$c->model('ProjectTaskToDoDB::Note')->search(
 	[
 		{
 			client_person_id => { '=' => $person->id },
@@ -67,7 +67,7 @@ sub notes_by_person : Chained('person_object') : PathPart('notes_by_person') : A
     my $person = $c->stash->{person};
     # my $user_id = $user->id;
 
-	$c->stash->{notes} = [$c->model('ProjectTaskToDoComDB::Note')->search(
+	$c->stash->{notes} = [$c->model('ProjectTaskToDoDB::Note')->search(
 	{
 		creator_id => $person->id,
 		public => { '=' => 1 }
@@ -89,7 +89,7 @@ sub my_active_projects : Chained('person_object') : PathPart('my_active_projects
 	    my $person=$c->stash->{person};
 
         my $user_projects_rs =
-          $c->model('ProjectTaskToDoComDB::ProjectUser')
+          $c->model('ProjectTaskToDoDB::ProjectUser')
           ->search( { project_user_user_id => $person->id } );
         $c->stash->{projects} = [
             $user_projects_rs->search_related('project')->search(
@@ -120,7 +120,7 @@ sub my_complete_projects : Chained('person_object') : PathPart('my_complete_proj
 
     if ( $c->user ) {
         $c->stash->{projects} =
-          [ $c->model('ProjectTaskToDoComDB')
+          [ $c->model('ProjectTaskToDoDB')
               ->my_inactive_projects( $person->id ) ];
     }
     else {
@@ -142,7 +142,7 @@ sub my_active_tasks : Chained('person_object') : PathPart('my_active_tasks') : A
 
 	    # my $cur_date = strftime "%Y-%m-%d", localtime();
 
-    my $alive_projects = $c->model('ProjectTaskToDoComDB::Project')->search(
+    my $alive_projects = $c->model('ProjectTaskToDoDB::Project')->search(
         {
             'deleted'        => { '<>' => 'y' },
             'project_alive ' => { '='  => '1' }
@@ -178,7 +178,7 @@ sub my_complete_tasks : Chained('person_object') : PathPart('my_complete_tasks')
 
     # my $cur_date = strftime "%Y-%m-%d", localtime();
 
-    my $all_projects = $c->model('ProjectTaskToDoComDB::Project')->search(
+    my $all_projects = $c->model('ProjectTaskToDoDB::Project')->search(
         {
             'deleted'        => { '<>' => 'y' }
         }
@@ -352,6 +352,10 @@ sub details : Chained('person_object') : PathPart('') : Args(0) {
         {
             $c->stash->{authorized} = 1;
         }
+	if ( $c->check_user_roles('administrator'))
+		{
+			$c->stash->{admin} = 1; 
+		}
     }
 
     $c->stash->{template} = 'person/details.tt';
