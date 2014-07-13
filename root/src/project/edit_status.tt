@@ -9,9 +9,9 @@
 
 <h2>Project Status</h2>
 <form name="edit_status" action="/project/[% project.project_id %]/update_status" method="post">
-[% FOREACH stat IN stats %]
-  <input type="radio" name="status_id" value="[% stat.id %]">[% stat.name %]<br />
-[% END %]
+[% FOREACH stat IN stats -%]
+  <input type="radio" name="status_id" value="[% stat.id %]">[% stat.name | html %]<br />
+[% END -%]
 <br />
 <input type="submit" value="Update" />
 </form>

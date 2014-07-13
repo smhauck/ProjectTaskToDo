@@ -3,37 +3,37 @@
 <div class="col-sm-9 blog-main">
 
 
-<h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
+<h1 id='project_title'>Project: ([% project.project_short_name | html %]) [% project.project_name | html %]</h1>
 
-[% IF authorized %]
+[% IF authorized -%]
 <h2>Project Users</h2>
 <table class="table">
 <tr><th>Person</th><th>Role in Project</th><th></th></tr>
-[% FOREACH puser IN project_users %]
+[% FOREACH puser IN project_users -%]
 <tr>
-<td><a href="/person/[% puser.project_user_user_id %]">[% puser.user.full_name %] ([% puser.user.username %])</a></td><td>[% puser.role.display_name %]</td>
+<td><a href="/person/[% puser.project_user_user_id %]">[% puser.user.full_name | html %] ([% puser.user.username | html %])</a></td><td>[% puser.role.display_name | html %]</td>
 <td>
 <form action="/project/[% project.project_id %]/remove_resource/[% puser.project_user_id %]" method="POST">
 <button type="submit" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Remove</button>
 </form>
 </td>
 </tr>
-[% END %]
+[% END -%]
 </table>
 <br />
-[% ELSE %]
+[% ELSE -%]
 <h2>Project Users</h2>
 <table>
 <tr><th>Person</th><th>Role in Project</th></tr>
-[% FOREACH puser IN project_users %]
-<tr><td>[% puser.user.full_name %] ([% puser.user.username %])</td><td>[% puser.role.display_name %]</td></tr>
-[% END %]
+[% FOREACH puser IN project_users -%]
+<tr><td>[% puser.user.full_name %] ([% puser.user.username | html %])</td><td>[% puser.role.display_name | html %]</td></tr>
+[% END -%]
 </table>
 <br />
-[% END %]
+[% END -%]
 
 
-[% IF authorized %]
+[% IF authorized -%]
 <h2>Assign Resources</h2>
 <form name="edit_users" action="/project/[% project.project_id %]/insert_resource" method="post">
 <table class="table">
@@ -44,7 +44,7 @@
 <select name='project_role_type_id'>
 <option value="" />
 [% FOR project_role IN project_roles -%]
-<option value="[% project_role.id %]">[% project_role.display_name %]
+<option value="[% project_role.id %]">[% project_role.display_name | html %]
 [% END -%]
 </select>
 </td>
@@ -52,7 +52,7 @@
 </tr>
 </table>
 </form>
-[% END %]
+[% END -%]
 
 </div><!-- class="col-sm-9 blog-main" -->
 

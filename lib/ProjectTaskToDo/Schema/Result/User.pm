@@ -68,12 +68,6 @@ __PACKAGE__->table("user");
   is_nullable: 1
   size: 25
 
-=head2 department
-
-  data_type: 'varchar'
-  is_nullable: 1
-  size: 255
-
 =head2 registered
 
   data_type: 'datetime'
@@ -112,8 +106,6 @@ __PACKAGE__->add_columns(
   { data_type => "varchar", is_nullable => 1, size => 255 },
   "phone",
   { data_type => "varchar", is_nullable => 1, size => 25 },
-  "department",
-  { data_type => "varchar", is_nullable => 1, size => 255 },
   "registered",
   { data_type => "datetime", is_nullable => 1 },
   "last_modified",
@@ -127,8 +119,8 @@ __PACKAGE__->set_primary_key("id");
 __PACKAGE__->add_unique_constraint("username_unique", ["username"]);
 
 
-# Created by DBIx::Class::Schema::Loader v0.07002 @ 2013-09-12 15:17:59
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:9YGSLxlboVtTIlMdjwRhGw
+# Created by DBIx::Class::Schema::Loader v0.07002 @ 2014-07-13 09:00:32
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:SYVBDhR+mWYyh3/Cs4tYiw
 
 
 

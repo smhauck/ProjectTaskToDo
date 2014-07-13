@@ -24,14 +24,14 @@ $(function() {
 [% FOREACH project IN projects -%]
 [% linecount = linecount + 1 -%]
 <tr>
-<td><a href="/person/[% project.project_owner_id %]">[% project.owner.full_name %]</a></td>
+<td><a href="/person/[% project.project_owner_id %]">[% project.owner.full_name | html %]</a></td>
 [% IF project.billable -%]
 <td>Y</td>
 [% ELSE -%]
 <td>N</td>
 [% END -%]
-<td><a href="/project/[% project.project_id %]">[% project.project_short_name %]</a></td>
-<td><a href="/project/[% project.project_id %]/tasks/active">[% project.project_name %]</a></td>
+<td><a href="/project/[% project.project_id %]">[% project.project_short_name | html %]</a></td>
+<td><a href="/project/[% project.project_id %]/tasks/active">[% project.project_name | html %]</a></td>
 <td><input type='text' class='ui-datepicker' name='date_of_work-[% project.project_id %]' size='5' /></td>
 <td><input type='text' name='time_worked_hr-[% project.project_id %]' size='4' /></td>
 <td><input type='text' name='time_worked_min-[% project.project_id %]' size='4' /></td>
@@ -41,7 +41,7 @@ $(function() {
 <option value=''></option>
 [% FOREACH cur_task IN project.tasks -%]
 [% IF cur_task.task_alive == 1 -%]
-<option value='[%cur_task.task_id %]'> [%cur_task.task_name %]</option>
+<option value='[%cur_task.task_id %]'> [%cur_task.task_name | html %]</option>
 [% END -%]
 [% END -%]
 </select>

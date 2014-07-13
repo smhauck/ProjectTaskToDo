@@ -4,7 +4,7 @@
 <br />
 <form action='/project/update_comment/[% comment.comment_id %]' method='post'>
 Enter Comment<br />
-<textarea rows='20' cols='80' name='comment_body'>[% comment.comment %]</textarea><br />
+<textarea rows='20' cols='80' name='comment_body'>[% comment.comment | html | html_line_break %]</textarea><br />
 <input type='hidden' name='project_id' value="[% pid %]"/>
 <input type='reset' value='Reset'>
 &nbsp;

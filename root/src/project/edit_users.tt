@@ -13,14 +13,14 @@
 
 <table>
 <tr><td>Project ID</td><td>[% project.project_id %]</td></tr>
-[% IF authorized %]
-<tr><td>Project Name</td><td>[% project.project_name %] <a href="/project/[% project.id %]/edit">(Edit Project)</a></td></tr>
-[% ELSE %]
+[% IF authorized -%]
+<tr><td>Project Name</td><td>[% project.project_name | html %] <a href="/project/[% project.id %]/edit">(Edit Project)</a></td></tr>
+[% ELSE -%]
 <tr><td>Project Name</td><td>[% project.project_name %]</td></tr>
-[% END %]
-<tr><td>Short Name</td><td>[% project.project_short_name %]</a></td></tr>
-<tr><td>Creator</td><td>[% project.creator.full_name %]</td></tr>
-<tr><td>Owner</td><td>[% project.owner.full_name %]</td></tr>
+[% END -%]
+<tr><td>Short Name</td><td>[% project.project_short_name | html %]</a></td></tr>
+<tr><td>Creator</td><td>[% project.creator.full_name | html %]</td></tr>
+<tr><td>Owner</td><td>[% project.owner.full_name | html %]</td></tr>
 <tr><td>Last Modified</td><td>[% project.project_recorded %]</td></tr>
 </table>
 <br />
@@ -38,7 +38,7 @@
 <select name='project_role_type_id'>
 <option value="" />
 [% FOR project_role IN project_roles -%]
-<option value="[% project_role.id %]">[% project_role.display_name %]
+<option value="[% project_role.id %]">[% project_role.display_name | html %]
 [% END -%]
 </select>
 </td>

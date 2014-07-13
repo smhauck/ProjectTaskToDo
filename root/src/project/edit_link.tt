@@ -8,7 +8,7 @@ $(function() {
 });
 </script>
 
-<h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
+<h1 id='project_title'>Project: ([% project.project_short_name | html %]) [% project.project_name | html %]</h1>
 
 <h2>Edit Project Links</h2>
 
@@ -22,16 +22,16 @@ $(function() {
 <select name='link_type_id' size='1'>
 [% FOR link_type IN link_types -%]
 [% IF link.link_type_id == link_type.id %]
-<option selected value='[% link_type.id %]'>[% link_type.name %]
-[% ELSE %]
+<option selected value='[% link_type.id %]'>[% link_type.name | html %]
+[% ELSE -%]
 <option value='[% link_type.id %]'>[% link_type.name %]
-[% END %]
-[% END %]
+[% END -%]
+[% END -%]
 </td>
 </tr>
 <tr>
 <th>Link Text</th>
-<td><input type='text' name='link_text' value='[% link.link_text %]' size='60'></td>
+<td><input type='text' name='link_text' value='[% link.link_text | html %]' size='60'></td>
 </tr>
 <tr>
 <th>Link URL</th>
@@ -39,7 +39,7 @@ $(function() {
 </tr>
 <tr>
 <th>description</th>
-<td><textarea rows='10' cols='100' name='description'>[% link.description %]</textarea></td>
+<td><textarea rows='10' cols='100' name='description'>[% link.description | html | html_line_break %]</textarea></td>
 </tr>
 </table>
 <br />

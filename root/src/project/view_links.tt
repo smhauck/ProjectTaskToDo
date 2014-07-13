@@ -3,18 +3,18 @@
 <div class="row">
 <div class="col-sm-9 blog-main">
 
-<h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
+<h1 id='project_title'>Project: ([% project.project_short_name | html %]) [% project.project_name | html %]</h1>
 
-[% IF authorized %]
+[% IF authorized -%]
 <h2>Project Links</h2>
 <table class="table sortable">
 <tr><th>Dispaly Text</th><th>URL</th><th>Type</th><th>Description</th><th></th><th></th></tr>
-[% FOREACH link IN project.links %]
+[% FOREACH link IN project.links -%]
 <tr>
-<td>[% link.link_text %]</td>
-<td><a href="[% link.link_url %]">[% link.link_url %]</a></td>
-<td>[% link.type.name %]</td>
-<td>[% link.description %]</td>
+<td>[% link.link_text | html %]</td>
+<td>[% link.link_url | html %]</td>
+<td>[% link.type.name | html %]</td>
+<td>[% link.description | html | html_line_break %]</td>
 <td><a href="/project/[% project.project_id %]/edit_link/[% link.id %]">Edit</a></td>
 <td>
 <form action="/project/[% project.project_id %]/remove_link/[% link.id %]" method="POST">
@@ -22,28 +22,25 @@
 </form>
 </td>
 </tr>
-[% END %]
+[% END -%]
 </table>
 <br />
-[% ELSE %]
+[% ELSE -%]
 <h2>NOT AUTHORIZED: Project Link</h2>
 <table>
 <tr><th>Display Text</th><th>Link URL</th><th>Type</th><th>Description</th></tr>
-[% FOREACH link IN project.links %]
-<td>[% link.link_text %]</td>
-<td>[% link.link_url %]</td>
-<td>[% link.type.name %]</td>
-<td>[% link.description %]</td>
+[% FOREACH link IN project.links -%]
+<td>[% link.link_text | html %]</td>
+<td>[% link.link_url | html %]</td>
+<td>[% link.type.name | html %]</td>
+<td>[% link.description | html | html_line_break %]</td>
 </tr>
-[% END %]
+[% END -%]
 </table>
 <br />
-[% END %]
-
+[% END -%]
 
 <p><a href='/project/[% project.project_id %]/add_link'>Add Another Link</a></p>
-
-
 
 </div><!-- class="col-sm-9 blog-main" -->
 

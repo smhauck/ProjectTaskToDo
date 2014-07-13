@@ -12,7 +12,7 @@
 	});
 </script>
 
-<h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
+<h1 id='project_title'>Project: ([% project.project_short_name | html %]) [% project.project_name | html %]</h1>
 
 [% IF authorized -%]
 <h2>Project Links</h2>
@@ -24,9 +24,9 @@
 <td><input type='text' name='link_url' /></td>
 <td>
 <select name='link_type_id' size='1'>
-[% FOREACH link_type IN link_types %]
-<option value='[% link_type.id %]' />[% link_type.name %]
-[% END %]
+[% FOREACH link_type IN link_types -%]
+<option value='[% link_type.id %]' />[% link_type.name | html %]
+[% END -%]
 </select>
 </td>
 <td><textarea name='description'></textarea></td>

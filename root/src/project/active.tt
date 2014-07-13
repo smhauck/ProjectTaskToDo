@@ -1,6 +1,6 @@
 <div class="container">
 
-[% linecount = 0 %]
+[% linecount = 0 -%]
 <table class="table sortable">
 <tr>
 	<th>Category</th>
@@ -13,28 +13,28 @@
 	<th>Client Contact</th>
 	<th>Sched Completion Date</th>
 </tr>
-[% FOREACH project IN projects %]
-[% linecount = linecount + 1 %]
+[% FOREACH project IN projects -%]
+[% linecount = linecount + 1 -%]
 <tr>
-<td>[% project.category.name %]</td>
-<td><a href="/project/[% project.project_id %]">[% project.project_short_name %]</a></td>
-[% IF project.billable == 1 %]
+<td>[% project.category.name | html %]</td>
+<td><a href="/project/[% project.project_id %]">[% project.project_short_name | html %]</a></td>
+[% IF project.billable == 1 -%]
 <td>Yes</td>
-[% ELSE %]
+[% ELSE -%]
 <td>No</td>
-[% END %]
-<td><a href="/project/[% project.project_id %]/tasks/active">[% project.project_name %]</a></td>
-<td><a href="/person/[% project.project_owner_id %]">[% project.owner.full_name %]</a></td>
-<td><a href="/organization/[% project.client_organization_id %]">[% project.client_organization_name %]</td>
-<td><a href="/person/[% project.client_person_id %]">[% project.client_person_name %]</td>
-<td><a href="/person/[% project.client_contact_person_id %]">[% project.client_contact_person_name %]</td>
-[% IF project.project_sched_compl_date && project.project_sched_compl_date != '0000-00-00' %]
-<td>[% project.project_sched_compl_date %]</td>
-[% ELSE %]
+[% END -%]
+<td><a href="/project/[% project.project_id %]/tasks/active">[% project.project_name | html %]</a></td>
+<td><a href="/person/[% project.project_owner_id %]">[% project.owner.full_name | html %]</a></td>
+<td><a href="/organization/[% project.client_organization_id %]">[% project.client_organization_name | html %]</td>
+<td><a href="/person/[% project.client_person_id %]">[% project.client_person_name | html %]</td>
+<td><a href="/person/[% project.client_contact_person_id %]">[% project.client_contact_person_name | html %]</td>
+[% IF project.project_sched_compl_date && project.project_sched_compl_date != '0000-00-00' -%]
+<td>[% project.project_sched_compl_date | html %]</td>
+[% ELSE -%]
 <td></td>
-[% END %]
+[% END -%]
 </tr>
-[% END %]
+[% END -%]
 </table>
 
 Count: [% linecount %]

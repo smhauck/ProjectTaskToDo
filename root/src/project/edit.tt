@@ -12,7 +12,7 @@ $(function() {
 });
 </script>
 
-<h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
+<h1 id='project_title'>Project: ([% project.project_short_name | html %]) [% project.project_name | html %]</h1>
 
 <form name="edit" action="/project/update" method="post">
 <input type="hidden" name="project_id" value="[% project.project_id %]" />
@@ -21,26 +21,26 @@ $(function() {
 <th>category</th>
 <td>
 <select name="category_id" size="1">
-[% FOR cat IN cats %]
+[% FOR cat IN cats -%]
 [% IF project.category_id == cat.id %]
-<option selected value="[% cat.id %]">[% cat.name %]
-[% ELSE %]
-<option value="[% cat.id %]">[% cat.name %]
-[% END %]
-[% END %]
+<option selected value="[% cat.id %]">[% cat.name | html %]
+[% ELSE -%]
+<option value="[% cat.id %]">[% cat.name | html %]
+[% END -%]
+[% END -%]
 </td>
 </tr>
 <tr>
 <th>billable</th>
-[% IF project.billable == 1 %]
+[% IF project.billable == 1 -%]
 <td><input type="checkbox" name="billable" value="1" checked="1" /></td>
-[% ELSE %]
+[% ELSE -%]
 <td><input type="checkbox" name="billable" value="1" /></td>
-[% END %]
+[% END -%]
 </tr>
 <tr>
 <th>short name</th>
-<td><input type="text" name="short_name" value="[% project.project_short_name %]" size="60"></td>
+<td><input type="text" name="short_name" value="[% project.project_short_name | html %]" size="60"></td>
 </tr>
 <tr>
 <th>name</th>
@@ -50,19 +50,19 @@ $(function() {
 <th>owner</th>
 <td>
 <select name="owner_id" size="1">
-[% FOR user IN users %]
-[% IF project.project_owner_id == user.id %]
-<option selected value="[% user.id %]">[% user.full_name %]
-[% ELSE %]
-<option value="[% user.id %]">[% user.full_name %]
-[% END %]
-[% END %]
+[% FOR user IN users -%]
+[% IF project.project_owner_id == user.id -%]
+<option selected value="[% user.id %]">[% user.full_name | html %]
+[% ELSE -%]
+<option value="[% user.id %]">[% user.full_name | html %]
+[% END -%]
+[% END -%]
 </select>
 </td>
 </tr>
 <tr>
 <th>description</th>
-<td><textarea rows="10" cols="100" name="description">[% project.project_description %]</textarea></td>
+<td><textarea rows="10" cols="100" name="description">[% project.project_description | html | html_line_break %]</textarea></td>
 </tr>
 <tr>
 <th>requirements</th>

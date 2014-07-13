@@ -14,7 +14,7 @@
 	});
 </script>
 
-<h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
+<h1 id='project_title'>Project: ([% project.project_short_name | html %]) [% project.project_name | html %]</h1>
 
 <h2>Project Notes</h2>
 
@@ -29,7 +29,7 @@
 [% FOREACH note IN notes_personal -%]
 <tr>
 <td>[% note.date_selected %]</td>
-<td><a href='/person/[% note.creator_id %]'>[% note.creator.full_name %]</a></td>
+<td><a href='/person/[% note.creator_id %]'>[% note.creator.full_name | html %]</a></td>
 <td><a href='/task/[% note.task_id %]'>[% note.task.task_name | html %]</a></td>
 <td><a href='/note/[% note.id %]'>[% note.title | html %]</a></td>
 <td>PERSONAL</td>
@@ -38,7 +38,7 @@
 [% FOREACH note IN notes_public -%]
 <tr>
 <td>[% note.date_selected %]</td>
-<td><a href='/person/[% note.creator_id %]'>[% note.creator.full_name %]</a></td>
+<td><a href='/person/[% note.creator_id %]'>[% note.creator.full_name | html %]</a></td>
 <td><a href='/task/[% note.task_id %]'>[% note.task.task_name | html %]</a></td>
 <td><a href='/note/[% note.id %]'>[% note.title | html %]</a></td>
 <td>PUBLIC</td>

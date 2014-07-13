@@ -12,7 +12,7 @@
 	});
 </script>
 
-<h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
+<h1 id='project_title'>Project: ([% project.project_short_name | html %]) [% project.project_name | html %]</h1>
 <form name="edit_client_contact" action="/project/update_client_contact/[% project.project_id %]" method="post">
 Project Client Contact: <input class="ui-autocomplete-input" id="client_contact_id" name="client_contact_id" />
 <input type="submit" value="Update" />

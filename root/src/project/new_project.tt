@@ -24,9 +24,9 @@ $(function() {
 <td>
 <select name="owner_id" size="1">
 <option value="" />
-[% FOR user IN users %]
-<option value="[% user.id %]" />[% user.full_name %]
-[% END %]
+[% FOR user IN users -%]
+<option value="[% user.id %]" />[% user.full_name | html %]
+[% END -%]
 </select>
 </td>
 </tr>
