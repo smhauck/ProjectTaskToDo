@@ -54,10 +54,12 @@ sub user_object : Chained('user_base') : PathPart('') : CaptureArgs(1) {
 
 =cut
 
-sub reset_password : Local {
+sub reset_password : Chained('user_object') : PathPart('reset_password') : Args(0) {
 	my ($self, $c) = @_;
-	my $bad_passwords=0;
-	my $verification=0;
+    
+	my $user = $c->stash->{user};
+	my $user_id = $user->id;
+
 	my $old_password="";
 	$old_password= $c->req->params->{old_password};
 	my $new_password1= $c->req->params->{new_password1};
@@ -75,6 +77,7 @@ sub reset_password : Local {
 			if (crypt($old_password, $existing_crypted_password) eq $existing_crypted_password)
 			{
 				$user= $c->model('ProjectTaskToDoDB::User')->find({username => $c->user->username});
+				my $user_id = $user->id;
 
 				$user->update({
 					password=>$new_crypted_password,
@@ -82,27 +85,14 @@ sub reset_password : Local {
 
 				# password changed
 				$c->flash->{message}="Your password has been changed.";
-				#$c->flash->{message}="verification: $verification";
-				$c->response->redirect('user/details');
-			} else {
-				$bad_passwords=1;
+				$c->response->redirect("/person/$user_id");
+				$c->detach();
 			}
-		} else {
-			$bad_passwords=1;
 		}
-	} else {
-		$bad_passwords=1;
 	}
 
-	if ($bad_passwords)
-	{
-		# new passwords do not match incorrect
-		$c->flash->{message}="There was a problem with the passwords you entered.  Please try again.";
-		$c->response->redirect('/user/change_password');
-		$c->detach();
-	}
-
-	$c->response->redirect($c->uri_for('/'));
+	$c->flash->{message}="There was a problem with the passwords you entered.  Please try again.";
+	$c->response->redirect($c->uri_for("/user/$user_id/change_password"));
 	$c->detach();
 }
 
@@ -120,10 +110,10 @@ sub change_password : Chained('user_object') : PathPart('change_password') : Arg
 	    if ( ( $c->user->id == $user_to_display->id ) || ( $c->check_user_roles('admin') ) ) {
     		$c->stash->{template} = 'user/change_password.tt';
             } else {
-		$c->response->redirect($c->uri_for('/user/details'));
+		$c->response->redirect($c->uri_for('/person/details'));
 	    }
     } else {
-	$c->response->redirect($c->uri_for('/user/details'));
+	$c->response->redirect($c->uri_for('/person/details'));
     }
 }
 
@@ -267,7 +257,7 @@ sub edit : Local {
 
 	if ($u->id == $c->user->id) {
 		$c->stash->{user} = $c->model('ProjectTaskToDoDB::User')->find({id=>$user_id});
-		$c->stash->{template} = 'user/edit.tt';
+		$c->stash->{template} = 'person/edit.tt';
 	}
 	else {
 		$c->flash->{message}="You are not authorized to edit this task.";
