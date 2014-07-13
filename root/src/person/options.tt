@@ -7,7 +7,7 @@
 <ol class="list-unstyled">
 [% IF authorized -%]
 <a href='/person/[% person.id %]/edit'>Edit this Person</a><br />
-<a href='/person/[% person.id %]/edit_roles'>Edit Person's Roles</a><br />
+<a href='/user/[% person.id %]/edit_roles'>Edit Person's Roles</a><br />
 [% END -%]
 <br />
 <a href="/person/[% person.id %]/my_active_projects">View Active Projects</a><br />
@@ -17,7 +17,7 @@
 <a href="/person/[% person.id %]/notes_by_person">View Person's Notes</a><br />
 <a href="/person/[% person.id %]/notes_about_person">View Notes About Person</a><br />
 [% IF Catalyst.user.id == person.id %]
-<a href="/person/[% person.id %]/change_password">Change Password</a><br />
+<a href="/user/[% person.id %]/change_password">Change Password</a><br />
 [% END %]
 </div><!-- class="sidebar-module" -->
 

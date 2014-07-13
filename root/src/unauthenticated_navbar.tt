@@ -19,7 +19,7 @@
 	<li><a href='/login'><i class="glyphicon glyphicon-user"></i> Login</a></li>
         [% IF Catalyst.user -%]
         <p class="navbar-text navbar-right">
-        <a href="/user/details/[% Catalyst.user.id %]" class="navbar-link">[% Catalyst.user.full_name %] ([% Catalyst.user.username %])</a>
+        <a href="/person/[% Catalyst.user.id %]" class="navbar-link">[% Catalyst.user.full_name %] ([% Catalyst.user.username %])</a>
         <a href="[% Catalyst.uri_for("/logout") %]" class="navbar-link">logout</a>
         </p>
         [% END -%]
