@@ -304,12 +304,19 @@ sub edit_roles : Chained('user_object') : PathPart('edit_roles') : Args(0) {
 
 =cut
 
-sub details : Local {
+sub details :Chained('user_object') :PathPart('') : Args(0) {
     my ( $self, $c ) = @_;
-	my $user_id = $c->user->id;
+    
+	if ( $c->user_exists ) {
+   	     if (
+               ( $c->check_user_roles('administrator') )
+            || ( $c->check_user_roles('user_maintainer') )
 
-	$c->stash->{user}=$c->model('ProjectTaskToDoDB::User')->find({id=>$user_id});
-	$c->stash->{template}='user/details.tt';
+          )
+        {
+            $c->stash->{authorized} = 1;
+        }
+    }
 }
 
 
