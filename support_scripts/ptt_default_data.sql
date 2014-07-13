@@ -52,7 +52,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `role` WRITE;
 /*!40000 ALTER TABLE `role` DISABLE KEYS */;
-INSERT INTO `role` (`id`, `custom_role`, `role`, `capability`, `project_related`, `display_name`, `description`) VALUES (2,1,'member',NULL,0,NULL,NULL),(3,1,'client',NULL,0,'Client',NULL),(4,1,'user_maintainer',NULL,0,'User Maintainer',NULL),(1,1,'admin',NULL,0,'System Administrator',NULL);
+INSERT INTO `role` (`id`, `custom_role`, `role`, `capability`, `project_related`, `display_name`, `description`) VALUES (2,1,'member',NULL,0,NULL,NULL),(3,1,'client',NULL,0,'Client',NULL),(4,1,'user_maintainer',NULL,0,'User Maintainer',NULL),(1,1,'administrator',NULL,0,'System Administrator',NULL);
 /*!40000 ALTER TABLE `role` ENABLE KEYS */;
 UNLOCK TABLES;
 
