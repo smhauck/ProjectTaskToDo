@@ -14,7 +14,7 @@ $(function() {
 <td><input type="text" name="title" size="80" value="[% note.title | html %]" autofocus /></td>
 </tr>
 <tr>
-<th>Client Organization</th>
+<th>Organization</th>
 <td>
 <select name="client_organization_id" size="1">
 	<option value="" />
@@ -28,7 +28,7 @@ $(function() {
 </td>
 </tr>
 <tr>
-<th>Client Person</th>
+<th>Person</th>
 <td>
 <select name="client_person_id" size="1">
 	<option value="" />
@@ -42,7 +42,7 @@ $(function() {
 </td>
 </tr>
 <tr>
-<th>Client Contact</th>
+<th>Contact</th>
 <td>
 <select name="client_contact_person_id" size="1">
 	<option value="" />
