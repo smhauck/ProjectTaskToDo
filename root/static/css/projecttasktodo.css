@@ -5,14 +5,15 @@
 table tr:hover {
 	background: #f0f0f0;
 }
-
 /* =================================================================== */
-
 .technology_logo {
   margin: 3em 20em 2em 1em;
 }
-
 /* =================================================================== */
+/* account dropdown on very edge of navbar.  slide it over a bit */
+.navbar-nav.navbar-right:last-child {
+	margin-right: 0px;
+}
 /* =================================================================== */
 
 
