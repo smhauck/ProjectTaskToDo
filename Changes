@@ -1,3 +1,261 @@
+commit 1a67752e7a7e81c38fe0c4c108034f06412aed5b
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 13 17:23:15 2014 -0400
+
+    resetting password was funky; if did not work it did not display error message
+
+commit b21403ef07df73959650e2e64736c173791eea94
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 13 16:47:44 2014 -0400
+
+    filtering html in project templates;
+
+commit 5c43ca6c9158a09b10bddf8930a855cd24ca7aaa
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 13 14:08:41 2014 -0400
+
+    use Person controller for displaying details instead of User
+
+commit 7f4cfba73427dbd8daa9d56b1bd946150a1127c3
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 13 14:00:37 2014 -0400
+
+    removing older, backup file version
+
+commit 1ac2adb8b432702e00317dccf5e990778bc19e4e
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 13 14:00:05 2014 -0400
+
+    almost all user functions should be performed through Person. only password stuff should be User-related
+
+commit 05e0eaeee567042e9467303ed523f5e573112601
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 13 13:49:59 2014 -0400
+
+    User check if current user is authorized for function
+
+commit a7358195e1ff6e64535ad5e0f36a20d59b0722c6
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 13 09:20:37 2014 -0400
+
+    default data: changed admin role to administrator
+
+commit 9d27618e28b89e866e89cfd7d100ed7b54c44214
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 13 09:11:25 2014 -0400
+
+    removing vim backup file
+
+commit 74fffea8db9704ad5bc58f3a3833a91a015d771a
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 13 09:10:51 2014 -0400
+
+    person details: only display admin notes if you are an admin
+
+commit 92292d0c681664b4493d90ef9a623c28a0126911
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 12 22:20:50 2014 -0400
+
+    removed user.department from default schema; only need this in person table;
+
+commit b3dff9f24d84d0211b07fe4d8718fa9c3faa7354
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 12 01:22:41 2014 -0400
+
+    removed ckeditor for now. need to html encode tags before allowing html in notes
+
+commit d2ce5315842ba2724fadaf0718ad35b5779f697a
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 12 00:28:08 2014 -0400
+
+    footer: removed About for now; was basically redundant with Technology page
+
+commit 7e85042779518c82f49c70490ae206fbfbf081b6
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 11 23:42:17 2014 -0400
+
+    removed extra instance of ProjectTaskToDo in the page titles
+
+commit a5154610ed45ce6770a045b21322536db325d867
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 11 09:05:21 2014 -0400
+
+    project search: only dispaly "no projects found" message if user actually submitted some criteria; otherwise just display search_box
+
+commit 98dc8b9e4f269f3e7186d6c43a2197def2d70359
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 11 08:53:22 2014 -0400
+
+    project search: only dispaly results table if there are results
+
+commit 255877ed407e25922fa3c6feec75f0116b52f115
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 11 00:13:27 2014 -0400
+
+    page title cleaned; capitalized th for input forms
+
+commit d5106c493e32d18efdb23c52a67d51dbce5fb581
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 10 01:29:28 2014 -0400
+
+    user options: changed broken link for change_password
+
+commit c68ae4650c378583649d115349637379506e7c42
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 10 01:22:14 2014 -0400
+
+    person notes: changed formatting a bit
+
+commit c7b99302837600058a86cecec47722f8ee1ed941
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 10 00:35:16 2014 -0400
+
+    person active & complete tasks: removed person_details; formatted table; added h2 to describe what page is showing
+
+commit d91e72ace0995dca1bed7b86973cca5fc3206b1f
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 10 00:31:41 2014 -0400
+
+    person my_complete_projects: made table class=table
+
+commit 8202770247ed273e62035de053d97ab801859691
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 10 00:30:23 2014 -0400
+
+    person project pages: removed person_details as it is extraneous
+
+commit 29909528f72f4b215ffadafc46c59b7c1a1fd500
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 9 14:07:10 2014 -0400
+
+    task today: added table class=table
+
+commit 6c2ee8147444367ead7725fe7ae27e57b1a18665
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 9 13:42:43 2014 -0400
+
+    organization: cleaned up forms; removed extraneous / not-yet-implmented fields
+
+commit f4c3995423e46a1b84b24ed32fce99b16c609062
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 9 13:35:10 2014 -0400
+
+    organization details: made Bootstrap-style
+
+commit 816660de0f39b34984872b19f6bef9b9459cb63c
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 9 13:02:22 2014 -0400
+
+    Project::new_comment now has authorized tag to display data-changing options
+
+commit 815b5243a77f41f3f817e9a83816eec1d68676cc
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 9 12:13:53 2014 -0400
+
+    project notes: cleaned up display; removed project in table as it is redundant
+
+commit a243a0cff812f914344b3ed6f4c11331cb27482d
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 9 11:55:33 2014 -0400
+
+    project tasks: added logic to only display table if matching task_types has tasks
+
+commit fd50483bc6c8df391bbc049edb73f3550d6e2df2
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 9 11:48:49 2014 -0400
+
+    project tasks removed project details; not needed when displaying tasks
+
+commit 91f03ad449aee4d922face45fe9c4c575fa442bd
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 9 11:34:46 2014 -0400
+
+    project new_comment: do not display "no comments" if no comments; not needed when adding new comment
+
+commit 2bd71d80db99ef925458832a00d3e80b582f8bf1
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 9 11:29:20 2014 -0400
+
+    project comments: cleaned; restyled; removed project data because there is a view for that
+
+commit 392b426029a50bc7f3b0af2e541bf5b88ef2d28e
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 9 11:21:12 2014 -0400
+
+    project comments: removed project details.  only display comments table if there actually are comments
+
+commit e1f8943072bc0dd806c1006ad707b7e12c233c15
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 9 11:14:55 2014 -0400
+
+    project::comments made Bootstrap style
+
+commit 3a8076afb423f98e3d84aff516209127e901bcfb
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 9 10:52:58 2014 -0400
+
+    removed extraneous account field
+
+commit 51f01fdd09305e4bcb98095262a36c4e5ec3345a
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 9 10:52:35 2014 -0400
+
+    removed extraneous account field
+
+commit d42b72def6b578ecae8879a981dd42d290687d15
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 9 10:09:30 2014 -0400
+
+    note::edit changed button style
+
+commit a574af00d97063a14aabcadbcba8a00ad3314fe2
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 9 08:47:59 2014 -0400
+
+    Note: added created date to list; do not inflate created datetime
+
+commit 86dbd99e1cee0e08793f165a0f045e8ea0df3488
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 9 00:22:20 2014 -0400
+
+    person/add: made skype and aim names size=60
+
+commit 7f419dd8aac1ca30cef886dd47b8f13236f891c3
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 8 20:41:52 2014 -0400
+
+    cleaning up options layout; removed extraneous field
+
+commit 659ca6615ff39db330126f926a9585e58998f6e6
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 8 20:27:33 2014 -0400
+
+    Organization: added recursive relationship for parent_org_id
+
+commit 7eaf647a57b9104391932ae6fd0c07e68026e113
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 8 00:14:52 2014 -0400
+
+    removed redundant About link from navbar.  it is available in the footer
+
+commit 225a1591626271ae8c4dc742dcf2c1aebc984078
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Jul 7 10:45:07 2014 -0400
+
+    org search not dispalying border for country and description; added nbsp so it would
+
+commit a572eac1ea614fbfec916c1cb80717060fc51573
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Jul 7 10:28:32 2014 -0400
+
+    added parent_org_id to sub search's resultsource to display parent organization information
+
+commit 9b4f1361b30153bb3991b5cd349992670bd3cc04
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Jul 7 09:55:33 2014 -0400
+
+    updated Changes and version
+
 commit 0354bdf92d5818413aa86fd128069f44460338f3
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Mon Jul 7 09:53:54 2014 -0400

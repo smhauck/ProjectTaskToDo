@@ -11,7 +11,7 @@ $(function() {
 <table class="table">
 <tr>
 <th>Title</th>
-<td><input type="text" id="title" name="title" size="36" value="[% note.title | html %]"></td>
+<td><input type="text" name="title" size="80" value="[% note.title | html %]" autofocus /></td>
 </tr>
 <tr>
 <th>Client Organization</th>
