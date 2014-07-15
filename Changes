@@ -1,3 +1,33 @@
+commit 76da9dbe1fb371ef3e4314c3664264fd696347bd
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 15 12:42:22 2014 -0400
+
+    Added tables for Scrum-based projects, sprints, stories, tasks, etc.
+    
+    Made minor adjustments to the Task table
+    
+    Added 5 more task_status_type's and rearranged existing ones to better
+    support Scrum projects
+    
+    Changed from ptt_schmea.sql to Rails-like timestamped sql file.  All
+    changes are going in timestamped sql files so that updates can be
+    applied without having to manually edit tables and data.  Still need to
+    manually run the sql files through mysql client program.  Future version
+    will be run through a Perl script that checkes the schema_migration
+    table and applies the appropriate updates.
+
+commit 1b9ee69837d14626c6fd5864b05081787c5b82fa
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 15 01:46:50 2014 -0400
+
+    adding ProjectType; allow traditional, non-agile projects as well as Scrum-based projects
+
+commit 5a949b0e4ab3b824a2ecd77e7c1264678d4fe619
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 15 01:23:18 2014 -0400
+
+    fixed my commit name and email addresses; were inconsistent
+
 commit 8f3a1d1b8c40dea16e9ad49f0c8455a6e4334ffe
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Mon Jul 14 11:20:29 2014 -0400
