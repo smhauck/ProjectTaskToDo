@@ -1,1087 +1,1105 @@
-commit 1a67752e7a7e81c38fe0c4c108034f06412aed5b
+commit 8f3a1d1b8c40dea16e9ad49f0c8455a6e4334ffe
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Jul 14 11:20:29 2014 -0400
+
+    style: account dropdown on very edge of navbar.  slide it over a bit
+
+commit 67623ee886731f014ede6c64fa8f3e5e5e61bf04
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Jul 14 10:46:38 2014 -0400
+
+    new_note: removed word CLIENT from organization, person, and contact; note can be related to anyone in the system
+
+commit 86e279e8dcc76271c086cb49969f4f4a79bcbd61
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Jul 14 00:28:20 2014 -0400
+
+    added autofocus to new_note title field
+
+commit 4817726c7ab25a99c3f37bb072c3ecec717f3843
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Jul 13 17:23:15 2014 -0400
 
     resetting password was funky; if did not work it did not display error message
 
-commit b21403ef07df73959650e2e64736c173791eea94
+commit 367182417ac0c0755f3b211dabaa272b434db2a4
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Jul 13 16:47:44 2014 -0400
 
     filtering html in project templates;
 
-commit 5c43ca6c9158a09b10bddf8930a855cd24ca7aaa
+commit e63ed0553bab5992e9b02a6fd48dc0685ee96c3b
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Jul 13 14:08:41 2014 -0400
 
     use Person controller for displaying details instead of User
 
-commit 7f4cfba73427dbd8daa9d56b1bd946150a1127c3
+commit 5d7664fdb80a3c3298de028d6f008b4c2e4a6e27
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Jul 13 14:00:37 2014 -0400
 
     removing older, backup file version
 
-commit 1ac2adb8b432702e00317dccf5e990778bc19e4e
+commit 8e754166894461faed37a5d99b1b3edc2fc94bdb
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Jul 13 14:00:05 2014 -0400
 
     almost all user functions should be performed through Person. only password stuff should be User-related
 
-commit 05e0eaeee567042e9467303ed523f5e573112601
+commit fa3614e96a80cae59f7d2fc99480fc6e64dbd566
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Jul 13 13:49:59 2014 -0400
 
     User check if current user is authorized for function
 
-commit a7358195e1ff6e64535ad5e0f36a20d59b0722c6
+commit 9dc74b2fa1b792be1c703919c4b94f5ea100797b
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Jul 13 09:20:37 2014 -0400
 
     default data: changed admin role to administrator
 
-commit 9d27618e28b89e866e89cfd7d100ed7b54c44214
+commit c38281ea579883c317a4deba19c7b73ca7295d2f
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Jul 13 09:11:25 2014 -0400
 
     removing vim backup file
 
-commit 74fffea8db9704ad5bc58f3a3833a91a015d771a
+commit 7067d8d7c5619fb538127ed7cc433fc3b572c8d9
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Jul 13 09:10:51 2014 -0400
 
     person details: only display admin notes if you are an admin
 
-commit 92292d0c681664b4493d90ef9a623c28a0126911
+commit 3fb14f13696955999b70d7f0816dc5c490be7ab8
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jul 12 22:20:50 2014 -0400
 
     removed user.department from default schema; only need this in person table;
 
-commit b3dff9f24d84d0211b07fe4d8718fa9c3faa7354
+commit aa592229de535b15844136612f7de2be8083db92
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jul 12 01:22:41 2014 -0400
 
     removed ckeditor for now. need to html encode tags before allowing html in notes
 
-commit d2ce5315842ba2724fadaf0718ad35b5779f697a
+commit 448636a6461b9cb04157c006f43cc01fbe52eaea
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jul 12 00:28:08 2014 -0400
 
     footer: removed About for now; was basically redundant with Technology page
 
-commit 7e85042779518c82f49c70490ae206fbfbf081b6
+commit 442219c687885306814db4580f1d1357b48de63f
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Fri Jul 11 23:42:17 2014 -0400
 
     removed extra instance of ProjectTaskToDo in the page titles
 
-commit a5154610ed45ce6770a045b21322536db325d867
+commit 428246df218ceb0a06f19e3e79c29439fea8aee2
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Fri Jul 11 09:05:21 2014 -0400
 
     project search: only dispaly "no projects found" message if user actually submitted some criteria; otherwise just display search_box
 
-commit 98dc8b9e4f269f3e7186d6c43a2197def2d70359
+commit 4eea4b1500cf2b51648d5b9a5e455ceee9ce81f7
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Fri Jul 11 08:53:22 2014 -0400
 
     project search: only dispaly results table if there are results
 
-commit 255877ed407e25922fa3c6feec75f0116b52f115
+commit 994b754141f5ede52ffbe3f6fefa71bf9442583e
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Fri Jul 11 00:13:27 2014 -0400
 
     page title cleaned; capitalized th for input forms
 
-commit d5106c493e32d18efdb23c52a67d51dbce5fb581
+commit 8d69793db536c649fbb4caba1dec6714817bada9
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Thu Jul 10 01:29:28 2014 -0400
 
     user options: changed broken link for change_password
 
-commit c68ae4650c378583649d115349637379506e7c42
+commit 3e791a5a6c2ae93009115868fec9ee48472075f0
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Thu Jul 10 01:22:14 2014 -0400
 
     person notes: changed formatting a bit
 
-commit c7b99302837600058a86cecec47722f8ee1ed941
+commit 47568ade2642c326ea26483d49884c2525844b43
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Thu Jul 10 00:35:16 2014 -0400
 
     person active & complete tasks: removed person_details; formatted table; added h2 to describe what page is showing
 
-commit d91e72ace0995dca1bed7b86973cca5fc3206b1f
+commit 63595e26844457901028472d92092f1eba5b2d85
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Thu Jul 10 00:31:41 2014 -0400
 
     person my_complete_projects: made table class=table
 
-commit 8202770247ed273e62035de053d97ab801859691
+commit 6f80be6344d3f035f2c46bfdf126bbe1ebb6bc17
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Thu Jul 10 00:30:23 2014 -0400
 
     person project pages: removed person_details as it is extraneous
 
-commit 29909528f72f4b215ffadafc46c59b7c1a1fd500
+commit dd2f7591720184fcb8389a2ca782ef87e1e06f7f
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 9 14:07:10 2014 -0400
 
     task today: added table class=table
 
-commit 6c2ee8147444367ead7725fe7ae27e57b1a18665
+commit e31bd1319838dd265027cddd555e18937312835b
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 9 13:42:43 2014 -0400
 
     organization: cleaned up forms; removed extraneous / not-yet-implmented fields
 
-commit f4c3995423e46a1b84b24ed32fce99b16c609062
+commit 0825f00d7518400e500b325f33306d7889f9f30b
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 9 13:35:10 2014 -0400
 
     organization details: made Bootstrap-style
 
-commit 816660de0f39b34984872b19f6bef9b9459cb63c
+commit 69d5348c786211469cb3685f270f3ba3385416af
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 9 13:02:22 2014 -0400
 
     Project::new_comment now has authorized tag to display data-changing options
 
-commit 815b5243a77f41f3f817e9a83816eec1d68676cc
+commit e7f3929e57c4aff157730a895ae19b23723b6edc
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 9 12:13:53 2014 -0400
 
     project notes: cleaned up display; removed project in table as it is redundant
 
-commit a243a0cff812f914344b3ed6f4c11331cb27482d
+commit 2ffdddcf7e6c38f104d9b7ce074ba0d891f75713
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 9 11:55:33 2014 -0400
 
     project tasks: added logic to only display table if matching task_types has tasks
 
-commit fd50483bc6c8df391bbc049edb73f3550d6e2df2
+commit 8da5514d432d375cf4660616a206ce48174b13fa
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 9 11:48:49 2014 -0400
 
     project tasks removed project details; not needed when displaying tasks
 
-commit 91f03ad449aee4d922face45fe9c4c575fa442bd
+commit b2c2f14d89f458d60ef591765e76d14adce0614d
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 9 11:34:46 2014 -0400
 
     project new_comment: do not display "no comments" if no comments; not needed when adding new comment
 
-commit 2bd71d80db99ef925458832a00d3e80b582f8bf1
+commit 850cb687ca4d504a889f831c4d5d400655805c9a
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 9 11:29:20 2014 -0400
 
     project comments: cleaned; restyled; removed project data because there is a view for that
 
-commit 392b426029a50bc7f3b0af2e541bf5b88ef2d28e
+commit 99cc5338c7dd500d158abcb95273248fc4628bd4
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 9 11:21:12 2014 -0400
 
     project comments: removed project details.  only display comments table if there actually are comments
 
-commit e1f8943072bc0dd806c1006ad707b7e12c233c15
+commit 18e44dab6bdb715c2543ac351417a73851bfaf7c
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 9 11:14:55 2014 -0400
 
     project::comments made Bootstrap style
 
-commit 3a8076afb423f98e3d84aff516209127e901bcfb
+commit 79d1fe1e61adca8e717b9cda3093415de48fc879
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 9 10:52:58 2014 -0400
 
     removed extraneous account field
 
-commit 51f01fdd09305e4bcb98095262a36c4e5ec3345a
+commit 00d1a90957c8bf0fd02cd810366d85a30fcb1812
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 9 10:52:35 2014 -0400
 
     removed extraneous account field
 
-commit d42b72def6b578ecae8879a981dd42d290687d15
+commit 36748976e1627c12745dfb8dcafaafbddcc05c43
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 9 10:09:30 2014 -0400
 
     note::edit changed button style
 
-commit a574af00d97063a14aabcadbcba8a00ad3314fe2
+commit dcd611795dd66f1063e1e80187068c15a7ab5886
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 9 08:47:59 2014 -0400
 
     Note: added created date to list; do not inflate created datetime
 
-commit 86dbd99e1cee0e08793f165a0f045e8ea0df3488
+commit d74e510df3e2241e762af4ce57232239578612b5
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 9 00:22:20 2014 -0400
 
     person/add: made skype and aim names size=60
 
-commit 7f419dd8aac1ca30cef886dd47b8f13236f891c3
+commit 7992b4683a3b20c93df8edd808e4dcb1c099e14b
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Jul 8 20:41:52 2014 -0400
 
     cleaning up options layout; removed extraneous field
 
-commit 659ca6615ff39db330126f926a9585e58998f6e6
+commit 4593762d548748036bbc3f3eb26d77b654afe083
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Jul 8 20:27:33 2014 -0400
 
     Organization: added recursive relationship for parent_org_id
 
-commit 7eaf647a57b9104391932ae6fd0c07e68026e113
+commit 575f0dee4eb533301ed8f505a03e908f74d29acd
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Jul 8 00:14:52 2014 -0400
 
     removed redundant About link from navbar.  it is available in the footer
 
-commit 225a1591626271ae8c4dc742dcf2c1aebc984078
+commit b5913deff56eeeed02848825c78be32cf6bfad88
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Mon Jul 7 10:45:07 2014 -0400
 
     org search not dispalying border for country and description; added nbsp so it would
 
-commit a572eac1ea614fbfec916c1cb80717060fc51573
+commit 74295c85ba73899ee762ebdfa1a548bdce01b07f
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Mon Jul 7 10:28:32 2014 -0400
 
     added parent_org_id to sub search's resultsource to display parent organization information
 
-commit 9b4f1361b30153bb3991b5cd349992670bd3cc04
+commit 9493f7f5e79c4fa42d57010fb758eaa89b8353de
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Mon Jul 7 09:55:33 2014 -0400
 
     updated Changes and version
 
-commit 0354bdf92d5818413aa86fd128069f44460338f3
+commit 0922ccdb1c2caea5a9f83a4541cb4cfcd3708274
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Mon Jul 7 09:53:54 2014 -0400
 
     cleaning up layout some more for oganization and reports
 
-commit e3abc5c8823e626f51ec671d7280d2d9e767ac31
+commit 10ff06a3fcdef25355097bee7b50120a7688d072
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Mon Jul 7 09:48:41 2014 -0400
 
     cleaning up file formatting
 
-commit 1d87e69e94007e76349021cbbaaf3c4a4b14dbd7
+commit bcedf86d94a17c3b74a06347bdcec7f5f7f88b65
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Mon Jul 7 01:01:50 2014 -0400
 
     removed dup navbar; adding blog style for options
 
-commit b9a052673b9aa3efa528a71fc067d4edeef7c566
+commit a8c05c02cc1d49f71ba826ffc0f46d7462c5b5a5
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Mon Jul 7 00:52:42 2014 -0400
 
     removed dup navbar; adding blog style for options
 
-commit 6c988a585004e803b97c2e7cba12e392677d2a94
+commit b2473f51375ae30551c70cbbc50cb0c9906333db
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Mon Jul 7 00:37:41 2014 -0400
 
     removed dup navbar; adding blog style for options
 
-commit 4b70d9dc508cc1108f90a5711c2534c4cae91efb
+commit 2bc9f2c0a82392954439ba4ec424f8981c98d81e
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Jul 6 15:39:29 2014 -0400
 
     removed dup navbar; adding blog style for options
 
-commit e6e168abe5c705b75353823726dffb91166894d3
+commit 861948247494e169a58b1393ee57e52f654f90d6
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Jul 6 14:22:06 2014 -0400
 
     removed dup navbar; adding blog style for options
 
-commit a198b8f4546d9f9ae2bb6f24bfd99ca64cc41151
+commit 734a65f33d9b89d37b0f91fdab630c75119c96a3
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Jul 6 14:14:51 2014 -0400
 
     removed dup navbar; adding blog style for options
 
-commit 38f460c78441181b2c0c8444b9168c9541540b43
+commit 4e4b04dd88829ee830ba364cb61a9e326e18a0d5
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Jul 6 13:31:17 2014 -0400
 
     removed dup navbar; adding blog style for options
 
-commit d700ab31f48008746bfd2cd060ef818846ca567c
+commit 43a9c3147cf2607bab16eacf619bd8162f69ac8f
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Jul 6 00:49:23 2014 -0400
 
     starting to fix layout
 
-commit 7e36a40bf1b8f77200de1f265b63bc2bb895d51f
+commit 232bda81037f76674ce88fc8dfdd3fd7d518d29e
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jul 5 13:19:11 2014 -0400
 
     formatting tweak; broke login_form out into own file to be included in default and login pages
 
-commit b47274259e4c014e0dd085298772a84c61dc2fde
+commit 03633afbd6d9df774e4876f42cd3fa582768e685
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jul 5 10:14:01 2014 -0400
 
     more template clean up
 
-commit c1a066c0d8b42c19c1412f8441573b5b5cbd0c03
+commit 59cd92af7b23d9a2b7eba0231abc58f806f08751
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jul 5 10:03:27 2014 -0400
 
     cleaning up user templates; broke options out into separate file
 
-commit 7237aa3c6eee72beb5ce12dcdf53c535a6d4df28
+commit ae7aff93b2bb89e71088d7ff02e32623e4a895b7
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Fri Jul 4 10:58:04 2014 -0400
 
     cleaned formatting
 
-commit 2d210a50e51bde33b3ce0ca6a4127c0ba0415d9b
+commit 928fe8adbc91c4b729c6739ac612309ee1b439c6
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Fri Jul 4 10:51:56 2014 -0400
 
     more formatting
 
-commit b9f1eec3a2936d6e7fe1c3232db18e28ef76bd90
+commit 851129a23b86b52d256ec42f5d00ea03c1cbbd80
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Fri Jul 4 10:41:22 2014 -0400
 
     cleaning up layout to make options appear on right; tables class=table; buttons Bootstrap-style
 
-commit 31a42857a777b1ea29bae7defa6049a7b959d649
+commit 9ea9154ed711572909a4f3d78e978dd0e60149f8
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Fri Jul 4 07:08:10 2014 -0400
 
     added style to hide extra div added by jquery ui datepicker
 
-commit 3060956c98c8b08253e1145dae54c5606773f661
+commit 4625a948c3b106ad225f6bb81abdb2aae6a72009
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Fri Jul 4 01:16:38 2014 -0400
 
     fixed layout a bit; only display note results table if notes.size > 0
 
-commit 0ff5531a493df5b66413424e4b016d275cb60441
+commit 6da0c7d29aa0188314f23cea25514af5a07448a9
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Fri Jul 4 00:34:24 2014 -0400
 
     made new_comment / insert_comment chained actions
 
-commit b5ab1e166558fe70f8399d2e00d7f8b3046d8aa1
+commit 4f5c507ba9573b305f1c8da11c9e782ed1f9d9f9
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Fri Jul 4 00:18:34 2014 -0400
 
     changed button style;updated changelog
 
-commit 8e81023a53036f274f1f3dd07ca4f602096579bc
+commit 79110df2a3951e89ade7304b1407b8346cbdd845
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Thu Jul 3 21:20:39 2014 -0400
 
     fixed bug: link to tasks was borked
 
-commit 3d13a733eb4d47404806fd54341ab8a0a20d236d
+commit 6cc556aecfd2cee285e08ee507224f20dd9b97d5
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Thu Jul 3 21:12:01 2014 -0400
 
     made task/edit a Chained action; modified all links from
     task/edit/task_id to task/task_id/edit
 
-commit 22c2e8b67a525be7051e8abf3a28e2cb2e9468a7
+commit 19822e397701856ae4ad2832d76103762e2fc55a
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Thu Jul 3 20:32:27 2014 -0400
 
     making options more Bootstrap-styled
 
-commit b849009dc7d8a1b8d8a8a1535dba839d5052329c
+commit 96f1f13dc760a620968a2e7272a1424ef2b0ab97
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Thu Jul 3 00:01:40 2014 -0400
 
     table class=table
 
-commit bc67a0bde937fcd7224007f851003655482118ed
+commit d2b23ee38459401dcf747b7990a8ef799ef5a2d6
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 2 23:57:01 2014 -0400
 
     table class=table
 
-commit b5aa7830e105e030ca12ea494bcfbec3528522d5
+commit f11f36a9fb7b1fb2192e1f43abc433bfa3679f40
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 2 10:40:56 2014 -0400
 
     removed redundant navbar
 
-commit 5260d9b20d1f659519c1e6c194677f27bc84be22
+commit b44c281e96856fe942e461a0b4f85438e02e384f
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 2 10:35:06 2014 -0400
 
     formatted a little better
 
-commit 3bee2597917e1440fa12cc6f871ed0950984c203
+commit 5265f61312304f735f0d7ad1bb1739e477a8df65
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 2 10:34:10 2014 -0400
 
     removed duplicate license section
 
-commit 0d6a3bf06b7aca2fb0bd0f71513bbba07632d4f2
+commit 2ebf9c2234acf7575bcfd478a02bd6a2f7f9daa9
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 2 10:30:35 2014 -0400
 
     cleaned up form; made it Bootstrap-style
 
-commit 0e2380d016bf2b8044aa8c05fb2913e865cca8dd
+commit 731926a87aa0943a6d53da0a9a8995287c4c0ea3
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Jul 2 10:24:57 2014 -0400
 
     formatted and added space between submit button and forgot password link
 
-commit 9dee0ae4a13c3b0893f8f53efebc85b5cf78e0ac
+commit 39a802ce6829dd72c208927b2d9fcc8da224646f
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Jul 1 20:58:02 2014 -0400
 
     fixed css issue with jquery-ui; updated it to version 1.11 as well
 
-commit 2d6d2ea1594f13f68cb889913f17229b14ab3a2d
+commit d6a0aef7048f3985586333f8bda86e91168b7e2c
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Jul 1 18:44:24 2014 -0400
 
     updated version and change log
 
-commit fd63b8825ce38b43f66306a00e1c83b9bac60468
+commit 3bc532706df6d80e4c3ce1ebf411d650d2ec37a6
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Jul 1 18:43:45 2014 -0400
 
     want to use font families from main bootstrap.css
 
-commit a1673aed7aeca9bd67e6a381fa28974608b6c15a
+commit 4f12e97a1e9451baa2c408f3ac429a1da6a35527
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Jul 1 10:33:11 2014 -0400
 
     default data for roles, task comment types, etc.
 
-commit eef096cff99ea7e787290fa4ce3ac21585b975c2
+commit c3dd760d0d23536b35a561302e77daf14aa55f7f
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Jul 1 10:27:28 2014 -0400
 
     moved blog styles to blog.css
 
-commit a5c3973c1178f98f73e6cd7a36d9e78c497d0a32
+commit 0a46bc6f87f594ba795ca79900e10a943df847e5
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Jul 1 10:25:31 2014 -0400
 
     removed css from my other project; used as examples
 
-commit f2f4ab2e25599d01aefdf3d7879cfe46047d5aaa
+commit 01d83c5081bf9b7a89a18f66d156b575f558bbf3
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Jul 1 10:24:10 2014 -0400
 
     added Bootstrap blog css
 
-commit c3832c1bcc1174c0276c6632665f5fa70cf7924d
+commit 3c6278f368402a6be434ecf2399684130c2e523b
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Jul 1 10:22:29 2014 -0400
 
     minor updates
 
-commit 50d49fd01c94449707a4d66cbdcdf59a146a239e
+commit 25dce9f6e94d27b2039dc7f371a6715430c70caf
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Jul 1 10:17:36 2014 -0400
 
     moved license info to bottom; it was annoying up top
 
-commit 6609680ce7ab96a0cb81a031bf15eec0d2d13c13
+commit 10778e56e7680ed9158ea9fb1cb5324e3595bf1b
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Jul 1 10:12:20 2014 -0400
 
     making options work in bootstrap blog style
 
-commit 141a23e8f1f16eb7ad471a1dd6103d8fa77324d3
+commit 69a79c3a667d64754670d69eeb14c4e0da220b22
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Jul 1 10:11:54 2014 -0400
 
     fixed comments link
 
-commit c817f3aa84321a469d5b12b1050f60020639b6ed
+commit 63fb4f047b028eac2b3a0246d8773ae38801e35e
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Jul 1 10:03:09 2014 -0400
 
     only display notifications if user exists
 
-commit 06560d00b83f495a33eb07dce9b6225484516bb3
+commit a83d04e4be713d2ce91419dd59069561d6ac55df
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Jul 1 09:55:05 2014 -0400
 
     capitalized menu items
 
-commit 38164957c8fbac29476f5235b5a031820164b65f
+commit af6d32017a177a702bf925ffa7f2c34c921a4e9f
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Jul 1 09:54:29 2014 -0400
 
     removed extra navbar; added container div
 
-commit 19800b10528e53ac80bea8f6a6074c10c678ebc5
+commit 847f3e73dabab1e79224bf0ae30fad4976d247b4
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Jun 29 18:05:24 2014 -0400
 
     fixed bug; displaying task name instead of project name
 
-commit 4d12dedde4125747d5902acb0de7dcd667d5270c
+commit 8ed3778bee555739e1ec6afe0dc1dc23f6b30e6a
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Jun 29 18:04:30 2014 -0400
 
     fixed bug; displaying task name instead of project name
 
-commit 831d7a5e51a72b5cf73a03a9e8a2f3661c5cd212
+commit 13acfd9ebd98eefdea31c11dba425d11b43e1fc7
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Jun 29 14:13:41 2014 -0400
 
     title wrong since copied from my other project
 
-commit cae9f6bf9b96437ffed655990394fb20b20d3fa6
+commit 519e7ad6d6202f8f8b95c533ab2648872bbafc89
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Jun 29 10:13:41 2014 -0400
 
     updated required perl and db info; formatting change
 
-commit 1d58c944fb766cda891c46db40aebaca6098bef7
+commit 1bb981075e193a76b88876e17580fdf47ecea362
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Jun 29 10:07:29 2014 -0400
 
     removing extraneous file
 
-commit d6280d2652b736f2b7d25a8350cddad6c6b20990
+commit 7c363b58b76f8f724093a6b4480fd52953a361b8
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Jun 29 09:55:10 2014 -0400
 
     removed extraneous file
 
-commit 1001e4930c9bf896222459b5a58f1664866cc8a5
+commit 5bba4d05342c020a8a2c6a1e73ed216cd91162d2
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Jun 29 09:48:53 2014 -0400
 
     changed button styles, made it one big table, and cleaned it up a bit
 
-commit db021767762de4b76e33c03c0fc0cdecfd3eb03a
+commit e17b4e35fb045380ac322db89f5227c14e42d600
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 18:01:39 2014 -0400
 
     removed old db file
 
-commit 1c1c86a279dc8c6abc544d656979d9618d9249cc
+commit d4e2a1438fe4f4d878020886154d916aa0f0f6e0
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 18:00:25 2014 -0400
 
     removed old db file
 
-commit d5bb32733f4011ba20da846c4ea28cb8eb3b4141
+commit 670e83b68c8134d20358acb8e51d60ec633e61d7
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 17:56:15 2014 -0400
 
     updated schema dump
 
-commit 21367ec0024766f1ca01a3f40e1b5d812e06990a
+commit d663e1f82f3b8239ba89e5fe0928162e619e4290
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 17:46:22 2014 -0400
 
     updated change log, version number
 
-commit 9db3c56ca30c995f538b0ee29e5becf9be2f5993
+commit c2f9dbd5f72a8e26928f3b5199067cf37dfb3d49
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 17:37:42 2014 -0400
 
     removed lessons_learned link; that type of stuff belongs in a blog, not in the app
 
-commit 34550b222538e9dd0b3c1eaa659f1d9ab16a1362
+commit 5d243c89211aa58e232be150b8c0852e49e9671f
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 17:32:24 2014 -0400
 
     Bootstrap stuff
 
-commit 073374d9a0b5c73d75c6d74629453c524f7d6b64
+commit 26df63081f35974418a08ad396f476a3d7588dd0
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 17:31:48 2014 -0400
 
     commented out blog menu item as blogs are not yet implemented
 
-commit 29104ee106aadc9b9bd90aa45d9a458df504cb17
+commit ca29661103c197823feb94cff9b57d31392eda74
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 16:38:33 2014 -0400
 
     removed extra navbar
 
-commit 2bcb03ea1b310f85c27f0102ed66612eb7715366
+commit c079cfbf78b45b60d2ac891b2458af118d4e931d
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 16:37:07 2014 -0400
 
     changed button style
 
-commit 5f78c217229e047325fac6771c1cf62927b1d3a7
+commit 9ddd46017c6775597450b8704ab80828c624845c
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 16:34:01 2014 -0400
 
     Bootstrap changes
 
-commit 758e63861ebb74653ec713fc01495a00cd1c6435
+commit 57605db4a93a2322b10a54ac91487efba07577c2
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 16:20:10 2014 -0400
 
     Bootstrap changes
 
-commit 7b2629396008a6450b32267610436a1597ff042b
+commit bb542cfd4929feb9af25c0d370515914d78b6deb
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 16:18:33 2014 -0400
 
     Bootstrap classes
 
-commit aafcda64eda26c30f1dfef89df139e3359e331d0
+commit ab7e25aeae2f5ca5b97db6a0c19ec60a40f3a23c
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 16:17:45 2014 -0400
 
     Bootstrap stuff; removed extra navbar
 
-commit c99f4c428e84b4fd8f3a68e62a9a240f6b367f70
+commit 6c2645d7d2398db6e37adda343a03e1a01bddc64
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 16:16:28 2014 -0400
 
     added technology link to footer
 
-commit 11972e241714eb1e962fca40351891412e53acf8
+commit 5f8567f2f8f9e9120f7c2f36b9a027a00eb2b31d
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 16:06:36 2014 -0400
 
     added some relationshiops
 
-commit 3f4df4531edce0ed1b2831329efc86027642ef7d
+commit 542e3662c6ce8018c692fca9fe186f071108dbed
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 16:05:32 2014 -0400
 
     added technology routine
 
-commit 0de4f0ef7bdb2fb30e05684915058a83b7ef013f
+commit 730814c7398c9b7fe763766623fad880f62427ae
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 16:04:42 2014 -0400
 
     fixed bug: changed url for comments
 
-commit c9e8548e70bfb84befb94a5125d67861385b532d
+commit e6440d80d006a250c15f5c36b09a6c4435fb20ce
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 15:33:51 2014 -0400
 
     removed extra navbar
 
-commit aac5c25ac0503ad69d8937c2e42739a0f3bd080a
+commit 16cef90f55905862079f32fd93e3ff77d7612e4f
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 15:33:13 2014 -0400
 
     removed extra nav tag
 
-commit 4dfa6dbcbfe0d7316518f99e62d5c9831743f878
+commit e173aab68c0849f81afea0a08b9c7dff353eff16
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 15:32:26 2014 -0400
 
     inital commit of file
 
-commit d382129b776034bfc996f9f402e3f00630c8f7f0
+commit 4b2e41a719ed38ecfdb11fe915e457d6f5afef35
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 15:32:07 2014 -0400
 
     removing retired or backup files
 
-commit 9605eec460099d5444cd3a5314527768e1da795e
+commit 9b1b680b151915eaf2d16264ffb96bb7073144d5
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 15:30:57 2014 -0400
 
     retired files
 
-commit 358f2b22b63ff9556011d4f178bfcb0cde7d0323
+commit b7be1ebecd42442667db15aa2851b0483a7b5e76
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 15:30:12 2014 -0400
 
     always show requirements
 
-commit 0836dbae27d67ffa4ad0bc09e95b1a5aeace47ee
+commit 44d6b047dcffd431cc98ac92046164e7157491be
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 15:29:17 2014 -0400
 
     reoganizing
 
-commit e53c5ab5f08c67e95b2670c486b30b9f6f1290b9
+commit 313626593d44dee252f2b4e371d873b49fbfe645
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 15:28:32 2014 -0400
 
     changed layout from vertical tables to horizontal table
 
-commit f8c0ab2aad9b30b1641c65f72bfb9570e69a5dd4
+commit c486eb2289d0edac759fb91bd90570d765652217
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 15:28:07 2014 -0400
 
     added container div for Bootstrap
 
-commit 6772cea5e3306f2bafea5d4a6431b2fe99a0b16f
+commit 8e410a7a43ebf3163f65f958f0dadcc64ff8a4b1
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 15:27:35 2014 -0400
 
     changed layout from vertical tables to horizontal table
 
-commit 267c9b0b1efa5e88ea8a4e0e14fbc7d0262dc6ed
+commit 6230b92ec052d216cbfe128a24ef72228ed8f1cf
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 28 15:26:37 2014 -0400
 
     more Bootstrap changes; minor bug fixes
 
-commit 20fb696753df4020634beb7ec7992ae0d5c576b8
+commit 56b4adc2cba64c17c616a46fbfa99664829bac75
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Fri Jun 27 10:51:56 2014 -0400
 
     migrating to Twitter Bootstrap
 
-commit 737fb71bcf56023512ffb8366ab7f09cc2640e79
+commit 043ca84ff1d137c1e6e9b0f7b561ad9f91d5b983
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Fri Jun 27 10:49:27 2014 -0400
 
     migrating to Twitter Bootstrap
 
-commit 2e56619e52186e70f1fa15bdd6a2bec1f7e73f01
+commit 48bc54646fc4f092c200cfbefda04f2f9d5eb2b8
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Fri Jun 27 09:18:45 2014 -0400
 
     moved task_with_comments.tt to comments.tt
 
-commit 73a7b3d337bf6df8116de5da534e6adef5abeaf3
+commit b26bc93938fcbf5a3cd51277f14a74d158c7e8c7
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Fri Jun 27 08:35:29 2014 -0400
 
     removed redundant navbar
 
-commit b113efe1a47b1afcee2324dff76f417b50d1eae1
+commit 47966f3ae5ce1ef53f423fecf458bbec2663c62b
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Fri Jun 27 08:34:05 2014 -0400
 
     added dismiss all on top; made both top and bottom in table
 
-commit 969180c9da09acaf768b7cf762bc3f5106fa6ee0
+commit c2cd841018074e00bd27122c9e932661625c345c
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Mon Jun 16 23:01:57 2014 -0400
 
     migrating to Bootstrap frontend web framework
 
-commit c8b2521cbb1e3cdd0db3b3ef45eebfee40067adf
+commit bf10204b93b83f13f43c3621695b16ff488b1f71
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Mon Jun 16 23:00:33 2014 -0400
 
     migrating to Bootstrap frontend web framework
 
-commit b3cc70cd65a332b7957f146206346e20cbf23ec5
+commit b0a792452f29d419223e09a811cdf559d1176607
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 14 10:36:46 2014 -0400
 
     updated change log
 
-commit 643ae73a081f3257c2729bc63f20d714059d9f04
+commit f134feca861a669fd61f86609100804dce43964b
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 14 10:30:14 2014 -0400
 
     changing from header and footer classes to html tags
 
-commit f32f271c29bfecbb3bf559ba820a457ad0e7c1ac
+commit 46426cb1d330cdefdfe873e02e6b69f4f83f2323
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 14 10:29:25 2014 -0400
 
     fixing broken link
 
-commit a9961a3bede25a562805d52429c44b6f04b6ee6c
+commit 62161449887928c0ac7356123c2f09083ab9ea77
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 14 10:27:33 2014 -0400
 
     mid-progress update to what data to enter for new password
 
-commit 563930982169c91872de7e3b0b56a64685a07ea9
+commit 59d51a85e7959506ee707627ed2bc1eed44a1c7d
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 14 10:25:24 2014 -0400
 
     updated version
 
-commit b22c2e23a9a8d9df4abedeaf4797b80b59aa2561
+commit 9b8af86970c87cad2e0f429454470830bdc69765
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 14 10:25:01 2014 -0400
 
     updated copyright
 
-commit 6c8d04a1e160692931ca70638febbbd781840742
+commit 53283f37624531305381cf8aa2a46b8c11ee2d64
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 14 10:23:55 2014 -0400
 
     removing divs for header and footer as the header and footer now contain appropriate tags
 
-commit e8fdb3f04e6a2974b137329155c1ccbe75173465
+commit 0ec4e02479a1daad1a2b8fd5cc91349f1025b746
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 14 10:22:49 2014 -0400
 
     changing to HTML5 headers; using header tag instead of a div
 
-commit 367a3d7033e3f269ece91b133af856a4f26aab05
+commit 5a442e57b8c70cf8e21ad4d61891ab0964e6af09
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 14 10:21:51 2014 -0400
 
     tweaks to layout, links
 
-commit 9b04f0214e3a83bb298ec9735616e09962ad921e
+commit ebd792deb6cf6490e0a065c67985d649d888a90b
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jun 14 10:20:40 2014 -0400
 
     adding more filetypes to ignore
 
-commit d283c814678c238a76dcdfe0f16812a4627cab0f
+commit 5efc64a0d4541db01d0db92bc2953abc4c46ac3f
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Thu Apr 24 11:59:33 2014 -0400
 
     more HTML5 stuff
 
-commit 8b01cc7b721783eac9d94143c7df1d4d41b23836
+commit 281b0d3d612e1f73a70ba81c07751568fdd25f4f
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Thu Apr 24 11:53:40 2014 -0400
 
     changed to HTML5 DOCTYPE
 
-commit 1c7b4c371f924dbc41d74a89374c3f2f42b1d933
+commit 190c5fa841aa24ab549c70a4d784aa31d88114bb
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Apr 22 10:09:00 2014 -0400
 
     updating Changes log
 
-commit 7631c5d9a0b8ed9998244c4d5b17ae24bf03555f
+commit 362ef1d3d51ceeb8e3e88601de87495af442d106
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Apr 22 10:08:29 2014 -0400
 
     small user fixes
 
-commit e209f95dd1c52febea636620db5ba6ecc16c6710
+commit 4c4474b0321837c0886250f27af0201e358dead5
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Mon Apr 21 20:26:00 2014 -0400
 
     fixed bug where users could not change their password
 
-commit 3f7e7827f87caabe73b7e47595bc6dd5502c04b0
+commit 7a4a9a9c9f0bdfd884e591ab3591120875099a11
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Fri Apr 18 20:04:21 2014 -0400
 
     updated Makefile.PL to include the appropriate modules
 
-commit d75b5778e6159da747ad08a4e230a24da3149c54
+commit 79b0af46d30a0d29a1be594d72eca1d9558c98a2
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Thu Apr 17 18:16:53 2014 -0400
 
     made custom error page; changed Root controller to actually use it
 
-commit 81aabf7a812303d9e6b3619bad3df0116970c13b
-Author: William Hauck <wbhauck@yahoo.com>
+commit e57354dd454ba271ce3dad96af1a02394958c18a
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Thu Apr 10 19:34:40 2014 -0400
 
     added client fields to note list; made note list sortable
 
-commit a14fb899c2c47ecf8c35a0e8388ccf1017a7f7c4
-Author: William Hauck <wbhauck@yahoo.com>
+commit 166a4d4f9dc20b76230c747a4f40f42cd0a2e479
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Mar 29 13:20:13 2014 -0400
 
     added ckeditor to note body
 
-commit 3ca0c6dab17d06e5ef63deeb2d4e3f60d2bebde0
-Author: William Hauck <wbhauck@yahoo.com>
+commit 984bb99405a8b89e810896f5ae4a1f1d92e35ddb
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Fri Mar 28 22:50:40 2014 -0400
 
     more updates
 
-commit 4dbeae5e9f46bad3125e428280ce2e8c11185e0b
-Author: William Hauck <wbhauck@yahoo.com>
+commit f04e666241e5c47023d1b799966e1423338023b7
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Thu Mar 27 18:03:20 2014 -0400
 
     removed swap files.  again
 
-commit de5f11edf613865dcc3677809f248e3ed2336e4e
-Author: William Hauck <wbhauck@yahoo.com>
+commit 01105a6091b44e87db2829df8070b0d4718703b1
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Thu Mar 27 18:02:13 2014 -0400
 
     all complete projects now working
 
-commit 57d74ccf6227072f5644328aca5f179742229cfa
-Author: William Hauck <wbhauck@yahoo.com>
+commit 5c5096c9ae4199776416ff4813666bcabbaa147e
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Thu Mar 27 17:56:42 2014 -0400
 
     new note now lists projects sorted by project_name
 
-commit 5389a48f024bc410f0b094ad6c4c62cb0ca5b7a5
-Author: William Hauck <wbhauck@yahoo.com>
+commit c38456bacf44a325af4aded5f06516ec0970e5a3
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Thu Mar 27 08:12:22 2014 -0400
 
     removed backup files.  again
 
-commit b67d2cb0353d403e02af5d4a9017566cb4b83fae
-Author: William Hauck <wbhauck@yahoo.com>
+commit 172cd183440da15d6a198da778f01f95b773642f
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Thu Mar 27 07:52:17 2014 -0400
 
     updated to latest organization and person code
 
-commit 171f35ddd8693db63aedb7d65730700bc99cc19f
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit 0c5cb55d6751d74da0a4c25909c47a728c8cf060
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Mar 23 13:29:59 2014 -0400
 
     base db script: note title and body now tinytext and mediumtext, respectively for case-insensitive search
 
-commit 9a4c24239f4446b62aa4c9e4b86af4566828dfbe
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit 99fd2a6fc6f3120623a035bec46f81d0345ad9b7
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Mar 22 15:44:04 2014 -0400
 
     updated organization screenssssssssssssssssssssssssssssssssssssssssssss
 
-commit 8b0e209dcb20a6baf02efe2ae588b04dc57deab0
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit 04e02579c8880c570261c7eb6b078c06693fbfa4
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Thu Feb 27 21:16:17 2014 -0500
 
     new designs
 
-commit f1e09492531e751de9bc79fe2b140b5aacee1bc5
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit 29d30db1e0c434e5d23a3aa748681dfbe6a63113
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Feb 25 07:04:08 2014 -0500
 
     removed field for adding project users in project creation. use the view project user link instead
 
-commit e4adabfb94af0b2ced235e1b9f1d5e9334bcf9e5
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit 859d01bd1a76bcd82d1acc30d95d14c0fd82a24c
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Feb 23 18:45:51 2014 -0500
 
     user edit / user role editing working; it's not pretty but it works
 
-commit cd2251a2b3a70421d5b810de9b8ee0ddafbada5d
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit c5bee104f94bab4dbe7563936d9ae0e37d004a6b
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Mon Feb 17 12:49:52 2014 -0500
 
     person creation a little cleaner now
 
-commit 29ef48150a13dc2aec48a813d8d6755f63e00dee
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit 36fb62147a37ed9538bc1169f35e53b0d7e3e485
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Mon Feb 17 08:32:58 2014 -0500
 
     added cmdline utility to produce crypted passwords for development use
 
-commit ac810d9cb4b1aecce01ec05199ad8d1c0db95031
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit 851244a9abdc88742ca4d127b0a9bc343c6377da
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Mon Feb 17 04:45:31 2014 -0500
 
     code cleanup; moving license info to bottom as it is too distracting up top
 
-commit 78b62ba2cec37fa6bf3eebf9c0a668a0c6025f9e
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit ea46f09d5e7439413f85af77a0aa0172fa88f4c7
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Mon Feb 17 04:19:16 2014 -0500
 
     removed self-registration for now.  partially broken. admin should setup users
 
-commit d7376f8a623dba952268ce46dbddea7cc2a928cb
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit 877f5b973e25a2d43d69ae95ef47cb74ea6e4b8f
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Mon Feb 17 04:15:24 2014 -0500
 
     removed make_immutable
 
-commit 955d198bfb5e3915b0ea14b9a1ae8dfcc0f5701e
-Merge: 562ebdc 22c69af
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit bfdb86a8030a322c363cf1406f37d2cb7abfcf6a
+Merge: 488a1d9 2cb8a47
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Feb 16 20:29:52 2014 -0500
 
     more password reset stuff
 
-commit 562ebdc62cd26267560f66a51be0b5dc3c627bc2
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit 488a1d95d0de47a12ee999c743f107e3653295e7
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Feb 16 20:17:09 2014 -0500
 
     more forgot password work
 
-commit 22c69af9f921e9817a394989b03f9d1dac2ff370
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit 2cb8a470c3a7ad1cd160c54972d69d10236efa39
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Feb 16 18:56:20 2014 -0500
 
     trying to get reset password working
 
-commit ed3cc53e6afc9a1eac8642e1856ebe9ea7d7c1ec
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit 7426c9a1fc3348ee514e38050707f8828a7a4d31
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Feb 16 07:31:09 2014 -0500
 
     added link to change password
 
-commit a1bf1e64f6a976e63712d8928c09ad8de23ebfb6
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit d8fcf3ef6b6bc3f522fff8e3395e9871c18d37ad
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Feb 16 04:28:49 2014 -0500
 
     more copyright housekeeping
 
-commit eed20c60461dc171691d91928a46c3607e7cc1b2
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit d013d2c4f93ba593ed9147a6c8c7d7f43dd93aa9
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Feb 15 22:40:54 2014 -0500
 
     fixed incorrect model in send_new_password
 
-commit 02b634eeaaef7d9d2cc06017743c097a735b9f72
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit cb8dbc970067db8e34d951c3619c4ec2770b4bad
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Feb 15 22:31:36 2014 -0500
 
     updated admin password listed
 
-commit 74ead1e920d2b76758368270db7fb5589de2fb90
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit a52ca8978b10debb052d308a68255a29f65c84f6
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Feb 15 15:44:43 2014 -0500
 
     updated documentation
 
-commit e525396037cec0e013cc3bcaa5fcb0133060a7a0
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit 981f07b962a24a01a7aec47db9bae6d5fe7699f9
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Feb 15 15:20:44 2014 -0500
 
     initial commit for INSTALL.TXT
 
-commit 44ae3c3e367416dfa6a84f82b1542533d7c63d56
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit 8c094ce53b62749fa7bdb4063097dabc69672211
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Feb 15 14:24:09 2014 -0500
 
     adding info
 
-commit 63791096d75d99c39afbd608b8a0883002d19007
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit 8b592cd05c00831372916c6781543ffa876cc8cb
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Feb 15 11:58:48 2014 -0500
 
     removed more and more vim backup files
 
-commit e5053012d062aa92906377c442c091a9879f097d
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit aa7a2e7717dda6daeffd5f88adc659acb088588f
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Feb 15 11:50:54 2014 -0500
 
     more copyright and licensing info
 
-commit af5affba084d22662394698d60074e9236bce01b
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit ccca6112111ede2c74c2b7db2288af9176a1bca0
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Feb 15 11:49:27 2014 -0500
 
     removed still more vim backup files
 
-commit 44c43bb87db83469486ba3a12edc56b5919b1c53
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit 67293ea3fcb57135641b96e58418d97e920ce1a7
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Feb 15 10:49:01 2014 -0500
 
     removing more vim backup files
 
-commit 42bd7fc30cf316df0fdbd4f0658930207bde8e44
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit 2e3f2140c08e161db2c5d6280dbb3a2ce8b5c9ce
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Feb 15 10:42:44 2014 -0500
 
     removing vim backup files
 
-commit 99006ce3c59cdce0f1c6313844fed594267c2cc9
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit 67addac20e5d12832e8dd5d908c994b3a62f4fd4
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Feb 15 10:37:39 2014 -0500
 
     added license to each file
 
-commit 350a4f263821c3e948c397649a8baea6ef7658cd
-Author: William B. Hauck <whauck@mail.med.upenn.edu>
+commit e0fd04f67d54858a2587739717f36705a6630c5e
+Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Feb 15 09:54:53 2014 -0500
 
     initial commit
