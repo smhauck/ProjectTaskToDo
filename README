@@ -46,9 +46,9 @@ Software Requirements:
     * Perl 5.12 or higher
 
   Webserver
-    * Apache2 with  mod_perl2 or higher
+    * Apache2 with mod_perl2 or higher
 
-  Databases
+  Supported Databases
     * MariaDB 5.5 or higher
     * MySQL 5.1 or higher
 
