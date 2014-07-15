@@ -149,7 +149,7 @@ sub project_time_for_person_for_date_range :
     }
     
     # not deleted tasks
-    $where_clause{task_status_id} = { '!=' => '3' };
+    $where_clause{task_status_type_id} = { '!=' => '3' };
 
     $where_clause{task_comment_date_of_work} =
       { -between => [ $start_date, $end_date ] };
@@ -271,7 +271,7 @@ sub task_time_for_person_for_date_range :
       { -between => [ $start_date, $end_date ] };
 
       # not deleted tasks
-    $where_clause{task_status_id } =
+    $where_clause{task_status_type_id } =
       { "!=" => '3' };
 
     my $times_for_person = $c->model('ProjectTaskToDoDB::TaskComment')->search(

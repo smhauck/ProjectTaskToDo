@@ -30,16 +30,52 @@ __PACKAGE__->table("task");
   is_auto_increment: 1
   is_nullable: 0
 
+=head2 created_at
+
+  data_type: 'datetime'
+  is_nullable: 1
+
+=head2 updated_at
+
+  data_type: 'datetime'
+  is_nullable: 1
+
+=head2 points
+
+  data_type: 'decimal'
+  is_nullable: 1
+  size: [10,2]
+
+=head2 hours
+
+  data_type: 'decimal'
+  is_nullable: 1
+  size: [10,2]
+
+=head2 product_id
+
+  data_type: 'integer'
+  is_nullable: 1
+
+=head2 sprint_id
+
+  data_type: 'integer'
+  is_nullable: 1
+
+=head2 story_id
+
+  data_type: 'integer'
+  is_nullable: 0
+
 =head2 task_project_id
 
   data_type: 'integer'
   is_nullable: 1
 
-=head2 task_status_id
+=head2 task_status_type_id
 
-  data_type: 'smallint'
+  data_type: 'integer'
   default_value: 1
-  extra: {unsigned => 1}
   is_nullable: 0
 
 =head2 on_project_plan
@@ -86,7 +122,7 @@ __PACKAGE__->table("task");
   extra: {unsigned => 1}
   is_nullable: 0
 
-=head2 task_description
+=head2 description
 
   data_type: 'text'
   is_nullable: 1
@@ -211,15 +247,24 @@ __PACKAGE__->add_columns(
     is_auto_increment => 1,
     is_nullable => 0,
   },
+  "created_at",
+  { data_type => "datetime", is_nullable => 1 },
+  "updated_at",
+  { data_type => "datetime", is_nullable => 1 },
+  "points",
+  { data_type => "decimal", is_nullable => 1, size => [10, 2] },
+  "hours",
+  { data_type => "decimal", is_nullable => 1, size => [10, 2] },
+  "product_id",
+  { data_type => "integer", is_nullable => 1 },
+  "sprint_id",
+  { data_type => "integer", is_nullable => 1 },
+  "story_id",
+  { data_type => "integer", is_nullable => 0 },
   "task_project_id",
   { data_type => "integer", is_nullable => 1 },
-  "task_status_id",
-  {
-    data_type => "smallint",
-    default_value => 1,
-    extra => { unsigned => 1 },
-    is_nullable => 0,
-  },
+  "task_status_type_id",
+  { data_type => "integer", default_value => 1, is_nullable => 0 },
   "on_project_plan",
   { data_type => "char", is_nullable => 0, size => 1 },
   "task_order",
@@ -239,7 +284,7 @@ __PACKAGE__->add_columns(
     extra => { unsigned => 1 },
     is_nullable => 0,
   },
-  "task_description",
+  "description",
   { data_type => "text", is_nullable => 1 },
   "task_sched_start_date",
   { data_type => "date", is_nullable => 1 },
@@ -289,8 +334,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("task_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07002 @ 2013-09-12 15:17:59
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:5vHOWCZyhVqOddLITeUrNA
+# Created by DBIx::Class::Schema::Loader v0.07002 @ 2014-07-15 12:22:12
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:C70z/xNKPn/XT6ARruN5aA
 
 
 
@@ -315,7 +360,7 @@ my $cur_date = strftime "%Y-%m-%d", localtime();
 __PACKAGE__->belongs_to('creator' => 'ProjectTaskToDo::Schema::Result::User', 'task_creator_id');
 __PACKAGE__->belongs_to('owner' => 'ProjectTaskToDo::Schema::Result::User', 'task_owner_id');
 __PACKAGE__->belongs_to('project' => 'ProjectTaskToDo::Schema::Result::Project', 'task_project_id');
-__PACKAGE__->belongs_to('status' => 'ProjectTaskToDo::Schema::Result::TaskStatusType', 'task_status_id');
+__PACKAGE__->belongs_to('status' => 'ProjectTaskToDo::Schema::Result::TaskStatusType', 'task_status_type_id');
 __PACKAGE__->has_many('task_users' => 'ProjectTaskToDo::Schema::Result::TaskUser', 'task_id');
 __PACKAGE__->has_many('task_comments' => 'ProjectTaskToDo::Schema::Result::TaskComment', 'task_comment_task_id');
 

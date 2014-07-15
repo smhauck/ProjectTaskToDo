@@ -33,7 +33,7 @@
 </tr>
 <tr>
 <td align="right"><strong>description:</strong></td>
-<td><textarea rows="15" cols="80" name="description">[% task.task_description | html %]</textarea></td>
+<td><textarea rows="15" cols="80" name="description">[% task.description | html %]</textarea></td>
 </tr>
 <tr>
 <td align="right"><strong>scheduled start date:</strong></td>

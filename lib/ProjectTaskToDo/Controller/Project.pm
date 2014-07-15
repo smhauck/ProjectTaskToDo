@@ -706,7 +706,7 @@ sub insert_task : Local {
             task_creator_id          => $creator_id,
             task_owner_id            => $owner_id,
             task_project_id          => $project_id,
-            task_description         => $description,
+            description         => $description,
             task_sched_start_date    => $sched_start_date,
             task_actual_start_date   => $actual_start_date,
             task_sched_compl_date    => $sched_compl_date,
@@ -818,7 +818,7 @@ sub insert_multiple_tasks : Path('/project/insert_multiple_tasks') {
                 task_project_number => $project_number,
                 task_name           => $task_type->name(),
                 task_owner_id       => $creator_id,
-                task_status_id      => 2,
+                task_status_type_id      => 2,
                 task_type_id        => $c->request->param("type-$cur_project"),
                 task_actual_compl_date =>
                   $c->request->param("date_of_work-$cur_project"),
@@ -993,10 +993,10 @@ sub add_times : Path('/project/add_times') {
                     task_name        => $comment_body,
                     task_creator_id  => $c->user->id,
                     task_owner_id    => $c->user->id,
-                    task_status_id   => 2,
+                    task_status_type_id   => 2,
                     task_alive       => 0,
                     task_project_id  => $cur_project,
-                    task_description => "Task created through Time Palette",
+                    description => "Task created through Time Palette",
                     task_actual_start_date   => $date_of_work,
                     task_actual_compl_date   => $date_of_work,
                     task_recorded            => $now,
@@ -1943,13 +1943,13 @@ sub plan : Chained('project_object') : PathPart('plan') : Args(0) {
                                 on_project_plan => 1,
                                 task_project_id => $project_id,
                                 task_alive      => '0',
-                                task_status_id  => '2'
+                                task_status_type_id  => '2'
                             ],
                             -and => [
                                 on_project_plan => 1,
                                 task_project_id => $project_id,
                                 task_alive      => '0',
-                                task_status_id  => '4'
+                                task_status_type_id  => '4'
                             ],
                             [
                                 -and => [
@@ -1975,7 +1975,7 @@ sub plan : Chained('project_object') : PathPart('plan') : Args(0) {
                 $c->model('ProjectTaskToDoDB::Task')->search(
                     {
                         task_project_id => $project_id,
-                        task_status_id  => '2'
+                        task_status_type_id  => '2'
                     }
                 )
             ];
@@ -2099,7 +2099,7 @@ sub project_object : Chained('base') : PathPart('') : CaptureArgs(1) {
     my $num_complete_tasks = $c->model('ProjectTaskToDoDB::Task')->search(
         {
             task_project_id => $project_id,
-            task_status_id  => '2',
+            task_status_type_id  => '2',
         },
         {
             select => [ { count => 'task_project_id' } ],
@@ -2253,7 +2253,7 @@ sub tasks : Chained('project_object') : PathPart('tasks') : Args {
                     $c->model('ProjectTaskToDoDB::Task')->search(
                         {
                             task_project_id => $project_id,
-                            task_status_id  => '2'
+                            task_status_type_id  => '2'
                         }
                     )
                 ];
@@ -2275,7 +2275,7 @@ sub tasks : Chained('project_object') : PathPart('tasks') : Args {
                     $c->model('ProjectTaskToDoDB::Task')->search(
                         {
                             task_project_id => $project_id,
-                            task_status_id  => '2'
+                            task_status_type_id  => '2'
                         }
                     )
                 ];

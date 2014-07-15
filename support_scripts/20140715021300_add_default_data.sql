@@ -47,6 +47,17 @@ INSERT INTO `project_status_type` (`id`, `name`, `living`, `description`) VALUES
 UNLOCK TABLES;
 
 --
+-- Dumping data for table `project_type`
+--
+
+LOCK TABLES `project_type` WRITE;
+/*!40000 ALTER TABLE `project_type` DISABLE KEYS */;
+INSERT INTO `project_type` (`id`, `name`, `description`) VALUES (1,'Traditional','A traditional, non-agile project'),(2,'Scrum - Agile','A Scrum-based Agile project');
+/*!40000 ALTER TABLE `project_type` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+--
 -- Dumping data for table `role`
 --
 
@@ -75,6 +86,14 @@ LOCK TABLES `task_status_type` WRITE;
 INSERT INTO `task_status_type` (`id`, `name`, `living`, `description`) VALUES (1,'Active','1','Active and in progress'),(2,'Complete','0','The task is finished'),(3,'Deleted','0','Deleted'),(4,'Cancelled','0','Task is not complete but is no longer needed'),(5,'Deferred','1','Put off until a future date');
 /*!40000 ALTER TABLE `task_status_type` ENABLE KEYS */;
 UNLOCK TABLES;
+
+
+
+LOCK TABLES `schema_migration` WRITE;
+INSERT INTO `schema_migration` (`version`) VALUES ('20140715021300');
+UNLOCK TABLES;
+
+
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

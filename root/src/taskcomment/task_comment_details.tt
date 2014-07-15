@@ -34,7 +34,7 @@
 </tr>
 <tr>
 	<td align='right'><strong>Description:</strong></td>
-	<td>[% task.task_description %]</td>
+	<td>[% task.description %]</td>
 </tr>
 [%- IF (task.task_sched_start_date != '0000-00-00') && (task.task_sched_start_date != '') -%]
 <tr>

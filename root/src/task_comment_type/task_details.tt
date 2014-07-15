@@ -4,7 +4,7 @@
 <tr><td align='right'><strong>Priority:</strong></td><td>[% task.task_priority %]</td></tr>
 <tr><td align='right'><strong>Creator:</strong></td><td>[% task.creator.full_name %]</td></tr>
 <tr><td align='right'><strong>Assigned To:</strong></td><td>[% task.owner.full_name %]</td></tr>
-<tr><td align='right'><strong>Description:</strong></td><td>[% task.task_description | html | html_line_break %]</td></tr>
+<tr><td align='right'><strong>Description:</strong></td><td>[% task.description | html | html_line_break %]</td></tr>
 <tr><td align='right'><strong>Scheduled start date:</strong></td><td>[% task.task_sched_start_date %]</td></tr>
 <tr><td align='right'><strong>Actual start date:</strong></td><td>[% task.task_actual_start_date %]</td></tr>
 [% IF task.task_start_date_diff || task.task_start_date_diff == 0 %]<tr><td align='right'><strong>Start date diff (days):</strong></td><td>[% task.task_start_date_diff %]</td></tr>[% END %]

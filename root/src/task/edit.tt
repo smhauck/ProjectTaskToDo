@@ -124,7 +124,7 @@ $(function() {
 </tr>
 <tr>
 <th>description:</th>
-<td><textarea rows="10" cols="100" name="description">[% task.task_description %]</textarea></td>
+<td><textarea rows="10" cols="100" name="description">[% task.description %]</textarea></td>
 </tr>
 <tr>
 <th>scheduled start date:</th>

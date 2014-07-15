@@ -251,7 +251,7 @@ sub complete : Local {
 
         $task->update(
             {
-                task_status_id           => '2',
+                task_status_type_id           => '2',
                 task_alive               => '0',
                 task_actual_start_date   => $actual_start_date,
                 task_actual_compl_date   => $actual_compl_date,
@@ -544,7 +544,7 @@ sub insert_task : Local {
             task_owner_id            => $owner_id,
             task_project_id          => $project_id,
             on_project_plan          => $on_project_plan,
-            task_description         => $description,
+            description         => $description,
             task_sched_start_date    => $sched_start_date,
             task_actual_start_date   => $actual_start_date,
             task_sched_compl_date    => $sched_compl_date,
@@ -726,7 +726,7 @@ sub search : Local {
     if ($criteria) {
         $c->stash->{tasks} = [
             $c->model('ProjectTaskToDoDB::Task')->search_literal(
-                "match (task_name, task_description) against (?) and task_deleted <> 'y'",
+                "match (task_name, description) against (?) and task_deleted <> 'y'",
                 $criteria
             )
         ];
@@ -1034,13 +1034,13 @@ sub update : Local {
             $task->update(
                 {
                     task_name                => $name,
-                    task_status_id           => $status_id,
+                    task_status_type_id           => $status_id,
                     task_alive               => $alive,
                     task_owner_id            => $owner_id,
                     on_project_plan   => $on_project_plan,
                     task_project_id          => $project_id,
                     task_priority            => $priority,
-                    task_description         => $description,
+                    description         => $description,
                     task_sched_start_date    => $sched_start_date,
                     task_actual_start_date   => $actual_start_date,
                     task_sched_compl_date    => $sched_compl_date,

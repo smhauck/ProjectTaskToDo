@@ -8,7 +8,7 @@
 <tr>
 <td><a href="/project/[% task.project.project_id %]">[% task.project.project_short_name %]</a></td>
 <td><a href="/task/[% task.id %]/comments">[% task.task_name %]</a></td>
-<td>[% task.task_description %]</td>
+<td>[% task.description %]</td>
 </tr>
 [% END -%]
 

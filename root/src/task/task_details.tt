@@ -43,7 +43,7 @@
 </tr>
 <tr>
 	<th>Description:</th>
-	<td>[% task.task_description | html | html_line_break %]</td>
+	<td>[% task.description | html | html_line_break %]</td>
 </tr>
 <tr>
 	<th>Initially Recorded:</th>
