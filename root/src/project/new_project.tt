@@ -6,7 +6,18 @@ $(function() {
 </script>
 
 <form name="new_project" action="/project/insert_project" method="post">
-<table border="0">
+<table class="table">
+<tr>
+<th>Type</th>
+<td>
+<select name="project_type" size="1">
+<option value="" />
+[% FOR type IN types -%]
+<option value="[% type.id %]" />[% type.name | html %]
+[% END -%]
+</select>
+</td>
+</tr>
 <tr>
 <th>short name (16 chars):</th>
 <td><input type="text" id="short_name" name="short_name" size="15"></td>

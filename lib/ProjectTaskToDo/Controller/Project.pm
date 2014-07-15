@@ -1861,6 +1861,8 @@ sub new_project : Chained('base') : PathPart('new') : Args(0) {
     $c->stash->{whichtab}  = 'create_new_project';
     $c->stash->{pagetitle} = 'Create New Project';
 
+    $c->stash->{types} = [ $c->model('ProjectTaskToDoDB::ProjectType')->all ];
+
     $c->stash->{users} =
       [ $c->model('ProjectTaskToDoDB::User')
           ->search( { active => '1' }, { order_by => 'full_name' } ) ];
