@@ -43,17 +43,6 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Task <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-		<li><a href="/task/today">Today's Tasks</a></li>
-		<li><a href="/task/my_active">My Active Tasks</a></li>
-		<li><a href="/task/my_complete">My Complete Tasks</a></li>
-		<li><a href="/task/new_task">Create New Task</a></li>
-		<li><a href="/task/search">Search Tasks</a></li>
-            <li class="divider"></li>
-          </ul>
-        </li>
-        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project <b class="caret"></b></a>
           <ul class="dropdown-menu">
 			<li><a href="/project/my_active">My Active</a></li>
@@ -65,8 +54,18 @@
             <li class="divider"></li>
           </ul>
         </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Task <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+		<li><a href="/task/today">Today's Tasks</a></li>
+		<li><a href="/task/my_active">My Active Tasks</a></li>
+		<li><a href="/task/my_complete">My Complete Tasks</a></li>
+		<li><a href="/task/new_task">Create New Task</a></li>
+		<li><a href="/task/search">Search Tasks</a></li>
+            <li class="divider"></li>
+          </ul>
+        </li>
         <!-- <li><a href="/timepalette">Time Palette</a></li> -->
-        <li><a href="/report">Reports</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Note <b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -79,14 +78,13 @@
             <li class="divider"></li>
           </ul>
         </li>
+        <li><a href="/report">Reports</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/help">Help</a></li>
         [% IF Catalyst.user -%]
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-<i class="glyphicon glyphicon-user"></i>
- [% Catalyst.user.username %] <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> [% Catalyst.user.username %] <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="/person/[% Catalyst.user.id %]" class="navbar-link">Account Information</a></li>
             <!-- <li><a href="/blog">My Blogs</a></li> -->
