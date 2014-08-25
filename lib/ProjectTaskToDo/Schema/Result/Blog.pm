@@ -77,7 +77,14 @@ __PACKAGE__->set_primary_key("id");
 # Created by DBIx::Class::Schema::Loader v0.07002 @ 2014-08-24 19:03:19
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:KnDu1x2CnVHGDLXFaXQLDw
 
+__PACKAGE__->add_columns(
+        created_at => { data_type => 'datetime', inflate_datetime => 0 },
+        updated_at => { data_type => 'datetime', inflate_datetime => 0 },
+);
 
-# You can replace this text with custom content, and it will be preserved on regeneration
+__PACKAGE__->has_many('posts' => 'ProjectTaskToDo::Schema::Result::BlogPost', 'blog_id');
+__PACKAGE__->belongs_to('creator' => 'ProjectTaskToDo::Schema::Result::User', 'creator_id');
+
+
 __PACKAGE__->meta->make_immutable;
 1;

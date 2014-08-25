@@ -78,6 +78,16 @@
             <li class="divider"></li>
           </ul>
         </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+			<li><a href="/blog/new_blog">New Blog</a></li>
+			<li><a href="/blog/my_all">All My Blogs</a></li>
+			<li><a href="/blog/all_public">All Public Blogs</a></li>
+			<li><a href="/blog/search">Search Blogs</a></li>
+            <li class="divider"></li>
+          </ul>
+        </li>
         <li><a href="/report">Reports</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

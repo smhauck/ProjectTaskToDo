@@ -50,7 +50,7 @@ __PACKAGE__->table("blog_post");
   data_type: 'integer'
   is_nullable: 1
 
-=head2 user_id
+=head2 author_id
 
   data_type: 'integer'
   is_nullable: 1
@@ -78,7 +78,7 @@ __PACKAGE__->add_columns(
   { data_type => "date", is_nullable => 1 },
   "blog_id",
   { data_type => "integer", is_nullable => 1 },
-  "user_id",
+  "author_id",
   { data_type => "integer", is_nullable => 1 },
   "created_at",
   { data_type => "datetime", is_nullable => 1 },
@@ -88,10 +88,16 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07002 @ 2014-08-24 19:03:19
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:O3pCzIGy9Em8RcJ+bC/DhA
+# Created by DBIx::Class::Schema::Loader v0.07002 @ 2014-08-24 23:57:20
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:R4erP+iZPzyDNsKbLONZuA
 
+__PACKAGE__->add_columns(
+        created_at => { data_type => 'datetime', inflate_datetime => 0 },
+        updated_at => { data_type => 'datetime', inflate_datetime => 0 },
+        publish_date => { data_type => 'datetime', inflate_datetime => 0 },
+);
 
-# You can replace this text with custom content, and it will be preserved on regeneration
+__PACKAGE__->belongs_to('author' => 'ProjectTaskToDo::Schema::Result::User', 'author_id');
+
 __PACKAGE__->meta->make_immutable;
 1;
