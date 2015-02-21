@@ -2099,7 +2099,7 @@ sub project_object : Chained('base') : PathPart('') : CaptureArgs(1) {
     my $num_complete_tasks = $c->model('ProjectTaskToDoDB::Task')->search(
         {
             task_project_id => $project_id,
-            task_status_type_id  => '2',
+            task_status_type_id  => '7',
         },
         {
             select => [ { count => 'task_project_id' } ],
