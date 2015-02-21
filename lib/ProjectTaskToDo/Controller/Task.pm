@@ -251,7 +251,7 @@ sub complete : Local {
 
         $task->update(
             {
-                task_status_type_id           => '2',
+                task_status_type_id           => '7',
                 task_alive               => '0',
                 task_actual_start_date   => $actual_start_date,
                 task_actual_compl_date   => $actual_compl_date,
