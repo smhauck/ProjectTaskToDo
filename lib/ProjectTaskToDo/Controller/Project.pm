@@ -2253,7 +2253,7 @@ sub tasks : Chained('project_object') : PathPart('tasks') : Args {
                     $c->model('ProjectTaskToDoDB::Task')->search(
                         {
                             task_project_id => $project_id,
-                            task_status_type_id  => '2'
+                            task_status_type_id  => '7'
                         }
                     )
                 ];
@@ -2275,7 +2275,7 @@ sub tasks : Chained('project_object') : PathPart('tasks') : Args {
                     $c->model('ProjectTaskToDoDB::Task')->search(
                         {
                             task_project_id => $project_id,
-                            task_status_type_id  => '2'
+                            task_status_type_id  => '7'
                         }
                     )
                 ];
