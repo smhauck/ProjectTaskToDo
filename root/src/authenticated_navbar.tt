@@ -65,7 +65,6 @@
             <li class="divider"></li>
           </ul>
         </li>
-        <!-- <li><a href="/timepalette">Time Palette</a></li> -->
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Note <b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -89,6 +88,7 @@
           </ul>
         </li>
         <li><a href="/report">Reports</a></li>
+        <li><a href="/timepalette">Time Palette</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/help">Help</a></li>
