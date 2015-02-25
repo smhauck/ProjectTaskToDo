@@ -20,8 +20,8 @@ $(function() {
 <td>
 <select name="status_id" size="1">
 [% FOR task_status IN task_statuses -%]
-	[% IF task.task_status_id == task_status.id -%]
-		<option value="[% task_status.id %]" selected>[% task_status.name %]</option>
+	[% IF task.task_status_type_id == task_status.id -%]
+		<option selected value="[% task_status.id %]">[% task_status.name %]</option>
 	[% ELSE -%]
 		<option value="[% task_status.id %]">[% task_status.name %]</option>
 	[% END -%]
