@@ -1,3 +1,165 @@
+commit ee67d50f02e01439397001b2523aa13997186dc5
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Mar 11 02:09:26 2015 -0400
+
+    cleaning up interface; removing duplicate menus
+
+commit d7d92ca32baead90fcf68c1f01402bdb82aba44b
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Mar 11 01:24:16 2015 -0400
+
+    added basic project roles that every project needs
+
+commit 80b37d3318d8a67aa44bc14160bf4ccee1b71c2a
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Mar 7 20:28:55 2015 -0500
+
+    bug in person triggers: no department column in user table
+
+commit 2ef2dbaae802611aa4cdca9aefc88aa77979b5d1
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Feb 25 14:25:00 2015 -0500
+
+    task: editing task rest status
+
+commit 67fabd62802e5863ac2e12dc330b3e5d94dbd003
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Feb 21 13:32:49 2015 -0500
+
+    project: listing completed tasks broken
+
+commit 0c83d01a9c9d662eafd32b5bf60093ac19d55d55
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Feb 21 13:28:07 2015 -0500
+
+    project: listing completed tasks broken
+
+commit c5c0b7cb91843c5054b2aa1ce03548e5cdbd148e
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Feb 21 12:35:41 2015 -0500
+
+    bug: marking task complete changed task.task_status_type_id =2 instead of 7
+
+commit 2658335705104f061eb73914b7fd273ab2d56108
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Feb 21 12:18:28 2015 -0500
+
+    adding Apple touch icon
+
+commit 8f12ff99112563bd60e8fc7b9611e50e29378807
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Feb 21 03:23:33 2015 -0500
+
+    adding Apple touch icon
+
+commit 5967f1d0ace9c6aec07490ca52a887108170e65a
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Feb 21 02:46:56 2015 -0500
+
+    adding Apple touch icon
+
+commit f01239e5bc81ab55c1ebd486f7067c559d996136
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Feb 21 02:44:28 2015 -0500
+
+    adding Apple touch icon
+
+commit 649d2dda9e93fdf8571c8a6f98ad20a36dd218e1
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Feb 21 02:22:29 2015 -0500
+
+    adding Apple icon
+
+commit 655f2f51efed760050dcf0ea4fb8ff1d66edc28e
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Feb 21 02:17:07 2015 -0500
+
+    adding Apple touch icon
+
+commit 8726d9fac84b893b7e5abccdb4cad4ae8e813f27
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Feb 21 02:14:21 2015 -0500
+
+    adding Apple homepage icon
+
+commit 93ac0a96965bcb873e0679dc306ecf46abe8cf16
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Feb 21 02:10:40 2015 -0500
+
+    adding Apple homepage icon
+
+commit 31b8f4201e64d990dc6ad69fbde72d4f0452e17c
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Feb 21 02:05:26 2015 -0500
+
+    adding Apple homepage icon
+
+commit 9c33d9d9c76e61aa428d980e35a4a500eddd53c8
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Feb 21 01:17:26 2015 -0500
+
+    adding the timepalette back to the menu
+
+commit fad7b0b6878167a3c0a016952efa251f11384241
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Aug 25 01:46:10 2014 -0400
+
+    basic blog creation working
+
+commit 7f95791a151ef30bcaa138b03f1fb1c277206ad3
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Aug 24 19:06:05 2014 -0400
+
+    adding Blog and Wiki functionality; this is base
+
+commit cf24df07384f2e83b052ba3f809ae40cf6cfc36d
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Aug 24 18:39:05 2014 -0400
+
+    moved to db/migrate; following ruby rake style for database updates; will provide tool to run these in the future
+
+commit 3900581c98d9d4cab0a0efd196fcc276d85cabb6
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Aug 10 01:07:42 2014 -0400
+
+    re-arranged menu items based on type; keeping more frequently used items together
+
+commit 52ecb8d5eb8714d59c6e8801a90a0f21a7a186bf
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Aug 10 01:04:44 2014 -0400
+
+    removed section on how to apply
+
+commit 2ed6323da3b86b5bd2d9d146b7c3c58bce2b1ea1
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Aug 9 00:31:29 2014 -0400
+
+    updated VERSION
+
+commit 68771017bfbfa302dfebb93acbd07376edf1ad2d
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Aug 9 00:30:50 2014 -0400
+
+    adding Scrum type projects
+
+commit 2c0f8e17b183aeed2b9e530596e0874b1fed7da7
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Aug 9 00:27:07 2014 -0400
+
+    tweaked footer
+
+commit 57ded273491ff457b2129378c61829044901c770
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 15 13:09:47 2014 -0400
+
+    README: fixed typo; added word _supported_ to databases section
+
+commit 4f9c7908e6a04c5ae3dbfc9f3ee91dd951f3ebd8
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 15 12:49:40 2014 -0400
+
+    incremented version; updated Changes
+
 commit 76da9dbe1fb371ef3e4314c3664264fd696347bd
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Tue Jul 15 12:42:22 2014 -0400
