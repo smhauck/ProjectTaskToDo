@@ -481,7 +481,7 @@ sub name_lookup : Local {
     while ( my $cur_person = $persons->next ) {
 
   # my $label = $cur_person->full_name . " (" . $cur_person->office_email . ")";
-        my $label = $cur_person->full_name;
+        my $label = $cur_person->full_name . " (" . $cur_person->office_email . ")";
         push(
             @results,
             {
