@@ -1,10 +1,13 @@
-[% INCLUDE organization/menu.tt %]
-[% INCLUDE organization/options.tt %]
+<!-- BEGIN projects.tt -->
 
-[% INCLUDE organization/organization_details.tt %]
+<div class="container">
+<div class="row">
+<div class="col-sm-9 blog-main">
+
+<h1>[% organization.name %]</h1>
 
 [% linecount = 0 %]
-<table class='sortable'>
+<table class='table sortable'>
 <tr>
 <th>ID</th>
 <th>Short Name</th>
@@ -46,11 +49,17 @@
 
 Count: [% linecount %]
 
+</div><!-- class="col-sm-9 blog-main" -->
+[% INCLUDE organization/options.tt %]
+</div><!-- class="row" -->
+</div><!-- class="container" -->
+<!-- END projects.tt -->
+
 
 [%#
 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, www.wbhauck.com
 
 LICENSE
 

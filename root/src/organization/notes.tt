@@ -1,3 +1,4 @@
+<!-- BEGIN notes.tt -->
 <script type="text/javascript">
 	$(function() {
 		$("#the_user_id").autocomplete({
@@ -7,10 +8,11 @@
 	});
 </script>
 
-[% INCLUDE project/menu.tt %]
-[% INCLUDE project/options.tt %]
+<div class="container">
+<div class="row">
+<div class="col-sm-9 blog-main">
 
-<h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %] <a href="/project/[% project.id %]/edit">(Edit Project)</a></h1>
+<h1>[% organization.name %]</h1>
 
 <br />
 <a href='/note?project=[% project.project_id %]'>Add new note for project</a><br />
@@ -53,14 +55,19 @@
 </tr>
 [% END %]
 </table>
-<br />
-<a href='/note?project=[% project.project_id %]'>Add new note for project</a><br />
+</div><!-- class="col-sm-9 blog-main" -->
+
+[% INCLUDE organization/options.tt %]
+
+</div><!-- class="row" -->
+</div><!-- class="container" -->
+<!-- END notes.tt -->
 
 
 [%#
 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2014 William B. Hauck, www.wbhauck.com
 
 LICENSE
 

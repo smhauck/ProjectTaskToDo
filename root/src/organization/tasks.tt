@@ -1,11 +1,14 @@
-[% INCLUDE organization/menu.tt %]
-[% INCLUDE organization/options.tt %]
+<!-- BEGIN tasks.tt -->
+[% META title = 'ProjectTaskToDo Organization Details' %]
 
+<div class="container">
+<div class="row">
+<div class="col-sm-9 blog-main">
+
+<h1>Organization: [% organization.name %]</h1>
 [% INCLUDE organization/organization_details.tt %]
 
-<br />
-
-<table class='sortable' width='100%'>
+<table class='table sortable'>
 <caption>Active Tasks</caption>
 <tr><th>ID</th><th>Order</th><th>Status</th><th>Task Name</th><th>Priority</th><th>Assigned To</th><th>Last Activity</th><th>Scheduled<br />Start<br />Date</th><th>Actual<br />Start<br />Date</th><th>Diff (Days)</th><th>Scheduled<br />Completion<br />Date</th></tr>
 [% FOREACH task IN tasks %]
@@ -48,13 +51,19 @@
 </table>
 <br />
 [% END %]
+</div><!-- class="col-sm-9 blog-main" -->
 
+[% INCLUDE organization/options.tt %]
+
+</div><!-- class="row" -->
+</div><!-- class="container" -->
+<!-- END details.tt -->
 
 
 [%#
 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, www.wbhauck.com
 
 LICENSE
 
