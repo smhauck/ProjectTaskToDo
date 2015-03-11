@@ -276,7 +276,7 @@ sub register : Local {
 
 	my $user_role = $c->model('ProjectTaskToDoDB::UserRole')->create({
 		user => $uid,
-		role => '1'
+		role => '2'
 	});
 	$c->flash->{message}="Thank you for Registering.  Please log in to use the system.";
 	$c->response->redirect($c->uri_for('/'));
