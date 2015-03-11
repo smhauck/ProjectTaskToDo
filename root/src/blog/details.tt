@@ -1,0 +1,51 @@
+[% META title = 'ProjectTaskToDo:Active Tasks' %]
+
+<div class="container">
+<div class="row">
+<div class="col-sm-8 blog-main">
+
+<h1>[% blog.title %] [% IF blog.creator_id == Catalyst.user.id %](<a href="/blog/[% blog.id %]/edit">Edit</a>)[% END %]</h1>
+<p>[% blog.description %]</p>
+<p>Created by: [% blog.creator.username %]</p>
+
+<h1>posts</h1>
+[% FOREACH post IN blog.posts %]
+  <div class="blog_post">
+    <h2 class="blog_post_title">[% post.title %] [% IF post.author_id == Catalyst.user.id %](<a href="/blog/[% blog.id %]/post/[% post.id %]/edit">Edit</a>)[% END %]</h2>
+    <p class="blog_post_published">Published on [% post.publish_date %] by [% post.author.username %]</p>
+    [% post.body | html | html_line_break %]
+  </div>
+[% END %]
+
+
+
+</div><!-- class="col-sm-8 blog-main" -->
+
+[% INCLUDE task/options.tt %]
+
+</div><!-- class="row" -->
+</div><!-- class="container" -->
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+%]

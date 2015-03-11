@@ -1,0 +1,47 @@
+<%
+=begin
+%>
+
+Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+
+<p id="notice"><%= notice %></p>
+
+<% if session[:user_id] %>
+  <h1><%= @blog.title %> <%= link_to '(Edit)', edit_blog_path(@blog) %></h1>
+<% else %>
+  <h1><%= @blog.title %></h1>
+<% end %>
+<p>Created by: <%= link_to @blog.creator.username, @blog.creator %></p>
+<p><%= @blog.description %></p>
+
+<% @blog.posts.each do |post| %>
+  <div class="blog_post">
+	  <% if session[:user_id] %>
+		  <h2 class="blog_post_title"><%= post.title %> <%= link_to '(Edit)', edit_blog_post_path(post) %></h2>
+	  <% else %>
+		  <h2 class="blog_post_title"><%= post.title %></h2>
+	  <% end %>
+    <p class="blog_post_published">Published on <%= post.publish_date %> by <%= link_to post.user.username, post.user %></p>
+    <%= sanitize post.body %>
+  </div>
+<% end %>

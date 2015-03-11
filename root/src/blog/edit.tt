@@ -1,0 +1,16 @@
+<h1>Edit blog</h1>
+
+<form action="/blog/[% blog.id %]/update" method="post">
+
+  <div class="field">
+    <label for="blog_title">Title</label><br>
+    <input id="blog_title" name="title" type="text" value="[% blog.title | html %]" />
+  </div>
+  <div class="field">
+    <label for="blog_description">Description</label><br>
+    <textarea id="blog_description" name="description">[% blog.description | html | html_line_break %]</textarea>
+  </div>
+  <div class="actions">
+    <input name="commit" type="submit" value="Update Blog" />
+  </div>
+</form>
