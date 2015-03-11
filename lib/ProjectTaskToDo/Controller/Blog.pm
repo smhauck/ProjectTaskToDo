@@ -164,6 +164,37 @@ sub base : Chained('/') : PathPart('blog') : CaptureArgs(0) {
 }
 
 
+
+=head2 end
+
+Attempt to render a view, if needed.
+
+=cut
+
+sub end : Private {
+	my ($self, $c) = @_;
+
+	if ( scalar @{ $c->error } ) {
+		$c->stash->{errors} = $c->error;
+		for my $error (@{$c->error}) {
+			$c->log->error($error);
+		}
+		$c->stash->{template} = 'error.tt';
+		$c->forward('ProjectTaskToDo::View::TT');
+		$c->clear_errors;
+	}
+
+	return 1 if $c->response->status =~ /^3\d\d$/;
+	return 1 if $c->response->body;
+
+	unless ($c->response->content_type){
+		$c->response->content_type('text/html; charset=utf-8');
+	}
+
+	$c->forward('ProjectTaskToDo::View::TT');
+}
+
+
 =head2 index
 
 =cut
