@@ -1,5 +1,5 @@
 <!-- BEGIN edit.tt -->
-<div class="container">
+<div class="container-fluid">
 
 <script type="text/javascript">
 $(function() {
@@ -121,14 +121,14 @@ $(document).ready(function(){
 </script>
 
 <script>CKEDITOR.replace( 'body' );</script>
-</div><!-- class="container" -->
+</div><!-- class="container-fluid" -->
 <!-- END edit.tt -->
 
 
 [%#
 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
 LICENSE
 

@@ -49,7 +49,7 @@ Static::Simple
 
 extends 'Catalyst';
 
-our $VERSION = '0.5.5';
+our $VERSION = '0.5.7';
 $VERSION = eval $VERSION;
 
 # Configure the application.

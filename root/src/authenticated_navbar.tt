@@ -1,6 +1,6 @@
 <!-- BEGIN authenticated_navbar.tt -->
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container">
+<nav class="navbar navbar-primary" role="navigation">
+  <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -112,7 +112,7 @@
 </div>
 [% END -%]
 
-  </div><!-- class="container" -->
+  </div><!-- class="container-fluid" -->
 </nav>
 <!-- END authenticated_navbar.tt -->
 
@@ -120,7 +120,7 @@
 [%#
 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
 LICENSE
 

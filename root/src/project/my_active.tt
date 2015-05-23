@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
 <script type="text/javascript">
 $(function() {
 	$('.ui-datepicker').datepicker({dateFormat: 'yy-mm-dd'});
@@ -53,13 +53,13 @@ $(function() {
 </form>
 Count: [% linecount %]
 
-</div><!-- class="container" -->
+</div><!-- class="container-fluid" -->
 
 
 [%#
 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
 LICENSE
 

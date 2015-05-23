@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-
 <html lang="en">
- <head>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
   <link href="/projecttasktodo.png" rel="shortcut icon" type="image/png" />
   <link href="/projecttasktodo.png" rel="apple-touch-icon" type="image/png" />
 
@@ -10,8 +14,6 @@
   <title>[% pagetitle or template.title or site.title %]</title>
 
   <link href="/static/css/bootstrap.css" rel="stylesheet">
-  <link href="/static/css/projecttasktodo.css" rel="stylesheet">
-  <link href="/static/css/blog.css" rel="stylesheet">
 
 [% IF template.name == 'project/order_tasks.tt' %]
   <script src="/static/scripts/jquery-1.11.1.min.js"></script>
@@ -38,7 +40,7 @@
 [%#
 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
 LICENSE
 

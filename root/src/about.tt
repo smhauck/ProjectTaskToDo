@@ -1,6 +1,6 @@
 [% META title = 'About' %]
 
-<div class="container">
+<div class="container-fluid">
 <h1>About ProjectTaskToDo</h1>
 <p>I've been working on a project management system for a while. It started as a simple ToDo list. As I used it I added new features. It lingered for a few years until I got a job at an advertising agency. There I had to account for all my time on a weekly timesheet; the smallest time chunk was 15 minutes. All the time had to be recorded each day against a jobcode. Each project was assigned a specific jobcode. My particular client made a new project, and therefore jobcode, for the smallest things. For instance, replacing a word on a page might have its own jobcode. Replacing 20 pages might have its own jobcode. There were lots. Looking back I see over 200 individual job codes. Tracking the time to the jobcode was a pain in the ass since we didn't have system that would do that. So I started using my own.</p>
 
@@ -14,13 +14,13 @@
 
 <p>So intead of letting this system go to waste, I've decided to make it an open source project using the GNU Affero General Public License, version 3 (AGPL3). But I needed a name. Originally, I called my ToDo system "MCP" after the Master Control Program in Tron. Yes, I'm a nerd. Then I found that MCP is also an operating system from Burroughs. So I looked for another name. Task Master came to mind, but there are over a dozen Task Master systems out there. And the domain was taken. So I decided to give up on a "cool" name and go practical. What does the thing encompass? Projects! Tasks! ToDo Lists! So, ProjectTaskToDo was born.</p>
 
-</div><!-- class="container" -->
+</div><!-- class="container-fluid" -->
 
 
 [%#
 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
 LICENSE
 

@@ -338,17 +338,15 @@ sub new_note :Path('/note') :Args(0) {
 	if ($project_id)
 	{
         	$c->stash->{projects} = [ $c->model('ProjectTaskToDoDB::Project')->find({project_id => $project_id}) ];
+        	$c->stash->{tasks} = [ $c->model('ProjectTaskToDoDB::Task')->search({task_project_id => $project_id}) ];
 	}
-	else
-	{
-        	$c->stash->{projects} = [ $c->model('ProjectTaskToDoDB::Project')->search( { status_id => {'=' => 1 } }, { order_by => 'project_name' } ) ];
-	}
-	if ($task_id)
+	elsif ($task_id)
 	{
         	$c->stash->{tasks} = [ $c->model('ProjectTaskToDoDB::Task')->find({task_id => $task_id}) ];
 	}
 	else
 	{
+        	$c->stash->{projects} = [ $c->model('ProjectTaskToDoDB::Project')->search( { status_id => {'=' => 1 } }, { order_by => 'project_name' } ) ];
         	$c->stash->{tasks} = [ $c->model('ProjectTaskToDoDB::Task')->search( { task_owner_id => $c->user->id, task_alive => {'=' => 1 }  } ) ];
 	}
         $c->stash->{organizations}      = [ $c->model('ProjectTaskToDoDB::Organization')->search({},{ order_by => 'name' }) ];

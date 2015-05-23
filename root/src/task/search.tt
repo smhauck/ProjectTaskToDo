@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
 [% INCLUDE task/search_box.tt %]
 
 <h3>Search results for: [% criteria %]</h3>
@@ -15,13 +15,13 @@
 </table>
 <br />
 
-</div><!-- class="container" -->
+</div><!-- class="container-fluid" -->
 
 
 [%#
 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
 LICENSE
 

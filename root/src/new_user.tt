@@ -1,7 +1,7 @@
 <!-- BEGIN new_user.tt -->
 [% META title = 'Register' %]
 
-<div class="container">
+<div class="container-fluid">
 <form name="newUser" action='/register' method='post'>
 <table>
 <tr>
@@ -9,7 +9,7 @@
 </tr>
 <tr>
 <td><strong>username:</strong><br />8 characters only</td>
-<td><input type='text' name='username' size='60' maxlength='8'></td>
+<td><input type='text' name='username' size='60' maxlength='32'></td>
 </tr>
 <tr>
 <td><strong>password:</strong></td>
@@ -41,14 +41,14 @@
 </table>
 <input type='hidden' name='action' value='createUser'>
 </form>
-</div><!-- class="container" -->
+</div><!-- class="container-fluid" -->
 <!-- END new_user.tt -->
 
 
 [%#
 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
 LICENSE
 

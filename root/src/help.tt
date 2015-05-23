@@ -2,7 +2,7 @@
 [% META title = 'Help' %]
 
 
-<div class="container">
+<div class="container-fluid">
 <div class="alert alert-info">
 <p><strong>IMPORTANT!</strong> Help is very incomplete.  More help will be added as work progresses.</p>
 </div>
@@ -45,14 +45,14 @@
 <li>All project users can make comments and enter time worked on a task.</li>
 <li>Task comments can not be edited after 15 minutes.  This gives enough time to correct typos but blocks users from going back and changing history.  (Future updates will allow comment modification but record it in a history table.)</li>
 </ul>
-</div><!-- class="container" -->
+</div><!-- class="container-fluid" -->
 <!-- END help.tt -->
 
 
 [%#
 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
 LICENSE
 

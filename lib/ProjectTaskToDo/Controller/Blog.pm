@@ -22,17 +22,31 @@ Catalyst Controller.
 
 =head2 edit
 
+Edit the Blog details (title, description, etc.)
+
 =cut
 
 sub edit : Chained('object') : PathPart('edit') : Args(0) {
     my ( $self, $c ) = @_;
     my $blog = $c->stash->{blog};
-    $c->stash->{template} = 'blog/edit.tt';
+    my $blog_id =$blog->id;
+    if ($blog->creator_id == $c->user->id)
+    {
+	$c->stash->{authorized} = 1;
+    	$c->stash->{template} = 'blog/edit.tt';
+	}
+	else
+	{
+        	$c->flash->{message} = "You are not authorized to edit this Blog.";
+        $c->response->redirect( $c->uri_for("/blog/$blog_id") );
+}
 }
 
 
 
 =head2 new_blog
+
+Create a new Blog
 
 =cut
 
@@ -43,6 +57,8 @@ sub new_blog :Path('new_blog') :Args(0) {
 
 
 =head2 update_blog
+
+Update the database with new Blog information (title, description, etc.)
 
 =cut
 
@@ -71,6 +87,8 @@ sub update : Chained('object') : PathPart('update') : Args(0) {
 
 
 =head2 insert_blog
+
+Create the Blog in the database
 
 =cut
 
@@ -103,6 +121,8 @@ sub insert_blog :Path('insert_blog') :Args(0) {
 
 
 =head2 details
+
+Default view of the Blog
 
 =cut
 
@@ -167,7 +187,7 @@ sub base : Chained('/') : PathPart('blog') : CaptureArgs(0) {
 
 =head2 end
 
-Attempt to render a view, if needed.
+Show custom error page on $c->error
 
 =cut
 
@@ -195,15 +215,14 @@ sub end : Private {
 }
 
 
-=head2 index
+#=head2 index
 
-=cut
+#=cut
 
-sub index :Path :Args(0) {
-    my ( $self, $c ) = @_;
-
-    $c->response->body('Matched ProjectTaskToDo::Controller::Blog in Blog.');
-}
+#sub index :Path :Args(0) {
+#    my ( $self, $c ) = @_;
+#    $c->response->body('Matched ProjectTaskToDo::Controller::Blog in Blog.');
+#}
 
 
 =head1 AUTHOR

@@ -1,5 +1,5 @@
 [% META title = 'ProjectTaskToDo:Complete Tasks' %]
-<div class="container">
+<div class="container-fluid">
 
 <span class="task_count">[% num_tasks %] complee tasks</span>
 
@@ -33,13 +33,13 @@
 </table>
 
 Count: [% linecount %]
-</div><!-- class="container" -->
+</div><!-- class="container-fluid" -->
 
 
 [%#
 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
 LICENSE
 

@@ -1,6 +1,6 @@
 <!-- BEGIN license.tt -->
 [% META title = 'License' %]
-<div class="container">
+<div class="container-fluid">
 <h3 style="text-align: center;">GNU AFFERO GENERAL PUBLIC LICENSE</h3>
 <p style="text-align: center;">Version 3, 19 November 2007</p>
 
@@ -678,14 +678,14 @@ specific requirements.</p>
 if any, to sign a &quot;copyright disclaimer&quot; for the program, if necessary.
 For more information on this, and how to apply and follow the GNU AGPL, see
 &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p>
-</div><!-- class="container" -->
+</div><!-- class="container-fluid" -->
 <!-- END license.tt -->
 
 
 [%#
 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
 LICENSE
 

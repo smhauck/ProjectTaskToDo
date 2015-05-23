@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
 <div class="row">
 <div class="col-sm-9 blog-main">
 
@@ -58,7 +58,7 @@
 
 [% INCLUDE project/options.tt %]
 </div><!-- class="row" -->
-</div><!-- class="container" -->
+</div><!-- class="container-fluid" -->
 
 <script type="text/javascript">
 	$(function() {
@@ -73,7 +73,7 @@
 [%#
 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
 LICENSE
 

@@ -12,7 +12,7 @@
 #   MakeMaker Parameters:
 
 #     ABSTRACT => q[Catalyst based application]
-#     AUTHOR => [q[- 2014 William B. Hauck, http://wbhauck.com]]
+#     AUTHOR => [q[- 2015 William B. Hauck, http://wbhauck.com]]
 #     BUILD_REQUIRES => { Test::More=>q[0.88], ExtUtils::MakeMaker=>q[6.36] }
 #     CONFIGURE_REQUIRES => {  }
 #     DISTNAME => q[ProjectTaskToDo]
@@ -1193,7 +1193,7 @@ testdb_static :: testdb_dynamic
 ppd :
 	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="0.1.23">' > $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <ABSTRACT>Catalyst based application</ABSTRACT>' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '    <AUTHOR>- 2014 William B. Hauck, http://wbhauck.com</AUTHOR>' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '    <AUTHOR>- 2015 William B. Hauck, http://wbhauck.com</AUTHOR>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Action::RenderView" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::Authentication" />' >> $(DISTNAME).ppd

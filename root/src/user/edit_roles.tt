@@ -1,6 +1,6 @@
 <!-- BEGIN edit_roles.tt -->
 [% META title = 'ProjectTaskToDo:User Edit' %]
-<div class="container">
+<div class="container-fluid">
 
         <SCRIPT LANGUAGE="JavaScript">
         var cal = new CalendarPopup();
@@ -18,14 +18,14 @@
 <button type="submit" class="btn btn-primary">Submit</button>
 
 </form>
-</div><!-- class="container" -->
+</div><!-- class="container-fluid" -->
 <!-- END edit_roles.tt -->
 
 
 [%#
 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
 LICENSE
 

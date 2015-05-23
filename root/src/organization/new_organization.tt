@@ -1,5 +1,5 @@
 <!-- BEGIN new_organization -->
-<div class="container">
+<div class="container-fluid">
 
 <script type="text/javascript">
 $(function() {
@@ -40,14 +40,14 @@ $(function() {
 </table>
 </form>
 
-</div><!-- class="container" -->
+</div><!-- class="container-fluid" -->
 <!-- END new_organization -->
 
 
 [%#
 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
 LICENSE
 

@@ -1,5 +1,5 @@
 [% META title = 'ProjectTaskToDo:User Edit' %]
-<div class="container">
+<div class="container-fluid">
 
         <SCRIPT LANGUAGE="JavaScript">
         var cal = new CalendarPopup();
@@ -30,13 +30,13 @@
 <tr><td></td><td align="right"><button type="submit" class="btn btn-primary">Submit</button></td></tr>
 </table>
 </form>
-</div><!-- class="container" -->
+</div><!-- class="container-fluid" -->
 
 
 [%#
 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
 LICENSE
 

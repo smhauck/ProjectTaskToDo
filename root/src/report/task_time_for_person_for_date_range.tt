@@ -1,5 +1,5 @@
 <!-- BEGIN task_time_for_person_for_date_range.tt -->
-<div class="container">
+<div class="container-fluid">
 [% INCLUDE report/options.tt %]
 
 <table class="table">
@@ -33,14 +33,14 @@
 </table>
 
 <h2>Total Time: [% total_time div 60 %] Hrs. [% total_time mod 60 %] Mins.</h2>
-</div><!-- class="container" -->
+</div><!-- class="container-fluid" -->
 <!-- END task_time_for_person_for_date_range.tt -->
 
 
 [%#
 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
 LICENSE
 

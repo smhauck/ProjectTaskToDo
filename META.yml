@@ -1,7 +1,7 @@
 ---
 abstract: 'Catalyst based application'
 author:
-  - '- 2014 William B. Hauck, http://wbhauck.com'
+  - '- 2015 William B. Hauck, http://wbhauck.com'
 build_requires:
   ExtUtils::MakeMaker: 6.36
   Test::More: 0.88

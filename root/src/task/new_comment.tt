@@ -1,6 +1,6 @@
 [% META title = 'New Task Comment' %]
 
-<div class="container">
+<div class="container-fluid">
 <script type="text/javascript">
 $(function() {
 	$('.ui-datepicker').datepicker({dateFormat: 'yy-mm-dd'});
@@ -32,13 +32,13 @@ Date of Time Worked:
 <button type="submit" class="btn btn-primary">Submit</button>
 
 </form>
-</div><!-- class="container" -->
+</div><!-- class="container-fluid" -->
 
 
 [%#
 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
 LICENSE
 

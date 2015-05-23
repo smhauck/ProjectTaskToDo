@@ -1,12 +1,12 @@
-<div class="container">
+<div class="container-fluid">
 [% INCLUDE organization/organization_list.tt %]
-</div><!-- class="container" -->
+</div><!-- class="container-fluid" -->
 
 
 [%#
 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
 LICENSE
 

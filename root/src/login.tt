@@ -1,16 +1,16 @@
 [% META title = 'Login' %]
-<div class="container">
+<div class="container-fluid">
 	<h2 class="form-signin-heading">Please sign in</h2>
 	[% INCLUDE login_form.tt %]
 	<br />
 	<p><a href="/forgot_password">Forgot Password?</a></p>
-</div> <!-- /container -->
+</div> <!-- class="container-fluid" -->
 
 
 [%#
 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
 LICENSE
 

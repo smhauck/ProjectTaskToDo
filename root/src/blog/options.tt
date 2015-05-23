@@ -1,0 +1,42 @@
+<!-- BEGIN options.tt -->
+<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+<div class="sidebar-module sidebar-module-inset">
+
+
+<div class="sidebar-module">
+<h4>Options</h4>
+<ol class="list-unstyled">
+[% IF blog.creator_id == Catalyst.user.id -%]
+<li><a href="/blog/[% blog.id %]/edit">Edit Blog</a></li>
+<li><a href="/blog/[% blog.id %]/new_post/">New Post</a></li>
+[% END -%]
+</ol>
+</div><!-- class="sidebar-module" -->
+
+</div><!-- class="col-sm-3 col-sm-offset-1 blog-sidebar" -->
+</div><!-- class="sidebar-module sidebar-module-inset" -->
+<!-- END options.tt -->
+
+
+[%#
+COPYRIGHT
+
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
+
+LICENSE
+
+This file is part of ProjectTaskToDo.
+
+ProjectTaskToDo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProjectTaskToDo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
+%]

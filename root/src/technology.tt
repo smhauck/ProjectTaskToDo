@@ -1,7 +1,7 @@
 <!-- BEGIN technology.tt -->
 [% META title = 'Technology' %]
 
-<div class="container">
+<div class="container-fluid">
 <h2>Technology</h2>
 <p>ProjectTaskToDo makes use of other's technologies, and I'd like to give them credit.  While not every Perl module is listed, some are because they do a significant amount of heavy lifting.</p>
 
@@ -19,13 +19,13 @@
 
 
 
-<div class="container">
+<div class="container-fluid">
 <h3><a href="http://httpd.apache.org" target="_blank">Apache HTTPD Server</a></h3>
 </div>
 
 <hr>
 
-<div class="container">
+<div class="container-fluid">
 <h3><a href="http://getbootstrap.com" target="_blank">Bootstrap Front-end Framework</a></h3>
 <p>The MIT License (MIT)</p>
 
@@ -41,20 +41,20 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 <hr>
 
-<div class="container">
+<div class="container-fluid">
 <h3><a href="http://www.catalystframework.org" target="_blank">Catalyst MVC Framework for Perl</a></h3>
 </div>
 
 <hr>
 
-<div class="container">
+<div class="container-fluid">
 <h3><a href="http://www.dbix-class.org" target="_blank">DBIx::Class</a></h3>
 <p>The object-relational mapper for Perl</p>
 </div>
 
 <hr>
 
-<div class="container">
+<div class="container-fluid">
 <h3><a href="http://glyphicons.com" target="_blank">GLYPHICONS</a></h3>
 <p><a href="http://glyphicons.com" target="_blank">by Jan Kova&rcaron;&iacute;k</a></p>
 <p>The MIT License (MIT)</p>
@@ -71,38 +71,38 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 <hr>
 
-<div class="container">
+<div class="container-fluid">
 <h3><a href="http://jquery.com" target="_blank">jQuery Javascript Library</a></h3>
 </div>
 
 <hr>
 
-<div class="container">
+<div class="container-fluid">
 <h3><a href="http://jqueryui.com" target="_blank">jQuery UI Plugin</a></h3>
 </div>
 
 <hr>
 
-<div class="container">
+<div class="container-fluid">
 <h3><a href="https://mariadb.org" target="_blank">MariaDB Relational Database</a></h3>
 </div>
 
 <hr>
 
-<div class="container">
+<div class="container-fluid">
 <h3><a href="http://perl.apache.org" target="_blank">mod_perl</a></h3>
 <p>Perl embedded into the Apache HTTPD Server</p>
 </div>
 
 <hr>
 
-<div class="container">
+<div class="container-fluid">
 <h3><a href="http://www.perl.org" target="_blank">Perl Programming Language</a></h3>
 </div>
 
 <hr>
 
-<div class="container">
+<div class="container-fluid">
 <h3><a href="http://www.template-toolkit.org" target="_blank">Template Toolkit</a></h3>
 </div>
 
@@ -113,7 +113,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 [%#
 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
 LICENSE
 
