@@ -25,9 +25,7 @@ Display Tasks For...
 <th>Last Activity</th>
 <th>Time (Est)</th>
 </tr>
-[% linecount = 0 %]
 [% FOREACH task IN tasks %]
-[% linecount = linecount + 1 %]
 <tr>
 <td>[% task.task_id %]</td>
 <td>[% task.task_priority %]</td>
@@ -48,7 +46,7 @@ Display Tasks For...
 [% END %]
 </table>
 
-Count: [% linecount %]<br />
+Count: [% tasks.size %]<br />
 
 Total Time: [% total_time div 60 %] Hrs, [% total_time mod 60 %] Mins<br />
 

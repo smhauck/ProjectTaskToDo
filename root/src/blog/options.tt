@@ -1,15 +1,16 @@
 <!-- BEGIN options.tt -->
-<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+<div class="col-sm-2 col-sm-offset-1 blog-sidebar">
 <div class="sidebar-module sidebar-module-inset">
 
 
 <div class="sidebar-module">
 <h4>Options</h4>
 <ol class="list-unstyled">
-[% IF blog.creator_id == Catalyst.user.id -%]
+[% IF authorized -%]
 <li><a href="/blog/[% blog.id %]/edit">Edit Blog</a></li>
 <li><a href="/blog/[% blog.id %]/new_post/">New Post</a></li>
 [% END -%]
+<li>&nbsp;</li>
 </ol>
 </div><!-- class="sidebar-module" -->
 
@@ -40,3 +41,20 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 %]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

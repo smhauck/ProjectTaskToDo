@@ -118,6 +118,23 @@ sub insert_blog :Path('insert_blog') :Args(0) {
 
 
 
+=head2 index
+
+Default view of the Blog
+
+=cut
+
+# sub index : Chained('base') : PathPart('') : Args(0) {
+sub index : Path('') : Args(0) {
+    my ( $self, $c ) = @_;
+    # $c->stash->{blogs} = $c->stash->{blog_rs};
+    $c->stash->{blogs} = [$c->model('ProjectTaskToDoDB::Blog')->all];
+}
+
+
+
+
+
 
 
 =head2 details

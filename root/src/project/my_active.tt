@@ -1,12 +1,10 @@
 <div class="container-fluid">
+<div class="col-sm-9 blog-main">
 <script type="text/javascript">
 $(function() {
 	$('.ui-datepicker').datepicker({dateFormat: 'yy-mm-dd'});
 });
 </script>
-
-
-[% linecount = 0 -%]
 
 <form action='/project/add_times' method='post'>
 <table class="table sortable">
@@ -22,7 +20,6 @@ $(function() {
 	<th>Task</th>
 </tr>
 [% FOREACH project IN projects -%]
-[% linecount = linecount + 1 -%]
 <tr>
 <td><a href="/person/[% project.project_owner_id %]">[% project.owner.full_name | html %]</a></td>
 [% IF project.billable -%]
@@ -51,8 +48,9 @@ $(function() {
 </table>
 <input type="submit" name="Submit" value="Submit" />
 </form>
-Count: [% linecount %]
+Count: [% projects.size %]
 
+</div><!-- class="col-sm-9 blog-main" -->
 </div><!-- class="container-fluid" -->
 
 

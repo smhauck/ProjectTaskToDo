@@ -1,4 +1,6 @@
+<!-- BEGIN complete.tt -->
 <div class="container-fluid">
+<div class="col-sm-9 blog-main">
 [% linecount = 0 -%]
 <table class="table sortable">
 <tr><th>ID</th><th>Sched Start Date</th><th>Actual Start Date</th><th>Short Name</th><th>Project Name</th></tr>
@@ -15,7 +17,9 @@
 </table>
 
 Count: [% linecount %]
+</div><!-- class="col-sm-9 blog-main" -->
 </div><!-- class="container-fluid" -->
+<!-- END complete.tt -->
 
 
 [%#
