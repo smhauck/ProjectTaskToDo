@@ -30,10 +30,14 @@
   <script src="/static/scripts/jquery-ui.js"></script>
 [% END %]
 
- </head>
- <body>
-[% content %]
- </body>
+  </head>
+  <body>
+   <div class="container-fluid">
+   <div class="container-fluid">
+     [% content %]
+   </div><!-- class="container-fluid" -->
+   </div><!-- class="container-fluid" -->
+  </body>
 </html>
 
 

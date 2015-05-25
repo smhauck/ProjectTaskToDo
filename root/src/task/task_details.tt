@@ -1,5 +1,4 @@
 <!-- BEGIN task_details.tt -->
-<div class="container-fluid">
 [% IF authorized %]
 	<h1><a href="/task/[% task.task_id %]/edit">[% task.task_name | html %]</a></h1>
 [% ELSE %]
@@ -136,7 +135,6 @@
 </tr>
 
 </table>
-</div><!-- class="container-fluid" -->
 <!-- END task_details.tt -->
 
 

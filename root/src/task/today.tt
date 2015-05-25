@@ -1,6 +1,7 @@
 [% META title = 'Today\'s Tasks' %]
 
 <div class="container-fluid">
+<div class="col-sm-8 blog-main">
 <form name="today" action='/task/today/' method='post'>
 Display Tasks For...
 <select name='project_to_display' onChange="document.today.submit()">
@@ -50,6 +51,7 @@ Count: [% tasks.size %]<br />
 
 Total Time: [% total_time div 60 %] Hrs, [% total_time mod 60 %] Mins<br />
 
+</div><!-- class="col-sm-8 blog-main" -->
 </div><!-- class="container-fluid" -->
 
 

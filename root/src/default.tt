@@ -1,12 +1,10 @@
 <!-- BEGIN default.tt -->
-<div class="container-fluid">
 [% IF Catalyst.user -%]
 [% PROCESS notifications.tt %]
 [% ELSE -%]
 	<h2 class="form-signin-heading">Please sign in</h2>
 	[% INCLUDE login_form.tt %]
 [% END -%]
-</div><!-- class="container-fluid" -->
 <!-- END default.tt -->
 
 

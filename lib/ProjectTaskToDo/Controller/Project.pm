@@ -170,10 +170,10 @@ sub search : Local {
             )
         ];
 
-        $c->stash->{project_count} = @$projects;
-        $c->stash->{projects}      = $projects;
-	$c->stash->{criteria} = 1 if (%where_clause);
-	$c->stash->{projects_found} = @$projects;
+        $c->stash->{project_count}  = @$projects;
+        $c->stash->{projects}       = $projects;
+        $c->stash->{criteria}       = 1 if (%where_clause);
+        $c->stash->{projects_found} = @$projects;
 
         $c->stash->{url_params} = $url_params;
     }
@@ -706,7 +706,7 @@ sub insert_task : Local {
             task_creator_id          => $creator_id,
             task_owner_id            => $owner_id,
             task_project_id          => $project_id,
-            description         => $description,
+            description              => $description,
             task_sched_start_date    => $sched_start_date,
             task_actual_start_date   => $actual_start_date,
             task_sched_compl_date    => $sched_compl_date,
@@ -818,7 +818,7 @@ sub insert_multiple_tasks : Path('/project/insert_multiple_tasks') {
                 task_project_number => $project_number,
                 task_name           => $task_type->name(),
                 task_owner_id       => $creator_id,
-                task_status_type_id      => 2,
+                task_status_type_id => 2,
                 task_type_id        => $c->request->param("type-$cur_project"),
                 task_actual_compl_date =>
                   $c->request->param("date_of_work-$cur_project"),
@@ -990,13 +990,13 @@ sub add_times : Path('/project/add_times') {
         if ( !$task_id ) {
             my $task = $c->model('ProjectTaskToDoDB::Task')->create(
                 {
-                    task_name        => $comment_body,
-                    task_creator_id  => $c->user->id,
-                    task_owner_id    => $c->user->id,
-                    task_status_type_id   => 2,
-                    task_alive       => 0,
-                    task_project_id  => $cur_project,
-                    description => "Task created through Time Palette",
+                    task_name           => $comment_body,
+                    task_creator_id     => $c->user->id,
+                    task_owner_id       => $c->user->id,
+                    task_status_type_id => 2,
+                    task_alive          => 0,
+                    task_project_id     => $cur_project,
+                    description         => "Task created through Time Palette",
                     task_actual_start_date   => $date_of_work,
                     task_actual_compl_date   => $date_of_work,
                     task_recorded            => $now,
@@ -1089,25 +1089,13 @@ sub base : Chained('/') : PathPart('project') : CaptureArgs(0) {
 sub comments : Chained('project_object') : PathPart('comments') : Args(0) {
     my ( $self, $c ) = @_;
 
-    my $project    = $c->stash->{project};
-    my $project_id = $project->project_id;
+    my $project = $c->stash->{project};
+    if ($project) {
+        my $project_id = $project->project_id;
 
-    # show the details if $c->user is a project user
-    if ( $project->has_user( $c->user ) ) {
-        if (   ( $project->project_owner_id == $c->user->id )
-            || ( $project->project_creator_id == $c->user->id ) )
-        {
-            $c->stash->{authorized} = 1;
-        }
-        $c->stash->{project} = $project;
-
-        ######################
-# FIX ME:  need clean way to do this in the Schema
-# select sum(task_comment_time_worked) div 60, sum(task_comment_time_worked) mod 60 from task_comment, task where task_comment.task_comment_task_id = task.task_id and task.task_project_id = 6;
         my @total_project_time =
           $c->model('ProjectTaskToDoDB')->total_project_time($project_id);
         $c->stash->{total_time} = $total_project_time[0];
-        ######################
 
         $c->stash->{comments} = [
             $c->model('ProjectTaskToDoDB::ProjectComment')->search(
@@ -1222,34 +1210,20 @@ sub content : Chained('project_object') : PathPart('content') : Args {
 sub details : Chained('project_object') : PathPart('') : Args(0) {
     my ( $self, $c ) = @_;
 
-    my $project    = $c->stash->{project};
-    my $project_id = $project->project_id;
+    my $project = $c->stash->{project};
 
-    # show the details if $c->user is a project user
-    if ( $c->user_exists ) {
-        if (   ( $project->has_user( $c->user ) )
-            || ( $c->check_user_roles('member') ) )
-        {
-            if (   ( $project->project_owner_id == $c->user->id )
-                || ( $c->check_user_roles('member') ) )
-            {
-                $c->stash->{authorized} = 1;
-            }
+    if ($project) {
+        my $project_id = $project->project_id;
 
-            $c->stash->{project} = $project;
+        $c->stash->{authorized} = 1;
 
-            ######################
-# FIX ME:  need clean way to do this in the Schema
-# select sum(task_comment_time_worked) div 60, sum(task_comment_time_worked) mod 60 from task_comment, task where task_comment.task_comment_task_id = task.task_id and task.task_project_id = 6;
-            my @total_project_time =
-              $c->model('ProjectTaskToDoDB')->total_project_time($project_id);
-            $c->stash->{total_time} = $total_project_time[0];
-            ######################
+        my @total_project_time =
+          $c->model('ProjectTaskToDoDB')->total_project_time($project_id);
+        $c->stash->{total_time} = $total_project_time[0];
 
-            $c->stash->{pagetitle} = $project->project_name . " : Details";
-            $c->stash->{template}  = 'project/details.tt';
+        $c->stash->{pagetitle} = $project->project_name . " : Details";
+        $c->stash->{template}  = 'project/details.tt';
 
-        }
     }
     else {
 
@@ -1940,16 +1914,16 @@ sub plan : Chained('project_object') : PathPart('plan') : Args(0) {
                     {
                         -or => [
                             -and => [
-                                on_project_plan => 1,
-                                task_project_id => $project_id,
-                                task_alive      => '0',
-                                task_status_type_id  => '2'
+                                on_project_plan     => 1,
+                                task_project_id     => $project_id,
+                                task_alive          => '0',
+                                task_status_type_id => '2'
                             ],
                             -and => [
-                                on_project_plan => 1,
-                                task_project_id => $project_id,
-                                task_alive      => '0',
-                                task_status_type_id  => '4'
+                                on_project_plan     => 1,
+                                task_project_id     => $project_id,
+                                task_alive          => '0',
+                                task_status_type_id => '4'
                             ],
                             [
                                 -and => [
@@ -1974,8 +1948,8 @@ sub plan : Chained('project_object') : PathPart('plan') : Args(0) {
             $c->stash->{complete_tasks} = [
                 $c->model('ProjectTaskToDoDB::Task')->search(
                     {
-                        task_project_id => $project_id,
-                        task_status_type_id  => '2'
+                        task_project_id     => $project_id,
+                        task_status_type_id => '2'
                     }
                 )
             ];
@@ -2070,10 +2044,27 @@ sub project_object : Chained('base') : PathPart('') : CaptureArgs(1) {
     my $project =
       $c->stash->{project_rs}->find( { project_id => $project_id } );
     if ( !$project ) {
+        $c->flash->{message} = 'Cannot find that project';
         $c->response->redirect( $c->uri_for('/') );
         $c->detach();
     }
-    $c->stash( project => $project );
+
+    if ( $c->user_exists ) {
+        if (   ( $project->project_users->find( $c->user->id ) )
+            || ( $c->check_user_roles('administrator') ) )
+        {
+            $c->stash->{authorized} = 1;
+
+            $c->stash( project => $project );
+        }
+        else {
+            $c->stash( project => '' );
+            $c->flash->{message} =
+              'You are not authorized to view that project';
+            $c->response->redirect( $c->uri_for('/') );
+            $c->detach();
+        }
+    }
 
     $c->stash->{num_comments} =
       $c->model('ProjectTaskToDoDB::ProjectComment')->search(
@@ -2098,8 +2089,8 @@ sub project_object : Chained('base') : PathPart('') : CaptureArgs(1) {
 
     my $num_complete_tasks = $c->model('ProjectTaskToDoDB::Task')->search(
         {
-            task_project_id => $project_id,
-            task_status_type_id  => '7',
+            task_project_id     => $project_id,
+            task_status_type_id => '7',
         },
         {
             select => [ { count => 'task_project_id' } ],
@@ -2201,133 +2192,91 @@ sub remove_resource : Chained('project_object') : PathPart('remove_resource') :
     }
 }
 
-
 =head2 tasks
 
 =cut
 
-sub tasks : Chained('project_object') : PathPart('tasks') : Args {
+sub tasks : Chained('project_object') : PathPart('tasks') : Args(1) {
     my ( $self, $c, $task_type ) = @_;
 
     my $date_today = strftime "%Y-%m-%d", localtime();
 
-    my $project    = $c->stash->{project};
-    my $project_id = $project->project_id;
+    my $project = $c->stash->{project};
 
-    $task_type = 'all' unless $task_type;
+    if ($project) {
 
-#my $project = $c->model('ProjectTaskToDoDB::Project')->find({project_id=>$project_id});
+        my $project_id = $project->project_id;
 
-    # show the details if $c->user is a project user
-    if ( $c->user_exists ) {
-        if (   ( $project->has_user( $c->user ) )
-            || ( $c->check_user_roles('member') ) )
-        {
-            if (   ( $project->project_owner_id == $c->user->id )
-                || ( $c->check_user_roles('member') ) )
-            {
-                $c->stash->{authorized} = 1;
-            }
-            $c->stash->{task_type} = $task_type;
+        $task_type = 'all' unless $task_type;
 
-            ######################
-# FIX ME:  need clean way to do this in the Schema
-# select sum(task_comment_time_worked) div 60, sum(task_comment_time_worked) mod 60 from task_comment, task where task_comment.task_comment_task_id = task.task_id and task.task_project_id = 6;
+        $c->stash->{authorized} = 1;
+        $c->stash->{task_type}  = $task_type;
 
-            my @total_project_time =
-              $c->model('ProjectTaskToDoDB')->total_project_time($project_id);
-            $c->stash->{total_time} = $total_project_time[0];
-            ######################
+        my @total_project_time =
+          $c->model('ProjectTaskToDoDB')->total_project_time($project_id);
+        $c->stash->{total_time} = $total_project_time[0];
 
-            $c->stash->{project} = $project;
-            if ( $task_type eq 'all' ) {
-                $c->stash->{active_tasks} = [
-                    $c->model('ProjectTaskToDoDB::Task')->search(
-                        {
-                            task_project_id => $project_id,
-                            task_alive      => { '=' => '1' }
-                        }
-                    )
-                ];
-                $c->stash->{complete_tasks} = [
-                    $c->model('ProjectTaskToDoDB::Task')->search(
-                        {
-                            task_project_id => $project_id,
-                            task_status_type_id  => '7'
-                        }
-                    )
-                ];
+        $c->stash->{project} = $project;
+        if ( $task_type eq 'all' ) {
+            $c->stash->{active_tasks} = [
+                $c->model('ProjectTaskToDoDB::Task')->search(
+                    {
+                        task_project_id => $project_id,
+                        task_alive      => { '=' => '1' }
+                    }
+                )
+            ];
+            $c->stash->{complete_tasks} = [
+                $c->model('ProjectTaskToDoDB::Task')->search(
+                    {
+                        task_project_id     => $project_id,
+                        task_status_type_id => '7'
+                    }
+                )
+            ];
 
 #$c->stash->{dead_tasks}=[$c->model('ProjectTaskToDoDB::Task')->search({task_project_id=>$project_id, task_alive=>'0'})];
-            }
-            elsif ( $task_type eq 'active' ) {
-                $c->stash->{active_tasks} = [
-                    $c->model('ProjectTaskToDoDB::Task')->search(
-                        {
-                            task_project_id => $project_id,
-                            task_alive      => { '=' => '1' }
-                        }
-                    )
-                ];
-            }
-            elsif ( $task_type eq 'complete' ) {
-                $c->stash->{complete_tasks} = [
-                    $c->model('ProjectTaskToDoDB::Task')->search(
-                        {
-                            task_project_id => $project_id,
-                            task_status_type_id  => '7'
-                        }
-                    )
-                ];
-            }
-            elsif ( $task_type eq 'deleted' ) {
-                $c->stash->{deleted_tasks} = [
-                    $c->model('ProjectTaskToDoDB::Task')->search(
-                        {
-                            task_project_id => $project_id,
-                            task_deleted    => 'y'
-                        }
-                    )
-                ];
-            }
-
-            ###############
-# calculate the total time for each task on job
-#
-#		my $time_rs = $c->model('ProjectTaskToDoDB::Task')->search(
-#            	{
-#			task_actual_compl_date => $date_today,
-#			task_owner_id => $c->user->id
-#		},
-#		{
-#			select => ['task_job_id', { sum => 'time_worked' } ],
-#			as => [ qw/task_job_id time_sum/ ],
-#			group_by => [ qw/task_job_id/ ],
-#		}
-#		);
-#
-#		my %job_times = ();
-#
-#		while (my $row = $time_rs->next) {
-#			if ($row->get_column('time_sum') > 0) {
-#				#push (@person_time, { task_job_id => $row->task_job_id, , tottime => $row->get_column('time_sum') });
-#				$job_times{$row->task_job_id} = $row->get_column('time_sum') ;
-#			}
-#		}
-#
-#		$c->stash->{job_times} = \%job_times;
-#
-            ###############
-
-            $c->stash->{pagetitle} = $project->project_name . " : Tasks";
-            $c->stash->{template}  = 'project/tasks.tt';
         }
+        elsif ( $task_type eq 'active' ) {
+            $c->stash->{active_tasks} = [
+                $c->model('ProjectTaskToDoDB::Task')->search(
+                    {
+                        task_project_id => $project_id,
+                        task_alive      => { '=' => '1' }
+                    }
+                )
+            ];
+        }
+        elsif ( $task_type eq 'complete' ) {
+            $c->stash->{complete_tasks} = [
+                $c->model('ProjectTaskToDoDB::Task')->search(
+                    {
+                        task_project_id     => $project_id,
+                        task_status_type_id => '7'
+                    }
+                )
+            ];
+        }
+        elsif ( $task_type eq 'deleted' ) {
+            $c->stash->{deleted_tasks} = [
+                $c->model('ProjectTaskToDoDB::Task')->search(
+                    {
+                        task_project_id => $project_id,
+                        task_deleted    => 'y'
+                    }
+                )
+            ];
+        }
+
+        $c->stash->{pagetitle} = $project->project_name . " : Tasks";
+        $c->stash->{template}  = 'project/tasks.tt';
     }
     else {
 
         # $c->user is not a project user
         $c->flash->{message} = "You are not authorized to view that project.";
         $c->response->redirect( $c->uri_for("/") );
+        $c->detach();
     }
 }
 
@@ -2979,7 +2928,7 @@ William B. Hauck
 
 =head1 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
 =head1 LICENSE
 

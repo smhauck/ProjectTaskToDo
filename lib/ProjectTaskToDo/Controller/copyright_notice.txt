@@ -1,25 +1,15 @@
-<!-- BEGIN details.tt -->
-[% META title = 'ProjectTaskToDo:Task Details' %]
 
-<div class="container-fluid">
-<div class="col-sm-8 blog-main">
+=head1 AUTHOR
 
-[% INCLUDE task/task_details.tt %]
+William B. Hauck
 
-</div><!-- class="col-sm-8 blog-main" -->
+=cut
 
-[% INCLUDE task/options.tt %]
-
-</div><!-- class="container-fluid" -->
-<!-- END details.tt -->
-
-
-[%#
-COPYRIGHT
+=head1 COPYRIGHT
 
 Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
-LICENSE
+=head1 LICENSE
 
 This file is part of ProjectTaskToDo.
 
@@ -35,4 +25,6 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
-%]
+
+=cut
+

@@ -1,7 +1,7 @@
 {
    "abstract" : "Catalyst based application",
    "author" : [
-      "- 2014 William B. Hauck, http://wbhauck.com"
+      "- 2015 William B. Hauck, http://wbhauck.com"
    ],
    "dynamic_config" : 0,
    "generated_by" : "Module::Install version 1.06, CPAN::Meta::Converter version 2.131560",

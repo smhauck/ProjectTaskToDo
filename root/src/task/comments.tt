@@ -2,14 +2,13 @@
 [% META title = 'ProjectTaskToDo:Task Details' %]
 
 <div class="container-fluid">
-<div class="row">
 <div class="col-sm-8 blog-main">
 
 [% INCLUDE task/task_details.tt %]
 
 <h2>Comments</h2>
 
-<table class="table sortable" id='taskcomments'>
+<table class="table sortable">
 <tr><th>Recorded</th><th>Comment Date</th><th>Time Worked</th><th>Comment Type</th><th>Person</th><th>Comment</th><th></th></tr>
 [% total_time = 0 %]
 [% FOREACH comment IN comments %]
@@ -58,7 +57,6 @@
 
 [% INCLUDE task/options.tt %]
 
-</div><!-- class="row" -->
 </div><!-- class="container-fluid" -->
 <!-- END comments.tt -->
 

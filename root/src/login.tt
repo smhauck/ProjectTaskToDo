@@ -1,10 +1,8 @@
 [% META title = 'Login' %]
-<div class="container-fluid">
 	<h2 class="form-signin-heading">Please sign in</h2>
 	[% INCLUDE login_form.tt %]
 	<br />
 	<p><a href="/forgot_password">Forgot Password?</a></p>
-</div> <!-- class="container-fluid" -->
 
 
 [%#

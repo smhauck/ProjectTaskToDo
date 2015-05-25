@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- BEGIN notifications.tt -->
 [% IF notifications.size > 0 -%]
 <h2>Latest Project &amp; Task Modifications</h2>
 <table class="table sortable">
@@ -60,7 +60,7 @@
 [% ELSE -%]
 <h2>No Notifications</h2>
 [% END -%]
-</div><!-- class="container-fluid" -->
+<!-- END notifications.tt -->
 
 
 [%#

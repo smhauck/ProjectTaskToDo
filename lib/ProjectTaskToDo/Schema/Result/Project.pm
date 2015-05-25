@@ -448,7 +448,6 @@ __PACKAGE__->belongs_to('time_palette' => 'ProjectTaskToDo::Schema::Result::Time
 
 sub has_user {
   my ($self, $user) = @_;
-
   return $self->project_users->find({ project_user_user_id => $user->id });
 }
 
@@ -536,7 +535,7 @@ __PACKAGE__->meta->make_immutable;
 
 =head1 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
 =head1 LICENSE
 

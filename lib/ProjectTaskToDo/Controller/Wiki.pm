@@ -88,7 +88,8 @@ sub base : Chained('/') : PathPart('project') : CaptureArgs(0) {
 
 =cut
 
-sub details : Chained('project_object') : PathPart('') : Args(0) {
+# sub details : Chained('project_object') : PathPart('') : Args(0) {
+sub details : PathPart('/wiki/details') : Args(0) {
     my ( $self, $c ) = @_;
 
     my $project    = $c->stash->{project};
@@ -471,7 +472,8 @@ sub project_object : Chained('base') : PathPart('') : CaptureArgs(1) {
 
 =cut
 
-sub tasks : Chained('project_object') : PathPart('tasks') : Args {
+# sub tasks : Chained('project_object') : PathPart('tasks') : Args {
+sub tasks : PathPart('/wiki/tasks') : Args(0) {
     my ( $self, $c, $task_type ) = @_;
 
     my $date_today = strftime "%Y-%m-%d", localtime();
@@ -829,7 +831,7 @@ William B. Hauck
 
 =head1 COPYRIGHT
 
-Copyright (C) 2008 - 2014 William B. Hauck, http://wbhauck.com
+Copyright (C) 2008 - 2015 William B. Hauck, http://wbhauck.com
 
 =head1 LICENSE
 
@@ -849,7 +851,6 @@ You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 
 =cut
-
 
 __PACKAGE__->meta->make_immutable;
 
