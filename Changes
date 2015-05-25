@@ -1,3 +1,57 @@
+commit 3d245ada5a66037596c6415206c274d70f0dfb0b
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun May 24 23:16:34 2015 -0400
+
+    removed extraneous project template files
+
+commit 8d1d6db14b664bc390d5eeb3fd6e2e94479c4f8a
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun May 24 23:13:30 2015 -0400
+
+    copyright updates; re-arranging the project code to respect project users and administrators
+
+commit a46a9e889fc46665f0673215de15ff7f044ac224
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat May 23 22:39:23 2015 -0400
+
+    bootstrap layout adjustments; more copyright updates
+
+commit df85b745adb856e57b751088ad7d9efdd6dda7a4
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat May 23 12:40:07 2015 -0400
+
+    bootstrap 3.3.4 updates; updated copyright to 2015
+
+commit 13e2727cc87b9626fab3e3660b5ecb51f4bb8a1f
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Mar 11 14:03:52 2015 -0400
+
+    adding Blog functionality
+
+commit 2b3db234e55d049cec6ec1859c0fd7a28648aee9
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Mar 11 13:56:15 2015 -0400
+
+    display custom error instead of default
+
+commit 6283d56665bf3f3413d078fd45de54e3d183b2cc
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Mar 11 13:55:50 2015 -0400
+
+    updated to create user as member instead of admin
+
+commit ebccec7902dd10e34088017cb5a3481dcbc608bb
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Mar 11 12:19:04 2015 -0400
+
+    added office_email to Person::name_lookup so if two users have same name you can distinquish by email address
+
+commit 10135314111c081e614cac5379c76bbcce20e803
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Mar 11 02:11:48 2015 -0400
+
+    cleaning up interface a bit
+
 commit ee67d50f02e01439397001b2523aa13997186dc5
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Wed Mar 11 02:09:26 2015 -0400
