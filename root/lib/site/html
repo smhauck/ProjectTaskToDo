@@ -13,9 +13,8 @@
 
   <title>[% pagetitle or template.title or site.title %]</title>
 
-  <link href="/static/css/projecttasktodo.css" rel="stylesheet">
   <link href="/static/css/bootstrap.css" rel="stylesheet">
-  <link href="/static/css/blog.css" rel="stylesheet">
+  <link href="/static/css/projecttasktodo.css" rel="stylesheet">
 
 [% IF template.name == 'project/order_tasks.tt' %]
   <script src="/static/scripts/jquery-1.11.1.min.js"></script>
