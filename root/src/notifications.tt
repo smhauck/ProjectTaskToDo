@@ -1,4 +1,5 @@
 <!-- BEGIN notifications.tt -->
+<div class="col-sm-12 blog-main">
 [% IF notifications.size > 0 -%]
 <h2>Latest Project &amp; Task Modifications</h2>
 <table class="table sortable">
@@ -60,6 +61,7 @@
 [% ELSE -%]
 <h2>No Notifications</h2>
 [% END -%]
+</div><!-- class="col-sm-9 blog-main" -->
 <!-- END notifications.tt -->
 
 

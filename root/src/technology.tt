@@ -1,7 +1,7 @@
 <!-- BEGIN technology.tt -->
+<div class="col-sm-12 blog-main">
 [% META title = 'Technology' %]
 
-<div class="container-fluid">
 <h2>Technology</h2>
 <p>ProjectTaskToDo makes use of other's technologies, and I'd like to give them credit.  While not every Perl module is listed, some are because they do a significant amount of heavy lifting.</p>
 
@@ -105,8 +105,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 <div class="container-fluid">
 <h3><a href="http://www.template-toolkit.org" target="_blank">Template Toolkit</a></h3>
 </div>
-
-</div> <!-- container -->
+</div><!-- class="col-sm-12 blog-main" -->
 <!-- END technology.tt -->
 
 
