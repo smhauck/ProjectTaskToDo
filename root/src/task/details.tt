@@ -1,7 +1,6 @@
 <!-- BEGIN details.tt -->
 [% META title = 'ProjectTaskToDo:Task Details' %]
 
-<div class="container-fluid">
 <div class="col-sm-8 blog-main">
 
 [% INCLUDE task/task_details.tt %]
@@ -10,7 +9,6 @@
 
 [% INCLUDE task/options.tt %]
 
-</div><!-- class="container-fluid" -->
 <!-- END details.tt -->
 
 

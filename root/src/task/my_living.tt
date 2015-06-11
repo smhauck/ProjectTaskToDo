@@ -1,6 +1,6 @@
 [% META title = 'ProjectTaskToDo:My Living Tasks' %]
 
-<div class="container-fluid">
+<div class="col-sm-8 blog-main">
 <span class="task_count">[% num_tasks %] active tasks</span>
 
 <table class='sortable'>
@@ -20,7 +20,7 @@
 <td><a href="/task/details/[% task.id %]">[% task.name %]</a></td></tr>
 [% END %]
 </table>
-</div><!-- class="container-fluid" -->
+</div><!-- class="col-sm-8 blog-main" -->
 
 
 [%#

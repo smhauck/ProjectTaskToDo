@@ -1,6 +1,5 @@
 [% META title = 'ProjectTaskToDo:New Task' %]
 
-<div class="container-fluid">
 <script type="text/javascript">
 $(function() {
 	$('.ui-datepicker').datepicker({dateFormat: 'yy-mm-dd'});
@@ -62,7 +61,6 @@ $(document).ready(function(){
 	}
 });
 </script>
-</div><!-- class="container-fluid" -->
 
 
 [%#

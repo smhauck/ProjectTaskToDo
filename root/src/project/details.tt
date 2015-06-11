@@ -1,8 +1,6 @@
 <!-- BEGIN details.tt -->
 [% META title = 'ProjectTaskToDo:Project Details' %]
 
-<div class="container-fluid">
-<div class="row">
 <div class="col-sm-9 blog-main">
 
 <a href="/project/[% project.id %]/edit"><h1>Project: ([% project.project_short_name | html %]) [% project.project_name | html %]</h1></a>
@@ -12,8 +10,6 @@
 
 [% INCLUDE project/options.tt %]
 
-</div><!-- class="row" -->
-</div><!-- class="container-fluid" -->
 <!-- END details.tt -->
 
 

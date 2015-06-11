@@ -1,6 +1,5 @@
 [% META title = 'ProjectTaskToDo:Active Tasks' %]
 
-<div class="container-fluid">
 <div class="col-sm-9 blog-main">
 
 <span class="task_count">[% num_tasks %] active tasks</span>
@@ -36,7 +35,6 @@
 
 Count: [% linecount %]
 </div><!-- class="col-sm-9 blog-main" -->
-</div><!-- class="container-fluid" -->
 
 
 [%#

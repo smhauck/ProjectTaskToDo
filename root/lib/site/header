@@ -1,10 +1,8 @@
-<div class="container-fluid">
 [% IF Catalyst.user -%]
   [% INCLUDE authenticated_navbar.tt %]
 [% ELSE -%]
   [% INCLUDE unauthenticated_navbar.tt %]
 [% END -%]
-</div><!-- class="container-fluid" -->
 
 
 [%#

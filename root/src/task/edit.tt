@@ -1,7 +1,5 @@
 [% META title = 'ProjectTaskToDo:Task Edit' %]
 
-<div class="container-fluid">
-
 <script type="text/javascript">
 $(function() {
 	$('.ui-datepicker').datepicker({dateFormat: 'yy-mm-dd'});
@@ -179,7 +177,6 @@ Minutes: <input type="text" name="time_estimate_minutes" value="[% task.time_est
 </tr>
 </table>
 </form>
-</div><!-- class="container-fluid" -->
 
 
 [%#
