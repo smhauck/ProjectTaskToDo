@@ -1,6 +1,7 @@
-[% META title = 'ProjectTaskToDo:Edit Task Comment' %]
+<!-- BEGIN details.tt -->
+[% META title = 'Edit Task Comment' %]
 
-[% INCLUDE task/menu.tt %]
+<div class="col-sm-8 blog-main">
 
 <script type="text/javascript">
 $(function() {
@@ -60,11 +61,18 @@ $(function() {
 </td>
 </tr>
 <tr>
-<td align="right"><input type="reset" value="Reset"></td>
-<td align="right"><input type="submit" value="Update"></td>
+<td></td>
+<td><input type="submit" value="Update"></td>
 </tr>
 </table>
 </form>
+
+
+</div><!-- class="col-sm-8 blog-main" -->
+
+[% INCLUDE task/options.tt %]
+
+<!-- END edit.tt -->
 
 
 [%#
@@ -89,3 +97,4 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with ProjectTaskToDo.  If not, see <http://www.gnu.org/licenses/>.
 %]
+

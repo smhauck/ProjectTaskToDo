@@ -55,12 +55,12 @@ sub edit : Local {
 		}
 		else {
 		$c->flash->{message}="Sorry, the time limit for editing this Comment has expired.";
-		$c->response->redirect($c->uri_for("/task/task_with_comments/$task_comment_task_id"));
+		$c->response->redirect($c->uri_for("/task/$task_comment_task_id/comments"));
 		}
 	}
 	else {
 		$c->flash->{message}="Only the person who created a comment can edit it.";
-		$c->response->redirect($c->uri_for("/task/task_with_comments/$task_comment_task_id"));
+		$c->response->redirect($c->uri_for("/task/$task_comment_task_id/comments"));
 	}
 }
 
@@ -139,7 +139,7 @@ sub update : Local {
 			as => ['count']
 		}
 	);
-	$c->response->redirect($c->uri_for("/task/task_with_comments/$task_comment_task_id"));
+	$c->response->redirect($c->uri_for("/task/$task_comment_task_id/comments"));
 	$c->detach();
 }
 
