@@ -57,15 +57,15 @@ __PACKAGE__->table("task");
   data_type: 'integer'
   is_nullable: 1
 
-=head2 sprint_id
+=head2 story_id
 
   data_type: 'integer'
   is_nullable: 1
 
-=head2 story_id
+=head2 sprint_id
 
   data_type: 'integer'
-  is_nullable: 0
+  is_nullable: 1
 
 =head2 task_project_id
 
@@ -175,7 +175,7 @@ __PACKAGE__->table("task");
   is_nullable: 0
   size: 1
 
-=head2 task_deleted
+=head2 deleted
 
   data_type: 'char'
   default_value: 'n'
@@ -257,10 +257,10 @@ __PACKAGE__->add_columns(
   { data_type => "decimal", is_nullable => 1, size => [10, 2] },
   "product_id",
   { data_type => "integer", is_nullable => 1 },
+  "story_id",
+  { data_type => "integer", is_nullable => 1 },
   "sprint_id",
   { data_type => "integer", is_nullable => 1 },
-  "story_id",
-  { data_type => "integer", is_nullable => 0 },
   "task_project_id",
   { data_type => "integer", is_nullable => 1 },
   "task_status_type_id",
@@ -304,7 +304,7 @@ __PACKAGE__->add_columns(
   { data_type => "tinyint", extra => { unsigned => 1 }, is_nullable => 1 },
   "task_complete",
   { data_type => "char", default_value => "n", is_nullable => 0, size => 1 },
-  "task_deleted",
+  "deleted",
   { data_type => "char", default_value => "n", is_nullable => 0, size => 1 },
   "task_recorded",
   { data_type => "datetime", is_nullable => 1 },
@@ -334,8 +334,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("task_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07002 @ 2014-07-15 12:22:12
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:C70z/xNKPn/XT6ARruN5aA
+# Created by DBIx::Class::Schema::Loader v0.07002 @ 2015-12-12 15:36:56
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:GeUBUtVhMgqwK1wceMr9lw
 
 
 
