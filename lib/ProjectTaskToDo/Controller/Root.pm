@@ -138,14 +138,14 @@ sub default : Private {
 		my $cur_date = strftime "%Y-%m-%d", localtime();
 	
 		my $my_projects = $c->model('ProjectTaskToDoDB::Project')->search({
-				'deleted' => { '<>' => 'y' },
+				'me.deleted' => { '<>' => 'y' },
 				'project_complete' => { '<>' => 'y' }
 				}
 		);
 	
 		my @active_tasks = $my_projects->search_related('tasks', {
 				'task_owner_id' => $user_id,
-				'task_deleted' => { '<>' => 'y' },
+				'tasks.deleted' => { '<>' => 'y' },
 				'task_complete' => { '<>' => 'y' },
 				'task_sched_compl_date' => { '<' => $cur_date },
 				},

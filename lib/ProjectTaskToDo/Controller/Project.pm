@@ -195,10 +195,10 @@ sub notes : Chained('project_object') : PathPart('notes') : Args(0) {
     # show the details if $c->user is a project user
     if ( $c->user_exists ) {
         if (   ( $project->has_user( $c->user ) )
-            || ( $c->check_user_roles('member') ) )
+            || ( $c->check_user_roles('project_member') ) )
         {
             if (   ( $project->project_owner_id == $c->user->id )
-                || ( $c->check_user_roles('member') ) )
+                || ( $c->check_user_roles('project_member') ) )
             {
                 $c->stash->{authorized} = 1;
             }
@@ -251,10 +251,10 @@ sub remove_link : Chained('project_object') : PathPart('remove_link') : Args(1)
     # if $c->user is a project user allow delete
     if ( $c->user_exists ) {
         if (   ( $project->has_user( $c->user ) )
-            || ( $c->check_user_roles('member') ) )
+            || ( $c->check_user_roles('project_member') ) )
         {
             if (   ( $project->project_owner_id == $c->user->id )
-                || ( $c->check_user_roles('member') ) )
+                || ( $c->check_user_roles('project_member') ) )
             {
                 $c->stash->{authorized} = 1;
             }
@@ -402,7 +402,7 @@ sub edit_client_organization : Chained('project_object') :
     # show the details if $c->user is a project user
     if ( $c->user_exists ) {
         if (   ( $project->has_user( $c->user ) )
-            || ( $c->check_user_roles('member') ) )
+            || ( $c->check_user_roles('project_member') ) )
         {
             $c->stash->{authorized} = 1;
 
@@ -511,10 +511,10 @@ sub add_links : Chained('project_object') : PathPart('add_link') : Args(0) {
     # show the details if $c->user is a project user
     if ( $c->user_exists ) {
         if (   ( $project->has_user( $c->user ) )
-            || ( $c->check_user_roles('member') ) )
+            || ( $c->check_user_roles('project_member') ) )
         {
             if (   ( $project->project_owner_id == $c->user->id )
-                || ( $c->check_user_roles('member') ) )
+                || ( $c->check_user_roles('project_member') ) )
             {
                 $c->stash->{authorized} = 1;
             }
@@ -554,10 +554,10 @@ sub view_links : Chained('project_object') : PathPart('view_links') : Args(0) {
     # show the details if $c->user is a project user
     if ( $c->user_exists ) {
         if (   ( $project->has_user( $c->user ) )
-            || ( $c->check_user_roles('member') ) )
+            || ( $c->check_user_roles('project_member') ) )
         {
             if (   ( $project->project_owner_id == $c->user->id )
-                || ( $c->check_user_roles('member') ) )
+                || ( $c->check_user_roles('project_member') ) )
             {
                 $c->stash->{authorized} = 1;
             }
@@ -594,10 +594,10 @@ sub edit_link : Chained('project_object') : PathPart('edit_link') : Args(1) {
     # show the details if $c->user is a project user
     if ( $c->user_exists ) {
         if (   ( $project->has_user( $c->user ) )
-            || ( $c->check_user_roles('member') ) )
+            || ( $c->check_user_roles('project_member') ) )
         {
             if (   ( $project->project_owner_id == $c->user->id )
-                || ( $c->check_user_roles('member') ) )
+                || ( $c->check_user_roles('project_member') ) )
             {
                 $c->stash->{authorized} = 1;
             }
@@ -814,7 +814,7 @@ sub insert_multiple_tasks : Path('/project/insert_multiple_tasks') {
                 task_alive          => 0,
                 task_complete       => 'y',
                 task_creator_id     => $creator_id,
-                task_deleted        => 'n',
+                deleted        => 'n',
                 task_project_number => $project_number,
                 task_name           => $task_type->name(),
                 task_owner_id       => $creator_id,
@@ -854,7 +854,7 @@ sub time_by_day_by_person : Chained('project_object') :
 
     # show the details if $c->user is a project user
     if (   ( $project->has_user( $c->user ) )
-        || ( $c->check_user_roles('creative_services_member') ) )
+        || ( $c->check_user_roles('project_member') ) )
     {
         if (   ( $project->project_owner_id == $c->user->id )
             || ( $project->project_creator_id == $c->user->id ) )
@@ -1123,7 +1123,7 @@ sub all_complete : Local {
     my ( $self, $c ) = @_;
 
     if ( $c->user_exists ) {
-        if ( $c->check_user_roles('member') ) {
+        if ( $c->check_user_roles('project_member') ) {
             $c->stash->{projects} =
               [ $c->model('ProjectTaskToDoDB')
                   ->my_inactive_projects( $c->user->id ) ];
@@ -1243,7 +1243,7 @@ sub edit : Chained('project_object') : PathPart('edit') : Args(0) {
     my $project_id = $project->project_id;
 
     if (   ( $project->project_owner_id == $c->user->id )
-        || ( $c->check_user_roles('member') ) )
+        || ( $c->check_user_roles('project_member') ) )
     {
         $c->stash->{authorized} = 1;
         $c->stash->{project}    = $project;
@@ -1272,7 +1272,7 @@ sub edit_client_person : Chained('project_object') :
     my $project_id = $project->project_id;
 
     if (   ( $project->project_owner_id == $c->user->id )
-        || ( $c->check_user_roles('member') ) )
+        || ( $c->check_user_roles('project_member') ) )
     {
         $c->stash->{authorized} = 1;
 
@@ -1403,7 +1403,7 @@ sub assign_resources : Local {
       ->find( { project_id => $project_id } );
 
     if (   ( $project->project_owner_id == $c->user->id )
-        || ( $c->check_user_roles('member') ) )
+        || ( $c->check_user_roles('project_member') ) )
     {
         $c->stash->{authorized} = 1;
 
@@ -1560,7 +1560,7 @@ sub insert_file : Chained('project_object') : PathPart('insert_file') : Args(0)
     }
     else {
 
-        # $c->user is not a creative_services_member
+        # $c->user is not a project_member
         $c->flash->{message} =
           'You are not authorized to add files to this project.';
         $c->response->redirect( $c->uri_for("/project/$project_id/content") );
@@ -1634,7 +1634,7 @@ sub insert_project : Local {
     my $project_owner = $c->model('ProjectTaskToDoDB::ProjectUser')->create(
         {
             project_user_project_id => $project_id,
-            project_user_role_id    => 4,
+            project_user_role_id    => 7,
             project_user_user_id    => $creator_id,
         }
     );
@@ -1801,10 +1801,10 @@ sub new_comment : Chained('project_object') : PathPart('new_comment') : Args(0)
     # show the details if $c->user is a project user
     if ( $c->user_exists ) {
         if (   ( $project->has_user( $c->user ) )
-            || ( $c->check_user_roles('member') ) )
+            || ( $c->check_user_roles('project_member') ) )
         {
             if (   ( $project->project_owner_id == $c->user->id )
-                || ( $c->check_user_roles('member') ) )
+                || ( $c->check_user_roles('project_member') ) )
             {
                 $c->stash->{authorized} = 1;
             }
@@ -1891,7 +1891,7 @@ sub plan : Chained('project_object') : PathPart('plan') : Args(0) {
     # show the details if $c->user is a project user or Digitas Team Member
     if ( $c->user_exists ) {
         if (   ( $project->has_user( $c->user ) )
-            || ( $c->check_user_roles('member') ) )
+            || ( $c->check_user_roles('project_member') ) )
         {
 
             if (   ( $project->project_owner_id == $c->user->id )
@@ -2050,7 +2050,9 @@ sub project_object : Chained('base') : PathPart('') : CaptureArgs(1) {
     }
 
     if ( $c->user_exists ) {
-        if (   ( $project->project_users->find( $c->user->id ) )
+	    print "\n\n\nc->user->id = ", $c->user->id, "\n";
+
+        if ( ($project->project_users->search({project_user_user_id => $c->user->id}))
             || ( $c->check_user_roles('administrator') ) )
         {
             $c->stash->{authorized} = 1;
@@ -2262,7 +2264,7 @@ sub tasks : Chained('project_object') : PathPart('tasks') : Args(1) {
                 $c->model('ProjectTaskToDoDB::Task')->search(
                     {
                         task_project_id => $project_id,
-                        task_deleted    => 'y'
+                        deleted    => 'y'
                     }
                 )
             ];
@@ -2315,7 +2317,7 @@ sub time_by_person : Chained('project_object') : PathPart('time_by_person')
 
     # show the details if $c->user is a project user
     if (   ( $project->has_user( $c->user ) )
-        || ( $c->check_user_roles('creative_services_member') ) )
+        || ( $c->check_user_roles('project_member') ) )
     {
         if (   ( $project->project_owner_id == $c->user->id )
             || ( $project->project_creator_id == $c->user->id ) )
@@ -2401,7 +2403,7 @@ sub update : Local {
       ->find( { project_id => $project_id } );
 
     if (   ( $project->project_owner_id == $c->user->id )
-        || ( $c->check_user_roles('member') ) )
+        || ( $c->check_user_roles('project_member') ) )
     {
 
         # if authorized, grab rest of parameters and update
@@ -2854,7 +2856,7 @@ sub upload_file : Chained('project_object') : PathPart('upload_file') : Args(0)
     my $project_id = $project->project_id;
 
     if ( $c->user_exists ) {
-        if ( $c->check_user_roles('creative_services_member') ) {
+        if ( $c->check_user_roles('project_member') ) {
             $c->stash->{authorized} = 1;
 
 # grab the clients and stash them
@@ -2885,10 +2887,10 @@ sub view_users : Chained('project_object') : PathPart('view_users') : Args(0) {
     # show the details if $c->user is a project user
     if ( $c->user_exists ) {
         if (   ( $project->has_user( $c->user ) )
-            || ( $c->check_user_roles('member') ) )
+            || ( $c->check_user_roles('project_member') ) )
         {
             if (   ( $project->project_owner_id == $c->user->id )
-                || ( $c->check_user_roles('member') ) )
+                || ( $c->check_user_roles('project_member') ) )
             {
                 $c->stash->{authorized} = 1;
             }

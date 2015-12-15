@@ -2,8 +2,10 @@
 [% IF Catalyst.user -%]
 [% PROCESS notifications.tt %]
 [% ELSE -%]
+<div class="col-sm-12 blog-main">
 	<h2 class="form-signin-heading">Please sign in</h2>
 	[% INCLUDE login_form.tt %]
+</div><!-- class="col-sm-12 blog-main" -->
 [% END -%]
 <!-- END default.tt -->
 

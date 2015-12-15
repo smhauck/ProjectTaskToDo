@@ -250,7 +250,7 @@ sub num_my_late_tasks {
 			ON task.task_project_id = project.project_id
 			WHERE
 			task.task_complete <> 'y'
-			AND task.task_deleted <> 'y'
+			AND task.deleted <> 'y'
 			AND task.task_owner_id = $cur_user_id
 			AND task.task_sched_start_date < $cur_date
 			#AND task.task_sched_start_date <> 0000-00-00
@@ -340,7 +340,7 @@ sub my_inactive_projects {
 	
 		
 			my $sth = $dbh->prepare("
-				SELECT DISTINCT project.project_id, project.project_name, project.project_short_name, project.project_sched_start_date, project.project_actual_start_date
+				SELECT DISTINCT project.project_id, project.project_name, project.project_short_name, project.project_sched_start_date, project.project_actual_start_date, project.project_sched_compl_date, project.project_actual_compl_date
 				FROM project
 				LEFT JOIN project_user
 				ON project.project_id = project_user.project_user_project_id
@@ -354,7 +354,7 @@ sub my_inactive_projects {
 			");
 
 			$sth->execute();
-			my @rows = @{$sth->fetchall_arrayref({project_id => 1, project_name => 1, project_short_name => 2, project_sched_start_date => 3, project_actual_start_date => 4})};
+			my @rows = @{$sth->fetchall_arrayref({project_id => 1, project_name => 1, project_short_name => 2, project_sched_start_date => 3, project_actual_start_date => 4, project_sched_compl_date => 5, project_actual_compl_date => 6})};
 			#return map { $_->[0] } @rows;
 		},
 	$cur_user_id);

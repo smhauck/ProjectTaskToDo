@@ -54,7 +54,7 @@ sub my_complete : Local {
         {
             'task_owner_id' => $user_id,
             'task_alive'    => { '=' => '0' },
-            'task_deleted'  => { '<>' => 'y' },
+            'tasks.deleted'  => { '<>' => 'y' },
             'task_complete' => { '<>' => 'y' }
         },
         { order_by => 'task_priority' }
@@ -186,7 +186,7 @@ sub my_active : Local {
 
     my $my_projects = $c->model('ProjectTaskToDoDB::Project')->search(
         {
-            'deleted'        => { '<>' => 'y' },
+            'me.deleted'        => { '<>' => 'y' },
             'project_alive ' => { '='  => '1' }
         }
     );
@@ -196,7 +196,7 @@ sub my_active : Local {
         {
             'task_owner_id' => $user_id,
             'task_alive'    => { '=' => '1' },
-            'task_deleted'  => { '<>' => 'y' },
+            'tasks.deleted'  => { '<>' => 'y' },
             'task_complete' => { '<>' => 'y' }
         },
         { order_by => 'task_priority' }
@@ -560,19 +560,23 @@ sub insert_task : Local {
 
     my $task_id = $task->task_id;
 
-    # create a notification for each project user
-    my $project = $c->model('ProjectTaskToDoDB::Project')->find( { project_id => $project_id } );
 
-    for my $pu ( $project->project_users ) {
-        $c->model('ProjectTaskToDoDB::Notification')->create(
-            {
-                user_to_notify           => $pu->user->id,
-                user_making_modification => $c->user->id,
-                notification_type        => 3,
-                task_id                  => $task_id,
-                body                     => $description
-            }
-        );
+    # if part of a project create a notification for each project user
+    if ($project_id)
+    {
+        my $project = $c->model('ProjectTaskToDoDB::Project')->find( { project_id => $project_id } );
+    
+        for my $pu ( $project->project_users ) {
+            $c->model('ProjectTaskToDoDB::Notification')->create(
+                {
+                    user_to_notify           => $pu->user->id,
+                    user_making_modification => $c->user->id,
+                    notification_type        => 3,
+                    task_id                  => $task_id,
+                    body                     => $description
+                }
+            );
+        }
     }
 
     $c->response->redirect( $c->uri_for("/task/$task_id") );
@@ -726,7 +730,7 @@ sub search : Local {
     if ($criteria) {
         $c->stash->{tasks} = [
             $c->model('ProjectTaskToDoDB::Task')->search_literal(
-                "match (task_name, description) against (?) and task_deleted <> 'y'",
+                "match (task_name, description) against (?) and deleted <> 'y'",
                 $criteria
             )
         ];
@@ -744,7 +748,7 @@ sub tasks_for_date : Local {
     my $date    = $c->req->params->{date};
     $c->stash->{tasks} = [
         $c->model('ProjectTaskToDoDB::Task')->search_literal(
-"(task_owner_id='$user_id' and task_deleted <> 'y' and task_complete <> 'y' and task_sched_start_date='$date') or (task_owner_id='$user_id' and task_deleted <> 'y' and task_complete <> 'y' and task_sched_compl_date='$date')
+"(task_owner_id='$user_id' and deleted <> 'y' and task_complete <> 'y' and task_sched_start_date='$date') or (task_owner_id='$user_id' and deleted <> 'y' and task_complete <> 'y' and task_sched_compl_date='$date')
 		"
         )
     ];
@@ -846,7 +850,7 @@ sub today : Local {
                     task_alive    => { '='  => '1' },
                     task_owner_id   => $user_id,
                     task_project_id => $project_to_display,
-                    task_deleted    => { '<>' => 'y' },
+                    deleted    => { '<>' => 'y' },
                     task_complete   => { '<>' => 'y' },
 		-or => [
                 	task_sched_start_date => { '<=' => $cur_date, '<>' => '0000-00-00' },
@@ -864,8 +868,8 @@ sub today : Local {
     else {
         my $my_projects = $c->model('ProjectTaskToDoDB::Project')->search(
             {
-                deleted       => { '<>' => 'y' },
-                project_alive => { '='  => '1' }
+                'me.deleted'       => { '<>' => 'y' },
+                'project_alive' => { '='  => '1' }
             }
         );
 
@@ -874,7 +878,7 @@ sub today : Local {
             {
                 task_owner_id         => $user_id,
                 task_alive            => { '=' => '1' },
-                task_deleted          => { '<>' => 'y' },
+                'tasks.deleted'          => { '<>' => 'y' },
                 task_complete         => { '<>' => 'y' },
 		-or => [
                 	task_sched_start_date => { '<=' => $cur_date, '<>' => '0000-00-00' },
@@ -1049,7 +1053,7 @@ sub update : Local {
                     task_deletion_date       => $deletion_date,
                     task_modified_by_user_id => $c->user->id,
                     task_complete            => $complete,
-                    task_deleted             => $deleted,
+                    deleted             => $deleted,
                     task_completion_notes    => $completion_notes,
                     task_deletion_notes      => $deletion_notes,
                     time_estimate => $time_estimate

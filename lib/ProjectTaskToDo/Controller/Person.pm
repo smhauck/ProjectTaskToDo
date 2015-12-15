@@ -154,7 +154,7 @@ sub my_active_tasks : Chained('person_object') : PathPart('my_active_tasks') : A
         {
             'task_owner_id' => { '=' => $person->id },
             'task_alive'    => { '=' => '1' },
-            'task_deleted'  => { '<>' => 'y' },
+            'deleted'  => { '<>' => 'y' },
             'task_complete' => { '<>' => 'y' }
         },
         { order_by => 'task_priority' }
@@ -189,7 +189,7 @@ sub my_complete_tasks : Chained('person_object') : PathPart('my_complete_tasks')
         {
             'task_owner_id' => { '=' => $person->id },
             'task_alive'    => { '=' => '0' },
-            'task_deleted'  => { '<>' => 'y' },
+            'tasks.deleted'  => { '<>' => 'y' },
             'task_complete' => { '=' => 'y' }
         },
         { order_by => 'task_priority' }

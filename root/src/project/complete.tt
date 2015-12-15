@@ -3,13 +3,15 @@
 <div class="col-sm-9 blog-main">
 [% linecount = 0 -%]
 <table class="table sortable">
-<tr><th>ID</th><th>Sched Start Date</th><th>Actual Start Date</th><th>Short Name</th><th>Project Name</th></tr>
+<tr><th>ID</th><th>Sched Start Date</th><th>Actual Start Date</th><th>Sched Compl Date</th><th>Actual Compl Date</th><th>Short Name</th><th>Project Name</th></tr>
 [% FOREACH project IN projects -%]
 [% linecount = linecount + 1 -%]
 <tr>
 <td>[% project.project_id %]</td>
 <td>[% project.project_sched_start_date %]</td>
 <td>[% project.project_actual_start_date %]</td>
+<td>[% project.project_sched_compl_date %]</td>
+<td>[% project.project_actual_compl_date %]</td>
 <td><a href="/project/[% project.project_id %]">[% project.project_short_name | html %]</a></td>
 <td><a href="/project/[% project.project_id %]/tasks/all">[% project.project_name | html %]</a></td>
 </tr>

@@ -103,10 +103,10 @@
 	<td>[% task.task_completion_notes | html | html_line_break %]</td>
 </tr>
 [% END %]
-[%- IF task.task_deleted == 'y' -%]
+[%- IF task.deleted == 'y' -%]
 <tr>
 	<th>Deleted (y/n):</th>
-	<td>[% task.task_deleted | html %]</td>
+	<td>[% task.deleted | html %]</td>
 </tr>
 <tr>
 	<th>Deletion Date:</th>
