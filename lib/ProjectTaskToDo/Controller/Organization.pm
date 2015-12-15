@@ -385,7 +385,7 @@ sub tasks :Chained('organization_object') :PathPart('tasks') :Args(1) {
           'tasks',
         	{
             		'task_alive'    => { '=' => '0' },
-            		'task_deleted'    => { '<>' => 'y' },
+            		'tasks.deleted'    => { '<>' => 'y' },
         	},
         	{ order_by => 'task_name' }
     		);

@@ -1,0 +1,13 @@
+
+.navbar {
+  background-color: #e7efff;
+}
+
+
+
+footer {
+	display: block;
+	padding: 10px 0px 0px 0px;
+	background-color: #e7efff;
+}
+
