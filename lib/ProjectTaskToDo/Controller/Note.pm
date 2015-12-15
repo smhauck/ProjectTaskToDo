@@ -320,7 +320,7 @@ sub edit : Chained('note_object') : PathPart('edit') : Args(0) {
     my ( $self, $c ) = @_;
     my $note = $c->stash->{note};
         $c->stash->{projects}      = [ $c->model('ProjectTaskToDoDB::Project')->search({ status_id => { '!=' => 3 } }, { order_by => 'project_short_name' }) ];
-        $c->stash->{tasks}      = [ $c->model('ProjectTaskToDoDB::Task')->search({ task_deleted => { '=' => 'n'} } , {order_by => 'task_name'} ) ];
+        $c->stash->{tasks}      = [ $c->model('ProjectTaskToDoDB::Task')->search({ deleted => { '=' => 'n'} } , {order_by => 'task_name'} ) ];
         $c->stash->{organizations}      = [ $c->model('ProjectTaskToDoDB::Organization')->search({},{ order_by => 'name' }) ];
         $c->stash->{persons}      = [ $c->model('ProjectTaskToDoDB::Person')->search({},{ order_by => 'full_name' }) ];
 	$c->stash->{template}='note/edit.tt';
