@@ -1,6 +1,6 @@
 [% META title = 'Today\'s Tasks' %]
 
-<div class="col-sm-8 blog-main">
+<div class="col-sm-12 blog-main">
 <form name="today" action='/task/today/' method='post'>
 Display Tasks For...
 <select name='project_to_display' onChange="document.today.submit()">
