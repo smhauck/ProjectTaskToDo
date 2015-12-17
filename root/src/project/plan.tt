@@ -1,5 +1,10 @@
-[% INCLUDE project/menu.tt %]
-[% INCLUDE project/options.tt %]
+
+<!-- BEGIN plan.tt -->
+[% META title = 'ProjectTaskToDo:Project Details' %]
+
+<div class="col-sm-9 blog-main">
+
+<a href="/project/[% project.id %]/edit"><h1>Project: ([% project.project_short_name | html %]) [% project.project_name | html %]</h1></a>
 
 [% INCLUDE project/project_details.tt %]
 <br />
@@ -23,6 +28,13 @@
 [% END %]
 </table>
 <br />
+
+
+</div><!-- class="col-sm-9 blog-main" -->
+
+[% INCLUDE project/options.tt %]
+
+<!-- END plan.tt -->
 
 
 [%#
