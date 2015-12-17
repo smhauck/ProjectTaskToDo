@@ -1,3 +1,6 @@
+
+<!-- BEGIN content.tt -->
+[% META title = 'ProjectTaskToDo:Project Details' %]
 <script type="text/javascript">
 $(function() {
 	$('.ui-datepicker').datepicker({dateFormat: 'yy-mm-dd'});
@@ -5,9 +8,13 @@ $(function() {
 </script>
 
 
-[% INCLUDE project/menu.tt %]
-[% INCLUDE project/options.tt %]
-[% PROCESS project/project_details.tt %]
+<div class="col-sm-9 blog-main">
+
+<a href="/project/[% project.id %]/edit"><h1>Project: ([% project.project_short_name | html %]) [% project.project_name | html %]</h1></a>
+[% INCLUDE project/project_details.tt %]
+
+
+
 
 <h2>Project Files</h2>
 
@@ -43,6 +50,14 @@ $(function() {
 <div class="bottom_buttons">
 <a href="/project/[% project.project_id %]/upload_file"><img src="/static/images/but_addnewfile.gif" name="file" alt="Add New File" onmouseover="this.src = '/static/images/but_addnewfile_over.gif'" onmouseout="this.src = '/static/images/but_addnewfile.gif'" border="0" onmousedown="this.src = '/static/images/but_addnewfile_over.gif'"/></a><br />
 </div>
+
+
+
+</div><!-- class="col-sm-9 blog-main" -->
+
+[% INCLUDE project/options.tt %]
+
+<!-- END content.tt -->
 
 
 [%#
