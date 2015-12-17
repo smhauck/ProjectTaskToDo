@@ -1,6 +1,7 @@
-[% INCLUDE project/menu.tt %]
-[% INCLUDE project/options.tt %]
+<!-- BEGIN order_tasks.tt -->
+[% META title = 'ProjectTaskToDo:Project Details' %]
 
+<div class="col-sm-9 blog-main">
 
 [% IF authorized %]
 <h1><a href="/project/[% project.id %]/edit">[% project.project_name %]</a></h1>
@@ -67,6 +68,12 @@ Sortable.create('tasklist', {
 </script>
 
 <br />
+
+</div><!-- class="col-sm-9 blog-main" -->
+
+[% INCLUDE project/options.tt %]
+
+<!-- END order_tasks.tt -->
 
 
 [%#
