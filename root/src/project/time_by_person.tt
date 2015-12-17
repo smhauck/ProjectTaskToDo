@@ -1,5 +1,8 @@
-[% INCLUDE project/menu.tt %]
-[% INCLUDE project/options.tt %]
+
+<!-- BEGIN time_by_person.tt -->
+[% META title = 'ProjectTaskToDo:Project Details' %]
+
+<div class="col-sm-9 blog-main">
 
 <h1 id='project_title'>Project: ([% project.project_short_name %]) [% project.project_name %]</h1>
 
@@ -61,6 +64,13 @@
 <br />
 [% END %]
 <br />
+
+
+</div><!-- class="col-sm-9 blog-main" -->
+
+[% INCLUDE project/options.tt %]
+
+<!-- END time_by_person.tt -->
 
 
 [%#
