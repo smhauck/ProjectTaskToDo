@@ -1,8 +1,14 @@
+<!-- BEGIN login.tt -->
 [% META title = 'Login' %]
+<div class="col-sm-12 blog-main">
 	<h2 class="form-signin-heading">Please sign in</h2>
 	[% INCLUDE login_form.tt %]
 	<br />
 	<p><a href="/forgot_password">Forgot Password?</a></p>
+
+
+</div><!-- class="col-sm-12 blog-main" -->
+<!-- END details.tt -->
 
 
 [%#
